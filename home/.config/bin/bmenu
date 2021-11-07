@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dmenu_run -h '40' -i -l '5' -c -bw 3

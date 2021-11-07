@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ocean-dark
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Ocean-dark
+MetacityTheme=Ocean-dark
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

@@ -1,0 +1,44 @@
+!! Global
+*.text.justify: center
+window.handle.width: 0
+window.client.padding.width: 0
+window.client.padding.height: 0
+border.width: 6
+padding.width: 10
+
+!! Menu
+menu.overlap.x: -20
+menu.overlap: 0
+menu.border.color: #fefefe
+menu.border.width: 10
+menu.title.text.justify: center
+menu.title.bg: flat solid
+menu.title.bg.color: #fefefe
+menu.title.text.color: #464646
+menu.items.bg: flat solid
+menu.items.bg.color: #fefefe
+menu.items.text.color: #b9b9b9
+menu.items.disabled.text.color: #b9b9b9
+menu.items.active.bg: flat solid
+menu.items.active.bg.color:  #fefefe
+menu.items.active.text.color: #464646
+menu.separator.padding.height: 10
+menu.separator.padding.width: 5
+
+!! Active Windows
+window.active.title.bg: flat solid
+window.active.title.bg.color: #fefefe
+window.active.label.bg: parentrelative
+window.active.label.text.color: #464646
+window.active.button.*.bg: parentrelative
+window.active.button.*.image.color: #464646
+window.active.border.color: #fefefe
+
+!! Inactive Windows
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #fefefe
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #b9b9b9
+window.inactive.button.*.bg: parentrelative
+window.inactive.button.*.image.color: #707070
+window.inactive.border.color: #fefefe

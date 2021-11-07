@@ -1,0 +1,100 @@
+variables:
+  bg: &BG
+    "#000f14" #BG
+  fg: &FG
+    "#a0a0b4" #FG
+  bl: &BL
+    "#0a191e" #BL
+  wh: &WH
+    "#a0a0b4" #WH
+  r: &R
+    "#824655" #R 
+  g: &G
+    "#468264" #G 
+  y: &Y
+    "#827d50" #Y 
+  b: &B
+    "#326482" #B 
+  m: &M
+    "#645078" #M 
+  c: &C
+    "#327d7d" #C 
+
+env:
+  TERM: xterm
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
+window:
+  padding:
+    x: 25
+    y: 25
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+  
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
+  scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+    history: 10000
+
+# Font
+font:
+  
+  normal:
+    family: "RobotoMono"
+
+  bold:
+    family: "RobotoMono"
+
+  italic:
+    family: "RobotoMono"
+    style: "Medium Italic"
+    
+# Font size
+  size: 14
+  
+  offset:
+    x: 0
+    y: 0
+
+colors:
+   # Default colors
+    primary:
+      background: *BG
+      foreground: *FG
+
+    # Normal colors
+    normal:
+      black:   *BL
+      red:     *R
+      green:   *G
+      yellow:  *Y
+      blue:    *B
+      magenta: *M
+      cyan:    *C
+      white:   *WH
+
+    # Bright colors
+    bright:
+      black:   *BL
+      red:     *R
+      green:   *G
+      yellow:  *Y
+      blue:    *B
+      magenta: *M
+      cyan:    *C
+      white:   *WH
+
+cursor:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+ style: Block
+
+key_bindings:
+  - { key: V,        mods: Command,       action: Paste                        }
+  - { key: C,        mods: Command,       action: Copy                         }
+  - { key: Insert,   mods: Shift,         action: Paste                        }

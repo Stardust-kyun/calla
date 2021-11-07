@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="root-menu" label="Openbox 3">
+	<separator label="Menu"/>
+	<item label="Rofi">
+		<action name="Execute">
+			<command>rofi -show</command>
+		</action>
+	</item>
+	<separator/>
+	<item label="Terminal">
+		<action name="Execute">
+			<command>st</command>
+		</action>
+	</item>
+	<item label="Browser">
+		<action name="Execute">
+			<command>firefox</command>
+		</action>
+	</item>
+	<item label="File Manager">
+		<action name="Execute">
+			<command>nautilus</command>
+		</action>
+	</item>
+	<item label="Text Editor">
+		<action name="Execute">
+			<command>mousepad</command>
+		</action>
+	</item>
+	<separator />
+	<menu id="screenshot" label="Screenshot">
+		<item label="Full Screen">
+			<action name="Execute">
+				<command>~/.config/openbox/screenshot.sh --full</command>
+			</action>
+		</item>
+		<item label="Partial Screen">
+			<action name="Execute">
+				<command>~/.config/openbox/screenshot.sh --part</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="script" label="Color Scheme">
+		<menu id="sakura" label="Sakura">
+			<item label="Sakura Dark">
+				<action name="Execute">
+					<command>~/.config/desktop/SakuraDark.sh</command>
+				</action>
+			</item>
+			<item label="Sakura Light">
+				<action name="Execute">
+					<command>~/.config/desktop/SakuraLight.sh</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="ocean" label="Ocean">
+			<item label="Ocean Dark">
+				<action name="Execute">
+					<command>~/.config/desktop/OceanDark.sh</command>
+				</action>
+			</item>
+			<item label="Ocean Light">
+				<action name="Execute">
+					<command>~/.config/desktop/OceanLight.sh</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="arch" label="Mountain">
+			<item label="Mountain Dark">
+				<action name="Execute">
+					<command>~/.config/desktop/MountainDark.sh</command>
+				</action>
+			</item>
+			<item label="Mountain Light">
+				<action name="Execute">
+					<command>~/.config/desktop/MountainLight.sh</command>
+				</action>
+			</item>
+		</menu>
+		<item label="Noel">
+			<action name="Execute">
+				<command>~/.config/desktop/Noel.sh</command>
+			</action>
+		</item>
+		<item label="Chon">
+			<action name="Execute">
+				<command>~/.config/desktop/Chon.sh</command>
+			</action>
+		</item>
+		<item label="Cabin">
+			<action name="Execute">
+				<command>~/.config/desktop/Cabin.sh</command>
+			</action>
+		</item>
+		<item label="Shuttle">
+			<action name="Execute">
+				<command>~/.config/desktop/Shuttle.sh</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="preferences" label="Preferences">
+		<menu id="openbox" label="Openbox">
+			<item label="Edit rc.xml">
+				<action name="Execute">
+					<command>st -e vim ~/.config/openbox/rc.xml</command>
+				</action>
+			</item>
+			<item label="Edit menu.xml">
+				<action name="Execute">
+					<command>st -e vim ~/.config/openbox/menu.xml</command>
+				</action>
+			</item>
+			<item label="Edit autostart">
+				<action name="Execute">
+					<command>st -e vim ~/.config/openbox/autostart</command>
+				</action>
+			</item>
+			<separator/>
+			<item label="Obconf">
+				<action name="Execute">
+					<command>obconf</command>
+				</action>
+			</item>
+			<item label="Reconfigure">
+				<action name="Reconfigure"/>
+				<action name="Execute">
+					<command>~/.config/openbox/autostart</command>
+				</action>
+				<action name="Execute">
+					<command>notify-send "Openbox" "Restarting Openbox"</command>
+				</action>
+			</item>
+		</menu>
+		<item label="Appearance">
+			<action name="Execute">
+				<command>lxappearance</command>
+			</action>
+		</item>
+		<item label="Wallpaper">
+			<action name="Execute">
+				<command>nitrogen</command>
+			</action>
+		</item>
+		<item label="Screen">
+			<action name="Execute">
+				<command>arandr</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="power" label="System">
+		<menu id="fetch" label="Fetch" execute="~/.config/openbox/fetch.sh"/>
+		<item label="Lock">
+			<action name="Execute">
+				<command>~/.config/bin/lock.sh -l</command>
+			</action>
+		</item>
+		<item label="Suspend">
+			<action name="Execute">
+				<command>~/.config/bin/lock.sh -s</command>
+			</action>
+		</item>
+		<item label="Log Out">
+			<action name="Execute">
+				<command>openbox --exit</command>
+			</action>
+		</item>
+		<item label="Reboot">
+			<action name="Execute">
+				<command>systemctl reboot</command>
+			</action>
+		</item>
+		<item label="Shutdown">
+			<action name="Execute">
+				<command>systemctl poweroff</command>
+			</action>
+		</item>
+	</menu>
+</menu>
+
+</openbox_menu>

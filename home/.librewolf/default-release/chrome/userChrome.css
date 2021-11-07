@@ -1,0 +1,285 @@
+/* Variables */
+
+:root {
+	--bg: #000f14;
+	--fg: #a0a0b4;
+	--fg-alt: #4d4d54;
+}
+
+
+
+/* Remove some buttons */
+
+#forward-button, 
+#back-button,
+.titlebar-spacer,
+#tracking-protection-icon-container,
+#PanelUI-button,
+#urlbar-zoom-button,
+#pageActionButton,
+#urlbar-go-button {
+	display: none !important;
+}
+
+
+
+/* Close button on hover */
+
+.tabbrowser-tab:not(:hover) .tab-close-button{ display:none; }
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{ display:block !important; }
+
+
+
+/* Remove pinned tab padding */
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+	margin-inline-start: 0px !important;
+}
+
+
+
+/* Clean up url/search bar */
+
+#identity-box {
+    display: none;
+}
+
+.urlbarView-row {
+    padding: 0px !important;
+}
+
+#searchbar {
+    background: var(--bf-bg) !important;
+    border: none !important;
+}
+
+.searchbar-textbox {
+    color: var(--bf-focus-fg) !important;
+    font-weight: 700 !important;
+}
+
+#urlbar-container {
+    min-width: 150px !important;
+    --urlbar-container-height: 0px;
+}
+
+#urlbar {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#page-action-buttons {
+    display: none !important;
+}
+
+.urlbarView {
+    margin: 0px !important;
+    width: 100% !important;
+}
+
+#urlbar-label-box, #urlbar-search-mode-indicator {
+    display: none !important;
+}
+
+#urlbar-input-container {
+	margin-left: 5px !important;
+}
+
+scrollbox {
+	margin-left: 2px !important;
+	margin-right: 2px !important;
+}
+
+
+
+/* Theme right click menu */
+
+menupopup {
+	-moz-appearance: none !important;
+	/*padding: 8px 2px 8px 2px !important;*/
+	background-color: var(--bg) !important;
+	border: 1px var(--fg-alt) solid !important;
+	min-width: 280px !important;
+}
+menuseparator {
+	-moz-appearance: none !important;
+	border: none !important;
+	padding: .5px 0px .5px 0px !important;
+	margin: 4px 8px 4px 8px !important;
+	background-color: var(--fg-alt) !important;
+}
+
+
+
+/* Position for oneliner */
+
+#nav-bar {
+    border: none !important;
+    box-shadow: none !important;
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    margin-top: -45px !important;
+    margin-bottom: -1px !important;
+    margin-right: 75vw !important;
+    height: 45px !important;
+    background-color: var(--bg) !important;
+}
+
+#navigator-toolbox {
+    border: 0px !important;
+}
+
+#TabsToolbar {
+    margin-top: -1px !important;
+    margin-bottom: 1px !important;
+    margin-left: 25vw !important;
+    max-height: 45px !important;
+    background-color: var(--bg) !important;
+}
+
+
+
+/* Urlbar fix */
+
+#urlbar-background {
+    background: transparent !important;
+    border: transparent !important;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+#urlbar .urlbarView {
+    display: none !important;
+}
+
+
+
+/* Tab coloring */
+
+:root {
+	--lwt-tab-text: var(--fg) !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+	background: var(--bg) !important;
+	/*
+	box-shadow: 0 0 10px black !important;
+	*/
+}
+
+tab:not([selected]) .tab-label {
+	color: var(--fg-alt) !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+	background-color: var(--bg) !important;
+}
+
+#urlbar-input {
+	color: var(--fg) !important;
+}
+
+#nav-bar-overflow-button,
+#tabs-newtab-button {
+	fill: var(--fg-alt) !important;
+}
+
+#nav-bar-overflow-button:hover,
+#tabs-newtab-button:hover {
+	fill: var(--fg) !important;
+}
+
+
+
+/* Sidebar Coloring */
+
+treechildren,
+#sidebar-header,
+#sidebar-search-container {
+	background-color: var(--bg) !important;
+	color: var(--fg) !important;
+}
+
+.hidevscroll-scrollbar {
+	display: none !important;
+}
+
+
+
+/* Menu Coloring */
+
+:root {
+	--button-hover-bgcolor: var(--bg) !important;
+	--button-active-bgcolor: var(--bg) !important;
+	--arrowpanel-border-radius: 0px !important;
+	--panel-border-color: var(--fg) !important;
+}
+.PanelUI-subView,
+#widget-overflow-mainView,
+#downloadsPanel-mainView,
+.scrollbox-clip,
+menuitem {
+	background-color: var(--bg) !important;
+	color: var(--fg-alt) !important;
+	appearance: none !important;
+}
+
+toolbarbutton:hover,
+#overflowMenu-customize-button:hover,
+menuitem:hover {
+	background-color: var(--bg) !important;
+	background: var(--bg) !important;
+	color: var(--fg) !important;
+}
+
+menuitem[disabled="true"] {
+	color: var(--fg-alt) !important;
+}
+
+
+
+/* Misc Coloring */
+
+:root {
+	--toolbar-bgcolor: var(--bg) !important;
+	--panel-background: var(--bg) !important;
+	--toolbar-field-focus-border-color: #0000 !important;
+}
+
+#toolbar-menubar {
+	background-color: var(--bg) !important;
+}
+
+findbar {
+	color: var(--fg) !important;
+}
+
+.header-container,
+.body-container,
+.footer-container {
+	background-color: var(--bg) !important;
+	color: var(--fg) !important;
+}
+
+#statuspanel {
+	display: none !important;
+}
+
+/* Librewolf */
+
+.chromeclass-location {
+	color: var(--fg) !important;
+	background-color: var(--bg) !important;
+}
+
+#nav-bar-overflow-button {
+	background-color: var(--bg) !important;
+}
+
+tabbrowser tabpanels { 
+	background-color: var(--bg) !important; 
+}
+
+browser { 
+	background-color: var(--bg) !important; 
+}

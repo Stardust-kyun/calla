@@ -1,0 +1,104 @@
+# Background 1
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #fffaf5 100
+background_color_hover = #fffaf5 100
+background_color_pressed = #fffaf5 100
+
+# Background 2
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #ebe6e1 100
+background_color_hover = #ebe6e1 100
+background_color_pressed = #ebe6e1 100
+
+# Panel
+panel_items = PPPPPTCES
+panel_size = 100% 50
+panel_margin = 120 10
+panel_padding = 5 5
+panel_background_id = 1
+panel_position = bottom center horizontal
+panel_monitor = all
+panel_window_name = tint2
+
+# Taskbar
+# taskbar_name = 1
+taskbar_name_padding = 20
+taskbar_name_background_id = 1
+taskbar_name_active_background_id = 1
+taskbar_name_font_color = #4b4646 100
+taskbar_name_active_font_color = #4b4646 100
+taskbar_name_font = RobotoMono 11
+taskbar_mode = single_desktop
+
+# Task
+task_centered = 1
+task_text = 1
+task_background_id = 2
+task_padding = 0 0
+task_active_background_id = 1
+task_font_color = #4b4646 100
+task_font = RobotoMono 11
+
+# Menu
+button = new
+button_padding = 15
+button_text = 
+button_lclick_command = rofi -show drun
+button_font = IosevkaNerdFont 13
+button_font_color = #4b4646 100
+button_background_id = 1
+
+# Terminal
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = st
+button_font = IosevkaNerdFont 16
+button_font_color = #4b4646 100
+
+# Librewolf
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = librewolf
+button_font = IosevkaNerdFont 12
+button_font_color = #4b4646 100
+
+# File Manager
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = nautilus
+button_font = IosevkaNerdFont 14
+button_font_color = #4b4646 100
+
+# Text Editor
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = mousepad
+button_font = IosevkaNerdFont 12
+button_font_color = #4b4646 100
+
+# Clock
+time1_format = %I:%M %p
+time1_font = RobotoMono 11
+clock_font_color = #4b4646 100
+clock_padding = 15
+clock_background_id = 1
+
+# Battery
+execp = new
+execp_command = echo BAT $(acpi | grep 'Battery 0' | head -n 1 | cut -d ',' -f 2)
+execp_interval = 1
+execp_font = RobotoMono 11
+execp_font_color = #4b4646 100
+execp_tooltip =
+
+# Tray
+systray_padding = 15
+systray_icon_size = 30

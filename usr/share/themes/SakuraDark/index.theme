@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=CherryDark-dark
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=CherryDark-dark
+MetacityTheme=CherryDark-dark
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

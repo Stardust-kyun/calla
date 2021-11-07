@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dmenu_run -fn 'FiraCode' -h '40' -i

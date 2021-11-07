@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=CherryLight-light
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=CherryLight-light
+MetacityTheme=CherryLight-light
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

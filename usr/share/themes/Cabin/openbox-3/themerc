@@ -1,0 +1,43 @@
+!! Global
+*.text.justify: left
+window.handle.width: 0
+window.client.padding.width: 0
+window.client.padding.height: 0
+border.Width: 3
+padding.width: 10
+
+!! Menu
+menu.overlap.x: -9
+menu.overlap: 0
+menu.border.color: #5D6051
+menu.title.text.justify: center
+menu.title.bg: flat solid
+menu.title.bg.color: #5D6051
+menu.title.text.color: #201e1a
+menu.items.bg: flat solid
+menu.items.bg.color: #201e1a
+menu.items.text.color: #79695a
+menu.items.disabled.text.color: #737573
+menu.items.active.bg: flat solid
+menu.items.active.bg.color:  #5D6051
+menu.items.active.text.color: #201e1a
+menu.separator.padding.height: 5
+menu.separator.padding.width: 5
+
+!! Active Windows
+window.active.title.bg: flat solid
+window.active.title.bg.color: #5D6051
+window.active.label.bg: parentrelative
+window.active.label.text.color: #201e1a
+window.active.button.*.bg: parentrelative
+window.active.button.*.image.color: #201e1a
+window.active.border.color: #5D6051
+
+!! Inactive Windows
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #201e1a
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #79695a
+window.inactive.button.*.bg: parentrelative
+window.inactive.button.*.image.color:  #79695a
+window.inactive.border.color: #201e1a

@@ -1,0 +1,31 @@
+<big><b>Window Controls</b></big>
+
+Alt+1-6			Switch to Workspace
+Alt+Ctrl+1-6		Move Window to Workspace
+Alt+Shift+1-6		Focus Move Window to Workspace
+Alt+Shift+Q		Close Window
+Alt+Shift+Space		Toggle Maximized
+Alt+F			Toggle Fullscreen
+Alt+C			Center Window
+Alt+Tab			Focus Next Window
+Alt+Shift+Tab		Focus Previous Window
+Alt+Arrows		Focus Window Directionally
+Alt+Shift+Arrows	Snap Window
+Alt+LClick			Move Window
+Alt+RClick			Resize Window
+Alt+Shift+R		Restart Openbox
+
+<big><b>Application Controls</b></big>
+
+RClick			Open Root Menu
+MClick			Open Desktop Menu
+Alt+Enter			Open Terminal
+Alt+D			Open Run Launcher
+Alt+0			Open Power Menu
+Alt+E			Open Kaomoji Menu
+Alt+K			Open Keybinds
+Alt+Delete			Full Screenshot
+Alt+Shift+Delete		Partial Screenshot
+
+<b>Press Escape to exit this menu.</b>
+

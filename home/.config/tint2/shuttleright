@@ -1,0 +1,61 @@
+# Background 1
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #dedcdf 100
+background_color_hover = #dedcdf 100
+background_color_pressed = #dedcdf 100
+
+# Background 2
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #c8c3c8 100
+background_color_hover = #c8c3c8 100
+background_color_pressed = #c8c3c8 100
+
+# Panel
+panel_items = TCEES
+panel_size = 26% 50
+panel_margin = 30 30
+panel_padding = 5 5
+panel_background_id = 1
+panel_position = top right horizontal
+panel_monitor = all
+panel_window_name = tint2
+
+# Task
+task_font_color = #dedcdf 100
+task_icon_asb = 0 0 0
+mouse_left = none
+mouse_middle = none
+mouse_right = none
+mouse_scroll_up = none
+mouse_scroll_down = none
+
+# Clock
+time1_format = %I:%M %p - %a %m/%d
+time1_font = RobotoMono 11
+clock_font_color = #4b4b4b 100
+clock_background_id = 1
+
+# Battery
+execp = new
+execp_command = echo BAT $(acpi | grep 'Battery 0' | head -n 1 | cut -d ',' -f 2)
+execp_interval = 1
+execp_font = RobotoMono 11
+execp_font_color = #4b4b4b 100
+execp_padding = 15
+execp_tooltip =
+
+# Volume
+execp = new
+execp_command = echo VOL $(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d ']' -f 1)
+execp_interval = 1
+execp_font = RobotoMono 11
+execp_font_color = #4b4b4b 100
+execp_tooltip = 
+
+# Tray
+systray_padding = 15
+systray_icon_size = 30

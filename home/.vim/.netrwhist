@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/andrewk/.config/dotfiles/home/.mozilla/firefox/default-release/chrome'
+let g:netrw_dirhist_1='/home/andrewk/Downloads/tint2'
+let g:netrw_dirhist_0='/home/andrewk/.themes/Chon/openbox-3'
+let g:netrw_dirhist_9='/home/andrewk/.themes/Shuttle/openbox-3'
+let g:netrw_dirhist_8='/home/andrewk/.config/desktop'
+let g:netrw_dirhist_7='/home/andrewk/.config/xfce4/xfconf/xfce-perchannel-xml'
+let g:netrw_dirhist_6='/home/andrewk/.config/xfce4/xfconf'
+let g:netrw_dirhist_5='/home/andrewk/.themes/OceanDark/openbox-3'
+let g:netrw_dirhist_4='/home/andrewk/.config/oomox'
+let g:netrw_dirhist_3='/home/andrewk/.themes/OceanLight/openbox-3'

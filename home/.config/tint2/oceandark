@@ -1,0 +1,136 @@
+# Background 1
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #19191e 100
+background_color_hover = #19191e 100
+background_color_pressed = #19191e 100
+
+# Background 2
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #2b2b33 100
+background_color_hover = #2b2b33 100
+background_color_pressed = #2b2b33 100
+
+# Background 3
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #5a7387 100
+background_color_hover = #5a7387 100
+background_color_pressed = #5a7387 100
+
+# Panel
+panel_items = PPPPPTEEC
+panel_size = 100% 70
+panel_margin = 15 40
+panel_padding = 10 10 10
+panel_background_id = 1
+panel_position = center right vertical
+panel_monitor = all
+panel_window_name = tint2
+
+# Menu
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = rofi -show drun
+button_font = IosevkaNerdFont 14
+button_font_color = #9999a8 100
+button_background_id = 2
+
+# Terminal
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = st
+button_font = IosevkaNerdFont 18
+button_font_color = #9999a8 100
+
+# Librewolf
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = librewolf
+button_font = IosevkaNerdFont 14
+button_font_color = #9999a8 100
+
+# File Manager
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = nautilus
+button_font = IosevkaNerdFont 14
+button_font_color = #9999a8 100
+
+# Text Editor
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = mousepad
+button_font = IosevkaNerdFont 14
+button_font_color = #9999a8 100
+
+# Taskbar
+taskbar_mode = single_desktop
+taskbar_padding = 0 0 10
+taskbar_background_id = 1
+taskbar_active_background_id = 1
+taskbar_name = 1
+taskbar_name_padding = 12
+taskbar_name_background_id = 2
+taskbar_name_active_background_id = 2
+taskbar_name_font = RobotoMono bold 14
+taskbar_name_font_color = #9999a8 100
+taskbar_name_active_font_color = #9999a8 100
+
+# Task
+task_align = left
+task_text = 0
+task_icon = 0
+task_maximum_size = 50 50
+task_icon_asb = 0 0 0
+task_normal_icon_asb = 0 0 0
+task_font_color = #9999a8 100
+task_active_font_color = #9999a8 100
+task_background_id = 2
+task_active_background_id = 3
+task_urgent_background_id = 2
+task_iconified_background_id = 2
+mouse_left = toggle_iconify
+mouse_middle = none
+mouse_right = none
+mouse_scroll_up = none
+mouse_scroll_down = none
+
+# Tray
+systray_padding = 0 10
+systray_background_id = 1
+# systray_icon_size = 50
+
+# Battery
+execp = new
+execp_command = echo BAT $(acpi | grep 'Battery 0' | head -n 1 | cut -d ',' -f 2)
+execp_interval = 1
+execp_font = RobotoMono bold 13
+execp_font_color = #9999a8 100
+execp_padding = 5 0
+execp_tooltip =
+
+# Volume
+execp = new
+execp_command = echo VOL $(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d ']' -f 1)
+execp_interval = 1
+execp_font = RobotoMono bold 13
+execp_font_color = #9999a8 100
+execp_padding = 5 0
+execp_tooltip = 
+
+# Clock
+time1_format = %I %M
+time1_font = RobotoMono bold 13
+clock_font_color = #9999a8 100
+clock_padding = 15 15
+clock_background_id = 2

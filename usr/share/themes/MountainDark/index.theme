@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Arch Dark
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Arch Dark
+MetacityTheme=Arch Dark
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=oomox-Arch Light
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=oomox-Arch Light
+MetacityTheme=oomox-Arch Light
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

@@ -1,0 +1,100 @@
+# Background 1
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #dedcdf 100
+background_color_hover = #dedcdf 100
+background_color_pressed = #dedcdf 100
+
+# Background 2
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #c8c3c8 100
+background_color_hover = #c8c3c8 100
+background_color_pressed = #c8c3c8 100
+
+# Panel
+panel_items = PPPPPTPEP
+panel_size = 97% 50
+panel_margin = 30 110
+panel_padding = 5 5
+panel_background_id = 1
+panel_position = top left vertical
+panel_monitor = all
+panel_window_name = tint2
+
+# Task
+task_icon_asb = 0 0 0
+mouse_left = none
+mouse_middle = none
+mouse_right = none
+mouse_scroll_up = none
+mouse_scroll_down = none
+
+# Menu
+button = new
+button_padding = 15
+button_text = 
+button_lclick_command = rofi -show drun
+button_font = IosevkaNerdFont 13
+button_font_color = #4b4b4b 100
+button_background_id = 1
+
+# Terminal
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = st
+button_font = IosevkaNerdFont 16
+button_font_color = #4b4b4b 100
+
+# Librewolf
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = librewolf
+button_font = IosevkaNerdFont 12
+button_font_color = #4b4b4b 100
+
+# File Manager
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = nautilus
+button_font = IosevkaNerdFont 14
+button_font_color = #4b4b4b 100
+
+# Text Editor
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = mousepad
+button_font = IosevkaNerdFont 12
+button_font_color = #4b4b4b 100
+
+# Kaomoji
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = $HOME/.config/rofi/kaomoji.sh
+button_font = IosevkaNerdFont 16
+button_font_color = #4b4b4b 100
+
+# Noti
+execp = new
+execp_command = $HOME/.config/bin/noti.sh --status
+execp_lclick_command = $HOME/.config/bin/noti.sh --toggle
+execp_interval = 1
+execp_font = IosevkaNerdFont 18
+execp_font_color = #4b4b4b 100
+# execp_padding = 10
+execp_tooltip = 
+
+# Power 
+button = new
+button_padding = 15 15
+button_text = 
+button_lclick_command = $HOME/.config/bin/powermenu
+button_font = IosevkaNerdFont 14
+button_font_color = #4b4b4b 100

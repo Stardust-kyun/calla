@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Shuttle-light
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Shuttle-light
+MetacityTheme=Shuttle-light
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

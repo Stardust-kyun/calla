@@ -1,0 +1,44 @@
+# Background 1
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #dedcdf 100
+background_color_hover = #dedcdf 100
+background_color_pressed = #dedcdf 100
+
+# Background 2
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #c8c3c8 100
+background_color_hover = #c8c3c8 100
+background_color_pressed = #c8c3c8 100
+
+# Panel
+panel_items = T
+panel_size = 71% 50
+panel_margin = 30 30
+panel_padding = 5 5
+panel_background_id = 1
+panel_position = top left horizontal
+panel_monitor = all
+panel_window_name = tint2
+
+# Taskbar
+taskbar_name = 1
+taskbar_name_padding = 18
+taskbar_name_background_id = 1
+taskbar_name_active_background_id = 1
+taskbar_name_font_color = #4b4b4b 100
+taskbar_name_active_font_color = #4b4b4b 100
+taskbar_name_font = RobotoMono bold 11
+taskbar_mode = single_desktop
+
+# Task
+task_centered = 1
+task_text = 1
+task_background_id = 2
+task_padding = 0 0
+task_active_background_id = 1
+task_font_color = #4b4b4b 100
+task_font = RobotoMono 11

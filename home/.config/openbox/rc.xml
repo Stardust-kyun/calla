@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <resistance>
+    <strength>50</strength>
+    <screen_edge_strength>100</screen_edge_strength>
+  </resistance>
+
+  <focus>
+    <focusNew>yes</focusNew>
+    <followMouse>yes</followMouse>
+    <focusLast>yes</focusLast>
+    <underMouse>no</underMouse>
+    <focusDelay>0</focusDelay>
+    <raiseOnFocus>no</raiseOnFocus>
+  </focus>
+
+  <placement>
+    <policy>Smart</policy>
+    <center>yes</center>
+    <monitor>Primary</monitor>
+    <primaryMonitor>1</primaryMonitor>
+  </placement>
+
+  <theme><name>SakuraDark</name>
+    <titleLayout>LC</titleLayout>
+    <!--
+      available characters are NDSLIMC, each can occur at most once.
+      N: window icon
+      L: window label (AKA title).
+      I: iconify
+      M: maximize
+      C: close
+      S: shade (roll up/down)
+      D: omnipresent (on all desktops).
+  -->
+    <keepBorder>yes</keepBorder>
+    <animateIconify>yes</animateIconify>
+    <font place="ActiveWindow">
+      <name>RobotoMono</name>
+      <size>11</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="InactiveWindow">
+      <name>RobotoMono</name>
+      <size>11</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="MenuHeader">
+      <name>RobotoMono</name>
+      <size>11</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="MenuItem">
+      <name>RobotoMono</name>
+      <size>11</size>
+      <weight>normal</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="OnScreenDisplay">
+      <name>RobotoMono</name>
+      <size>11</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+  </theme>
+
+  <desktops>
+    <number>6</number>
+    <firstdesk>1</firstdesk>
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+      <name>5</name>
+      <name>6</name>
+    </names>
+    <popupTime>0</popupTime>
+  </desktops>
+
+  <resize>
+    <drawContents>yes</drawContents>
+    <popupShow>Nonpixel</popupShow>
+    <popupPosition>Center</popupPosition>
+  </resize>
+  
+  <margins>
+    <top>10</top>
+    <bottom>70</bottom>
+    <left>10</left>
+    <right>10</right>
+  </margins>
+  
+  <keyboard>
+
+    <!-- Keybindings for desktop switching -->
+
+    <keybind key="A-1">
+      <action name="GoToDesktop">
+        <to>1</to>
+      </action>
+    </keybind>
+    <keybind key="A-2">
+      <action name="GoToDesktop">
+        <to>2</to>
+      </action>
+    </keybind>
+    <keybind key="A-3">
+      <action name="GoToDesktop">
+        <to>3</to>
+      </action>
+    </keybind>
+    <keybind key="A-4">
+      <action name="GoToDesktop">
+        <to>4</to>
+      </action>
+    </keybind>
+    <keybind key="A-5">
+      <action name="GoToDesktop">
+        <to>5</to>
+      </action>
+    </keybind>
+    <keybind key="A-6">
+      <action name="GoToDesktop">
+        <to>6</to>
+      </action>
+    </keybind>
+
+     <keybind key="A-C-1">
+      <action name="SendToDesktop">
+        <to>1</to>
+	<wrap>no</wrap>
+	<follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="A-C-2">
+      <action name="SendToDesktop">
+        <to>2</to>
+	<wrap>no</wrap>
+	<follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="A-C-3">
+      <action name="SendToDesktop">
+        <to>3</to>
+	<wrap>no</wrap>
+	<follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="A-C-4">
+      <action name="SendToDesktop">
+        <to>4</to>
+	<wrap>no</wrap>
+	<follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="A-C-5">
+      <action name="SendToDesktop">
+        <to>5</to>
+	<wrap>no</wrap>
+	<follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="A-C-6">
+      <action name="SendToDesktop">
+        <to>6</to>
+	<wrap>no</wrap>
+	<follow>no</follow>
+      </action>
+    </keybind>
+
+    <keybind key="A-S-1">
+      <action name="SendToDesktop">
+        <to>1</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="A-S-2">
+      <action name="SendToDesktop">
+        <to>2</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="A-S-3">
+      <action name="SendToDesktop">
+        <to>3</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="A-S-4">
+      <action name="SendToDesktop">
+        <to>4</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="A-S-5">
+      <action name="SendToDesktop">
+        <to>5</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="A-S-6">
+      <action name="SendToDesktop">
+        <to>6</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+   
+    <!-- Custom keybindings -->
+
+    <keybind key="A-S-r">
+      <action name="Reconfigure"/>
+      <action name="Execute">
+        <command>~/.config/openbox/autostart</command>
+      </action>
+      <action name="Execute">
+        <command>notify-send "Openbox" "Restarting Openbox"</command>
+      </action>
+    </keybind>
+
+    <keybind key="A-d">
+      <action name="Execute">
+        <command>rofi -show run</command>
+      </action>
+    </keybind>
+    <keybind key="A-0">
+      <action name="Execute">
+	<command>~/.config/rofi/power.sh</command>
+      </action>
+    </keybind>
+    <keybind key="A-e">
+      <action name="Execute">
+	<command>~/.config/rofi/kaomoji.sh</command>
+      </action>
+    </keybind>
+    <keybind key="A-S-d">
+      <action name="Execute">
+	<command>~/.config/rofi/desktop.sh</command>
+      </action>
+    </keybind>
+    <keybind key="A-k">
+      <action name="Execute">
+	<command>sh -c 'yad --center --undecorated --fixed --borders=30 --text="$(cat ~/.config/bin/keybinds.txt)" --no-buttons --sticky --on-top'</command>
+      </action>
+    </keybind>
+
+    <keybind key="A-Delete">
+      <action name="Execute">
+        <command>~/.config/openbox/screenshot.sh --full</command>
+      </action>
+    </keybind>
+    <keybind key="A-S-Delete">
+      <action name="Execute">
+        <command>~/.config/openbox/screenshot.sh --part</command>
+      </action>
+    </keybind>
+    <keybind key="A-Return">
+      <action name="Execute">
+        <command>st</command>
+      </action>
+    </keybind>
+
+    <keybind key="A-a">
+      <action name="Execute">
+	<command>skippy-xd-runner</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86Display">
+      <action name="Execute">
+        <command>~/.config/bin/toggletouchpad.sh</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>~/.config/bin/volume.sh mute</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>~/.config/bin/volume.sh up</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>~/.config/bin/volume.sh down</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMicMute">
+      <action name="Execute">
+        <command>pactl set-source-mute 1 toggle</command>
+      </action>
+      <action name="Execute">
+        <command>notify-send -i mic-off "Microphone Toggled"</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>~/.config/bin/bright.sh up</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>~/.config/bin/bright.sh down</command>
+      </action>
+    </keybind>
+    <keybind key="XF86Tools">
+      <action name="Execute">
+        <command>~/.config/bin/togglebrightness.sh</command>
+      </action>
+    </keybind>
+    
+    <!-- Keybindings for windows -->
+
+    <keybind key="A-S-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="A-S-space">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="A-f">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="A-c">
+      <action name="MoveToCenter"/>
+    </keybind>
+
+    <keybind key="A-S-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>49%</width>
+      </action>
+      <action name="MoveToEdgeEast"/>
+    </keybind>
+    <keybind key="A-S-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>49%</width>
+      </action>
+      <action name="MoveToEdgeWest"/>
+    </keybind>
+    <keybind key="A-S-Up">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <height>49%</height>
+      </action>
+      <action name="MoveToEdgeNorth"/>
+    </keybind>
+    <keybind key="A-S-Down">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <height>49%</height>
+      </action>
+      <action name="MoveToEdgeSouth"/>
+    </keybind>
+
+    <!-- Keybindings for window switching -->
+
+    <keybind key="A-Tab">
+      <action name="NextWindow">
+	<raise>yes</raise>
+	<dialog>none</dialog>
+      </action>
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow">
+	<raise>yes</raise>
+	<dialog>none</dialog>
+      </action>
+    </keybind>
+    <keybind key="A-Right">
+      <action name="DirectionalCycleWindows">
+	<direction>right</direction>
+	<raise>yes</raise>
+	<dialog>none</dialog>
+      </action>
+    </keybind>
+    <keybind key="A-Left">
+      <action name="DirectionalCycleWindows">
+	<direction>left</direction>
+	<raise>yes</raise>
+	<dialog>none</dialog>
+      </action>
+    </keybind>
+    <keybind key="A-Up">
+      <action name="DirectionalCycleWindows">
+	<direction>up</direction>
+	<raise>yes</raise>
+	<dialog>none</dialog>
+      </action>
+    </keybind>
+    <keybind key="A-Down">
+      <action name="DirectionalCycleWindows">
+	<direction>down</direction>
+	<raise>yes</raise>
+	<dialog>none</dialog>
+      </action>
+    </keybind>
+
+    <keybind key="A-S-t">
+      <action name="ToggleLayout"/>
+    </keybind>
+
+  </keyboard>
+
+  <mouse>
+    <dragThreshold>1</dragThreshold>
+    <doubleClickTime>500</doubleClickTime>
+    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
+
+    <context name="Frame">
+      <mousebind button="A-Left" action="Drag">
+        <action name="Move"/>
+      </mousebind>
+      <mousebind button="A-Right" action="Drag">
+        <action name="Resize"/>
+      </mousebind>
+
+      <mousebind button="A-Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="A-Left" action="Click">
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="A-Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="A-Right" action="Drag">
+        <action name="Resize"/>
+      </mousebind>
+    </context>
+
+    <context name="Titlebar">
+      <mousebind button="Left" action="Drag">
+        <action name="Move"/>
+      </mousebind>
+      <mousebind button="Left" action="DoubleClick">
+        <action name="ToggleMaximize"/>
+      </mousebind>
+    </context>
+
+    <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="ShowMenu">
+          <menu>client-menu</menu>
+        </action>
+      </mousebind>
+    </context>
+
+    <context name="TRCorner BRCorner TLCorner BLCorner">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"/>
+      </mousebind>
+    </context>
+
+    <context name="Client">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+    </context>
+
+    <context name="AllDesktops">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Left" action="Click">
+        <action name="ToggleOmnipresent"/>
+      </mousebind>
+    </context>
+    <context name="Shade">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="Left" action="Click">
+        <action name="ToggleShade"/>
+      </mousebind>
+    </context>
+    <context name="Iconify">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="Left" action="Click">
+        <action name="Iconify"/>
+      </mousebind>
+    </context>
+    <context name="Maximize">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Left" action="Click">
+        <action name="ToggleMaximize"/>
+      </mousebind>
+    </context>
+    <context name="Close">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Left" action="Click">
+        <action name="Close"/>
+      </mousebind>
+    </context>
+    <context name="Desktop">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+    </context>
+
+    <context name="Root">
+      <mousebind button="Middle" action="Press">
+        <action name="ShowMenu">
+          <menu>client-list-menu</menu>
+        </action>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
+      </mousebind>
+    </context>
+  </mouse>
+
+  <menu>
+    <file>menu.xml</file>
+    <hideDelay>200</hideDelay>
+    <middle>no</middle>
+    <submenuShowDelay>100</submenuShowDelay>
+    <submenuHideDelay>400</submenuHideDelay>
+    <showIcons>yes</showIcons>
+    <manageDesktops>yes</manageDesktops>
+  </menu>
+
+  <applications>
+    <application class="LibreWolf">
+      <maximized>yes</maximized>
+      <desktop>2</desktop>
+      <decor>no</decor>
+    </application>
+    <application class="Chromium">
+      <maximized>yes</maximized>
+      <desktop>6</desktop>
+      <decor>no</decor>
+    </application>
+    <application class="discord">
+      <maximized>yes</maximized>
+      <desktop>5</desktop>
+      <decor>no</decor>
+    </application>
+    <application type="dialog">
+      <maximized>no</maximized>
+      <decor>no</decor>
+    </application>
+  </applications>
+
+</openbox_config>
