@@ -1,4 +1,6 @@
-<center> <h1>🌸 Sakura Dotfiles 🌸</h1></center>
+<h1 align=center>🌸 Sakura Dotfiles 🌸</h1>
+
+![Desktops](src/desktop.gif "Desktops")
 
 ## Overview
 
