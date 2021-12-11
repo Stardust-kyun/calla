@@ -95,6 +95,6 @@ execp_tooltip =
 button = new
 button_padding = 15 15
 button_text = 
-button_lclick_command = $HOME/.config/bin/powermenu
+button_lclick_command = $HOME/.config/rofi/power.sh
 button_font = IosevkaNerdFont 14
 button_font_color = #4b4b4b 100
