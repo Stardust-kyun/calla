@@ -47,7 +47,7 @@ I have found my dotfiles to work out of the box on EndeavourOS. If you're using 
 
 From official repos:
 ```
-sudo pacman -S obconf dunst picom xsettingsd sddm qt5 qt5-quickcontrols2 qt5-svg firefox nitrogen nautilus mousepad vim maim polkit-gnome network-manager-applet blueberry lxappearance xorg light pulseaudio pulseaudio-alsa pulseaudio-bluetooth alsa-utils alsa-plugins alsa-firmware ttf-roboto-mono ttf-roboto ttf-iosevka-nerd noto-fonts noto-fonts-cjk noto-fonts-emoji xdg-user-dirs tint2 rofi zathura alacritty rxvt-unicode kitty
+sudo pacman -S obconf dunst picom xsettingsd sddm qt5 qt5-quickcontrols2 qt5-svg firefox nitrogen nautilus mousepad vim maim polkit-gnome network-manager-applet blueberry lxappearance xorg light pulseaudio pulseaudio-alsa pulseaudio-bluetooth alsa-utils alsa-plugins alsa-firmware ttf-roboto-mono ttf-roboto noto-fonts noto-fonts-cjk noto-fonts-emoji xdg-user-dirs tint2 rofi zathura alacritty rxvt-unicode kitty
 ```
 
 
