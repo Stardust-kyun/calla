@@ -44,10 +44,10 @@ killall dunst
 }
 
 run() {
-sed -i -e "s/--bg: .*/--bg: $1;/g" \
-       -e "s/--fg: .*/--fg: $2;/g" \
-       -e "s/--selbg: .*/--selbg: $3;/g" \
-       -e "s/--selfg: .*/--selfg: $4;/g" $ROFI
+sed -i -e "s/bg: .*/bg: $1;/g" \
+       -e "s/fg: .*/fg: $2;/g" \
+       -e "s/selbg: .*/selbg: $3;/g" \
+       -e "s/selfg: .*/selfg: $4;/g" $ROFI
 }
 
 comp() {

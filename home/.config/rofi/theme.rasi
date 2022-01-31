@@ -1,12 +1,12 @@
 * {
-	--bg: #000f14;
-	--fg: #a0a0b4;
-	--selbg: #0a191e;
-	--selfg: #a0a0b4;
+	bg: #000f14;
+	fg: #a0a0b4;
+	selbg: #0a191e;
+	selfg: #a0a0b4;
 
-	background-color: var(--bg);
-	border-color: var(--selbg);
-	text-color: var(--fg);
+	background-color: @bg;
+	border-color: @selbg;
+	text-color: @fg;
 	width: 512px;
 	font: "RobotoMono 12";
 	highlight: bold;
@@ -22,8 +22,8 @@ listview {
 element selected,
 element-text selected,
 button selected {
-	background-color: var(--selbg);
-	color: var(--selfg);
+	background-color: @selbg;
+	color: @selfg;
 }
 
 element,
