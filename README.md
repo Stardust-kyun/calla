@@ -1,5 +1,9 @@
 <h1 align=center>🌸 Sakura Dotfiles 🌸</h1>
 
+# READ:
+
+This branch contains my old dotfiles for openbox. They are likely not complete and the installation instructions probably won't work. I do not intend to maintain them anymore, but they should be mostly finished. 
+
 ![Desktops](src/desktop.gif "Desktops")
 
 ## Overview
