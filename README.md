@@ -1,6 +1,6 @@
 <h1 align=center>🌸 Sakura Dotfiles 🌸</h1>
 
-<img src="screenshot.png" alt="img" align="right" width="450px">
+<img src="screenshot.png" alt="img" align="right" width="500px">
 
 This is my desktop made with awesomewm. Here's some details:
 
