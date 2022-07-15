@@ -1,8 +1,8 @@
-<h1 align=center>🌸 Sakura Dotfiles 🌸</h1>
+<h1 align=center>Sakura Dotfiles</h1>
 
 <img src="screenshot.png" alt="img" align="right" width="500px">
 
-This is my desktop made with awesomewm. Here's some details:
+This is my desktop made with awesomewm! Here's some details:
 
 - **Operating System** - endeavouros
 - **Window Manager** - awesomewm
@@ -12,6 +12,14 @@ This is my desktop made with awesomewm. Here's some details:
 - **Shell** - bash
 - **Editor** - vim
 
+<h1></h1>
+
 ## Installation
 
 Coming soon...
+
+<h1></h1>
+
+## Contact
+
+You can find me on discord at `Stardust-kyun#5994`.
