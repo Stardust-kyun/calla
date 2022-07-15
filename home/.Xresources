@@ -1,0 +1,56 @@
+#define BG #000f14
+#define FG #a0a0b4
+#define BL #0a191e
+#define WH #a0a0b4
+#define R #824655
+#define G #468264
+#define Y #827d50
+#define B #326482
+#define M #645078
+#define C #327d7d
+
+URxvt.clipboard.autocopy: true
+URxvt.font: xft:RobotoMono:size=14,xft:Material Icons:size=14,xft:Noto Sans Mono CJK JP:size=14
+URxvt.scrollBar: false
+URxvt.letterSpace: 0
+*.vt100.faceName: RobotoMono:size=14
+*internalBorder: 25
+st.borderpx: 25
+st.font: RobotoMono:size=14
+
+! special
+*.foreground:   FG
+*.background:   BG
+*.cursorColor:  FG
+
+! black
+*.color0:       BL
+*.color8:       BL
+
+! red
+*.color1:       R
+*.color9:       R
+
+! green
+*.color2:       G
+*.color10:      G
+
+! yellow
+*.color3:       Y
+*.color11:      Y
+
+! blue
+*.color4:       B
+*.color12:      B
+
+! magenta
+*.color5:       M
+*.color13:      M
+
+! cyan
+*.color6:       C
+*.color14:      C
+
+! white
+*.color7:       WH
+*.color15:      WH

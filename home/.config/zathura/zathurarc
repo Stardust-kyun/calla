@@ -1,0 +1,19 @@
+set recolor 			true
+set recolor-lightcolor		"#000f14"
+set recolor-darkcolor		"#a0a0b4"
+set statusbar-bg		"#000f14"
+set statusbar-fg		"#a0a0b4"
+set default-bg			"#000f14"
+set default-fg			"#a0a0b4"
+set inputbar-bg			"#000f14"
+set inputbar-fg			"#a0a0b4"
+set completion-bg		"#000f14"
+set completion-fg		"#a0a0b4"
+set completion-highlight-bg	"#a0a0b4"
+set completion-highlight-fg	"#000f14"
+set completion-group-bg		"#000f14"
+set completion-group-fg		"#a0a0b4"
+set font 			"RobotoMono normal 12"
+set adjust-open			"best-fit"
+set page-padding		0
+map i				recolor

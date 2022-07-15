@@ -1,0 +1,415 @@
+:root {
+	scrollbar-width: none !important;
+}
+
+@-moz-document url(about:privatebrowsing) {
+	:root {
+		scrollbar-width: none !important;
+	}
+}
+
+@-moz-document url-prefix(about:blank) {
+	:root {
+		--bg: #000f14;
+	}
+	html > body:empty {
+		background-color: var(--bg) !important;
+	}
+}
+
+@-moz-document url(about:blank) {
+	:root {
+		--bg: #000f14;
+	}
+	html > body:empty {
+		background-color: var(--bg) !important;
+	}
+}
+
+@-moz-document domain(4channel.org) {
+	:root {
+		--bg: #000f14;
+		--bg2: #09151a;
+		--bg3: #0a191e;
+		--fg: #a0a0b4;
+	}
+	.boardBanner,
+	#blotter.desktop,
+	.customBoardList,
+	.middlead.center, 
+	#navtopright,
+	.btn-wrap,
+	.ctrl-wrap,
+	#absbot,
+	#navbotright,
+	.deleteform,
+	.stylechanger,
+	.navLinks.desktop > label > input,
+	#boardNavDesktopFoot,
+	.postMenuBtn,
+	.sideArrows,
+	#toggleMsgBtn,
+	.boardSelect,
+	.pageJump > a,
+	.is_thread > form > #togglePostFormLink,
+	.fileText,
+	.dateTime,
+	.closed,
+	hr {
+		display: none !important;
+	}
+	body {
+		background: var(--bg) none !important;
+		color: var(--fg) !important;
+	}
+	.post {
+		margin: 10px 4px !important;
+		overflow: hidden !important;
+	}
+	.reply {
+		background-color: var(--bg2) !important;
+		border: 2px solid var(--bg3) !important;
+		display: block !important;
+		padding: 10px 15px !important;
+	}
+	.op {
+		background-color: var(--bg2) !important;
+		border: 2px solid var(--bg3) !important;
+		display: block !important;
+		padding: 10px 15px !important;
+	}
+	.reply:target,
+	.reply.highlight {
+		background-color: var(--bg3) !important;
+		border: 2px solid var(--bg2) !important;
+		display: block !important;
+		padding: 10px 15px !important;
+	}
+	.quoteLink,
+	.quotelink {
+		text-decoration: none !important;
+		margin-right: 5px !important;
+		font-size: 1em !important;
+	}
+	.deadlink {
+		text-decoration: line-through !important;
+	}
+	select {
+		-moz-appearance: none !important;
+		border: none !important;
+		color: #5f89ac !important;
+		background-color: var(--bg) !important;
+		font-size: inherit !important;
+	}
+	select:hover {
+		-moz-appearance: none !important;
+		border: none !important;
+		color: var(--fg) !important;
+		background-color: #262626 !important;
+		font-size: inherit !important;
+	}
+	input[type="text"] {
+		background-color: var(--bg2) !important;
+		border-color: var(--bg3) !important;
+		color: var(--fg) !important;
+		padding: 3px !important;
+	}
+	input[type="checkbox"], 
+	input[type="submit"], 
+	input[type="file"], 
+	button {
+		filter: none !important;
+	}
+	textarea {
+		border-color: var(--bg3) !important;
+		background-color: var(--bg2) !important;
+	}
+	.postblock,
+	#qrHeader {
+		background-color: var(--bg2) !important;
+	}
+	#qf-clear.button {
+		color: var(--fg) !important;
+		font-size: 16px !important;
+	}
+	input[type="checkbox"] {
+		-moz-appearance: none !important;
+		width: 9px !important;
+		height: 9px !important;
+		background-color: var(--fg) !important;
+		border-radius: 2px !important;
+		margin: 0px !important;
+	}
+	input[type="checkbox"]:checked {
+		-moz-appearance: none !important;
+		width: 9px !important;
+		height: 9px !important;
+		background-color: #5f89ac !important;
+		border-radius: 2px !important;
+		margin: 0px !important;
+	}
+	.navLinks.desktop,
+	.navLinks.navLinksBot.desktop {
+		color: var(--bg) !important;
+	}
+	#quote-preview {
+		background-color: var(--bg2) !important;
+		border: 2px solid var(--bg3) !important;
+		display: table !important;
+		padding: 10px 15px !important;
+		margin: 0 !important;
+		width: auto !important;
+	}
+	.expanded-thumb {
+		max-width: 100% !important;
+	}
+	.name,
+	.postertrip,
+	div.post div.postInfo span.postNum > a {
+		color: var(--fg) !important
+	}
+	#boardNavMobile {
+		background-color: var(--bg) !important;
+		border-bottom: 0px !important;
+		padding: 0px !important;
+	}
+	.is_thread > #boardNavMobile {
+		background-color: #0000 !important;
+		position: unset !important;
+		overflow: inherit !important;
+	}
+	.hasDropDownNav {
+		margin-top: 0px !important;
+	}
+	.pageJump {
+		background-color: var(--bg) !important;
+		padding: 1px 0px 5px 5px !important;
+	}
+	#togglePostFormLink {
+		background-color: var(--bg) !important;
+		color: var(--bg) !important;
+		font-size: 12px !important;
+		text-align: left !important;
+		position: fixed !important;
+		z-index: 9002 !important;
+		top: 0 !important;
+		padding: 1px 5px 5px 0px !important;
+		font-weight: 12 !important;
+		content: 'New Post' !important;
+	}
+	#settingsWindowLinkMobile {
+		display: inherit !important;
+	}
+	.navLinks > span,
+	.navLinks > label,
+	.thread-stats {
+		color: var(--fg) !important;
+	}
+	.is_catalog > form {
+		padding-top: 20px !important;
+	}
+	#qrCaptchaContainer.t-qr-root {
+		background-color: var(--bg2) !important;
+	}
+	.adc-resp-bg {
+		height: 0 !important;
+	}
+	/* Fixes Image Bug */
+	.post .file {
+		display: block !important;
+	}
+}
+
+@-moz-document domain(4chan.org) {
+	:root {
+		--bg: #000f14;
+		--bg2: #09151a;
+		--bg3: #0a191e;
+		--fg: #a0a0b4;
+	}
+	.boardBanner,
+	#blotter.desktop,
+	.customBoardList,
+	.middlead.center, 
+	#navtopright,
+	.btn-wrap,
+	.ctrl-wrap,
+	#absbot,
+	#navbotright,
+	.deleteform,
+	.stylechanger,
+	.navLinks.desktop > label > input,
+	#boardNavDesktopFoot,
+	.postMenuBtn,
+	.sideArrows,
+	#toggleMsgBtn,
+	.boardSelect,
+	.pageJump > a,
+	.is_thread > form > #togglePostFormLink,
+	.fileText,
+	.dateTime,
+	.closed,
+	hr {
+		display: none !important;
+	}
+	body {
+		background: var(--bg) none !important;
+		color: var(--fg) !important;
+	}
+	.post {
+		margin: 10px 4px !important;
+		overflow: hidden !important;
+	}
+	.reply {
+		background-color: var(--bg2) !important;
+		border: 2px solid var(--bg3) !important;
+		display: block !important;
+		padding: 10px 15px !important;
+	}
+	.op {
+		background-color: var(--bg2) !important;
+		border: 2px solid var(--bg3) !important;
+		display: block !important;
+		padding: 10px 15px !important;
+	}
+	.reply:target,
+	.reply.highlight {
+		background-color: var(--bg3) !important;
+		border: 2px solid var(--bg2) !important;
+		display: block !important;
+		padding: 10px 15px !important;
+	}
+	.quoteLink,
+	.quotelink {
+		text-decoration: none !important;
+		margin-right: 5px !important;
+		font-size: 1em !important;
+	}
+	.deadlink {
+		text-decoration: line-through !important;
+	}
+	select {
+		-moz-appearance: none !important;
+		border: none !important;
+		color: #5f89ac !important;
+		background-color: var(--bg) !important;
+		font-size: inherit !important;
+	}
+	select:hover {
+		-moz-appearance: none !important;
+		border: none !important;
+		color: var(--fg) !important;
+		background-color: #262626 !important;
+		font-size: inherit !important;
+	}
+	input[type="text"] {
+		background-color: var(--bg2) !important;
+		border-color: var(--bg3) !important;
+		color: var(--fg) !important;
+		padding: 3px !important;
+	}
+	input[type="checkbox"], 
+	input[type="submit"], 
+	input[type="file"], 
+	button {
+		filter: none !important;
+	}
+	textarea {
+		border-color: var(--bg3) !important;
+		background-color: var(--bg2) !important;
+	}
+	.postblock,
+	#qrHeader {
+		background-color: var(--bg2) !important;
+	}
+	#qf-clear.button {
+		color: var(--fg) !important;
+		font-size: 16px !important;
+	}
+	input[type="checkbox"] {
+		-moz-appearance: none !important;
+		width: 9px !important;
+		height: 9px !important;
+		background-color: var(--fg) !important;
+		border-radius: 2px !important;
+		margin: 0px !important;
+	}
+	input[type="checkbox"]:checked {
+		-moz-appearance: none !important;
+		width: 9px !important;
+		height: 9px !important;
+		background-color: #5f89ac !important;
+		border-radius: 2px !important;
+		margin: 0px !important;
+	}
+	.navLinks.desktop,
+	.navLinks.navLinksBot.desktop {
+		color: var(--bg) !important;
+	}
+	#quote-preview {
+		background-color: var(--bg2) !important;
+		border: 2px solid var(--bg3) !important;
+		display: table !important;
+		padding: 10px 15px !important;
+		margin: 0 !important;
+		width: auto !important;
+	}
+	.expanded-thumb {
+		max-width: 100% !important;
+	}
+	.name,
+	.postertrip,
+	div.post div.postInfo span.postNum > a {
+		color: var(--fg) !important
+	}
+	#boardNavMobile {
+		background-color: var(--bg) !important;
+		border-bottom: 0px !important;
+		padding: 0px !important;
+	}
+	.is_thread > #boardNavMobile {
+		background-color: #0000 !important;
+		position: unset !important;
+		overflow: inherit !important;
+	}
+	.hasDropDownNav {
+		margin-top: 0px !important;
+	}
+	.pageJump {
+		background-color: var(--bg) !important;
+		padding: 1px 0px 5px 5px !important;
+	}
+	#togglePostFormLink {
+		background-color: var(--bg) !important;
+		color: var(--bg) !important;
+		font-size: 12px !important;
+		text-align: left !important;
+		position: fixed !important;
+		z-index: 9002 !important;
+		top: 0 !important;
+		padding: 1px 5px 5px 0px !important;
+		font-weight: 12 !important;
+		content: 'New Post' !important;
+	}
+	#settingsWindowLinkMobile {
+		display: inherit !important;
+	}
+	.navLinks > span,
+	.navLinks > label,
+	.thread-stats {
+		color: var(--fg) !important;
+	}
+	.is_catalog > form {
+		padding-top: 20px !important;
+	}
+	#qrCaptchaContainer.t-qr-root {
+		background-color: var(--bg2) !important;
+	}
+	.adc-resp-bg {
+		height: 0 !important;
+	}
+	/* Fixes Image Bug */
+	.post .file {
+		display: block !important;
+	}
+}

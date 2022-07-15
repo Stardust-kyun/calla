@@ -1,0 +1,13 @@
+#!/bin/sh
+
+run() {
+  if ! pgrep -f "$1" ;
+  then
+    "$@"&
+  fi
+}
+
+run picom
+run xsettingsd
+run nm-applet
+run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
