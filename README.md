@@ -12,13 +12,9 @@ This is my desktop made with awesomewm! Here's some details:
 - **Shell** - bash
 - **Editor** - vim
 
-<h1></h1>
-
 ## Installation
 
 Coming soon...
-
-<h1></h1>
 
 ## Contact
 
