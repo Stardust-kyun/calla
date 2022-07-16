@@ -67,6 +67,6 @@ You should have received a copy of the GNU General Public License along with Sug
 
 ### Motivate a developer
 
-In the past years I have spent quite some hours on open source projects. If you are the type of person who digs attention to detail, know how much work is involved in it and/or simply likes to support makers with a coffee or a beer I would greatly appreciate your donation on my [PayPayl](https://www.paypal.me/marianarlt) account.  
+In the past years I have spent quite some hours on open source projects. If you are the type of person who digs attention to detail, know how much work is involved in it and/or simply likes to support makers with a coffee or a beer I would greatly appreciate your donation on my [PayPal](https://www.paypal.me/marianarlt) account.  
 Alternatively downloading my themes directly from opendesktop or with the kde sddm system settings module will at least help me a little to be able to attend your issues and requests.  
 Please consider helping developers you think are worth a penny or two, literally.
