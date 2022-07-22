@@ -1,4 +1,4 @@
-local awful = require 'awful'
+local awful = require("awful")
 
 local volume_old = -1
 local muted_old = -1
