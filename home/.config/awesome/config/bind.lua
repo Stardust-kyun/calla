@@ -1,4 +1,5 @@
 local awful = require("awful")
+local hotkeys_popup = require("awful.hotkeys_popup")
 
 -- Mouse 
 awful.mouse.append_global_mousebindings({
@@ -8,13 +9,17 @@ awful.mouse.append_global_mousebindings({
 
 -- General keys
 awful.keyboard.append_global_keybindings({
+	awful.key(
+		{ c.modkey }, "k", function() hotkeys_popup.show_help() end,
+		{ description = "show keybindings", group = "awesome" }
+	),
     awful.key(
 		{ c.modkey, "Shift" }, "r", awesome.restart,
         { description = "reload awesome", group = "awesome" }
 	),
     awful.key(
 		{ c.modkey, }, "Return", function () awful.spawn(c.terminal) end,
-        { description = "open a terminal", group = "launcher" }
+        { description = "open a terminal", group = "awesome" }
 	),
     awful.key(
 		{ c.modkey }, "d", function () awful.spawn("rofi -show run") end,

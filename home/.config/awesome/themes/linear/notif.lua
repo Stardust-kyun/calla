@@ -3,6 +3,7 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local naughty = require("naughty")
 local wibox = require("wibox")
+local ruled = require("ruled")
 local time = wibox.widget.textclock("%I:%M %p")
 
 naughty.config.defaults.ontop = true
@@ -11,6 +12,26 @@ naughty.config.defaults.screen = awful.screen.focused()
 naughty.config.defaults.border_width = 0
 naughty.config.defaults.position = "top_right"
 naughty.config.defaults.title = "Notification"
+
+ruled.notification.connect_signal('request::rules', function()
+	-- Critical
+    ruled.notification.append_rule {
+        rule       = { urgency = 'critical' },
+        properties = { bg = beautiful.bg_normal, fg = beautiful.fg_urgent, timeout = 0 }
+    }
+
+	-- Normal
+    ruled.notification.append_rule {
+        rule       = { urgency = 'normal' },
+        properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
+    }
+
+	-- Low
+    ruled.notification.append_rule {
+        rule       = { urgency = 'low' },
+        properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
+    }
+end)
 
 naughty.connect_signal("request::display", function(n)
 	naughty.layout.box {
@@ -24,14 +45,7 @@ naughty.connect_signal("request::display", function(n)
 						{
 							{
 								{
-									{
-										naughty.widget.title,
-										strategy = "max",
-										width = dpi(175),
-										widget = wibox.container.constraint
-									},
-									nil,
-									time,
+									naughty.widget.title,
 									forced_height = dpi(38),
 									layout = wibox.layout.align.horizontal
 								},

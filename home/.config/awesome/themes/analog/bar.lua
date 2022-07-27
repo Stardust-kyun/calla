@@ -1,8 +1,9 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = require("beautiful").xresources.apply_dpi
+
+wibox.widget.systray().horizontal = false
 
 -- Buttons
 textbutton = function(args)
@@ -21,47 +22,15 @@ textbutton = function(args)
 	return result
 end
 
--- Window control
-minimize = wibox.widget {
-	image = beautiful.minimize,
-	widget = wibox.widget.imagebox
-}
-minimize:connect_signal("button::press", function() 
-	if client.focus then
-		client.focus.minimized = true 
-	end
-end)
+menu = awful.menu(
+	{ items = { 
+	    { "Terminal", "st" },
+		{ "Browser", "librewolf" },
+		{ "Files", "nautilus" }
+    }
+})
 
-maximize = wibox.widget {
-	image = beautiful.maximize,
-	widget = wibox.widget.imagebox
-}
-maximize:connect_signal("button::press", function() 
-	if client.focus then
-		client.focus.maximized = not client.focus.maximized
-	end
-end)
-
-close = wibox.widget {
-	image = beautiful.close,
-	widget = wibox.widget.imagebox
-}
-close:connect_signal("button::press", function() 
-	if client.focus then
-		client.focus:kill() 
-	end
-end)
-
--- Launcher
-launcher = wibox.widget {
-	buttons = {
-		awful.button({}, 1, function()
-			awesome.emit_signal('widget::launcher')
-		end) 
-	},
-	image = beautiful.awesome_icon,
-	widget = wibox.widget.imagebox
-}
+launcher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = menu })
 
 -- Battery
 battery = awful.widget.watch("cat /sys/class/power_supply/BAT0/capacity", 10, function(widget, stdout)
@@ -69,10 +38,22 @@ battery = awful.widget.watch("cat /sys/class/power_supply/BAT0/capacity", 10, fu
 		end)
 
 -- Clock
-textclock = wibox.widget.textclock('%I:%M %p')
+textclock = wibox.widget.textclock('%I\n%M')
 
 -- Tags
 screen.connect_signal("request::desktop_decoration", function(s)
+	-- Layouts (why does this need to be in the bar config?)
+	tag.connect_signal("request::default_layouts", function()
+    	awful.layout.append_default_layouts({
+    	    awful.layout.suit.tile,
+			awful.layout.suit.floating,
+			awful.layout.suit.max,
+    	})
+	end)
+
+    -- One tag table per screen
+    awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
+
     -- Layout Widget
     s.layoutbox = awful.widget.layoutbox {
         screen  = s,
@@ -84,10 +65,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
 	s.taglist = awful.widget.taglist {
 		screen = s,
-		filter = awful.widget.taglist.filter.all,
-		buttons = {
-			awful.button({ }, 1, function(t) t:view_only() end)
-		}
+		filter = awful.widget.taglist.filter.selected,
 	}
 
 	-- Tasklist widget
@@ -104,82 +82,75 @@ screen.connect_signal("request::desktop_decoration", function(s)
 				halign = "center",
 				widget = wibox.container.place,
 			},
-			id     = "background_role",
-			widget = wibox.container.background,
+   		   	id     = "background_role",
+   	    	widget = wibox.container.background,
     	},
         buttons = {
             awful.button({ }, 1, function (c)
                 c:activate { context = "tasklist", action = "toggle_minimization" }
             end),
-        }
+        },
+		layout = {
+			spacing = dpi(5),
+			spacing_widget = {
+				widget = wibox.container.background
+			},
+			layout = wibox.layout.fixed.vertical
+		}
     }
 
     -- Wibox
     s.wibox = awful.wibar {
-		border_width = dpi(5),
+		border_width = dpi(10),
 		border_color = beautiful.tasklist_bg_focus,
-		position = "bottom",
-		height = dpi(40),
+		position = "right",
+		width = dpi(40),
 		bg = beautiful.tasklist_bg_focus,
 		fg = beautiful.fg_focus,
         screen   = s,
         widget   = {
-            layout = wibox.layout.align.horizontal,
             { -- Left
-                layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(20),
+                layout = wibox.layout.fixed.vertical,
+				spacing = dpi(30),
 				{
 					launcher,
 					top = dpi(10),
 					bottom = dpi(10),
 					left = dpi(10),
+					right = dpi(10),
 					widget = wibox.container.margin
 				},
-				{
-					s.taglist, 
-					right = dpi(20), 
-					widget = wibox.container.margin
-				}
+				{ textbutton{ text = "", size = "15", onclick = "librewolf" }, valign = "center", widget = wibox.container.place },
+				{ textbutton{ text = "", size = "15", onclick = "st" }, valign = "center", widget = wibox.container.place },
+				{ textbutton{ text = "", size = "15", onclick = "nautilus" }, valign = "center", widget = wibox.container.place },
+				{ s.taglist, valign = "center", widget = wibox.container.place },
             },
-			-- Middle
-            s.tasklist,
+			{ -- Middle
+          		layout = wibox.layout.fixed.vertical,
+				-- s.tasklist
+			},
             { -- Right
-                layout = wibox.layout.fixed.horizontal,
+                layout = wibox.layout.fixed.vertical,
 				spacing = dpi(15),
 				{
                 	wibox.widget.systray(),
-					left = dpi(15),
-					top = dpi(5),
-					bottom = dpi(5),
+					left = dpi(5),
+					right = dpi(5),
+					top = dpi(10),
 					widget = wibox.container.margin
 				},
-				textclock,
-				{
-					minimize,
-					top = dpi(14),
-					bottom = dpi(14),
-					widget = wibox.container.margin
-				},
-				{
-					maximize,
-					top = dpi(14),
-					bottom = dpi(14),
-					widget = wibox.container.margin
-				},
-				{
-					close,
-					top = dpi(14),
-					bottom = dpi(14),
-					widget = wibox.container.margin
-				},
+				{ battery, valign = "center", widget = wibox.container.place },
+				{ textclock, valign = "center", widget = wibox.container.place },
 				{
 					s.layoutbox,
+					left = dpi(10),
 					right = dpi(10),
-					top = dpi(10),
+					top = dpi(5),
 					bottom = dpi(10),
 					widget = wibox.container.margin
 				},
             },
+			layout = wibox.layout.align.vertical
         }
     }
 end)

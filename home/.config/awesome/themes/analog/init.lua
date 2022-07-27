@@ -1,0 +1,5 @@
+require("beautiful").init(require("gears").filesystem.get_configuration_dir() .. "themes/analog/theme.lua")
+require("themes.analog.bar")
+require("themes.analog.title")
+require("themes.analog.volume")
+-- require("themes.analog.notif")

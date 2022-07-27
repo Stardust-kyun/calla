@@ -1,5 +1,6 @@
 local awful = require("awful")
 local ruled = require("ruled")
+local beautiful = require("beautiful")
 
 -- New clients
 ruled.client.connect_signal("request::rules", function()
@@ -33,6 +34,6 @@ ruled.client.connect_signal("request::rules", function()
     ruled.client.append_rule {
         id         = "titlebars",
         rule_any   = { type = { "normal", "dialog" } },
-        properties = { titlebars_enabled = true      }
+        properties = { titlebars_enabled = true }
     }
 end)

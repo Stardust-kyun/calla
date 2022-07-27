@@ -150,9 +150,9 @@ launcherDisplay:setup {
 		{
 			{
 				{
-					textbutton{ text="", size="15", onclick="librewolf" },
-					textbutton{ text="", size="15", onclick="st" },
-					textbutton{ text="", size="15", onclick="nautilus" },
+					textbutton{ text="", size="15", onclick=c.browser },
+					textbutton{ text="", size="15", onclick=c.terminal },
+					textbutton{ text="", size="15", onclick=c.files },
 					expand = "none",
 					layout = wibox.layout.align.horizontal
 				},
@@ -220,6 +220,8 @@ awesome.connect_signal("widget::launcher", function()
 			batteryicon.text = ""
 		elseif tonumber(stdout) >= 0 then
 			batteryicon.text = ""
+		else
+			batteryicon.text = ""
 		end
 	end)
 
