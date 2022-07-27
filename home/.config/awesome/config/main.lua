@@ -37,6 +37,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
     	awful.layout.append_default_layouts({
     	    awful.layout.suit.tile,
 			awful.layout.suit.floating,
+			-- awful.layout.suit.max,
     	})
 	end)
 

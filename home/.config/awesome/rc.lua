@@ -11,7 +11,7 @@ c.editor = os.getenv("EDITOR") or "vim"
 c.editor_cmd = c.terminal .. " -e " .. c.editor
 c.modkey = "Mod1"
 
-
+-- Config
 require("awful.autofocus")
 require("themes.linear")
 require("config")

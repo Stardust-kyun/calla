@@ -1,6 +1,6 @@
 local theme_assets = require("beautiful.theme_assets")
 local dpi = require("beautiful").xresources.apply_dpi
-local color = require("colors")
+local color = require("themes.colors")
 local gears = require("gears")
 local theme_path = require("gears").filesystem.get_configuration_dir() .. "themes/linear/"
 local icon_path = theme_path .. "icons/"
@@ -86,9 +86,9 @@ theme.tooltip_opacity = 0
 theme.wallpaper = color.wall
 
 -- Layout icons
-theme.layout_floating  = gears.color.recolor_image(color.floating, color.fg)
-theme.layout_max	   = gears.color.recolor_image(color.max, color.fg)
-theme.layout_tile	   = gears.color.recolor_image(color.tile, color.fg)
+theme.layout_floating  = gears.color.recolor_image(icon_path .. "floating.png", color.fg)
+theme.layout_max	   = gears.color.recolor_image(icon_path .. "max.png", color.fg)
+theme.layout_tile	   = gears.color.recolor_image(icon_path .. "tile.png", color.fg)
 
 -- Titlebar icons
 theme.close    = gears.color.recolor_image(icon_path .. "close.png", color.fg)

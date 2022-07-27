@@ -30,7 +30,7 @@ awful.keyboard.append_global_keybindings({
         { description = "kaomoji menu", group = "launcher" }
 	),
     awful.key(
-		{ c.modkey, "Shift" }, "d", function () awful.spawn.with_shell("~/.config/awesome/colors/scripts/rofi.sh") end,
+		{ c.modkey, "Shift" }, "d", function () awful.spawn.with_shell("~/.config/awesome/themes/colors/scripts/rofi.sh") end,
         { description = "desktop menu", group = "launcher" }
 	),
 	awful.key(
@@ -67,17 +67,13 @@ awful.keyboard.append_global_keybindings({
 })
 
 awful.keyboard.append_global_keybindings({
-    awful.key({ c.modkey,           }, "Tab",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
+    awful.key(
+		{ c.modkey }, "Tab", function () awful.client.focus.byidx(1) end,
+        { description = "focus next by index", group = "client" }
     ),
-    awful.key({ c.modkey, "Shift", }, "Tab",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
+    awful.key(
+		{ c.modkey, "Shift" }, "Tab", function () awful.client.focus.byidx(-1) end,
+		{ description = "focus previous by index", group = "client" }
     ),
     awful.key {
         modifiers   = { c.modkey },
