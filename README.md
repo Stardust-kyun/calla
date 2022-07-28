@@ -16,6 +16,12 @@ This is my desktop made with awesomewm! Here's some details:
 
 Coming soon...
 
+## Contributions
+
+- [Qwickdom](https://github.com/Qwickdom/) for help adding brightness support and an installation script (wip).
+- [Crylia](https://github.com/Crylia) for massive amounts of help learning awesomewm.
+- [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
+
 ## Contact
 
-You can find me on discord at `Stardust-kyun#5994`.
+You can find me on discord at `Stardust-kyun#5994` and matrix at `stardust-kyun:matrix.org`.
