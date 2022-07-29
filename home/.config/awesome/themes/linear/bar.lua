@@ -4,23 +4,6 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = require("beautiful").xresources.apply_dpi
 
--- Buttons
-textbutton = function(args)
-	local text = args.text
-	local size = args.size or dpi(10)
-	local onclick = args.onclick or function() end
-	
-	local result = wibox.widget {
-		text = text,
-		font = "Material Icons " .. size,
-		widget = wibox.widget.textbox
-	}
-
-	result:connect_signal("button::press", function() awful.spawn.with_shell(onclick) end)
-
-	return result
-end
-
 -- Window control
 minimize = wibox.widget {
 	image = beautiful.minimize,
@@ -62,11 +45,6 @@ launcher = wibox.widget {
 	image = beautiful.awesome_icon,
 	widget = wibox.widget.imagebox
 }
-
--- Battery
-battery = awful.widget.watch("cat /sys/class/power_supply/BAT0/capacity", 10, function(widget, stdout)
-			widget:set_text("BAT " .. stdout:gsub("\n", "") .. "%")
-		end)
 
 -- Clock
 textclock = wibox.widget.textclock('%I:%M %p')

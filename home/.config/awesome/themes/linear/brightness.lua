@@ -4,7 +4,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-local volumeDisplay = wibox {
+local brightnessDisplay = wibox {
 	width = dpi(200),
 	height = dpi(100),
 	bg = beautiful.bg_normal,
@@ -16,7 +16,7 @@ local volumeDisplay = wibox {
 }
 
 local header = wibox.widget {
-	text = "Volume",
+	text = "Brightness",
 	valign = "center",
 	widget = wibox.widget.textbox
 }
@@ -50,11 +50,11 @@ local displayTimer = gears.timer {
 	timeout = 2,
 	single_shot = true,
 	callback = function()
-		volumeDisplay.visible = false
+		brightnessDisplay.visible = false
 	end
 }
 
-volumeDisplay:setup {
+brightnessDisplay:setup {
 	{
 		{
 			{
@@ -93,36 +93,30 @@ volumeDisplay:setup {
 	layout = wibox.container.place
 }
 
-awesome.connect_signal("signal::volume", function(volume, mute)
-	if mute then
-		percent.text = "Muted"
-		slider.value = 0
-		icon.text = ""
-	else
-		percent.text = tostring(volume) .. "%"
-		slider.value = volume
-		if volume > 100 then
-			icon.text = ""
-		elseif volume >= 50 then
-			icon.text = ""
-		elseif volume >= 25 then
-			icon.text = ""
-		elseif volume > 0 then
-			icon.text = ""
-		elseif volume == 0 then
-			icon.text = ""
-		end
+awesome.connect_signal("signal::brightness", function(brightness)
+	percent.text = tostring(brightness) .. "%"
+	slider.value = brightness
+	if brightness >= 75 then
+		icon.text = ""
+	elseif brightness >= 50 then
+		icon.text = ""
+	elseif brightness >= 25 then
+		icon.text = ""
+	elseif brightness > 0 then
+		icon.text = ""
+	elseif brightness == 0 then
+		icon.text = ""
 	end
 end)
 
-awesome.connect_signal("widget::volume", function()
-	awesome.emit_signal("widget::brightness:hide")
+awesome.connect_signal("widget::brightness", function()
+	awesome.emit_signal("widget::volume:hide")
 
 	displayTimer:again()
 
 	if client.focus and client.focus.fullscreen == true then
 		awful.placement.bottom_right(
-			volumeDisplay, 
+			brightnessDisplay, 
 			{
 				margins = { 
 					bottom = dpi(10), 
@@ -133,7 +127,7 @@ awesome.connect_signal("widget::volume", function()
 		)
 	else
 		awful.placement.bottom_right(
-			volumeDisplay, 
+			brightnessDisplay, 
 			{
 				margins = { 
 					bottom = dpi(60), 
@@ -144,7 +138,7 @@ awesome.connect_signal("widget::volume", function()
 		)
 	end
 
-	volumeDisplay.visible = true
+	brightnessDisplay.visible = true
 end)
 
-awesome.connect_signal("widget::volume:hide", function() volumeDisplay.visible = false end)
+awesome.connect_signal("widget::brightness:hide", function() brightnessDisplay.visible = false end)

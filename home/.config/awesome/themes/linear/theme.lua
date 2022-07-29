@@ -62,7 +62,7 @@ theme.taglist_fg_occupied = color.fg .. "75"
 theme.taglist_spacing = dpi(10)
 
 -- Menu
-theme.menu_submenu_icon = gears.color.recolor_image(color.submenu, color.fg)
+theme.menu_submenu_icon = gears.color.recolor_image(icon_path .. "submenu.png", color.fg)
 theme.menu_font 		= color.font
 theme.menu_bg_normal 	= color.bg
 theme.menu_bg_focus 	= color.bg_alt

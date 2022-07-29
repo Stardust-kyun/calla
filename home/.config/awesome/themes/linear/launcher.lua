@@ -6,7 +6,7 @@ local dpi = beautiful.xresources.apply_dpi
 
 local launcherDisplay = wibox {
 	width = dpi(200),
-	height = dpi(255),
+	height = dpi(295),
 	bg = beautiful.bg_normal,
 	ontop = true,
 	visible = false,
@@ -51,6 +51,26 @@ local volumeicon = wibox.widget {
 }
 
 local volumeslider = wibox.widget {
+	bar_shape = gears.shape.rounded_rect,
+	bar_height = dpi(5),
+	bar_color = beautiful.bg_focus,
+	bar_active_color = beautiful.fg_normal,
+	handle_color = beautiful.fg_normal,
+	handle_shape = gears.shape.circle,
+	handle_width = dpi(10),
+	handle_border_width = dpi(0),
+	handle_border_color = beautiful.bg_normal,
+	maximum = 100,
+	widget = wibox.widget.slider
+}
+
+local brightnessicon = wibox.widget {
+	font = "Material Icons 15",
+	valign = "center",
+	widget = wibox.widget.textbox
+}
+
+local brightnessslider = wibox.widget {
 	bar_shape = gears.shape.rounded_rect,
 	bar_height = dpi(5),
 	bar_color = beautiful.bg_focus,
@@ -145,6 +165,23 @@ launcherDisplay:setup {
 				bottom = dpi(20),
 				widget = wibox.container.margin
 			},
+			{
+				{
+					{
+						brightnessicon,
+						right = dpi(15),
+						widget = wibox.container.margin
+					},
+					nil,
+					brightnessslider,
+					forced_height = dpi(20),
+					layout = wibox.layout.align.horizontal
+				},
+				left = dpi(20),
+				right = dpi(23),
+				bottom = dpi(20),
+				widget = wibox.container.margin
+			},
 			layout = wibox.layout.fixed.vertical
 		},
 		{
@@ -198,6 +235,22 @@ awesome.connect_signal("signal::volume", function(volume, mute)
 		end
 	end
 end)
+
+awesome.connect_signal("signal::brightness", function(brightness)
+	brightnessslider.value = brightness
+	if brightness >= 75 then
+		brightnessicon.text = ""
+	elseif brightness >= 50 then
+		brightnessicon.text = ""
+	elseif brightness >= 25 then
+		brightnessicon.text = ""
+	elseif brightness > 0 then
+		brightnessicon.text = ""
+	elseif brightness == 0 then
+		brightnessicon.text = ""
+	end
+end)
+
 
 awesome.connect_signal("widget::launcher", function()
 	launcherDisplay.visible = not launcherDisplay.visible

@@ -36,7 +36,7 @@ emit_volume_info()
 local volume_script = [[
     bash -c "
     LANG=C pactl subscribe 2> /dev/null | grep --line-buffered \"Event 'change' on sink\"
-    "]]
+"]]
 
 -- Kill old pactl subscribe processes
 awful.spawn.easy_async({
