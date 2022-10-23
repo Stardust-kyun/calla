@@ -2,7 +2,7 @@
 
 step_1(){
 
-  echo -e "[ Step 1 ] System update\n"
+  echo -e "\n[ Step 1 ] System update\n"
   sudo pacman -Syu --noconfirm
   sleep 3; clear
 }
@@ -54,7 +54,7 @@ cat << EOF
 
 EOF
 
-  sleep 3; clear
+  sleep 3;
   $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nautilus gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome --noconfirm
@@ -68,7 +68,7 @@ cat << EOF
 
 EOF
 
-  sleep 3; clear
+  sleep 3;
   git clone https://github.com/Stardust-kyun/dotfiles /tmp/dotfiles
   cd /tmp/dotfiles/
   echo -e "\nDotfiles are ready to be copied"
@@ -97,6 +97,7 @@ EOF
   sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
   sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
+  sleep 3; clear
 }
 
 step_6(){
