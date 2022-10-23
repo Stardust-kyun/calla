@@ -1,8 +1,8 @@
 #!/bin/env bash
 
 step_1(){
+
   echo -e "[ Step 1 ] System update\n"
-  sleep 3; clear
   sudo pacman -Syu --noconfirm
   sleep 3; clear
 }
