@@ -1,11 +1,8 @@
 #!/bin/env bash
 
-clear
-echo -e "Hello $USER! \n
-To use this script your selections are whit numbers\n"
-
 step_1(){
   echo -e "[ Step 1 ] System update\n"
+  sleep 3; clear
   sudo pacman -Syu --noconfirm
   sleep 3; clear
 }
@@ -13,9 +10,8 @@ step_1(){
 step_2(){
 cat << EOF
 
-[ Step 2 ] Git and pacman wrapper
+[ Step 2 ] AUR Helper
 
-These are the popular:
 (1) yay
 (2) paru
 
@@ -58,6 +54,7 @@ cat << EOF
 
 EOF
 
+  sleep 3; clear
   $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nautilus gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome --noconfirm
@@ -69,10 +66,9 @@ cat << EOF
 
 [ Step 4 ] Get dotfiles
 
-Cloning the repository...
-
 EOF
 
+  sleep 3; clear
   git clone https://github.com/Stardust-kyun/dotfiles /tmp/dotfiles
   cd /tmp/dotfiles/
   echo -e "\nDotfiles are ready to be copied"
@@ -84,13 +80,14 @@ cat << EOF
 
 [ Step 5 ] Copy dotfiles
 
-Now, I'll proceed to copy the dotfiles
-
 EOF
+
   cd home/
   cp -rf .config .icons .librewolf .vim .Xresources .bashrc .gtkrc-2.0 .xsettingsd ~/
   cd ../usr/share/
   sudo cp -rf themes icons lightdm-webkit /usr/share/
+  cd ../bin/
+  sudo cp -rf * /usr/bin/
   xrdb ~/.Xresources
   sudo cp fonts/TTF/* /usr/share/fonts/TTF/
 
@@ -105,9 +102,7 @@ EOF
 step_6(){
 cat << EOF
 
-[ Step 6 ] Enjoy!
-
-Make some binaries executable
+[ Step 6 ] Make some binaries executable
 
 EOF
 
@@ -115,10 +110,10 @@ EOF
   chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
   fc-cache -fv
-  echo -e "\nAlright, it seems that everything is ready"
   sleep 3; clear
-  echo "Thank you for using this script, I hope it has been useful to you"
-  echo "Reboot the system?"
+  echo "Installation complete, thank you for using my dotfiles!"
+  echo "This script was made by Qwickdom and Stardust-kyun.\n"
+  echo "Would you like to reboot?"
   echo "(1) yes   (2) no"
   read -r -p "(default 1): " rbt
   case $rbt in 
@@ -126,23 +121,29 @@ EOF
       sys='systemctl reboot'
       ;;
     [2])
-      sys='(*) Skipping... Really, why?'
+      sys='(*) Skipping...'
       ;;
     [*])
       sys='systemctl reboot'
       ;;
   esac
-  if [ $rbt -eq 1 ]; then
+  if [ $rbt -eq 2 ]; then
+	echo -e "\n$sys"
     sleep 3; clear
-    echo "SEE YOU SPACE COWBOY..."
-    $sys
   else
-    echo -e "\n$sys"
     sleep 3; clear
-    echo -e "ARE YOU LIVING IN THE \nREAL WORLD?"
-    sleep 3; clear
+	$sys
   fi
 }
+
+clear
+read -p "Hello $USER! This script will install my dotfiles on your system, and may result in losing some existing configs. Would you like to continue?
+
+(1) yes
+(*) no
+
+" ans_1
+if [[ $ans_1 == "1" ]] || [[ $ans_1 == "yes" ]]; then
 
 sleep 3;
 step_1
@@ -155,3 +156,7 @@ step_3
 step_4
 step_5
 step_6
+
+else
+	exit
+fi
