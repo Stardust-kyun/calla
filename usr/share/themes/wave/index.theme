@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=wave
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=wave
+MetacityTheme=wave
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24
