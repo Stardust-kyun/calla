@@ -58,7 +58,7 @@ cat << EOF
 
 EOF
 
-  $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf nautilus gd rofi ttf-roboto \
+  $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nautilus gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome --noconfirm
   sleep 3; clear
@@ -97,8 +97,8 @@ EOF
   cd ~/.config/st
   sudo make install
 
-  sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
-  sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
+  sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
+  sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
 }
 
