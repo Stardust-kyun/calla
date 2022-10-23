@@ -114,7 +114,7 @@ EOF
   fc-cache -fv
   sleep 3; clear
   echo "Installation complete, thank you for using my dotfiles!"
-  echo "This script was made by Qwickdom and Stardust-kyun.\n"
+  echo "This script was made by Qwickdom and Stardust-kyun."
   echo "Would you like to reboot?"
   echo "(1) yes   (2) no"
   read -r -p "(default 1): " rbt
