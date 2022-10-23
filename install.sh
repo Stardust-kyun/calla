@@ -146,6 +146,7 @@ read -p "Hello $USER! This script will install my dotfiles on your system, and m
 if [[ $ans_1 == "1" ]] || [[ $ans_1 == "yes" ]]; then
 
 sleep 3;
+clear
 step_1
 
 while [[ $ans_2 != "1" ]] && [[ $ans_2 != "2" ]] && [[ $ans_2 != "yay" ]] && [[ $ans_2 != "paru" ]]; do
