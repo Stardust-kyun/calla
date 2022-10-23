@@ -18,9 +18,16 @@ Coming soon...
 
 ## Contributions
 
-- [Qwickdom](https://github.com/Qwickdom/) for help adding brightness support and an installation script (wip).
+- [Qwickdom](https://github.com/Qwickdom) for help adding brightness support and an installation script.
 - [Crylia](https://github.com/Crylia) for massive amounts of help learning awesomewm.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
+
+### And some projects I used
+
+- [Siduck's st](https://github.com/siduck76/st) for my personal choice of terminal.
+- [DmgBlue](https://github.com/davidmogar/lightdm-webkit2-dmg_blue), which I based my greeter on.
+- [Materia](https://github.com/nana-4/materia-theme), which I based my gtk themes on.
+- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), which I based my icon themes on.
 
 ## Contact
 
