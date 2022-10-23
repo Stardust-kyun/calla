@@ -86,10 +86,10 @@ EOF
   cp -rf .config .icons .librewolf .vim .Xresources .bashrc .gtkrc-2.0 .xsettingsd ~/
   cd ../usr/share/
   sudo cp -rf themes icons lightdm-webkit /usr/share/
+  sudo cp fonts/TTF/* /usr/share/fonts/TTF/
   cd ../bin/
   sudo cp -rf * /usr/bin/
   xrdb ~/.Xresources
-  sudo cp fonts/TTF/* /usr/share/fonts/TTF/
 
   cd ~/.config/st
   sudo make install
@@ -97,6 +97,7 @@ EOF
   sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
   sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
+  sudo rm -rf /tmp/dotfiles/
   sleep 3; clear
 }
 
@@ -117,23 +118,12 @@ EOF
   echo "Would you like to reboot?"
   echo "(1) yes   (2) no"
   read -r -p "(default 1): " rbt
-  case $rbt in 
-    [1])
-      sys='systemctl reboot'
-      ;;
-    [2])
-      sys='(*) Skipping...'
-      ;;
-    [*])
-      sys='systemctl reboot'
-      ;;
-  esac
   if [[ $rbt -eq 2 ]]; then
-	echo -e "\n$sys"
+	echo -e "\nSkipping..."
     sleep 3; clear
   else
     sleep 3; clear
-	$sys
+	systemctl reboot
   fi
 }
 
