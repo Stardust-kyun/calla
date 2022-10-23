@@ -128,7 +128,7 @@ EOF
       sys='systemctl reboot'
       ;;
   esac
-  if [ $rbt -eq 2 ]; then
+  if [[ $rbt -eq 2 ]]; then
 	echo -e "\n$sys"
     sleep 3; clear
   else
