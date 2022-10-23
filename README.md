@@ -14,7 +14,10 @@ This is my desktop made with awesomewm! Here's some details:
 
 ## Installation
 
-Coming soon...
+```
+$ git clone https://github.com/stardust-kyun/dotfiles
+$ dotfiles/install.sh
+```
 
 ## Contributions
 
