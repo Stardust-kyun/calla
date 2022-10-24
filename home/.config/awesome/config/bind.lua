@@ -13,10 +13,10 @@ awful.keyboard.append_global_keybindings({
 		{ c.modkey }, "k", function() hotkeys_popup.show_help() end,
 		{ description = "show keybindings", group = "awesome" }
 	),
-    awful.key(
-		{ c.modkey, "Shift" }, "r", awesome.restart,
-        { description = "reload awesome", group = "awesome" }
-	),
+--	awful.key(
+--		{ c.modkey, "Shift" }, "r", awesome.restart,
+--	    { description = "reload awesome", group = "awesome" }
+--	),
     awful.key(
 		{ c.modkey, }, "Return", function () awful.spawn(c.terminal) end,
         { description = "open a terminal", group = "awesome" }
@@ -26,7 +26,7 @@ awful.keyboard.append_global_keybindings({
         { description = "run prompt", group = "launcher" }
 	),
     awful.key(
-		{ c.modkey }, "e", function () awful.spawn.with_shell("~/.config/rofi/kaomoji.sh") end,
+		{ c.modkey }, "e", function () awful.spawn.with_shell("~/.config/awesome/bin/kaomoji") end,
         { description = "kaomoji menu", group = "launcher" }
 	),
     awful.key(
