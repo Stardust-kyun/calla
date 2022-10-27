@@ -55,9 +55,31 @@ cat << EOF
 EOF
 
   sleep 3;
-  $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nautilus gd rofi ttf-roboto \
-  ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
-  viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --noconfirm
+  if ! command -v vim &> /dev/null; then
+    $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nautilus gd rofi ttf-roboto \
+    ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
+    viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --noconfirm
+    sleep 3; clear
+  else
+    echo -e "\nIt seems that you already have vim installed which causes conflict with gvim"
+    echo "To proceed you'll have to replace vim with gvim, ok?"
+    echo "(1) yes   (2) no"
+    read -r -p "(default 1): " rbt
+    if [[ $rbt -eq 2 ]]; then
+      echo -e "\nExiting..."
+      sleep 3; clear
+      exit
+    else
+      sudo pacman -Rsnc vim --noconfirm
+      sleep 3; clear
+      echo -e "\nInstalling dependecies"
+      $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nautilus gd rofi ttf-roboto \
+      ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
+      viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --noconfirm
+      sleep 3; clear
+    fi
+    sleep 3; clear
+  fi
   sleep 3; clear
 }
 
@@ -128,7 +150,8 @@ EOF
 }
 
 clear
-read -p "Hello $USER! This script will install my dotfiles on your system, and may result in losing some existing configs. Would you like to continue?
+read -p "Hello $USER! This script will install my dotfiles on your system, and may result in losing some existing configs.
+Would you like to continue?
 
 (1) yes
 (*) no
