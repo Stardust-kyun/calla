@@ -15,8 +15,9 @@ This is my desktop made with awesomewm! Here's some details:
 ## Installation
 
 ```
-$ git clone https://github.com/stardust-kyun/dotfiles
-$ dotfiles/install.sh
+$ git clone https://github.com/Stardust-kyun/dotfiles
+$ cd dotfiles && chmod u+x install.sh
+$ ./install.sh
 ```
 
 ## Contributions
