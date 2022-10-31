@@ -14,6 +14,8 @@ This is my desktop made with awesomewm! Here's some details:
 
 ## Installation
 
+This installation script is intended to work from a base install of EndeavourOS. I cannot guarantee it will work on other Arch-based distributions, and it does not currently support any other distributions. 
+
 ```
 $ git clone https://github.com/stardust-kyun/dotfiles
 $ dotfiles/install.sh
@@ -23,6 +25,7 @@ $ dotfiles/install.sh
 
 - [Qwickdom](https://github.com/Qwickdom) for help adding brightness support and an installation script.
 - [Crylia](https://github.com/Crylia) for massive amounts of help learning awesomewm.
+- [Sammy](https://github.com/TorchedSammy) for helping me learn awesomewm's widget system.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
 
 ### And some projects I used
