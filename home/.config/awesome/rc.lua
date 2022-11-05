@@ -6,7 +6,7 @@ c = {}
 
 c.terminal = "st"
 c.browser = "librewolf"
-c.files = "nautilus"
+c.files = "nemo"
 c.editor = os.getenv("EDITOR") or "vim"
 c.editor_cmd = c.terminal .. " -e " .. c.editor
 c.modkey = "Mod1"
