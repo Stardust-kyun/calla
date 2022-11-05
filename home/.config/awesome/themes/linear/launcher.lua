@@ -196,8 +196,8 @@ launcherDisplay:setup {
 				{
 					{
 						textbutton{ text="", size="15", onclick="~/.config/awesome/bin/lock -l" },
-						textbutton{ text="", size="15", onclick="awesome-client command 'awesome.quit()'" },
 						textbutton{ text="", size="15", onclick="systemctl poweroff" },
+						textbutton{ text="", size="15", onclick="systemctl restart" },
 						expand = "none",
 						layout = wibox.layout.align.horizontal
 					},
