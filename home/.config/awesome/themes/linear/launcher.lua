@@ -195,7 +195,7 @@ launcherDisplay:setup {
 				},
 				{
 					{
-						textbutton{ text="", size="15", onclick="~/.config/awesome/bin/lock -l" },
+						textbutton{ text="", size="15", onclick="light-locker-command -l" },
 						textbutton{ text="", size="15", onclick="systemctl poweroff" },
 						textbutton{ text="", size="15", onclick="systemctl restart" },
 						expand = "none",

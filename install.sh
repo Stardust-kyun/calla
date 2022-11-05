@@ -55,7 +55,7 @@ cat << EOF
 EOF
 
   sleep 3;
-  $HELPER -S awesome-git lightdm lightdm-webkit2-greeter gvim librewolf-bin nemo gd rofi ttf-roboto \
+  $HELPER -S awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --noconfirm
   sleep 3; clear

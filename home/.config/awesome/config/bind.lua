@@ -13,6 +13,10 @@ awful.keyboard.append_global_keybindings({
 		{ c.modkey }, "k", function() hotkeys_popup.show_help() end,
 		{ description = "show keybindings", group = "awesome" }
 	),
+awful.key(
+		{ c.modkey }, "0", function() awful.spawn("light-locker-command -l") end,
+		{ description = "lock screen", group = "awesome" }
+	),
 --	awful.key(
 --		{ c.modkey, "Shift" }, "r", awesome.restart,
 --	    { description = "reload awesome", group = "awesome" }
