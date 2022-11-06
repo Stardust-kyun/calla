@@ -21,9 +21,9 @@ client.connect_signal("request::titlebars", function(c)
 				left = dpi(15),
 				widget = wibox.container.margin
 			},
-            buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
+		buttons = buttons,
         layout = wibox.layout.align.horizontal
     }
 end)

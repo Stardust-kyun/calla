@@ -21,7 +21,7 @@ EOF
   if [[ $ans_2 == "1" ]] || [[ $ans_2 == "yay" ]]; then
     HELPER="yay"
     if ! command -v $HELPER &> /dev/null; then
-      sudo pacman -S git --noconfirm
+      sudo pacman -S git --noconfirm --needed
       git clone https://aur.archlinux.org/$HELPER.git /tmp/$HELPER
       (cd /tmp/$HELPER/ && makepkg -si PKGBUILD)
       sleep 3; clear
@@ -33,7 +33,7 @@ EOF
   elif [[ $ans_2 == "2" ]] || [[ $ans_2 == "paru" ]]; then
     HELPER="paru"
     if ! command -v $HELPER &> /dev/null; then
-      sudo pacman -S git --noconfirm
+      sudo pacman -S git --noconfirm --needed
       git clone https://aur.archlinux.org/$HELPER.git /tmp/$HELPER
       (cd /tmp/$HELPER/ && makepkg -si PKGBUILD)
       sleep 3; clear
@@ -95,6 +95,7 @@ EOF
   cd ~/.config/st
   sudo make install
 
+  xdg-user-dirs-update
   sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
   sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
