@@ -55,9 +55,10 @@ cat << EOF
 EOF
 
   sleep 3;
-  $HELPER -S awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
+  all | $HELPER -S base-devel
+  yes | $HELPER -S xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
-  viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --noconfirm
+  viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
   sleep 3; clear
 }
 
@@ -97,6 +98,7 @@ EOF
   sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
   sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
+  sudo systemctl enable NetworkManager
   sudo rm -rf /tmp/dotfiles/
   sleep 3; clear
 }

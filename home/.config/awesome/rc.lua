@@ -9,7 +9,7 @@ c.browser = "librewolf"
 c.files = "nemo"
 c.editor = os.getenv("EDITOR") or "vim"
 c.editor_cmd = c.terminal .. " -e " .. c.editor
-c.modkey = "Mod1"
+c.modkey = "Mod4"
 
 -- Config
 require("awful.autofocus")
