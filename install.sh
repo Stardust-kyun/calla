@@ -82,10 +82,13 @@ EOF
   sudo cp -r . /usr/share/
   cd ../bin/
   sudo cp -r . /usr/bin/
+  cd ../../lib/librewolf/
+  sudo cp -r . /lib/librewolf/
   sudo rm -rf /tmp/dotfiles/
 
-  sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
-  sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
+  sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
+  sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
+  sudo sed -i "s/USER/`whoami`/g" /lib/librewolf/mozilla.cfg
   sudo systemctl enable lightdm
   sudo systemctl enable NetworkManager
 
