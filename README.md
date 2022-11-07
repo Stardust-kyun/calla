@@ -17,8 +17,9 @@ This is my desktop made with awesomewm! Here's some details:
 This installation script is intended to work from a base install of EndeavourOS. I cannot guarantee it will work on other Arch-based distributions, and it does not currently support any other distributions. 
 
 ```
-$ git clone https://github.com/stardust-kyun/dotfiles
-$ dotfiles/install.sh
+$ git clone https://github.com/stardust-kyun/dotfiles /tmp/dotfiles
+$ cd /tmp/dotfiles
+$ ./install.sh
 ```
 
 ## Contributions

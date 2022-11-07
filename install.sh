@@ -65,21 +65,7 @@ EOF
 step_4(){
 cat << EOF
 
-[ Step 4 ] Get dotfiles
-
-EOF
-
-  sleep 3;
-  git clone https://github.com/Stardust-kyun/dotfiles /tmp/dotfiles
-  cd /tmp/dotfiles/
-  echo -e "\nDotfiles are ready to be copied"
-  sleep 3; clear
-}
-
-step_5(){
-cat << EOF
-
-[ Step 5 ] Setup dotfiles
+[ Step 4 ] Setup dotfiles
 
 EOF
 
@@ -144,7 +130,6 @@ done
 
 step_3
 step_4
-step_5
 
 else
 	exit
