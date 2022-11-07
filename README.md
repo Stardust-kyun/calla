@@ -33,8 +33,8 @@ Install a minimal system without a desktop environment.
 ### After System Installation
 
 ```
-$ git clone https://github.com/stardust-kyun/dotfiles /tmp/dotfiles
-$ cd /tmp/dotfiles
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
 $ ./install.sh
 ```
 

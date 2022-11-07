@@ -84,7 +84,7 @@ EOF
   sudo cp -r . /usr/bin/
   cd ../../lib/librewolf/
   sudo cp -r . /lib/librewolf/
-  sudo rm -rf /tmp/dotfiles/
+  sudo rm -rf ~/dotfiles/
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
@@ -128,8 +128,7 @@ Would you like to continue?
 (1) yes
 (*) no
 
-(?) Select option: 
-" ans_1
+(?) Select option: " ans_1
 if [[ $ans_1 == "1" ]] || [[ $ans_1 == "yes" ]]; then
 
 sleep 3;
