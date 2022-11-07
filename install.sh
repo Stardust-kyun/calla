@@ -79,14 +79,17 @@ EOF
 step_5(){
 cat << EOF
 
-[ Step 5 ] Copy dotfiles
+[ Step 5 ] Setup dotfiles
 
 EOF
 
+  mkdir -p /usr/share/themes
+  mkdir -p /usr/share/fonts/TTF
+
   cd home/
-  cp -rf .config .icons .librewolf .vim .Xresources .bashrc .gtkrc-2.0 .xsettingsd ~/
+  cp -rf * ~/
   cd ../usr/share/
-  sudo cp -rf themes icons lightdm-webkit /usr/share/
+  sudo cp -rf * /usr/share/
   sudo cp fonts/TTF/* /usr/share/fonts/TTF/
   cd ../bin/
   sudo cp -rf * /usr/bin/
@@ -101,21 +104,13 @@ EOF
   sudo systemctl enable lightdm
   sudo systemctl enable NetworkManager
   sudo rm -rf /tmp/dotfiles/
-  sleep 3; clear
-}
-
-step_6(){
-cat << EOF
-
-[ Step 6 ] Make some binaries executable
-
-EOF
 
   cd ~
   chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
   fc-cache -fv
   sleep 3; clear
+
   echo "Installation complete, thank you for using my dotfiles!"
   echo "This script was made by Qwickdom and Stardust-kyun."
   echo "Would you like to reboot?"
@@ -150,7 +145,6 @@ done
 step_3
 step_4
 step_5
-step_6
 
 else
 	exit
