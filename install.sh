@@ -56,7 +56,7 @@ EOF
 
   sleep 3;
   $HELPER -S base-devel --needed
-  yes | $HELPER -S xdg-user-dirs awesome-git lightdm lisudo cp fonts/TTF/* /usr/share/fonts/TTF/ghtdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
+  yes | $HELPER -S xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
   sleep 3; clear
