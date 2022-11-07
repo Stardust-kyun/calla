@@ -23,7 +23,7 @@ EOF
     if ! command -v $HELPER &> /dev/null; then
       sudo pacman -S git --noconfirm --needed
       git clone https://aur.archlinux.org/$HELPER.git /tmp/$HELPER
-      (cd /tmp/$HELPER/ && makepkg -si PKGBUILD)
+      (cd /tmp/$HELPER/ && makepkg -si --noconfirm --needed PKGBUILD)
       sleep 3; clear
     else
       echo -e "\n(*) It seems that you already have $HELPER installed, skipping..."
@@ -35,7 +35,7 @@ EOF
     if ! command -v $HELPER &> /dev/null; then
       sudo pacman -S git --noconfirm --needed
       git clone https://aur.archlinux.org/$HELPER.git /tmp/$HELPER
-      (cd /tmp/$HELPER/ && makepkg -si PKGBUILD)
+      (cd /tmp/$HELPER/ && makepkg -si --noconfirm --needed PKGBUILD)
       sleep 3; clear
     else
       echo -e "\n(*) It seems that you already have $HELPER installed, skipping..."
@@ -87,12 +87,12 @@ EOF
   mkdir -p /usr/share/fonts/TTF
 
   cd home/
-  cp -rf * ~/
+  cp -rf ./* ~/
   cd ../usr/share/
-  sudo cp -rf * /usr/share/
+  sudo cp -rf ./* /usr/share/
   sudo cp fonts/TTF/* /usr/share/fonts/TTF/
   cd ../bin/
-  sudo cp -rf * /usr/bin/
+  sudo cp -rf ./* /usr/bin/
   xrdb ~/.Xresources
 
   cd ~/.config/st
