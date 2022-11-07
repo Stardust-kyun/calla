@@ -105,11 +105,12 @@ EOF
   mkdir ~/Pictures/Screenshots
   sleep 3; clear
 
-  echo "Installation complete, thank you for using my dotfiles!"
-  echo "This script was made by Qwickdom and Stardust-kyun."
-  echo "Would you like to reboot?"
-  echo "(1) yes   (2) no"
-  read -r -p "(default 1): " rbt
+  read -r -p "Installation complete, thank you for using my dotfiles!
+This script was made by Qwickdom and Stardust-kyun.
+Would you like to reboot?
+(1) yes   (2) no
+
+(default 1): " rbt
   if [[ $rbt -eq 2 ]]; then
 	echo -e "\nSkipping..."
     sleep 3; clear
@@ -127,6 +128,7 @@ Would you like to continue?
 (1) yes
 (*) no
 
+(?) Select option: 
 " ans_1
 if [[ $ans_1 == "1" ]] || [[ $ans_1 == "yes" ]]; then
 
