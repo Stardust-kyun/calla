@@ -99,6 +99,7 @@ EOF
   fc-cache -fv
   xrdb ~/.Xresources
   xdg-user-dirs-update
+  mkdir ~/Pictures/Screenshots
   sleep 3; clear
 
   echo "Installation complete, thank you for using my dotfiles!"
