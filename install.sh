@@ -83,16 +83,16 @@ cat << EOF
 
 EOF
 
-  mkdir -p /usr/share/themes
-  mkdir -p /usr/share/fonts/TTF
+  sudo mkdir -p /usr/share/themes
+  sudo mkdir -p /usr/share/fonts/TTF
 
   cd home/
-  cp -rf ./* ~/
+  cp -rf . ~/
   cd ../usr/share/
-  sudo cp -rf ./* /usr/share/
+  sudo cp -rf . /usr/share/
   sudo cp fonts/TTF/* /usr/share/fonts/TTF/
   cd ../bin/
-  sudo cp -rf ./* /usr/bin/
+  sudo cp -rf . /usr/bin/
   xrdb ~/.Xresources
 
   cd ~/.config/st
