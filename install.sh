@@ -77,11 +77,11 @@ EOF
   sleep 3;
 
   cd home/
-  cp -rv . ~/
+  cp -r . ~/
   cd ../usr/share/
-  sudo cp -rv . /usr/share/
+  sudo cp -r . /usr/share/
   cd ../bin/
-  sudo cp -rv . /usr/bin/
+  sudo cp -r . /usr/bin/
   sudo rm -rf /tmp/dotfiles/
 
   sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
