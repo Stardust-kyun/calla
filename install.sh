@@ -1,10 +1,15 @@
 #!/bin/env bash
 
 step_1(){
+cat << EOF
 
-  echo -e "\n[ Step 1 ] System update\n"
+[ Step 1 ] System Update
+
+EOF
+
+  sleep 3;
   sudo pacman -Syu --noconfirm
-  sleep 3; clear
+  clear
 }
 
 step_2(){
@@ -59,7 +64,7 @@ EOF
   yes | $HELPER -S xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
-  sleep 3; clear
+  clear
 }
 
 step_4(){
@@ -69,31 +74,31 @@ cat << EOF
 
 EOF
 
-  sudo mkdir -p /usr/share/themes
-  sudo mkdir -p /usr/share/fonts/TTF
+  sleep 3;
 
   cd home/
-  cp -r . ~/
+  cp -rv . ~/
   cd ../usr/share/
-  sudo cp -r . /usr/share/
+  sudo cp -rv . /usr/share/
   cd ../bin/
-  sudo cp -r . /usr/bin/
-  xrdb ~/.Xresources
+  sudo cp -rv . /usr/bin/
+  sudo rm -rf /tmp/dotfiles/
 
-  cd ~/.config/st
-  sudo make install
-
-  xdg-user-dirs-update
   sudo sed -i 's/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
   sudo sed -i 's/webkit_theme.*/webkit_theme = minimal/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
   sudo systemctl enable NetworkManager
-  sudo rm -rf /tmp/dotfiles/
 
   cd ~
   chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
+
+  cd ~/.config/st
+  sudo make install
+
   fc-cache -fv
+  xrdb ~/.Xresources
+  xdg-user-dirs-update
   sleep 3; clear
 
   echo "Installation complete, thank you for using my dotfiles!"
@@ -111,7 +116,9 @@ EOF
 }
 
 clear
-read -p "Hello $USER! This script will install my dotfiles on your system, and may result in losing some existing configs. Would you like to continue?
+read -p "Hello $USER! This script will install my dotfiles on your system 
+and may result in losing some existing configs. 
+Would you like to continue?
 
 (1) yes
 (*) no
