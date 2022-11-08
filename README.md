@@ -36,6 +36,9 @@ Install a minimal system without a desktop environment.
 $ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
 $ cd ~/dotfiles
 $ ./install.sh
+
+# Install with log
+$ script -c ./install.sh ~/dotfiles-log.txt 
 ```
 
 </details>

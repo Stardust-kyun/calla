@@ -61,7 +61,7 @@ EOF
 
   sleep 3;
   $HELPER -S base-devel --needed
-  yes | $HELPER -S xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
+  yes | $HELPER -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
   ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
   clear
@@ -70,11 +70,13 @@ EOF
 step_4(){
 cat << EOF
 
-[ Step 4 ] Setup dotfiles
+[ Step 4 ] Setup Dotfiles
 
 EOF
 
   sleep 3;
+
+  echo "Copying files, please wait..."
 
   cd home/
   cp -r . ~/
