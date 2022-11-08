@@ -84,6 +84,8 @@ EOF
   sudo cp -r . /usr/bin/
   cd ../../lib/librewolf/
   sudo cp -r . /lib/librewolf/
+  cd ~/.librewolf/
+  cp -r default-release/* *.default-release/
   sudo rm -rf ~/dotfiles/
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
