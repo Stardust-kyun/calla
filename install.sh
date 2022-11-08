@@ -76,8 +76,6 @@ EOF
 
   sleep 3;
 
-  librewolf --headless &
-
   cd home/
   cp -r . ~/
   cd ../usr/share/
@@ -88,8 +86,6 @@ EOF
   sed -i "s/USER/`whoami`/g" mozilla.cfg
   sed -i "s/USER/`whoami`/g" defaults/pref/autoconfig.js
   sudo cp -r . /lib/librewolf/
-  cd ~/.librewolf/
-  cp -r default-release/* *.default-release/
   sudo rm -rf ~/dotfiles/
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
