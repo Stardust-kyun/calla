@@ -83,6 +83,8 @@ EOF
   cd ../bin/
   sudo cp -r . /usr/bin/
   cd ../../lib/librewolf/
+  sed -i "s/USER/`whoami`/g" mozilla.cfg
+  sed -i "s/USER/`whoami`/g" defaults/pref/autoconfig.js
   sudo cp -r . /lib/librewolf/
   cd ~/.librewolf/
   cp -r default-release/* *.default-release/
@@ -90,7 +92,6 @@ EOF
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
-  sudo sed -i "s/USER/`whoami`/g" /lib/librewolf/mozilla.cfg
   sudo systemctl enable lightdm
   sudo systemctl enable NetworkManager
 
