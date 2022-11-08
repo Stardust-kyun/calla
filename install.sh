@@ -76,6 +76,8 @@ EOF
 
   sleep 3;
 
+  librewolf --headless
+
   cd home/
   cp -r . ~/
   cd ../usr/share/
