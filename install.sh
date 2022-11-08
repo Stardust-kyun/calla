@@ -76,7 +76,7 @@ EOF
 
   sleep 3;
 
-  librewolf --headless
+  librewolf --headless &
 
   cd home/
   cp -r . ~/
@@ -127,7 +127,7 @@ Would you like to reboot?
 
 clear
 read -p "Hello $USER! This script will install my dotfiles on your system 
-and may result in losing some existing configs. 
+And may result in losing some existing configs. 
 Would you like to continue?
 
 (1) yes
