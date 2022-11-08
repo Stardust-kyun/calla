@@ -84,7 +84,6 @@ EOF
   sudo cp -r . /usr/bin/
   cd ../../lib/librewolf/
   sed -i "s/USER/`whoami`/g" mozilla.cfg
-  sed -i "s/USER/`whoami`/g" defaults/pref/autoconfig.js
   sudo cp -r . /lib/librewolf/
   sudo rm -rf ~/dotfiles/
 
