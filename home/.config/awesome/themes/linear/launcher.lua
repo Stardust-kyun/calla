@@ -196,8 +196,8 @@ launcherDisplay:setup {
 				{
 					{
 						textbutton{ text="", size="15", onclick="light-locker-command -l" },
-						textbutton{ text="", size="15", onclick="systemctl poweroff" },
-						textbutton{ text="", size="15", onclick="systemctl restart" },
+						textbutton{ text="", size="15", onclick="shutdown now" },
+						textbutton{ text="", size="15", onclick="reboot" },
 						expand = "none",
 						layout = wibox.layout.align.horizontal
 					},

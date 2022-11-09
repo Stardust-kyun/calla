@@ -1,5 +1,5 @@
--- Unmuting audio before the volume signal is emitted will fix errors on startup.
-require("awful").spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
+-- Running pactl before the volume signal is emitted will fix errors on startup.
+require("awful").spawn.with_shell("pactl stat")
 
 -- Define defaults
 c = {}

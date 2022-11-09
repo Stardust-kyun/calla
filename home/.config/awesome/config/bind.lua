@@ -9,17 +9,18 @@ awful.mouse.append_global_mousebindings({
 
 -- General keys
 awful.keyboard.append_global_keybindings({
+
 	awful.key(
 		{ c.modkey }, "k", function() hotkeys_popup.show_help() end,
 		{ description = "show keybindings", group = "awesome" }
 	),
-awful.key(
-		{ c.modkey }, "0", function() awful.spawn("light-locker-command -l") end,
-		{ description = "lock screen", group = "awesome" }
+	awful.key(
+		{ c.modkey }, "0", function() awesome.emit_signal("widget::power") end,
+		{ description = "show power menu", group = "awesome" }
 	),
---	awful.key(
+--  awful.key(
 --		{ c.modkey, "Shift" }, "r", awesome.restart,
---	    { description = "reload awesome", group = "awesome" }
+--      { description = "reload awesome", group = "awesome" }
 --	),
     awful.key(
 		{ c.modkey, }, "Return", function () awful.spawn(c.terminal) end,

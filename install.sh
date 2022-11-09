@@ -17,6 +17,8 @@ cat << EOF
 
 [ Step 2 ] AUR Helper
 
+READ: paru is currently broken with the installer, so select yay
+
 (1) yay
 (2) paru
 
@@ -107,23 +109,27 @@ EOF
   mkdir ~/Pictures/Screenshots
   sleep 3; clear
 
-  read -r -p "Installation complete, thank you for using my dotfiles!
+  read -r -p "
+Installation complete, thank you for using my dotfiles!
 This script was made by Qwickdom and Stardust-kyun.
 Would you like to reboot?
-(1) yes   (2) no
 
-(default 1): " rbt
-  if [[ $rbt -eq 2 ]]; then
-	echo -e "\nSkipping..."
-    sleep 3; clear
-  else
+(1) yes
+(*) no
+
+(?) Select option: " rbt
+  if [[ $rbt -eq 1 ]]; then
     sleep 3; clear
 	systemctl reboot
+  else
+	echo -e "\nSkipping..."
+    sleep 3; clear
   fi
 }
 
 clear
-read -p "Hello $USER! This script will install my dotfiles on your system 
+read -p "
+Hello $USER! This script will install my dotfiles on your system 
 And may result in losing some existing configs. 
 Would you like to continue?
 
@@ -131,7 +137,7 @@ Would you like to continue?
 (*) no
 
 (?) Select option: " ans_1
-if [[ $ans_1 == "1" ]] || [[ $ans_1 == "yes" ]]; then
+if [[ $ans_1 == "1" ]]; then
 
 sleep 3;
 clear
