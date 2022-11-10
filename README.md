@@ -45,7 +45,7 @@ $ script -c ./install.sh ~/dotfiles-log.txt
 
 Other distributions are not yet supported and may be added in the future.
 
-## Screenshots
+## Gallery
 
 <details>
 <summary><b>Expand for images!</b></summary>
@@ -67,14 +67,16 @@ Other distributions are not yet supported and may be added in the future.
 
 </details>
 
-## Contributions
+## Credit
+
+### Contributions
 
 - [Qwickdom](https://github.com/Qwickdom) for help adding brightness support and an installation script.
 - [Crylia](https://github.com/Crylia) for massive amounts of help learning awesomewm.
 - [Sammy](https://github.com/TorchedSammy) for helping me learn awesomewm's widget system.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
 
-### And some projects I used
+### Projects
 
 - [Siduck's st](https://github.com/siduck76/st) for my personal choice of terminal.
 - [DmgBlue](https://github.com/davidmogar/lightdm-webkit2-dmg_blue), which I based my greeter on.
