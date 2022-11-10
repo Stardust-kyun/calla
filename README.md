@@ -1,6 +1,6 @@
 <h1 align=center>Sakura Dotfiles</h1>
 
-<img src="screenshot.png" alt="img" align="right" width="500px">
+<img src="src/thumbnail.png" alt="img" align="right" width="500px">
 
 This is my desktop made with awesomewm! Here's some details:
 
@@ -44,6 +44,28 @@ $ script -c ./install.sh ~/dotfiles-log.txt
 </details>
 
 Other distributions are not yet supported and may be added in the future.
+
+## Screenshots
+
+<details>
+<summary><b>Expand for images!</b></summary>
+
+### Terminal
+![terminal](src/terminal.png)
+
+### Graphical
+![graphical](src/graphical.png)
+
+### Widget
+![widget](src/widget.png)
+
+### Browser
+![browser](src/browser.png)
+
+### Launcher
+![launcher](src/launcher.png)
+
+</details>
 
 ## Contributions
 
