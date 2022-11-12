@@ -85,4 +85,4 @@ Other distributions are not yet supported and may be added in the future.
 
 ## Contact
 
-You can find me on discord at `Stardust-kyun#5994` and matrix at `stardust-kyun:matrix.org`.
+You can find me on discord at `Stardust-kyun#5994` and matrix at `stardust-kyun:matrix.org`. I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.
