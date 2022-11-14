@@ -6,7 +6,7 @@ local dpi = beautiful.xresources.apply_dpi
 
 local launcherDisplay = wibox {
 	width = dpi(200),
-	height = dpi(295),
+	height = dpi(235),
 	bg = beautiful.bg_normal,
 	ontop = true,
 	visible = false,
@@ -186,25 +186,11 @@ launcherDisplay:setup {
 		},
 		{
 			{
-				{
-					textbutton{ text="", size="15", onclick=c.browser },
-					textbutton{ text="", size="15", onclick=c.terminal },
-					textbutton{ text="", size="15", onclick=c.files },
-					expand = "none",
-					layout = wibox.layout.align.horizontal
-				},
-				{
-					{
-						textbutton{ text="", size="15", onclick="light-locker-command -l" },
-						textbutton{ text="", size="15", onclick="shutdown now" },
-						textbutton{ text="", size="15", onclick="reboot" },
-						expand = "none",
-						layout = wibox.layout.align.horizontal
-					},
-					top = dpi(15),
-					widget = wibox.container.margin
-				},
-				layout = wibox.layout.align.vertical
+				textbutton{ text="", size="15", onclick=c.browser },
+				textbutton{ text="", size="15", onclick=c.terminal },
+				textbutton{ text="", size="15", onclick=c.files },
+				expand = "none",
+				layout = wibox.layout.align.horizontal
 			},
 			left = dpi(15),
 			right = dpi(15),
