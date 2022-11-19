@@ -48,7 +48,7 @@ Other distributions are not yet supported and may be added in the future.
 ## Gallery
 
 <details>
-<summary><b>Expand for images!</b></summary>
+<summary><b>Programs/Widgets</b></summary>
 
 ### Terminal
 ![terminal](src/terminal.png)
@@ -64,6 +64,26 @@ Other distributions are not yet supported and may be added in the future.
 
 ### Launcher
 ![launcher](src/launcher.png)
+
+</details>
+
+<details>
+<summary><b>Color Schemes</b></summary>
+
+### Sakura
+![terminal](src/sakura.png)
+
+### Bloom
+![graphical](src/bloom.png)
+
+### Shore
+![widget](src/shore.png)
+
+### Wave
+![browser](src/wave.png)
+
+### Shuttle
+![launcher](src/shuttle.png)
 
 </details>
 

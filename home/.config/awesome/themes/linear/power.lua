@@ -21,8 +21,6 @@ local header = wibox.widget {
 	widget = wibox.widget.textbox
 }
 
-local clock = wibox.widget.textclock("%I:%M %p")
-
 local textbutton = function(args)
 	local text = args.text
 	local size = args.size or dpi(10)
@@ -56,8 +54,6 @@ powerDisplay:setup {
 			{
 				{
 					header,
-					nil,
-					clock,
 					forced_width = dpi(285),
 					layout = wibox.layout.align.horizontal,
 				},

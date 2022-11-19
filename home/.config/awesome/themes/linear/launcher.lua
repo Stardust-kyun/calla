@@ -21,8 +21,6 @@ local header = wibox.widget {
 	widget = wibox.widget.textbox
 }
 
-local clock = wibox.widget.textclock("%I:%M %p")
-
 local batteryicon = wibox.widget {
 	text = "",
 	font = "Material Icons 16",
@@ -117,8 +115,6 @@ launcherDisplay:setup {
 			{
 				{
 					header,
-					nil,
-					clock,
 					forced_width = dpi(200),
 					layout = wibox.layout.align.horizontal,
 				},
