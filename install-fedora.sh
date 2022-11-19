@@ -26,6 +26,10 @@ EOF
   sudo dnf install dnf-plugins-core -y 
 
   sleep 2;
+  echo "Enabling lightdm-webkit2.."
+  sudo dnf copr enable antergos/lightdm-webkit2-greeter 
+
+  sleep 2;
   echo "Installing Librewolf.."
   sudo rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3 
 
@@ -35,7 +39,7 @@ EOF
 
   sleep 3;
   echo "Installing system dependencies..."
-  sudo dnf install xclip xprop xdg-user-dirs lightdm light-locker vim-X11 nemo libgda-devel harfbuzz-devel \
+  sudo dnf install xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker vim-X11 nemo libgda-devel harfbuzz-devel \
     libXext-devel libXrender-devel libXinerama-devel rofi google-roboto-fonts google-roboto-mono-fonts xsettingsd picom \
     network-manager-applet breeze-cursor-theme inotify-tools light maim zathura viewnior \
     polkit-gnome google-noto-cjk-fonts google-noto-fonts-common google-noto-emoji-fonts -y 
@@ -110,7 +114,7 @@ EOF
 
   read -r -p "
 Installation complete, thank you for using my dotfiles!
-This script was made by AloneERO and Frankfut.
+This script was made by AloneERO.
 Would you like to reboot?
 
 (1) yes
