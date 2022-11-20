@@ -35,10 +35,34 @@ Install a minimal system without a desktop environment.
 ```
 $ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
 $ cd ~/dotfiles
-$ ./install.sh
+$ ./install-arch.sh
 
 # Install with log
-$ script -c ./install.sh ~/dotfiles-log.txt 
+$ script -c ./install-arch.sh ~/dotfiles-log.txt 
+```
+
+</details>
+
+<details>
+<summary><b>Fedora-based</b></summary>
+
+# Read:
+
+This script is still in development and may have a lot of issues. Some things may not work, use with caution.
+
+### Fedora
+
+Install Fedora Workstation.
+
+### After System Installation
+
+```
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ ./install-fedora.sh
+
+# Install with log
+$ script -c ./install-fedora.sh ~/dotfiles-log.txt 
 ```
 
 </details>

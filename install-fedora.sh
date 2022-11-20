@@ -43,7 +43,7 @@ EOF
 
   sleep 3;
   echo "Installing system dependencies..."
-  sudo dnf install xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker vim-X11 nemo \
+  sudo dnf install --refresh xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker vim-X11 nemo \
     rofi google-roboto-fonts google-roboto-mono-fonts xsettingsd picom \
     network-manager-applet breeze-cursor-theme inotify-tools light maim zathura viewnior \
     polkit-gnome google-noto-cjk-fonts google-noto-fonts-common google-noto-emoji-fonts -y 
