@@ -27,7 +27,7 @@ EOF
 
   sleep 2;
   echo "Enabling lightdm-webkit2.."
-  sudo dnf copr enable antergos/lightdm-webkit2-greeter 
+  yes | sudo dnf copr enable antergos/lightdm-webkit2-greeter 
 
   sleep 2;
   echo "Installing Librewolf.."
