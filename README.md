@@ -58,7 +58,7 @@ $ script -c ./install-arch.sh ~/dotfiles-log.txt
 
 # Read:
 
-This script is still in development and may have a lot of issues. Some things may not work, use with caution.
+This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
 
 ### Fedora
 

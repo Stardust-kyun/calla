@@ -29,23 +29,11 @@ EOF
   echo "Enabling lightdm-webkit2.."
   sudo dnf copr enable antergos/lightdm-webkit2-greeter -y
 
-  sleep 2;
-  echo "Installing st dependencies.."
-  sudo dnf build-dep st -y
-
-  sleep 2;
-  echo "Installing librewolf.."
-  sudo rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3 
-
-  sudo dnf config-manager --add-repo https://rpm.librewolf.net -y
-
-  sudo dnf install --refresh librewolf -y 
-
   sleep 3;
   echo "Installing system dependencies..."
-  sudo dnf install --refresh xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker vim-X11 nemo \
+  sudo dnf install --refresh xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
     rofi google-roboto-fonts google-roboto-mono-fonts xsettingsd picom \
-    network-manager-applet breeze-cursor-theme inotify-tools light maim zathura viewnior \
+    breeze-cursor-theme inotify-tools light maim \
     polkit-gnome google-noto-cjk-fonts google-noto-fonts-common google-noto-emoji-fonts -y 
 
   echo "Installed system dependencies!"
@@ -92,23 +80,16 @@ EOF
   sudo cp -r . /usr/share/
   cd ../bin/
   sudo cp -r . /usr/bin/
-  cd ../../lib/librewolf/
-  sed -i "s/USER/`whoami`/g" mozilla.cfg
-  sudo cp -r . /lib/librewolf/
   sudo rm -rf ~/dotfiles/
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
 
   sudo systemctl enable lightdm
-  sudo systemctl enable NetworkManager
 
   cd ~
   chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
-
-  cd ~/.config/st
-  sudo make install
 
   fc-cache -fv
   xrdb ~/.Xresources
