@@ -1,7 +1,7 @@
 <h1 align=center>Sakura Dotfiles</h1>
 
 <div align="center">
-<a href="#install">Install</a> - <a href="#usage">Usage</a> - <a href="#gallery">Gallery</a> - <a href="#credit">Credit</a> - <a href="#contact">Contact</a>
+<h6 href="#install">Install</h6> - <h6 href="#usage">Usage</h6> - <h6 href="#gallery">Gallery</h6> - <h6 href="#credit">Credit</h6> - <h6 href="#contact">Contact</h6>
 </div>
 
 <img src="src/thumbnail.png" alt="img" align="right" width="500px">
