@@ -42,7 +42,7 @@ EOF
 
   read -p "(?) Select option: " ans_3
   if [[ $ans_3 == "1" ]]; then
-	sleep 3;
+	sleep 3; clear
 	  yay -S base-devel --needed
       yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
       ttf-roboto-mono xsettingsd picom network-manager-applet cbatticon volumeicon papirus-icon-theme xcursor-breeze inotify-tools light maim zathura \
@@ -50,7 +50,7 @@ EOF
     sleep 3; clear
     
   elif [[ $ans_3 == "2" ]]; then
-	sleep 3;
+	sleep 3; clear
 	  yay -S base-devel --needed
       yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker rofi ttf-roboto \
       ttf-roboto-mono xsettingsd picom papirus-icon-theme xcursor-breeze inotify-tools light maim \

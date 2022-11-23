@@ -1,5 +1,9 @@
 <h1 align=center>Sakura Dotfiles</h1>
 
+<div align="center">
+<a href="#install">Install</a> - <a href="#usage">Usage</a> - <a href="#gallery">Gallery</a> - <a href="#credit">Credit</a> - <a href="#contact">Contact</a>
+</div>
+
 <img src="src/thumbnail.png" alt="img" align="right" width="500px">
 
 This is my desktop made with awesomewm! Here's some details:
@@ -12,7 +16,7 @@ This is my desktop made with awesomewm! Here's some details:
 - **Shell** - bash
 - **Editor** - vim
 
-## Installation
+## Install
 
 ### Read Before Installing:
 
@@ -72,6 +76,58 @@ $ script -c ./install-fedora.sh ~/dotfiles-log.txt
 </details>
 
 Other distributions are not yet supported and may be added in the future.
+
+## Usage
+
+<details>
+<summary><b>Post-Install Setup</b></summary>
+
+### Minimal Install Setup
+
+Since the minimal install doesn't include many programs/utilities, you'll need to install some before rebooting. I recommend installing a terminal, browser, file manager, and text editor. 
+
+### Configuration
+
+The file `~/.config/awesome/rc.lua` contains configuration options for awesome's default commands:
+
+| Configuration  | Description            | Default                            |
+| -------------- | ---------------------- | ---------------------------------- |
+| `c.terminal`   | Default Terminal       | `"st"`                             |
+| `c.browser`    | Default Web Browser    | `"librewolf"`                      |
+| `c.files`      | Default File Manager   | `"nemo"`                           |
+| `c.editor`     | Default Text Editor    | `"vim"`                            |
+| `c.editor_cmd` | Default Editor Command | `c.terminal .. " -e " .. c.editor` |
+| `c.modkey`     | Default Modkey         | `"Mod4"`                           |
+
+</details>
+
+<details>
+<summary><b>Keybindings</b></summary>
+
+### Configuration
+
+The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
+
+| Keybinding         | Description           |
+| ------------------ | --------------------- |
+| `Mod+Enter`        | Open a Terminal       |
+| `Mod+k`            | Show Keybindings      |
+| `Mod+0`            | Show Power Menu       |
+| `Mod+d`            | Show Run Launcher     |
+| `Mod+e`            | Show Kaomoji Menu     |
+| `Mod+Shift+d`      | Show Desktop Menu     |
+| `Mod+Delete`       | Full Screenshot       |
+| `Mod+Shift+Delete` | Partial Screenshot    |
+| `Mod+Tab`          | Focus Next Window     |
+| `Mod+Shift+Tab`    | Focus Previous Window |
+| `Mod+1-6`          | Change Tag            |
+| `Mod+Shift+1-6`    | Move Client to Tag    |
+| `Mod+f`            | Toggle Fullscreen     |
+| `Mod+s`            | Toggle Floating       |
+| `Mod+m`            | Toggle Maximize       |
+| `Mod+Shift+q`      | Close Window          |
+
+</details>
 
 ## Gallery
 
