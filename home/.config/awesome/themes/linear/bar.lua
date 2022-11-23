@@ -46,6 +46,17 @@ launcher = wibox.widget {
 	widget = wibox.widget.imagebox
 }
 
+-- Systray
+systray = wibox.widget {
+	buttons = {
+		awful.button({}, 1, function()
+			awesome.emit_signal('widget::systray')
+		end) 
+	},
+	image = beautiful.systray,
+	widget = wibox.widget.imagebox
+}
+
 -- Clock
 textclock = wibox.widget.textclock('%I:%M %p')
 
@@ -125,10 +136,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 layout = wibox.layout.fixed.horizontal,
 				spacing = dpi(15),
 				{
-                	wibox.widget.systray(),
-					left = dpi(15),
-					top = dpi(5),
-					bottom = dpi(5),
+					systray,
+					top = dpi(13),
+					bottom = dpi(13),
 					widget = wibox.container.margin
 				},
 				textclock,

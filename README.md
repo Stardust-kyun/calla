@@ -14,6 +14,10 @@ This is my desktop made with awesomewm! Here's some details:
 
 ## Installation
 
+### Read Before Installing:
+
+These installation scripts are built to hopefully make the installation process easier for you. I cannot guarantee that they will work, there may be missing packages, and you may run into issues. If something is missing and/or doesn't work, I would recommend reading over the Arch script to find missing packages or steps. If that doesn't work, see <a href="#contact">contact</a>.
+
 <details>
 <summary><b>Arch-based</b></summary>
 

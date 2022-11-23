@@ -72,9 +72,11 @@ theme.menu_height		= dpi(38)
 theme.menu_width 		= dpi(150)
 
 -- Misc
-theme.useless_gap         = dpi(10)
-theme.border_width        = dpi(0)
-theme.bg_systray    	  = color.bg
+theme.useless_gap           = dpi(10)
+theme.border_width          = dpi(0)
+theme.bg_systray    	    = color.bg
+theme.systray_icon_spacing  = dpi(18)
+theme.systray_max_rows		= 3
 
 -- Notification spacing
 theme.notification_spacing = dpi(10)
@@ -94,6 +96,9 @@ theme.layout_tile	   = gears.color.recolor_image(icon_path .. "tile.png", color.
 theme.close    = gears.color.recolor_image(icon_path .. "close.png", color.fg)
 theme.minimize = gears.color.recolor_image(icon_path .. "minimize.png", color.fg)
 theme.maximize = gears.color.recolor_image(icon_path .. "maximize.png", color.fg)
+
+-- Systray icon
+theme.systray = gears.color.recolor_image(icon_path .. "systray.png", color.fg)
 
 -- Awesome icon
 theme.awesome_icon = theme_assets.awesome_icon(

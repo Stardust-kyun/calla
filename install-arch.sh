@@ -64,7 +64,7 @@ EOF
   sleep 3;
   $HELPER -S base-devel --needed
   yes | $HELPER -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
-  ttf-roboto-mono xsettingsd picom network-manager-applet xcursor-breeze inotify-tools light maim zathura \
+  ttf-roboto-mono xsettingsd picom network-manager-applet cbatticon volumeicon xcursor-breeze inotify-tools light maim zathura \
   viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
   clear
 }
