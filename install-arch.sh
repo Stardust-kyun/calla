@@ -17,41 +17,17 @@ cat << EOF
 
 [ Step 2 ] AUR Helper
 
-READ: paru is currently broken with the installer, so select yay
-
-(1) yay
-(2) paru
-
 EOF
 
-  read -p "(?) Select option: " ans_2
-  if [[ $ans_2 == "1" ]] || [[ $ans_2 == "yay" ]]; then
-    HELPER="yay"
-    if ! command -v $HELPER &> /dev/null; then
-      sudo pacman -S git --noconfirm --needed
-      git clone https://aur.archlinux.org/$HELPER.git /tmp/$HELPER
-      (cd /tmp/$HELPER/ && makepkg -si --noconfirm --needed PKGBUILD)
-      sleep 3; clear
-    else
-      echo -e "\n(*) It seems that you already have $HELPER installed, skipping..."
-      sleep 3; clear
-    fi
-    
-  elif [[ $ans_2 == "2" ]] || [[ $ans_2 == "paru" ]]; then
-    HELPER="paru"
-    if ! command -v $HELPER &> /dev/null; then
-      sudo pacman -S git --noconfirm --needed
-      git clone https://aur.archlinux.org/$HELPER.git /tmp/$HELPER
-      (cd /tmp/$HELPER/ && makepkg -si --noconfirm --needed PKGBUILD)
-      sleep 3; clear
-    else
-      echo -e "\n(*) It seems that you already have $HELPER installed, skipping..."
-      sleep 3; clear
-    fi
-  else
-    echo -e "\n(!) Invalid option, select one to continue"
-    sleep 3; clear
-  fi
+if ! command -v yay &> /dev/null; then
+  sudo pacman -S git --noconfirm --needed
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  (cd /tmp/yay/ && makepkg -si --noconfirm --needed PKGBUILD)
+  sleep 3; clear
+else
+  echo -e "\n(*) It seems that you already have yay installed, skipping..."
+  sleep 3; clear
+fi
 }
 
 step_3(){
@@ -59,14 +35,31 @@ cat << EOF
 
 [ Step 3 ] Dependecies
 
+(1) Full installation: Includes my preferred programs and utilities
+(2) Minimal installation: Base system only
+
 EOF
 
-  sleep 3;
-  $HELPER -S base-devel --needed
-  yes | $HELPER -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
-  ttf-roboto-mono xsettingsd picom network-manager-applet cbatticon volumeicon papirus-icon-theme xcursor-breeze inotify-tools light maim zathura \
-  viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
-  clear
+  read -p "(?) Select option: " ans_3
+  if [[ $ans_3 == "1" ]]; then
+	sleep 3;
+	  yay -S base-devel --needed
+      yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker gvim librewolf-bin nemo gd rofi ttf-roboto \
+      ttf-roboto-mono xsettingsd picom network-manager-applet cbatticon volumeicon papirus-icon-theme xcursor-breeze inotify-tools light maim zathura \
+      viewnior polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
+    sleep 3; clear
+    
+  elif [[ $ans_3 == "2" ]]; then
+	sleep 3;
+	  yay -S base-devel --needed
+      yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker rofi ttf-roboto \
+      ttf-roboto-mono xsettingsd picom papirus-icon-theme xcursor-breeze inotify-tools light maim \
+      polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
+    sleep 3; clear
+  else
+    echo -e "\n(!) Invalid option, select one to continue"
+    sleep 3; clear
+  fi
 }
 
 step_4(){
@@ -86,22 +79,28 @@ EOF
   sudo cp -r . /usr/share/
   cd ../bin/
   sudo cp -r . /usr/bin/
-  cd ../../lib/librewolf/
-  sed -i "s/USER/`whoami`/g" mozilla.cfg
-  sudo cp -r . /lib/librewolf/
+  if [[ $ans_3 == "1" ]]; then
+    cd ../../lib/librewolf/
+    sed -i "s/USER/`whoami`/g" mozilla.cfg
+    sudo cp -r . /lib/librewolf/
+  fi
   sudo rm -rf ~/dotfiles/
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo systemctl enable lightdm
-  sudo systemctl enable NetworkManager
+  if [[ $ans_3 == "1" ]]; then
+    sudo systemctl enable NetworkManager
+  fi
 
   cd ~
   chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
 
-  cd ~/.config/st
-  sudo make install
+  if [[ $ans_3 == "1" ]]; then
+    cd ~/.config/st
+    sudo make install
+  fi
 
   fc-cache -fv
   xrdb ~/.Xresources
@@ -138,18 +137,14 @@ Would you like to continue?
 
 (?) Select option: " ans_1
 if [[ $ans_1 == "1" ]]; then
-
-sleep 3;
-clear
-step_1
-
-while [[ $ans_2 != "1" ]] && [[ $ans_2 != "2" ]] && [[ $ans_2 != "yay" ]] && [[ $ans_2 != "paru" ]]; do
+  sleep 3;
+  clear
+  step_1
   step_2
-done
-
-step_3
-step_4
-
+  while [[ $ans_3 != "1" ]] && [[ $ans_3 != "2" ]]; do
+    step_3
+  done
+  step_4
 else
-	exit
+  exit
 fi
