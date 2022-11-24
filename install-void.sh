@@ -42,9 +42,9 @@ EOF
 
   sleep 3;
   echo "Installing awesome-git dependencies..."
-  sudo xbps-install -Sy libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel \
-  startup-notification-devel libxdg-basedir-devel gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 \
-  pango pango-devel lua53 lua53-devel lua53-lgi lua52-lgi lua54-lgi 
+  sudo xbps-install -Sy cmake ruby-asciidoctor ImageMagick pkg-config libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel \
+  xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel startup-notification-devel libxdg-basedir-devel \
+  gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 pango
   clear
 
   echo "Cloning awesome-git repository..."
