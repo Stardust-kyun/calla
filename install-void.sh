@@ -26,7 +26,7 @@ EOF
   echo "Installing system dependencies..."
   sudo xbps-install -Sy \
   base-devel xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
-  rofi fonts-roboto-ttf xsettingsd \
+  rofi fonts-roboto-ttf xsettingsd xrdb \
   picom breeze-cursors inotify-tools light maim \
   polkit-gnome noto-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf-extra 
   echo "Installed system dependencies!"
@@ -42,8 +42,7 @@ EOF
 
   sleep 3;
   echo "Installing awesome-git dependencies..."
-  sudo xbps-install -Sy \ # awesome-git dependencies for void linux
-  libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel \
+  sudo xbps-install -Sy libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel \
   startup-notification-devel libxdg-basedir-devel gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 \
   pango pango-devel lua53 lua53-devel lua53-lgi lua52-lgi lua54-lgi 
   clear
