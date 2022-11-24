@@ -82,6 +82,7 @@ EOF
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo touch /etc/sv/lightdm/down
   sudo ln -s /etc/sv/lightdm /var/service
+  sudo ln -s /etc/sv/dbus /var/service
 
   cd ~
   chmod u+x .config/rofi/*
@@ -105,7 +106,7 @@ Would you like to reboot?
   if [[ $rbt -eq 1 ]]; then
   sleep 3; clear
     sudo rm /var/service/lightdm/down
-	sudo reboot
+	loginctl reboot
   else
 	echo -e "\nSkipping..."
     sudo rm /var/service/lightdm/down
