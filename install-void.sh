@@ -26,7 +26,7 @@ EOF
   echo "Installing system dependencies..."
   sudo xbps-install -Sy \
   base-devel xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
-  rofi fonts-roboto-ttf xsettingsd xrdb \
+  rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg \
   picom breeze-cursors inotify-tools light maim \
   polkit-gnome noto-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf-extra 
   echo "Installed system dependencies!"
