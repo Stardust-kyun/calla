@@ -107,7 +107,7 @@ EOF
 
   read -r -p "
 Installation complete, thank you for using my dotfiles!
-This script was made by Qwickdom and Stardust-kyun.
+This script was made by AloneERO and Frankfut.
 Would you like to reboot?
 
 (1) yes

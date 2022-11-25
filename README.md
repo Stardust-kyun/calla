@@ -205,7 +205,9 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ### Contributions
 
-- [Qwickdom](https://github.com/Qwickdom) for help adding brightness support and an installation script.
+- [Qwickdom](https://github.com/Qwickdom) for help adding brightness support and an installation script for Arch.
+- [AloneERO](https://gitlab.com/AloneER0) for help adding an installation script for Void and Fedora.
+- [Frankfut](https://github.com/frankfutlg) for help adding an installation script for Void.
 - [Crylia](https://github.com/Crylia) for massive amounts of help learning awesomewm.
 - [Sammy](https://github.com/TorchedSammy) for helping me learn awesomewm's widget system.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
