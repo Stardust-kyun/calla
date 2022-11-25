@@ -52,7 +52,7 @@ EOF
   echo "Installing awesome-git dependencies..."
   sudo xbps-install -Sy cmake ruby-asciidoctor ImageMagick pkg-config libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel \
   xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel startup-notification-devel libxdg-basedir-devel \
-  gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 pango
+  gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 pango pango-devel lua53 lua53-devel lua53-lgi lua52-lgi lua54-lgi
   clear
 
   echo "Cloning awesome-git repository..."
@@ -64,8 +64,6 @@ EOF
   sudo make install 
   clear
   popd
-  sudo mkdir /usr/share/xsessions
-  sudo mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions
   rm -rf /tmp/awesome-git
   echo "Finished compiling awesome!"
 }
@@ -91,6 +89,8 @@ EOF
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
+  sudo mkdir /usr/share/xsessions
+  sudo mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions
   sudo touch /etc/sv/lightdm/down
   sudo ln -s /etc/sv/lightdm /var/service
   sudo ln -s /etc/sv/dbus /var/service
@@ -117,7 +117,7 @@ Would you like to reboot?
   if [[ $rbt -eq 1 ]]; then
   sleep 3; clear
     sudo rm /var/service/lightdm/down
-	loginctl reboot
+	sudo loginctl reboot
   else
 	echo -e "\nSkipping..."
     sudo rm /var/service/lightdm/down
