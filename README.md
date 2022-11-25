@@ -31,7 +31,6 @@ These installation scripts are built to hopefully make the installation process 
 
 Using archinstall (relevant options):
 
-- User account - Create a user with sudo access
 - Profile - `xorg`
 - Audio - `pipewire`
 - Additional packages - `git`
@@ -77,6 +76,31 @@ $ script -c ./install-fedora.sh ~/dotfiles-log.txt
 
 </details>
 
+<details>
+<summary><b>Void-based</b></summary>
+
+# Read:
+
+This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
+
+### Void
+
+Install Void Base with glibc.
+
+### After System Installation
+
+```
+$ sudo xbps-install git
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ ./install-void.sh
+
+# Install with log
+$ script -c ./install-void.sh ~/dotfiles-log.txt 
+```
+
+</details>
+
 Other distributions are not yet supported and may be added in the future.
 
 ## Usage
@@ -92,14 +116,18 @@ Since the minimal install doesn't include many programs/utilities, you'll need t
 
 The file `~/.config/awesome/rc.lua` contains configuration options for awesome's default commands:
 
-| Configuration  | Description            | Default                            |
-| -------------- | ---------------------- | ---------------------------------- |
-| `c.terminal`   | Default Terminal       | `"st"`                             |
-| `c.browser`    | Default Web Browser    | `"librewolf"`                      |
-| `c.files`      | Default File Manager   | `"nemo"`                           |
-| `c.editor`     | Default Text Editor    | `"vim"`                            |
-| `c.editor_cmd` | Default Editor Command | `c.terminal .. " -e " .. c.editor` |
-| `c.modkey`     | Default Modkey         | `"Mod4"`                           |
+| Configuration  | Description              | Default                            |
+| -------------- | ------------------------ | ---------------------------------- |
+| `c.terminal`   | Default Terminal         | `"st"`                             |
+| `c.browser`    | Default Web Browser      | `"librewolf"`                      |
+| `c.files`      | Default File Manager     | `"nemo"`                           |
+| `c.editor`     | Default Text Editor      | `"vim"`                            |
+| `c.editor_cmd` | Default Editor Command   | `c.terminal .. " -e " .. c.editor` |
+| `c.modkey`     | Default Modkey           | `"Mod4"`                           |
+| `c.shutdown`   | Default Shutdown Command | `"shutdown now"`                   |
+| `c.reboot`     | Default Reboot Command   | `"reboot"`                         |
+
+If your distribution uses `runit` instead of `systemd` you will likely need to set `c.shutdown` and `c.reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
 
 </details>
 

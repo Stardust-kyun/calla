@@ -84,11 +84,11 @@ powerDisplay:setup {
 				},
 				{
 					{
-						textbutton{ text="", size="15", onclick="shutdown now" },
+						textbutton{ text="", size="15", onclick=c.shutdown },
 						right = dpi(15),
 						widget = wibox.container.margin
 					},
-					textbutton{ text="", size="15", onclick="reboot" },
+					textbutton{ text="", size="15", onclick=c.reboot },
 					layout = wibox.layout.align.horizontal
 				},
 				expand = "none",

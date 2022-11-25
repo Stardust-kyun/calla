@@ -27,7 +27,7 @@ EOF
   sudo xbps-install -Sy \
   base-devel xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
   rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg unzip wget \
-  picom breeze-cursors inotify-tools light maim \
+  picom breeze-cursors inotify-tools light maim pipewire alsa-pipewire wireplumber \
   polkit-gnome noto-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf-extra 
 
   wget https://fonts.google.com/download?family=Roboto%20Mono -P /tmp/roboto-mono
