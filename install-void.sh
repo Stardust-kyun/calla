@@ -26,9 +26,17 @@ EOF
   echo "Installing system dependencies..."
   sudo xbps-install -Sy \
   base-devel xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
-  rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg \
+  rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg unzip \
   picom breeze-cursors inotify-tools light maim \
   polkit-gnome noto-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf-extra 
+
+  wget https://fonts.google.com/download?family=Roboto%20Mono -P /tmp/roboto-mono
+  pushd /tmp/roboto-mono
+  unzip 'download?family=Roboto Mono'
+  sudo cp static/* /usr/share/fonts/TTF/
+  popd
+  rm -rf /tmp/roboto-mono
+
   echo "Installed system dependencies!"
   sleep 1; clear
 }
@@ -56,6 +64,9 @@ EOF
   sudo make install 
   clear
   popd
+  sudo mkdir /usr/share/xsessions
+  sudo mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions
+  rm -rf /tmp/awesome-git
   echo "Finished compiling awesome!"
 }
 
