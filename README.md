@@ -4,7 +4,7 @@
 <a href="#install">Install</a> - <a href="#usage">Usage</a> - <a href="#gallery">Gallery</a> - <a href="#credit">Credit</a> - <a href="#contact">Contact</a>
 </div>
 
-<h1></h1>
+---
 
 <img src="src/thumbnail.png" alt="img" align="right" width="500px">
 
@@ -26,6 +26,8 @@ These installation scripts are built to hopefully make the installation process 
 
 <details>
 <summary><b>Manual Installation</b></summary>
+
+---
 
 ### Minimal Installation Packages
 
@@ -87,10 +89,14 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - generate home dirs `xdg-user-dirs-update`
 - make screenshots dir in `~/Pictures/Screenshots`
 
+---
+
 </details>
 
 <details>
 <summary><b>Arch-based</b></summary>
+
+---
 
 ### Arch
 
@@ -115,10 +121,14 @@ $ ./install-arch.sh
 $ script -c ./install-arch.sh ~/dotfiles-log.txt 
 ```
 
+---
+
 </details>
 
 <details>
 <summary><b>Fedora-based</b></summary>
+
+---
 
 # Read:
 
@@ -139,10 +149,14 @@ $ ./install-fedora.sh
 $ script -c ./install-fedora.sh ~/dotfiles-log.txt 
 ```
 
+---
+
 </details>
 
 <details>
 <summary><b>Void-based</b></summary>
+
+---
 
 # Read:
 
@@ -164,10 +178,14 @@ $ ./install-void.sh
 $ script -c ./install-void.sh ~/dotfiles-log.txt 
 ```
 
+---
+
 </details>
 
 <details>
 <summary><b>Gentoo-based</b></summary>
+
+---
 
 # Read:
 
@@ -188,10 +206,14 @@ $ ./install-gentoo.sh
 $ script -c ./install-gentoo.sh ~/dotfiles-log.txt 
 ```
 
+---
+
 </details>
 
 <details>
 <summary><b>OpenSUSE-based</b></summary>
+
+---
 
 # Read:
 
@@ -212,10 +234,14 @@ $ ./install-opensuse.sh
 $ script -c ./install-opensuse.sh ~/dotfiles-log.txt 
 ```
 
+---
+
 </details>
 
 <details>
 <summary><b>Alpine-based</b></summary>
+
+---
 
 # Read:
 
@@ -236,6 +262,8 @@ $ ./install-alpine.sh
 $ script -c ./install-alpine.sh ~/dotfiles-log.txt 
 ```
 
+---
+
 </details>
 
 Other distributions are not yet supported and may be added in the future.
@@ -244,6 +272,8 @@ Other distributions are not yet supported and may be added in the future.
 
 <details>
 <summary><b>Post-Install Setup</b></summary>
+
+---
 
 ### Minimal Install Setup
 
@@ -266,10 +296,14 @@ The file `~/.config/awesome/rc.lua` contains configuration options for awesome's
 
 If your distribution uses `runit` instead of `systemd` you will likely need to set `c.shutdown` and `c.reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
 
+---
+
 </details>
 
 <details>
 <summary><b>Keybindings</b></summary>
+
+---
 
 ### Configuration
 
@@ -293,6 +327,8 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 | `Mod+s`            | Toggle Floating       |
 | `Mod+m`            | Toggle Maximize       |
 | `Mod+Shift+q`      | Close Window          |
+
+---
 
 </details>
 
