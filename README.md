@@ -33,15 +33,15 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 
 - base-devel - utilities
 - xorg - display server
-+ xclip - clipboard
-+ xorg-xprop - fetch dep
-+ xsettingsd - reload gtk/icons
+    + xclip - clipboard
+    + xorg-xprop - fetch dep
+    + xsettingsd - reload gtk/icons
 - pipewire - audio
 - light - brightness
-+ inotify-tools - brightness widget dep
+    + inotify-tools - brightness widget dep
 - lightdm - display manager
-+ lightdm-webkit2-greeter - greeter
-+ light-locker - lock screen
+    + lightdm-webkit2-greeter - greeter
+    + light-locker - lock screen
 - awesome-git - window manager
 - rofi - run launcher
 - picom - compositor
@@ -75,7 +75,7 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - copy contents of `usr/share` to `/usr/share`
 - copy contents of `usr/bin` to `/usr/bin`
 - copy contents of `lib/librewolf` to `/lib/librewolf` (if librewolf installed)
-+ edit mozilla.cfg and replace `USER` with your user's name
+    + edit mozilla.cfg and replace `USER` with your user's name
 - uncomment `#greeter-session=` and set it to `lightdm-webkit2-greeter` in `/etc/lightdm/lightdm.conf`
 - set `webkit_theme` to `minimal` in `/etc/lightdm/lightdm-webkit2-greeter.conf`
 - enable lightdm service
