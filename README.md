@@ -20,9 +20,74 @@ This is my desktop made with awesomewm! Here's some details:
 
 ## Install
 
-### Read Before Installing:
+### Read Before Installing
 
-These installation scripts are built to hopefully make the installation process easier for you. I cannot guarantee that they will work, there may be missing packages, and you may run into issues. If something is missing and/or doesn't work, I would recommend reading over the Arch script to find missing packages or steps. If that doesn't work, see <a href="#contact">contact</a>.
+These installation scripts are built to hopefully make the installation process easier for you. I cannot guarantee that they will work; there may be missing packages and you may run into issues. If something is missing and/or doesn't work, I would recommend reading over the manual install instructions to find missing packages or steps. If that doesn't work, see <a href="#contact">contact</a>.
+
+<details>
+<summary><b>Manual Installation</b></summary>
+
+### Minimal Installation Packages
+
+These packages use their names from the Arch repos and AUR. If you can't find them for your distribution, try using the source url from Arch repos.
+
+- base-devel - utilities
+- xorg - display server
++ xclip - clipboard
++ xorg-xprop - fetch dep
++ xsettingsd - reload gtk/icons
+- pipewire - audio
+- light - brightness
++ inotify-tools - brightness widget dep
+- lightdm - display manager
++ lightdm-webkit2-greeter - greeter
++ light-locker - lock screen
+- awesome-git - window manager
+- rofi - run launcher
+- picom - compositor
+- polkit-gnome - polkit
+- xdg-user-dirs - generate home dirs
+- maim - screenshot
+- ttf-roboto - gtk font
+- ttf-roboto-mono - mono font
+- noto-fonts - font support
+- noto-fonts-cjk - cjk font support
+- noto-fonts-emoji - emoji font support
+- noto-fonts-extra - extra font support
+- papirus-icon-theme - icon theme
+- xcursor-breeze - cursor theme
+
+### Utilities
+
+- gvim - vim with clipboard
+- librewolf - browser
+- nemo - file manager
+- viewnior - image viewer
+- zathura - pdf viewer
+- network-manager-applet - network applet
+- cbatticon - battery applet
+- volumeicon - volume applet
+- gd - st dep
+
+### Setup
+
+- copy contents of `home` to `~/`
+- copy contents of `usr/share` to `/usr/share`
+- copy contents of `usr/bin` to `/usr/bin`
+- copy contents of `lib/librewolf` to `/lib/librewolf` (if librewolf installed)
++ edit mozilla.cfg and replace `USER` with your user's name
+- uncomment `#greeter-session=` and set it to `lightdm-webkit2-greeter` in `/etc/lightdm/lightdm.conf`
+- set `webkit_theme` to `minimal` in `/etc/lightdm/lightdm-webkit2-greeter.conf`
+- enable lightdm service
+- enable NetworkManager service (if network-manager-applet installed)
+- make contents of `~/.config/awesome/bin` executable
+- run `sudo make install` in `~/.config/st`
+- update font cache `fc-cache -fv`
+- update xrdb `xrdb ~/.Xresources`
+- generate home dirs `xdg-user-dirs-update`
+- make screenshots dir in `~/Pictures/Screenshots`
+
+</details>
 
 <details>
 <summary><b>Arch-based</b></summary>
@@ -97,6 +162,78 @@ $ ./install-void.sh
 
 # Install with log
 $ script -c ./install-void.sh ~/dotfiles-log.txt 
+```
+
+</details>
+
+<details>
+<summary><b>Gentoo-based</b></summary>
+
+# Read:
+
+This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
+
+### Gentoo
+
+Install Gentoo.
+
+### After System Installation
+
+```
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ ./install-gentoo.sh
+
+# Install with log
+$ script -c ./install-gentoo.sh ~/dotfiles-log.txt 
+```
+
+</details>
+
+<details>
+<summary><b>OpenSUSE-based</b></summary>
+
+# Read:
+
+This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
+
+### OpenSUSE
+
+Install OpenSUSE.
+
+### After System Installation
+
+```
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ ./install-opensuse.sh
+
+# Install with log
+$ script -c ./install-opensuse.sh ~/dotfiles-log.txt 
+```
+
+</details>
+
+<details>
+<summary><b>Alpine-based</b></summary>
+
+# Read:
+
+This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
+
+### Alpine
+
+Install Alpine.
+
+### After System Installation
+
+```
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ ./install-alpine.sh
+
+# Install with log
+$ script -c ./install-alpine.sh ~/dotfiles-log.txt 
 ```
 
 </details>
@@ -205,11 +342,11 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ### Contributions
 
-- [Qwickdom](https://github.com/Qwickdom) for help adding brightness support and an installation script for Arch.
-- [AloneERO](https://gitlab.com/AloneER0) for help adding an installation script for Void and Fedora.
+- [AloneERO](https://gitlab.com/AloneER0) for help adding an installation script for Void, Fedora, OpenSUSE, and Alpine!
 - [Frankfut](https://github.com/frankfutlg) for help adding an installation script for Void.
-- [Crylia](https://github.com/Crylia) for massive amounts of help learning awesomewm.
-- [Sammy](https://github.com/TorchedSammy) for helping me learn awesomewm's widget system.
+- [Qwickdom](https://github.com/Qwickdom) for help adding an installation script for Arch.
+- [Alyssa](https://github.com/alyssa-sudo) for help adding an installation script for Gentoo.
+- [Crylia](https://github.com/Crylia) and [Sammy](https://github.com/TorchedSammy) for massive amounts of help learning awesomewm.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
 
 ### Projects

@@ -9,7 +9,7 @@ EOF
 
   sleep 3;
   echo "Updating the system..."
-  sudo xbps-install -Syu 
+  sudo zypper dup -y 
   echo "Updated the system!"
   sleep 1; clear
 }
@@ -24,18 +24,10 @@ EOF
 
   sleep 3;
   echo "Installing system dependencies..."
-  sudo xbps-install -Sy \
-  base-devel xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
-  rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg unzip wget \
-  picom breeze-cursors inotify-tools light maim pipewire alsa-pipewire wireplumber \
-  polkit-gnome noto-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf-extra 
-
-  wget https://fonts.google.com/download?family=Roboto%20Mono -P /tmp/roboto-mono
-  pushd /tmp/roboto-mono
-  unzip 'download?family=Roboto Mono'
-  sudo cp static/* /usr/share/fonts/TTF/
-  popd
-  rm -rf /tmp/roboto-mono
+  sudo zypper install xclip xprop xdg-user-dirs lightdm light-locker \
+    rofi google-roboto-fonts google-roboto-mono-fonts xsettingsd picom \
+    breeze5-cursors inotify-tools light maim \
+    polkit-gnome noto* -y 
 
   echo "Installed system dependencies!"
   sleep 1; clear
@@ -47,12 +39,13 @@ cat << EOF
 [ Step 3 ] Awesome-git Installation
 
 EOF
+  sleep 3;
+  echo "Enabling openSUSE source repo..."
+  sudo zypper mr -e 8  
 
   sleep 3;
   echo "Installing awesome-git dependencies..."
-  sudo xbps-install -Sy cmake ruby-asciidoctor ImageMagick pkg-config libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel \
-  xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel startup-notification-devel libxdg-basedir-devel \
-  gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 pango pango-devel lua53 lua53-devel lua53-lgi lua52-lgi lua54-lgi
+  sudo zypper si awesome
   clear
 
   echo "Cloning awesome-git repository..."
@@ -64,7 +57,6 @@ EOF
   sudo make install 
   clear
   popd
-  rm -rf /tmp/awesome-git
   echo "Finished compiling awesome!"
 }
 
@@ -89,11 +81,8 @@ EOF
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
   sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
-  sudo mkdir /usr/share/xsessions
-  sudo mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions
-  sudo touch /etc/sv/lightdm/down
-  sudo ln -s /etc/sv/lightdm /var/service
-  sudo ln -s /etc/sv/dbus /var/service
+
+  sudo systemctl enable lightdm
 
   cd ~
   chmod u+x .config/awesome/bin/*
@@ -106,7 +95,7 @@ EOF
 
   read -r -p "
 Installation complete, thank you for using my dotfiles!
-This script was made by AloneERO and Frankfut.
+This script was made by AloneERO.
 Would you like to reboot?
 
 (1) yes
@@ -115,12 +104,10 @@ Would you like to reboot?
 (?) Select option: " rbt
   if [[ $rbt -eq 1 ]]; then
   sleep 3; clear
-    sudo rm /var/service/lightdm/down
-	sudo loginctl reboot
+	  systemctl reboot
   else
 	echo -e "\nSkipping..."
-    sudo rm /var/service/lightdm/down
-    sleep 3; clear
+  sleep 3; clear
   fi
 }
 

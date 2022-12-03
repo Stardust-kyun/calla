@@ -88,7 +88,6 @@ EOF
   sudo systemctl enable lightdm
 
   cd ~
-  chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
 
   fc-cache -fv

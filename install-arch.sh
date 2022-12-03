@@ -94,7 +94,6 @@ EOF
   fi
 
   cd ~
-  chmod u+x .config/rofi/*
   chmod u+x .config/awesome/bin/*
 
   if [[ $ans_3 == "1" ]]; then
