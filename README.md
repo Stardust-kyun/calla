@@ -4,7 +4,7 @@
 <a href="#install">Install</a> - <a href="#usage">Usage</a> - <a href="#gallery">Gallery</a> - <a href="#credit">Credit</a> - <a href="#contact">Contact</a>
 </div>
 
----
+<h1></h1>
 
 <img src="src/thumbnail.png" alt="img" align="right" width="500px">
 
