@@ -88,7 +88,7 @@ EOF
   sudo rm -rf ~/dotfiles/
 
   sudo sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf
-  sudo sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf
+  sudo sed -i "s/webkit_theme.*/webkit_theme = lightdm/g" /etc/lightdm/lightdm-webkit2-greeter.conf
   sudo mkdir /usr/share/xsessions
   sudo mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions
   sudo touch /etc/sv/lightdm/down

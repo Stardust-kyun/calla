@@ -73,7 +73,7 @@ EOF
   su -c 'rm -rf ~/dotfiles/'
 
   su -c 'sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf'
-  su -c 'sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
+  su -c 'sed -i "s/webkit_theme.*/webkit_theme = lightdm/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
   su -c 'systemctl enable lightdm'
 
   cd ~

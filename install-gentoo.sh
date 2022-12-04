@@ -107,7 +107,7 @@ EOF
   su -c'rm -rf ~/dotfiles/'
 
   su -c'sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf'
-  su -c'sed -i "s/webkit_theme.*/webkit_theme = minimal/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
+  su -c'sed -i "s/webkit_theme.*/webkit_theme = lightdm/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
   if command -v rc-update &> /dev/null; then
   	su -c'rc-update add lightdm' && su -c'rc-update add NetworkManager'
   else
