@@ -126,6 +126,34 @@ $ script -c ./install-arch.sh ~/dotfiles-log.txt
 </details>
 
 <details>
+<summary><b>Debian-based</b></summary>
+
+---
+
+### Debian
+
+It is recommended to install Debian with the "Debian Desktop Environment" group so most utilities are preinstalled. However, you will need to run `su -c 'apt install git'`.
+
+### Ubuntu
+
+Install Ubuntu with the "Minimal Installation" option.
+
+### After System Installation
+
+```
+$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ ./install-debian.sh
+
+# Install with log
+$ script -c ./install-debian.sh ~/dotfiles-log.txt 
+```
+
+---
+
+</details>
+
+<details>
 <summary><b>Fedora-based</b></summary>
 
 ---
@@ -381,6 +409,7 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 - [AloneERO](https://gitlab.com/AloneER0) for help adding an installation script for Void, Fedora, OpenSUSE, and Alpine!
 - [Frankfut](https://github.com/frankfutlg) for help adding an installation script for Void.
 - [Qwickdom](https://github.com/Qwickdom) for help adding an installation script for Arch.
+- [Reverse](https://github.com/Reversedc) for help adding an installation script for Debian.
 - [Alyssa](https://github.com/alyssa-sudo) for help adding an installation script for Gentoo.
 - [Crylia](https://github.com/Crylia) and [Sammy](https://github.com/TorchedSammy) for massive amounts of help learning awesomewm.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.

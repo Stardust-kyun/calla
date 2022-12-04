@@ -33,7 +33,7 @@ fi
 step_3(){
 cat << EOF
 
-[ Step 3 ] Dependecies
+[ Step 3 ] Dependencies
 
 (1) Full installation: Includes my preferred programs and utilities
 (2) Minimal installation: Base system only
@@ -109,7 +109,7 @@ EOF
 
   read -r -p "
 Installation complete, thank you for using my dotfiles!
-This script was made by Qwickdom and Stardust-kyun.
+This script was made by Stardust-kyun and Qwickdom.
 Would you like to reboot?
 
 (1) yes

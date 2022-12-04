@@ -57,7 +57,7 @@ step_3(){
 cat << EOF
 
 
-[ Step 3 ] Dependecies
+[ Step 3 ] Dependencies
 
 (1) Full installation: Includes my preferred programs and utilities
 (2) Minimal installation: Base system only

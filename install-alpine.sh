@@ -18,7 +18,7 @@ EOF
 step_2(){
 cat << EOF
 
-[ Step 2 ] Dependecies
+[ Step 2 ] Dependencies
 
 EOF
   echo "Installing X..."
