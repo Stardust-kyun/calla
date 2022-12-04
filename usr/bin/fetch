@@ -5,15 +5,18 @@ os=$(. /etc/os-release && echo $ID)
 read -r _ _ version _ < /proc/version
 kr=${version%%-*}
 
-if command -v xbps-install >/dev/null; then
-  	pa=$(xbps-query -l | wc -l)
-elif command -v pacman >/dev/null; then
+if command -v pacman >/dev/null; then
 	pa=$(pacman -Q | wc -l)
+elif command -v dpkg >/dev/null; then
+	pa="$(dpkg-query -f '.\n' -W | wc -l)"
 elif command -v rpm >/dev/null; then
 	pa=$(rpm -qa | wc -l)
-elif command -v dpkg >/dev/null; then
-	pkgs="$(grep -G '^Package:' -c /var/lib/dpkg/status)"
-	pkgs=$(( pkgs - 32 ))
+elif command -v xbps-query >/dev/null; then
+  	pa=$(xbps-query -l | wc -l)
+elif command -v emerge >/dev/null; then
+  	pa=$(ls -d /var/db/pkg/*/* | wc -l)
+elif command -v apk >/dev/null; then
+  	pa=$(apk info | wc -l)
 fi
 
 sh=${SHELL##*/}
