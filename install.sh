@@ -101,17 +101,19 @@ cat << EOF
 
 EOF
 
-	sleep 3; clear
+	sleep 3;
 
 	su -c 'apt build-dep -y awesome'
+	su -c 'apt install -y libxcb-xfixes0-dev'
 	git clone https://github.com/awesomeWM/awesome /tmp/awesome-git
 	pushd /tmp/awesome-git
 	clear
 	make package
-	su -c 'apt install *.deb'
+	cd build
+	su -c 'apt install ./*.deb'
 	popd
 
-	su -c 'apt install -y python3-wither liblightdm-gobject-dev python3-gi'
+	su -c 'apt install -y python3-wither liblightdm-gobject-dev python3-gi pyqt5-dev-tools zip'
 	git clone https://github.com/Antergos/web-greeter.git /tmp/greeter
 	pushd /tmp/greeter
 	su -c 'make install'
@@ -216,7 +218,7 @@ EOF
 
 	sleep 3;
 
-	su -c 'xbps-install -Sy cmake ruby-asciidoctor ImageMagick pkg-config libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel \
+	su -c 'xbps-install -Sy base-devel wget cmake ruby-asciidoctor ImageMagick pkg-config libxcb-devel pango-devel xcb-util-devel xcb-util-image-devel \
 xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-cursor-devel startup-notification-devel libxdg-basedir-devel \
 gdk-pixbuf-devel dbus-devel libxkbcommon-devel xcb-util-xrm-devel dbus-x11 pango pango-devel lua53 lua53-devel lua53-lgi lua52-lgi lua54-lgi'
 	git clone https://github.com/awesomeWM/awesome /tmp/awesome-git 
@@ -245,8 +247,8 @@ EOF
 
 	sleep 3;
 	su -c 'xbps-install -Sy \
-	base-devel xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
-	rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg unzip wget \
+	xclip xprop xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker \
+	rofi fonts-roboto-ttf xsettingsd xrdb elogind xorg unzip \
 	picom breeze-cursors inotify-tools light maim pipewire alsa-pipewire wireplumber \
 	polkit-gnome noto-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf-extra'
 	sleep 3; clear
@@ -498,10 +500,13 @@ Would you like to reboot?
 
 if [[ $rbt -eq 1 ]]; then
 	sleep 3; clear
-	if command -v loginctl >/dev/null; then
-		su -c 'loginctl reboot'
+	if command -v systemctl >/dev/null; then
+		systemctl reboot
 	else
-		reboot
+		if test -f /var/service/lightdm/down; then
+			su -c 'rm /var/service/lightdm/down'
+		fi
+		su -c 'loginctl reboot'
 	fi
 else
 	echo -e "\nSkipping..."

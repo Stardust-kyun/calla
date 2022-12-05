@@ -1,7 +1,7 @@
 awesomemenu = {
 	{ "Config", c.editor_cmd .. " " .. require("gears").filesystem.get_configuration_dir() },
 	{ "Restart", awesome.restart },
-	{ "Quit", function() awesome.quit() end },
+	{ "Power", function() awesome.emit_signal("widget::power") end },
 }
 
 screenshotmenu = {
