@@ -116,6 +116,7 @@ EOF
 	su -c 'apt install -y python3-wither liblightdm-gobject-dev python3-gi pyqt5-dev-tools zip curl'
 	su -c 'echo "deb http://download.opensuse.org/repositories/home:/paulSUSE/Debian_11/ /" | tee /etc/apt/sources.list.d/home:paulSUSE.list'
 	su -c 'curl -fsSL https://download.opensuse.org/repositories/home:paulSUSE/Debian_11/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_paulSUSE.gpg > /dev/null'
+	su -c 'apt update'
 
 	su -c 'wget --content-disposition -P /usr/share/fonts/truetype/robotomono https://github.com/googlefonts/RobotoMono/tree/main/fonts/ttf/RobotoMono-{Bold,BoldItalic,Italic,Light,LightItalic,Medium,MediumItalic,Regular,Thin,ThinItalic}.ttf?raw=true
 '
@@ -129,7 +130,7 @@ cat << EOF
 
 EOF
 
-	sleep 3; clear
+	sleep 3;
 	su -c 'apt install -y xclip xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker rofi fonts-roboto \
 	xsettingsd picom papirus-icon-theme breeze-cursor-theme inotify-tools light maim \
 	policykit-1-gnome fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra'
