@@ -113,11 +113,9 @@ EOF
 	su -c 'apt install ./*.deb'
 	popd
 
-	su -c 'apt install -y python3-wither liblightdm-gobject-dev python3-gi pyqt5-dev-tools zip'
-	git clone https://github.com/Antergos/web-greeter.git /tmp/greeter
-	pushd /tmp/greeter
-	su -c 'make install'
-	popd
+	su -c 'apt install -y python3-wither liblightdm-gobject-dev python3-gi pyqt5-dev-tools zip curl'
+	su -c 'echo "deb http://download.opensuse.org/repositories/home:/paulSUSE/Debian_11/ /" | sudo tee /etc/apt/sources.list.d/home:paulSUSE.list'
+	su -c 'curl -fsSL https://download.opensuse.org/repositories/home:paulSUSE/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_paulSUSE.gpg > /dev/null'
 
 	su -c 'wget --content-disposition -P /usr/share/fonts/truetype/robotomono https://github.com/googlefonts/RobotoMono/tree/main/fonts/ttf/RobotoMono-{Bold,BoldItalic,Italic,Light,LightItalic,Medium,MediumItalic,Regular,Thin,ThinItalic}.ttf?raw=true
 '
@@ -132,7 +130,7 @@ cat << EOF
 EOF
 
 	sleep 3; clear
-	su -c 'apt install -y xclip xdg-user-dirs lightdm light-locker rofi fonts-roboto \
+	su -c 'apt install -y xclip xdg-user-dirs lightdm lightdm-webkit2-greeter light-locker rofi fonts-roboto \
 	xsettingsd picom papirus-icon-theme breeze-cursor-theme inotify-tools light maim \
 	policykit-1-gnome fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra'
 	sleep 3; clear
