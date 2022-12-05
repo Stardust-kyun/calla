@@ -12,7 +12,7 @@ This is my desktop made with awesomewm! Here's some details:
 
 - **Operating System** - endeavouros
 - **Window Manager** - awesomewm
-- **File Manager** - nautilus
+- **File Manager** - nemo
 - **Browser** - librewolf
 - **Terminal** - st
 - **Shell** - bash
