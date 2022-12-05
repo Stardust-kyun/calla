@@ -439,7 +439,7 @@ setup() {
 	echo "Copying files, please wait.."
 
 	pushd ~/dotfiles
-	cp -r home/* ~/
+	cp -r home/. ~/
 	su -c 'cp -r usr/share/* /usr/share/'
 	su -c 'cp -r usr/bin/* /usr/bin/'
 	popd
