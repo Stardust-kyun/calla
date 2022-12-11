@@ -87,6 +87,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 			{
       	    	{
         	   	    id     = "text_role",
+					forced_height = dpi(20),
     	       	    widget = wibox.widget.textbox,
 	           	},
 				valign = "center",
@@ -137,8 +138,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
 				spacing = dpi(15),
 				{
 					systray,
-					top = dpi(13),
+					top = dpi(14),
 					bottom = dpi(13),
+					left = dpi(4),
 					widget = wibox.container.margin
 				},
 				textclock,

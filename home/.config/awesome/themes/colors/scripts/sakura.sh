@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 source $HOME/.config/awesome/themes/colors/scripts/desktop.sh
 
@@ -18,8 +18,6 @@ C="#327d7d"
 run $BG $FG $BL $FG 
 # func - enable/disable - radius - x offset - y offset - opacity
 comp 'true' '25' '-25' '-25' '.5' 
-# func - foreground - background - black - green - red - blue
-lock $FG $BG $BL $G $R $B 
 # func (change colors in #Colors section)
 term 
 # func - gtk - icons 
@@ -32,7 +30,7 @@ chan $BG '#09151a' '#0a191e' $FG
 page $BG '#09151a' '#0a191e' $FG 
 # func - background - foreground
 zath $BG $FG 
-# func - background image - background color - alt foreground - sel foreground
-sddm 'sakura.jpg' $BG '#767685' $FG
+# func - background - alt background - alt background hover - disabled background - foreground - dimmed foreground - error foreground - image
+lightdm $BG $BL '#0c1e24' '#09151a' $FG $BL $R 'sakura'
 # func - theme
 awes 'sakura'

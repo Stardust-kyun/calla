@@ -182,9 +182,9 @@ launcherDisplay:setup {
 		},
 		{
 			{
-				textbutton{ text="", size="15", onclick=c.browser },
-				textbutton{ text="", size="15", onclick=c.terminal },
-				textbutton{ text="", size="15", onclick=c.files },
+				textbutton{ text="", size="15", onclick=browser },
+				textbutton{ text="", size="15", onclick=terminal },
+				textbutton{ text="", size="15", onclick=files },
 				expand = "none",
 				layout = wibox.layout.align.horizontal
 			},

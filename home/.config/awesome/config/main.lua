@@ -3,6 +3,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local ruled = require("ruled")
 local naughty = require("naughty")
+local gears = require("gears")
 
 -- Put new windows in stack
 client.connect_signal('manage', function(c)
@@ -15,6 +16,11 @@ client.connect_signal('manage', function(c)
 
 -- Wallpaper
 screen.connect_signal("request::wallpaper", function(s)
+	-- gears.wallpaper is DEPRECATED, but maximized wallpapers
+	-- are not functional in awful.wallpaper yet.
+	gears.wallpaper.maximized(beautiful.wallpaper, s)
+
+	--[[ old, stretched wallpaper
     awful.wallpaper {
         screen = s,
         widget = {
@@ -24,6 +30,7 @@ screen.connect_signal("request::wallpaper", function(s)
   	    	widget    = wibox.widget.imagebox,
         }
     }
+	--]]
 end)
 
 -- Sloppy focus
@@ -37,20 +44,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
     	awful.layout.append_default_layouts({
 			awful.layout.suit.tile,
 			awful.layout.suit.floating,
-			-- awful.layout.suit.max,
+			awful.layout.suit.max,
     	})
 	end)
 
     awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
-end)
-
--- Errors
-naughty.connect_signal("request::display_error", function(message, startup)
-    naughty.notification {
-        urgency = "critical",
-        title   = "Oops, an error happened"..(startup and " during startup!" or "!"),
-        message = message
-    }
 end)
 
 -- Autostart

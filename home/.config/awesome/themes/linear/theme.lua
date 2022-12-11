@@ -2,6 +2,7 @@ local theme_assets = require("beautiful.theme_assets")
 local dpi = require("beautiful").xresources.apply_dpi
 local color = require("themes.colors")
 local gears = require("gears")
+local menubar = require("menubar")
 local theme_path = require("gears").filesystem.get_configuration_dir() .. "themes/linear/"
 local icon_path = theme_path .. "icons/"
 local theme = {}

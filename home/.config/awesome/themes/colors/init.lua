@@ -1,4 +1,4 @@
-local var = require("themes.colors.sakura")
+local var = require("themes.colors.shore")
 local color = {}
 
 color.bg      	   = var.bg

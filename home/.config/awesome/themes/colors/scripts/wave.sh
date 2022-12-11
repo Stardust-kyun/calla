@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 source $HOME/.config/awesome/themes/colors/scripts/desktop.sh
 
@@ -18,8 +18,6 @@ C="#8cd7d2"
 run $BG $FG $WH $FG 
 # func - enable/disable - radius - x offset - y offset - opacity
 comp 'true' '25' '-25' '-25' '.1' 
-# func - foreground - background - black - green - red - blue
-lock $BG $FG $BL $G $R $B 
 # func (change colors in #Colors section)
 term 
 # func - gtk - icons 
@@ -32,20 +30,7 @@ chan $BG '#ebf5f5' '#e6f0f0' $FG
 page $BG '#ebf5f5' '#e6f0f0' $FG 
 # func - background - foreground
 zath $BG $FG 
-# func - background image - background color - alt foreground - sel foreground
-sddm 'wave.jpg' $BG '#595959' $FG
+# func - background - alt background - alt background hover - disabled background - foreground - dimmed foreground - error foreground - image
+lightdm $BG $WH '#e0ebeb' '#e4f0f0' $FG $WH $R 'wave'
 # func - theme
 awes 'wave'
-
-# Colors
-# BG="#f0fafa"
-# FG="#262626"
-# BL="#404040"
-# WH="#dde6e6"
-# R="#e68383"
-# G="#a5e1af"
-# Y="#ffd29b"
-# B="#83b4e6"
-# M="#e1aae1"
-# C="#8cd7d2"
-

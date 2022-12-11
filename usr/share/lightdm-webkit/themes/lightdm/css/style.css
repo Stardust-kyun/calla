@@ -1,30 +1,28 @@
 @import url("reset.css");
 
 :root {
-	--bg: #000f14;
-	--bg-alt: #0a191e;
-	--bg-alt-hover: #0c1e24;
-	--bg-disabled: #09151a;
-	--fg: #a0a0b4;
+	--bg: #19191e;
+	--bg-alt: #2b2b33;
+	--bg-alt-hover: #2f2f38;
+	--bg-disabled: #383842;
+	--fg: #9999a8;
 	--fg-alt: #4b4646;
-	--fg-dimmed: #0a191e;
+	--fg-dimmed: #2b2b33;
 	--shadow: 0 0 18px 9px rgba(0, 0, 0, 0.25);
 	--font: "Roboto";
-	--image: url("../src/sakura.png");
+	--image: url("../src/shore.png");
 }
 
 body {
 	 background: var(--image);
+	 background-image: var(--image);
+	 background-position: center center;
 	 background-size: cover;
 	 background-repeat: no-repeat;
-	 bottom: 0;
+	 background-attachment: fixed;
 	 color: var(--fg);
 	 font-family: var(--font);
 	 font-size: 15px;
-	 left: 0;
-	 position: absolute;
-	 right: 0;
-	 top: 0;
 }
 
 .select {

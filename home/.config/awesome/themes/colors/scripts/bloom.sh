@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 source $HOME/.config/awesome/themes/colors/scripts/desktop.sh
 
@@ -18,8 +18,6 @@ C="#a0e1d2"
 run $BG $FG $WH $FG 
 # func - enable/disable - radius - x offset - y offset - opacity
 comp 'true' '25' '-25' '-25' '.1' 
-# func - foreground - background - black - green - red - blue
-lock $BG $FG $BL $G $R $B 
 # func (change colors in #Colors section)
 term 
 # func - gtk - icons 
@@ -32,7 +30,7 @@ chan $BG '#f5f0eb' '#ebe6e1' $FG
 page $BG '#f5f0eb' '#ebe6e1' $FG 
 # func - background - foreground
 zath $BG $FG 
-# func - background image - background color - alt foreground - sel foreground
-sddm 'bloom.jpg' $BG '#7d7575' $FG
+# func - background - alt background - alt background hover - disabled background - foreground - dimmed foreground - error foreground - image
+lightdm $BG $WH '#f0ebe6' '#f5f0eb' $FG $WH $R 'bloom'
 # func - theme
 awes 'bloom'

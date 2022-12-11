@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 source $HOME/.config/awesome/themes/colors/scripts/desktop.sh
 
@@ -18,8 +18,6 @@ C="#5a7387"
 run $BG $FG $BL $FG 
 # func - enable/disable - radius - x offset - y offset - opacity
 comp 'true' '25' '-25' '-25' '.5' 
-# func - foreground - background - black - green - red - blue
-lock $FG $BG $BL $G $R $B 
 # func (change colors in #Colors section)
 term 
 # func - gtk - icons 
@@ -31,8 +29,8 @@ chan $BG '#1c1c21' '#1e1e24' $FG
 # func - background - background 2 - background 3 - foreground
 page $BG '#1c1c21' '#1e1e24' $FG 
 # func - background - foreground
-zath $BG $FG 
-# func - background image - background color - alt foreground - sel foreground
-sddm 'shore.jpg' $BG '#878794' $FG
+zath $BG $FG
+# func - background - alt background - alt background hover - disabled background - foreground - dimmed foreground - error foreground - image
+lightdm $BG $BL '#2f2f38' '#383842' $FG $BL $R 'shore'
 # func - theme
 awes 'shore'

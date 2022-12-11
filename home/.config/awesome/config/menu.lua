@@ -1,5 +1,5 @@
 awesomemenu = {
-	{ "Config", c.editor_cmd .. " " .. require("gears").filesystem.get_configuration_dir() },
+	{ "Config", editor_cmd .. " " .. require("gears").filesystem.get_configuration_dir() },
 	{ "Restart", awesome.restart },
 	{ "Power", function() awesome.emit_signal("widget::power") end },
 }
@@ -14,8 +14,8 @@ rootmenu = require("awful").menu(
 	{ items = { 
 		{ "Awesome", awesomemenu },
 		{ "Shot", screenshotmenu },
-		{ "Terminal", c.terminal },
-		{ "Browser", c.browser },
-		{ "Files", c.files }
+		{ "Terminal", terminal },
+		{ "Browser", browser },
+		{ "Files", files }
     }
 })

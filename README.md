@@ -22,7 +22,7 @@ This is my desktop made with awesomewm! Here's some details:
 
 ### Read Before Installing
 
-These installation scripts are built to hopefully make the installation process easier for you. I cannot guarantee that they will work; there may be missing packages and you may run into issues. If something is missing and/or doesn't work, I would recommend reading over the manual install instructions to find missing packages or steps. If that doesn't work, see <a href="#contact">contact</a>.
+This installation script is built to hopefully make the installation process easier for you. I cannot guarantee that it will work; there may be missing packages and you may run into issues. If something is missing and/or doesn't work, I would recommend reading over the manual install instructions to find missing packages or steps. If that doesn't work, see <a href="#contact">contact</a>.
 
 <details>
 <summary><b>Manual Installation</b></summary>
@@ -94,207 +94,30 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 </details>
 
 <details>
-<summary><b>Arch-based</b></summary>
+<summary><b>Installation Script</b></summary>
 
 ---
 
-### Arch
+### Distro Installation
 
-Using archinstall (relevant options):
+First, you'll need to install the distribution of your choice. Currently supported distros are Arch-based, Debian-based, Fedora-based, Gentoo-based, Void, OpenSUSE, and Alpine. It's recommended to install `xorg` and `pipewire` manually prior to running the script. You will need to install `git` to clone the repository.
 
-- Profile - `xorg`
-- Audio - `pipewire`
-- Additional packages - `git`
-
-### EndeavourOS
-
-Install a minimal system without a desktop environment.
+Other distributions are not officially supported and may be added in the future.
 
 ### After System Installation
 
 ```
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-arch.sh
+git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
+cd ~/dotfiles
+./install.sh
 
 # Install with log
-$ script -c ./install-arch.sh ~/dotfiles-log.txt 
+script -c ./install.sh ~/dotfiles-log.txt 
 ```
 
 ---
 
 </details>
-
-<details>
-<summary><b>Debian-based</b></summary>
-
----
-
-### Debian
-
-It is recommended to install Debian with the "Debian Desktop Environment" group so most utilities are preinstalled. However, you will need to run `su -c 'apt install git'`.
-
-### Ubuntu
-
-Install Ubuntu with the "Minimal Installation" option.
-
-### After System Installation
-
-```
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-debian.sh
-
-# Install with log
-$ script -c ./install-debian.sh ~/dotfiles-log.txt 
-```
-
----
-
-</details>
-
-<details>
-<summary><b>Fedora-based</b></summary>
-
----
-
-# Read:
-
-This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
-
-### Fedora
-
-Install Fedora Workstation.
-
-### After System Installation
-
-```
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-fedora.sh
-
-# Install with log
-$ script -c ./install-fedora.sh ~/dotfiles-log.txt 
-```
-
----
-
-</details>
-
-<details>
-<summary><b>Void-based</b></summary>
-
----
-
-# Read:
-
-This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
-
-### Void
-
-Install Void Base with glibc.
-
-### After System Installation
-
-```
-$ sudo xbps-install git
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-void.sh
-
-# Install with log
-$ script -c ./install-void.sh ~/dotfiles-log.txt 
-```
-
----
-
-</details>
-
-<details>
-<summary><b>Gentoo-based</b></summary>
-
----
-
-# Read:
-
-This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
-
-### Gentoo
-
-Install Gentoo.
-
-### After System Installation
-
-```
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-gentoo.sh
-
-# Install with log
-$ script -c ./install-gentoo.sh ~/dotfiles-log.txt 
-```
-
----
-
-</details>
-
-<details>
-<summary><b>OpenSUSE-based</b></summary>
-
----
-
-# Read:
-
-This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
-
-### OpenSUSE
-
-Install OpenSUSE.
-
-### After System Installation
-
-```
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-opensuse.sh
-
-# Install with log
-$ script -c ./install-opensuse.sh ~/dotfiles-log.txt 
-```
-
----
-
-</details>
-
-<details>
-<summary><b>Alpine-based</b></summary>
-
----
-
-# Read:
-
-This script is still in development and currently only supports a minimal install. Some things may not work, use with caution.
-
-### Alpine
-
-Install Alpine.
-
-### After System Installation
-
-```
-$ git clone https://github.com/stardust-kyun/dotfiles ~/dotfiles
-$ cd ~/dotfiles
-$ ./install-alpine.sh
-
-# Install with log
-$ script -c ./install-alpine.sh ~/dotfiles-log.txt 
-```
-
----
-
-</details>
-
-Other distributions are not yet supported and may be added in the future.
 
 ## Usage
 
@@ -319,10 +142,10 @@ The file `~/.config/awesome/rc.lua` contains configuration options for awesome's
 | `c.editor`     | Default Text Editor      | `"vim"`                            |
 | `c.editor_cmd` | Default Editor Command   | `c.terminal .. " -e " .. c.editor` |
 | `c.modkey`     | Default Modkey           | `"Mod4"`                           |
-| `c.shutdown`   | Default Shutdown Command | `"shutdown now"`                   |
-| `c.reboot`     | Default Reboot Command   | `"reboot"`                         |
+| `c.shutdown`   | Default Shutdown Command | `"systemctl poweroff"`                   |
+| `c.reboot`     | Default Reboot Command   | `"systemctl reboot"`                         |
 
-If your distribution uses `runit` instead of `systemd` you will likely need to set `c.shutdown` and `c.reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
+If your distribution uses `runit` instead of `systemd` you will need to set `c.shutdown` and `c.reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
 
 ---
 
@@ -406,11 +229,11 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ### Contributions
 
-- [AloneERO](https://gitlab.com/AloneER0) for help adding an installation script for Void, Fedora, OpenSUSE, and Alpine!
-- [Frankfut](https://github.com/frankfutlg) for help adding an installation script for Void.
-- [Qwickdom](https://github.com/Qwickdom) for help adding an installation script for Arch.
-- [Reverse](https://github.com/Reversedc) for help adding an installation script for Debian.
-- [Alyssa](https://github.com/alyssa-sudo) for help adding an installation script for Gentoo.
+- [AloneERO](https://gitlab.com/AloneER0) for help adding support for Void, Fedora, OpenSUSE, and Alpine!
+- [Frankfut](https://github.com/frankfutlg) for help adding support for Void.
+- [Qwickdom](https://github.com/Qwickdom) for help adding support for Arch.
+- [Reverse](https://github.com/Reversedc) for help adding support for Debian.
+- [Alyssa](https://github.com/alyssa-sudo) for help adding support for Gentoo.
 - [Crylia](https://github.com/Crylia) and [Sammy](https://github.com/TorchedSammy) for massive amounts of help learning awesomewm.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
 

@@ -68,8 +68,8 @@ cat << EOF
 
 EOF
 
-	sleep 3; clear
-	yay -S base-devel --needed
+	sleep 3;
+	yay -S base-devel xorg pipewire --needed --noconfirm
 	yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker rofi ttf-roboto \
 	ttf-roboto-mono xsettingsd picom papirus-icon-theme xcursor-breeze inotify-tools light maim \
 	polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
@@ -118,7 +118,7 @@ EOF
 	su -c 'curl -fsSL https://download.opensuse.org/repositories/home:paulSUSE/Debian_11/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_paulSUSE.gpg > /dev/null'
 	su -c 'apt update'
 
-	su -c 'wget --content-disposition -P /usr/share/fonts/truetype/robotomono https://github.com/googlefonts/RobotoMono/tree/main/fonts/ttf/RobotoMono-{Bold,BoldItalic,Italic,Light,LightItalic,Medium,MediumItalic,Regular,Thin,ThinItalic}.ttf?raw=true
+	su -c 'wget --content-disposition -P /usr/share/fonts/TTF https://github.com/googlefonts/RobotoMono/tree/main/fonts/ttf/RobotoMono-{Bold,BoldItalic,Italic,Light,LightItalic,Medium,MediumItalic,Regular,Thin,ThinItalic}.ttf?raw=true
 '
 	sleep 3; clear
 }
@@ -447,6 +447,9 @@ setup() {
 
 	su -c 'sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf'
 	su -c 'sed -i "s/webkit_theme.*/webkit_theme = lightdm/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
+	if test -f /usr/local/share/xsessions/awesome.desktop; then
+		su -c 'mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions/awesome.desktop'
+	fi
 
 	if command -v systemctl >/dev/null; then
 		su -c 'systemctl enable lightdm'
