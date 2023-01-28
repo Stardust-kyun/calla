@@ -69,7 +69,6 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - network-manager-applet - network applet
 - cbatticon - battery applet
 - volumeicon - volume applet
-- gd - st dep
 
 ### Setup
 
@@ -83,7 +82,6 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - enable lightdm service
 - enable NetworkManager service (if network-manager-applet installed)
 - make contents of `~/.config/awesome/bin` executable
-- run `sudo make install` in `~/.config/st`
 - update font cache `fc-cache -fv`
 - update xrdb `xrdb ~/.Xresources`
 - generate home dirs `xdg-user-dirs-update`
