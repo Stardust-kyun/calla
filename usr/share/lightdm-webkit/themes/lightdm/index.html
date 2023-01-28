@@ -5,37 +5,21 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div id="bar">
-        <div id="session">
-            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M19,4C20.11,4 21,4.9 21,6V18A2,2 0 0,1 19,20H5C3.89,20 3,19.1 3,18V6A2,2 0 0,1 5,4H19M19,18V8H5V18H19Z" />
-            </svg>
-            <label class="select" id="sessions" tabindex=-1>
-                <span class="select-value">Session</span>
-                <input class="select-input" type="checkbox">
-                <ul class="select-menu"></ul>
-            </label>
-        </div>
-        <div id="power">
-            <svg id="restart" style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z" />
-            </svg>
-            <svg id="shutdown" style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M16.56,5.44L15.11,6.89C16.84,7.94 18,9.83 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12C6,9.83 7.16,7.94 8.88,6.88L7.44,5.44C5.36,6.88 4,9.28 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12C20,9.28 18.64,6.88 16.56,5.44M13,3H11V13H13" />
-            </svg>
-        </div>
-    </div>
-
-    <div id="wrapper">
+    <div id="box">
         <span id="error-message"></span>
         <form autocomplete="off">
             <label class="select" id="users" tabindex=-1>
-                <span class="select-value">User</span>
+                <span class="select-value">user</span>
                 <input class="select-input" type="checkbox">
                 <ul class="select-menu"></ul>
             </label>
-            <input autofocus id="password" placeholder="password" tabindex="1" type="password">
-            <button type="submit" tabindex="2">Login</button>
+            <label class="select" id="sessions" tabindex=-1>
+                <span class="select-value">session</span>
+                <input class="select-input" type="checkbox">
+                <ul class="select-menu"></ul>
+            </label>
+			<input autofocus id="password" placeholder="password" tabindex="1" type="password">
+            <button type="submit" tabindex="2">login</button>
         </form>
     </div>
 

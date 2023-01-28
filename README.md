@@ -14,7 +14,7 @@ This is my desktop made with awesomewm! Here's some details:
 - **Window Manager** - awesomewm
 - **File Manager** - nemo
 - **Browser** - librewolf
-- **Terminal** - st
+- **Terminal** - tym
 - **Shell** - bash
 - **Editor** - vim
 
@@ -239,7 +239,6 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ### Projects
 
-- [Siduck's st](https://github.com/siduck76/st) for my personal choice of terminal.
 - [DmgBlue](https://github.com/davidmogar/lightdm-webkit2-dmg_blue), which I based my greeter on.
 - [Materia](https://github.com/nana-4/materia-theme), which I based my gtk themes on.
 - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), which I based my icon themes on.

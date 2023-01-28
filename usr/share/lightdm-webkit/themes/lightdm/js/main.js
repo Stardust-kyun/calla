@@ -4,7 +4,7 @@
 var _self = null;
 var _util = null;
 
-class minimal {
+class greeter {
 
     constructor() {
         if (_self !== null) {
@@ -17,10 +17,8 @@ class minimal {
         this.$error_message = $('#error-message');
         this.$login_button = $('form button');
         this.$password = $('#password');
-        this.$restart = $('#restart')
-        this.$session = $('#session .select-value');
-        this.$sessions_list = $('#session .select-menu');
-        this.$shutdown = $('#shutdown');
+        this.$session = $('#sessions .select-value');
+        this.$sessions_list = $('#sessions .select-menu');
         this.$user = $('#users .select-value');
         this.$users_list = $('#users .select-menu');
 
@@ -44,7 +42,7 @@ class minimal {
         if (lightdm.is_authenticated) {
             lightdm.login(lightdm.authentication_user, selected_session);
         } else {
-            _self.$error_message.text("Oops... the authentication failed. Let's try again.");
+            _self.$error_message.text("Authentication failed, try again.");
             _self.$password.val('');
             _self.start_authentication();
         }
@@ -123,16 +121,6 @@ class minimal {
         $('#sessions li').click(this.update_sessions_select);
         $('#users li').click(this.update_users_select);
 
-        if (lightdm.can_restart) {
-            _self.$restart.show()
-            _self.$restart.click(function() { lightdm.restart(); });
-        }
-
-        if (lightdm.can_shutdown) {
-            _self.$shutdown.show()
-            _self.$shutdown.click(function() { lightdm.shutdown(); });
-        }
-
         window.authentication_complete = this.authentication_complete;
         window.cancel_authentication = this.cancel_authentication;
         window.start_authentication = this.start_authentication;
@@ -196,7 +184,7 @@ class minimal {
 
 }
 
-class minimalUtils {
+class greeterUtils {
 
     constructor() {
         if (_util !== null) {
@@ -241,6 +229,6 @@ class minimalUtils {
  * Initialize the theme once the window has loaded.
  */
 $(window).on('load', () => {
-    new minimalUtils();
-    new minimal();
+    new greeterUtils();
+    new greeter();
 } );

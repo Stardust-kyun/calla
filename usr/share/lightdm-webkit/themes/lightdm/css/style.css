@@ -14,7 +14,6 @@
 }
 
 body {
-	 background: var(--image);
 	 background-image: var(--image);
 	 background-position: center center;
 	 background-size: cover;
@@ -153,30 +152,12 @@ form input::placeholder {
 	color: var(--fg-dimmed);
 }
 
-form input::-webkit-calendar-picker-indicator:hover {
-	background-color: transparent;
-	color: var(--fg);
-	cursor: pointer;
-}
-
 form .select {
 	background-color: var(--bg);
 	border: 1px solid var(--bg);
 	margin-bottom: 1em;
-	width: 100%;
-}
-
-#bar {
-	background-color: var(--bg);
-	box-shadow: var(--shadow);
-	cursor: default;
-	display: flex;
-	height: 2.4em;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 100%;
+	width: 50%;
+	float: left;
 }
 
 #error-message:not(:empty) {
@@ -185,43 +166,7 @@ form .select {
     margin-bottom: 2em;
 }
 
-
-#power {
-	background-color: var(--bg-alt);
-	margin-left: auto;
-	text-align: center;
-}
-
-#power svg {
-	cursor: pointer;
-    display: none;
-	fill: var(--fg);
-	padding: 0.33em 0.8em;
-	width: 1.5em !important;
-}
-
-#session svg {
-	fill: var(--fg);
-	padding: 0.33em 0.8em;
-	width: 1.4em !important;
-}
-
-#session .select {
-	top: -0.7em;
-}
-
-#session .select-value {
-	padding: 0 2.5em 0 0;
-}
-
-#session .select-menu {
-	border: none;
-	box-shadow: var(--shadow);
-	margin-top: 1.2em;
-	right: auto;
-}
-
-#wrapper {
+#box {
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 	left: 50%;
