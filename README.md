@@ -218,9 +218,6 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 ### Wave
 ![browser](src/wave.png)
 
-### Shuttle
-![launcher](src/shuttle.png)
-
 </details>
 
 ## Credit
