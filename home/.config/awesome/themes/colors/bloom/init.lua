@@ -1,5 +1,4 @@
 local theme_path = require("gears").filesystem.get_configuration_dir() .. "themes/colors/bloom/"
-local icon_path = theme_path .. "icons/"
 local color = {}
 
 color.bg      	   = "#fffaf5"

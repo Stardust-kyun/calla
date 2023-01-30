@@ -30,7 +30,7 @@ chan $BG '#09151a' '#0a191e' $FG
 page $BG '#09151a' '#0a191e' $FG 
 # func - background - foreground
 zath $BG $FG 
-# func - background - alt background - alt background hover - disabled background - foreground - dimmed foreground - error foreground - image
+# func - background - alt background - alt background hover - disabled background - foreground - alt foreground - error foreground - image
 lightdm $BG $BL '#0c1e24' '#09151a' $FG $BL $R 'sakura'
 # func - theme
 awes 'sakura'

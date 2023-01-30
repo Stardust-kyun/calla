@@ -1,5 +1,5 @@
-local background = tostring(io.popen("xrdb -get background"):read("*a"):gsub("\n",""))
-local foreground = tostring(io.popen("xrdb -get foreground"):read("*a"):gsub("\n",""))
+background = tostring(io.popen("xrdb -get background"):read("*a"):gsub("\n",""))
+foreground = tostring(io.popen("xrdb -get foreground"):read("*a"):gsub("\n",""))
 return {
 	color_background = background,
 	color_foreground = foreground,

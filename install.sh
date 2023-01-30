@@ -446,7 +446,7 @@ setup() {
 	popd
 
 	su -c 'sed -i "s/#greeter-session.*/greeter-session=lightdm-webkit2-greeter/g" /etc/lightdm/lightdm.conf'
-	su -c 'sed -i "s/webkit_theme.*/webkit_theme = lightdm/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
+	su -c 'sed -i "s/webkit_theme.*/webkit_theme = greeter/g" /etc/lightdm/lightdm-webkit2-greeter.conf'
 	if test -f /usr/local/share/xsessions/awesome.desktop; then
 		su -c 'mv /usr/local/share/xsessions/awesome.desktop /usr/share/xsessions/awesome.desktop'
 	fi

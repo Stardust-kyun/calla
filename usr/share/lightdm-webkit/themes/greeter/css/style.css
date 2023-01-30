@@ -1,16 +1,14 @@
-@import url("reset.css");
-
 :root {
-	--bg: #19191e;
-	--bg-alt: #2b2b33;
-	--bg-alt-hover: #2f2f38;
-	--bg-disabled: #383842;
-	--fg: #9999a8;
-	--fg-alt: #4b4646;
-	--fg-dimmed: #2b2b33;
+	--bg: #000f14;
+	--bg-alt: #0a191e;
+	--bg-alt-hover: #0c1e24;
+	--bg-disabled: #09151a;
+	--fg: #a0a0b4;
+	--fg-alt: #0a191e;
+	--fg-error: #824655;
 	--shadow: 0 0 18px 9px rgba(0, 0, 0, 0.25);
 	--font: "Roboto";
-	--image: url("../src/shore.png");
+	--image: url("../src/sakura.png");
 }
 
 body {
@@ -32,19 +30,12 @@ body {
 	outline: none;
 }
 
-.select:hover .select-value:after {
-	border-top: 5px solid var(--fg);
-}
-
 ::selection {
     color: none;
     background: none;
 }
 
-.select-input {
-	display: none;
-}
-
+.select-input,
 .select-input + .select-menu {
 	display: none;
 }
@@ -64,7 +55,7 @@ body {
 }
 
 .select-menu li {
-	color: var(--fg-dimmed);
+	color: var(--fg-alt);
 	cursor: pointer;
 	margin: -1px 0;
 	padding: 1em;
@@ -92,7 +83,7 @@ body {
 .select-value:after {
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
-	border-top: 5px solid var(--fg-dimmed);
+	border-top: 5px solid var(--fg-alt);
 	content: '';
 	height: 0;
 	position: absolute;
@@ -120,7 +111,7 @@ form button {
 form button:disabled,
 form button:disabled:hover {
     background-color: var(--bg-disabled);
-    color: var(--fg-dimmed);
+    color: var(--fg-alt);
     cursor: default;
 }
 
@@ -149,7 +140,7 @@ form input:focus {
 }
 
 form input::placeholder {
-	color: var(--fg-dimmed);
+	color: var(--fg-alt);
 }
 
 form .select {

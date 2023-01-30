@@ -134,7 +134,7 @@ The file `~/.config/awesome/rc.lua` contains configuration options for awesome's
 
 | Configuration  | Description              | Default                            |
 | -------------- | ------------------------ | ---------------------------------- |
-| `c.terminal`   | Default Terminal         | `"st"`                             |
+| `c.terminal`   | Default Terminal         | `"tym"`                             |
 | `c.browser`    | Default Web Browser      | `"librewolf"`                      |
 | `c.files`      | Default File Manager     | `"nemo"`                           |
 | `c.editor`     | Default Text Editor      | `"vim"`                            |
@@ -243,4 +243,4 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ## Contact
 
-You can find me on discord at `Stardust-kyun#5994` and matrix at `stardust-kyun:matrix.org`. I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.
+You can find me on discord at [Stardust-kyun#5994](https://discord.com/users/417133059654156299) and matrix at `stardust-kyun:matrix.org`. I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.

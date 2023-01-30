@@ -1,20 +1,17 @@
 #!/bin/bash
 DIR="$HOME/.config/awesome/themes/colors/scripts"
-MENU="$(rofi -p "Color Scheme" -sep "|" -dmenu -i <<< "Sakura|Bloom|Shore|Wave|Shuttle")"
+MENU="$(rofi -p "color scheme" -sep "|" -dmenu -i <<< "sakura|bloom|shore|wave")"
 case "$MENU" in
-	Sakura)
+	sakura)
 		$DIR/sakura.sh
 		;;
-	Bloom)
+	bloom)
 		$DIR/bloom.sh
 		;;
-	Shore)
+	shore)
 		$DIR/shore.sh
-	       	;;
-	Wave) 
+	    ;;
+	wave) 
 		$DIR/wave.sh
-	       	;;
-	Shuttle) 
-		$DIR/shuttle.sh
-	       	;;
+	    ;;
 esac

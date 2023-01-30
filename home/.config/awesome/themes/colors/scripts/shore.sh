@@ -30,7 +30,7 @@ chan $BG '#1c1c21' '#1e1e24' $FG
 page $BG '#1c1c21' '#1e1e24' $FG 
 # func - background - foreground
 zath $BG $FG
-# func - background - alt background - alt background hover - disabled background - foreground - dimmed foreground - error foreground - image
+# func - background - alt background - alt background hover - disabled background - foreground - alt foreground - error foreground - image
 lightdm $BG $BL '#2f2f38' '#383842' $FG $BL $R 'shore'
 # func - theme
 awes 'shore'

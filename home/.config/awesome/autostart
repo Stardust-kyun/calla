@@ -7,10 +7,11 @@ run() {
   fi
 }
 
+run tym --daemon
 run picom
 run xsettingsd
 run nm-applet
 run cbatticon
-run volumeicon
+# run volumeicon
 run light-locker --no-lock-on-lid
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

@@ -30,6 +30,12 @@ awful.keyboard.append_global_keybindings({
 		{ modkey }, "d", function () awful.spawn.with_shell("rofi -show run") end,
         { description = "run prompt", group = "launcher" }
 	),
+	--[[
+	awful.key(
+		{ modkey }, "d", function () require("themes/linear/menu").open() end,
+        { description = "run prompt", group = "launcher" }
+	),
+	--]]
     awful.key(
 		{ modkey }, "e", function () awful.spawn.with_shell("~/.config/awesome/bin/kaomoji") end,
         { description = "kaomoji menu", group = "launcher" }

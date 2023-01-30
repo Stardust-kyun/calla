@@ -8,7 +8,7 @@ require("naughty").connect_signal("request::display_error", function(message, st
 end)
 
 -- Defaults
-terminal = "st"
+terminal = "tym"
 browser = "librewolf"
 files = "nemo"
 editor = "vim"

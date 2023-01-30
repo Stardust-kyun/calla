@@ -10,7 +10,7 @@ WOLF="$HOME/.librewolf/*.default-release/chrome"
 PAGE="$CONF/startpage/css/style.css"
 PICOM="$CONF/picom.conf"
 ZATH="$CONF/zathura/zathurarc"
-LIDM="/usr/share/lightdm-webkit/themes/lightdm/css/style.css"
+LIDM="/usr/share/lightdm-webkit/themes/greeter/css/style.css"
 AWES="$CONF/awesome"
 
 run() {
@@ -64,10 +64,10 @@ sed -i -e "s/--bg: .*/--bg: $1;/g" \
 }
 
 chan() {
-sed -i -e "s/--bg: .*/--bg: $1;/g" \
-       -e "s/--bg2: .*/--bg2: $2;/g" \
-       -e "s/--bg3: .*/--bg3: $3;/g" \
-       -e "s/--fg: .*/--fg: $4;/g" $WOLF/userContent.css
+sed -i -e "s/--bg: .*/--bg: $1 !important;/g" \
+       -e "s/--bg2: .*/--bg2: $2 !important;/g" \
+       -e "s/--bg3: .*/--bg3: $3 !important;/g" \
+       -e "s/--fg: .*/--fg: $4 !important;/g" $WOLF/userContent.css
 }
 
 page() {
@@ -100,7 +100,7 @@ sed -i -e "s/--bg: .*/--bg: $1;/g" \
        -e "s/--bg-alt-hover: .*/--bg-alt-hover: $3;/g" \
        -e "s/--bg-disabled: .*/--bg-disabled: $4;/g" \
        -e "s/--fg: .*/--fg: $5;/g" \
-       -e "s/--fg-dimmed: .*/--fg-dimmed: $6;/g" \
+	   -e "s/--fg-alt: .*/--fg-alt: $6;/g" \
        -e "s/--fg-error: .*/--fg-error: $7;/g" \
        -e "s/--image: .*/--image: url(\"\.\.\/src\/$8\.png\");/g" $LIDM
 }
