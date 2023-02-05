@@ -78,7 +78,7 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - copy contents of `lib/librewolf` to `/lib/librewolf` (if librewolf installed)
     + edit mozilla.cfg and replace `USER` with your user's name
 - uncomment `#greeter-session=` and set it to `lightdm-webkit2-greeter` in `/etc/lightdm/lightdm.conf`
-- set `webkit_theme` to `minimal` in `/etc/lightdm/lightdm-webkit2-greeter.conf`
+- set `webkit_theme` to `greeter` in `/etc/lightdm/lightdm-webkit2-greeter.conf`
 - enable lightdm service
 - enable NetworkManager service (if network-manager-applet installed)
 - make contents of `~/.config/awesome/bin` executable
@@ -134,14 +134,14 @@ The file `~/.config/awesome/rc.lua` contains configuration options for awesome's
 
 | Configuration  | Description              | Default                            |
 | -------------- | ------------------------ | ---------------------------------- |
-| `c.terminal`   | Default Terminal         | `"tym"`                             |
+| `c.terminal`   | Default Terminal         | `"tym"`                            |
 | `c.browser`    | Default Web Browser      | `"librewolf"`                      |
 | `c.files`      | Default File Manager     | `"nemo"`                           |
 | `c.editor`     | Default Text Editor      | `"vim"`                            |
 | `c.editor_cmd` | Default Editor Command   | `c.terminal .. " -e " .. c.editor` |
 | `c.modkey`     | Default Modkey           | `"Mod4"`                           |
-| `c.shutdown`   | Default Shutdown Command | `"systemctl poweroff"`                   |
-| `c.reboot`     | Default Reboot Command   | `"systemctl reboot"`                         |
+| `c.shutdown`   | Default Shutdown Command | `"systemctl poweroff"`             |
+| `c.reboot`     | Default Reboot Command   | `"systemctl reboot"`               |
 
 If your distribution uses `runit` instead of `systemd` you will need to set `c.shutdown` and `c.reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
 
@@ -198,9 +198,6 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 ### Browser
 ![browser](src/browser.png)
 
-### Launcher
-![launcher](src/launcher.png)
-
 </details>
 
 <details>
@@ -235,8 +232,8 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 ### Projects
 
 - [DmgBlue](https://github.com/davidmogar/lightdm-webkit2-dmg_blue), which I based my greeter on.
-- [Materia](https://github.com/nana-4/materia-theme), which I based my gtk themes on.
 - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), which I based my icon themes on.
+- [Phocus](https://github.com/phocus/gtk), which I based my gtk themes on.
 
 ## Contact
 

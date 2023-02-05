@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=shore
-Comment=A Material Design theme
+Comment=shore gtk
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
 GtkTheme=shore
 MetacityTheme=shore
-IconTheme=Adwaita
-CursorTheme=Adwaita
-CursorSize=24
+IconTheme=shore
+CursorTheme=Breeze
+ButtonLayout=menu

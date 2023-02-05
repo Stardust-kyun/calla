@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=sakura
-Comment=A Material Design theme
+Comment=sakura gtk
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
 GtkTheme=sakura
 MetacityTheme=sakura
-IconTheme=Adwaita
-CursorTheme=Adwaita
-CursorSize=24
+IconTheme=sakura
+CursorTheme=Breeze
+ButtonLayout=menu

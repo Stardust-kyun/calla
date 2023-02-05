@@ -71,6 +71,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
+	-- Taglist Widget
 	s.taglist = awful.widget.taglist {
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
@@ -140,7 +141,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 					systray,
 					top = dpi(14),
 					bottom = dpi(13),
-					left = dpi(4),
+					left = dpi(24),
 					widget = wibox.container.margin
 				},
 				textclock,

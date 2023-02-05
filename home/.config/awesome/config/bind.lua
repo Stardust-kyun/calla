@@ -11,7 +11,7 @@ awful.mouse.append_global_mousebindings({
 awful.keyboard.append_global_keybindings({
 
     awful.key(
-		{ modkey, }, "Return", function () awful.spawn.with_shell(terminal) end,
+		{ modkey }, "Return", function () awful.spawn.with_shell(terminal) end,
         { description = "open a terminal", group = "awesome" }
 	),
 	awful.key(
@@ -25,6 +25,10 @@ awful.keyboard.append_global_keybindings({
 	awful.key(
 		{ modkey, "Shift" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }
+	),
+	awful.key(
+		{ modkey }, "z", function () awful.layout.inc(1) end,
+ 		{ description = "next layout", group = "awesome" }
 	),
     awful.key(
 		{ modkey }, "d", function () awful.spawn.with_shell("rofi -show run") end,

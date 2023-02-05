@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=bloom
-Comment=A Material Design theme
+Comment=bloom gtk
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
 GtkTheme=bloom
 MetacityTheme=bloom
-IconTheme=Adwaita
-CursorTheme=Adwaita
-CursorSize=24
+IconTheme=bloom
+CursorTheme=Breeze
+ButtonLayout=menu

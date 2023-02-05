@@ -36,4 +36,15 @@ ruled.client.connect_signal("request::rules", function()
         rule_any   = { type = { "normal", "dialog" } },
         properties = { titlebars_enabled = true }
     }
+
+	-- Make Nemo-desktop work "properly"
+	ruled.client.append_rule {
+		id = "desktop",
+		rule_any = {
+			class = {
+				"Nemo-desktop"
+			}
+		},
+		properties = { sticky = true, tag = " " }
+	}
 end)

@@ -14,4 +14,5 @@ run nm-applet
 run cbatticon
 # run volumeicon
 run light-locker --no-lock-on-lid
+run nemo-desktop
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
