@@ -198,6 +198,9 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 ### Browser
 ![browser](src/browser.png)
 
+### Lock Screen
+![lockscreen](src/lockscreen.png)
+
 </details>
 
 <details>
