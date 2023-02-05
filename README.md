@@ -64,7 +64,7 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - gvim - vim with clipboard
 - librewolf - browser
 - nemo - file manager
-- viewnior - image viewer
+- gpicview - image viewer
 - zathura - pdf viewer
 - network-manager-applet - network applet
 - cbatticon - battery applet
