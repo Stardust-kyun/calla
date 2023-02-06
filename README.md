@@ -209,14 +209,66 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 ### Sakura
 ![terminal](src/sakura.png)
 
+| Color      | Hexcode |
+| ---------- | ------- |
+| Background | #000f14 |
+| Foreground | #a0a0b4 |
+| Black      | #0a191e |
+| White      | #a0a0b4 |
+| Red        | #824655 |
+| Green      | #468264 |
+| Yellow     | #827d50 |
+| Blue       | #326482 |
+| Magenta    | #645078 |
+| Cyan       | #327d7d |
+
 ### Bloom
 ![graphical](src/bloom.png)
+
+| Color      | Hexcode |
+| ---------- | ------- |
+| Background | #fffaf5 |
+| Foreground | #4b4646 |
+| Black      | #4b4646 |
+| White      | #ebe6e1 |
+| Red        | #eb8c8c |
+| Green      | #96e6a5 |
+| Yellow     | #f0cd96 |
+| Blue       | #9bb9f0 |
+| Magenta    | #d7a0e6 |
+| Cyan       | #a0e1d2 |
 
 ### Shore
 ![widget](src/shore.png)
 
+| Color      | Hexcode |
+| ---------- | ------- |
+| Background | #19191e |
+| Foreground | #9999a8 |
+| Black      | #2b2b33 |
+| White      | #9999a8 |
+| Red        | #825a5a |
+| Green      | #5a825a |
+| Yellow     | #968264 |
+| Blue       | #505a82 |
+| Magenta    | #735a87 |
+| Cyan       | #5a7387 |
+
 ### Wave
 ![browser](src/wave.png)
+
+| Color      | Hexcode |
+| ---------- | ------- |
+| Background | #f0fafa |
+| Foreground | #262626 |
+| Black      | #404040 |
+| White      | #dce6e6 |
+| Red        | #e68383 |
+| Green      | #a0e6af |
+| Yellow     | #ffcd96 |
+| Blue       | #83b4e6 |
+| Magenta    | #e1aae1 |
+| Cyan       | #8cd7d2 |
 
 </details>
 
