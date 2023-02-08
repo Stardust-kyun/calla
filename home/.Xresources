@@ -1,13 +1,13 @@
-#define BG #f0fafa
-#define FG #262626
-#define BL #404040
-#define WH #dce6e6
-#define R #e68383
-#define G #a0e6af
-#define Y #ffcd96
-#define B #83b4e6
-#define M #e1aae1
-#define C #8cd7d2
+#define BG #000f14
+#define FG #a0a0b4
+#define BL #0a191e
+#define WH #a0a0b4
+#define R #824655
+#define G #468264
+#define Y #827d50
+#define B #326482
+#define M #645078
+#define C #327d7d
 
 ! special
 *.foreground:   FG
