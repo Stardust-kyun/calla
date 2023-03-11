@@ -10,7 +10,7 @@
 
 @-moz-document url-prefix(about:blank) {
 	:root {
-		--bg: #000f14;
+		--bg: #000f14 !important;
 	}
 	html > body:empty {
 		background-color: var(--bg) !important;
@@ -19,19 +19,61 @@
 
 @-moz-document url(about:blank) {
 	:root {
-		--bg: #000f14;
+		--bg: #000f14 !important;
 	}
 	html > body:empty {
 		background-color: var(--bg) !important;
 	}
 }
 
+@-moz-document domain(star.is-a.dev) {
+	:root {
+		--bg: #000f14 !important;
+		--bg2: #09151a !important;
+		--bg3: #0a191e !important;
+		--fg: #a0a0b4 !important;
+	}
+}
+
+/*
+@-moz-document domain(discord.com) {
+.theme-dark {
+	--background-primary: #fffaf5 !important;
+    --background-secondary: #fffaf5 !important;
+    --background-secondary-alt: #fffaf5 !important;
+    --background-tertiary: #fffaf5 !important;
+	--background-accent: #ebe6e1 !important;
+	--background-floating: #ebe6e1 !important;
+    --channeltextarea-background: #ebe6e1 !important;
+
+	--channels-default: #4b4646 !important;
+	--header-primary: #4b4646 !important;
+	--header-secondary: #4b4646 !important;
+	--text-normal: #4b4646 !important;
+	--text-muted: #4b4646 !important;
+
+    --background-modifier-hover: #f8f5f2 !important;
+    --background-modifier-active: #f8f5f2 !important;
+    --background-modifier-selected: #ebe6e1 !important;
+
+    --deprecated-card-bg: #fffaf5 !important;
+    --deprecated-quickswitcher-input-background:#ebe6e1 !important;
+
+    --scrollbar-auto-thumb: #ebe6e1 !important;
+    --scrollbar-auto-track: #fffaf5 !important;
+    --scrollbar-thin-thumb: #ebe6e1!important;
+
+    --elevation-low: none !important;
+}
+}
+*/
+
 @-moz-document domain(4channel.org) {
 	:root {
-		--bg: #000f14;
-		--bg2: #09151a;
-		--bg3: #0a191e;
-		--fg: #a0a0b4;
+		--bg: #000f14 !important;
+		--bg2: #09151a !important;
+		--bg3: #0a191e !important;
+		--fg: #a0a0b4 !important;
 	}
 	.boardBanner,
 	#blotter.desktop,
@@ -54,7 +96,10 @@
 	.is_thread > form > #togglePostFormLink,
 	.fileText,
 	.dateTime,
-	.closed,
+	.closed
+	#boardNavDesktop,
+	.danbo-slot,
+	.adl,
 	hr {
 		display: none !important;
 	}
@@ -222,10 +267,10 @@
 
 @-moz-document domain(4chan.org) {
 	:root {
-		--bg: #000f14;
-		--bg2: #09151a;
-		--bg3: #0a191e;
-		--fg: #a0a0b4;
+		--bg: #000f14 !important;
+		--bg2: #09151a !important;
+		--bg3: #0a191e !important;
+		--fg: #a0a0b4 !important;
 	}
 	.boardBanner,
 	#blotter.desktop,
@@ -248,7 +293,10 @@
 	.is_thread > form > #togglePostFormLink,
 	.fileText,
 	.dateTime,
-	.closed,
+	.closed
+	#boardNavDesktop,
+	.danbo-slot,
+	.adl,
 	hr {
 		display: none !important;
 	}

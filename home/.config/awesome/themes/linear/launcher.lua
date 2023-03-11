@@ -218,6 +218,12 @@ awesome.connect_signal("signal::volume", function(volume, mute)
 	end
 end)
 
+--[[ make volumeslider _private
+volumeslider:connect_signal("property::value", function(_, value)
+	awful.spawn.easy_async_with_shell("pactl set-sink-volume @DEFAULT_SINK@ " .. tonumber(value) .. "%")
+end)
+--]]
+
 awesome.connect_signal("signal::brightness", function(brightness)
 	brightnessslider.value = brightness
 	if brightness >= 75 then

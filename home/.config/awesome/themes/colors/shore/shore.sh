@@ -1,6 +1,6 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
-source $HOME/.config/awesome/themes/colors/scripts/desktop.sh
+source $HOME/.config/awesome/themes/colors/desktop.sh
 
 # Colors
 BG="#19191e"
@@ -22,12 +22,10 @@ comp 'true' '25' '-25' '-25' '.5'
 term 
 # func - gtk - icons 
 gtk 'shore' 'shore' 
-# func - background - foreground - alt foreground
-browser $BG $FG '#4d4d54' 
+# func - background - alt background - foreground - alt foreground
+browser $BG $BL $FG '#4d4d54' 
 # func - background - background 2 - background 3 - foreground
-chan $BG '#1c1c21' '#1e1e24' $FG 
-# func - background - background 2 - background 3 - foreground
-page $BG '#1c1c21' '#1e1e24' $FG 
+css $BG '#1c1c21' '#1e1e24' $FG 
 # func - background - foreground
 zath $BG $FG
 # func - background - alt background - alt background hover - disabled background - foreground - alt foreground - error foreground - image

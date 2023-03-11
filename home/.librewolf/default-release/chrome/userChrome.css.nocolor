@@ -1,10 +1,5 @@
 :root {
-	--bg: #000f14;
-	--bg-alt: #0a191e;
-	--fg: #a0a0b4;
-	--fg-alt: #4d4d54;
 	--toolbar-field-focus-border-color: #0000 !important;
-	--lwt-tab-text: var(--fg) !important;
 }
 
 .titlebar-spacer,
@@ -35,7 +30,6 @@ toolbarspring {
     margin-bottom: -1px !important;
     margin-right: 75vw !important;
     height: 45px !important;
-    background-color: var(--bg) !important;
 }
 
 #navigator-toolbox {
@@ -47,26 +41,16 @@ toolbarspring {
     margin-bottom: 1px !important;
     margin-left: 25vw !important;
     max-height: 45px !important;
-    background-color: var(--bg) !important;
 }
 
 #urlbar .urlbarView {
 	display: none !important;
 }
 
-#urlbar-input {
-	color: var(--fg) !important;
-}
-
 #urlbar-background {
     border: transparent !important;
     animation: none !important;
     box-shadow: none !important;
-	background-color: var(--bg-alt) !important;
-}
-
-.urlbarView-row[selectable][selected] > .urlbarView-row-inner, .urlbarView-row-inner[selectable][selected] {
-	background-color: var(--bg-alt) !important;
 }
 
 #urlbar,
@@ -79,22 +63,6 @@ toolbarspring {
 }
 
 /* tabs */
-
-.tabbrowser-tab[selected] .tab-background {
-	background: var(--bg-alt) !important;
-}
-
-tab:not([selected]) .tab-label {
-	color: var(--fg-alt) !important;
-}
-
-#tabs-newtab-button {
-	fill: var(--fg-alt) !important;
-}
-
-#tabs-newtab-button:hover {
-	fill: var(--fg) !important;
-}
 
 .tabbrowser-tab:not(:hover) .tab-close-button { 
 	display: none !important; 
@@ -110,15 +78,4 @@ scrollbox, .scrollbox-clip {
 
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
 	margin-inline-start: 0px !important;
-}
-
-
-/* misc */
-
-.header-container,
-.body-container,
-.footer-container,
-findbar {
-	background-color: var(--bg) !important;
-	color: var(--fg) !important;
 }

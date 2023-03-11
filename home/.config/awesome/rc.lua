@@ -7,15 +7,23 @@ require("naughty").connect_signal("request::display_error", function(message, st
     }
 end)
 
--- Defaults
+-- User Config
+-- Modkey --------------------------------------------------------------------------
+modkey = "Mod4"
+-- Apps ----------------------------------------------------------------------------
 terminal = "tym"
 browser = "librewolf"
 files = "nemo"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
+-- Commands ------------------------------------------------------------------------
 shutdown = "systemctl poweroff"
 reboot = "systemctl reboot"
-modkey = "Mod4"
+-- Themes --------------------------------------------------------------------------
+color = require("themes.colors.sakura")
+-- wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Plane.jpg"
+-- Screenshots ---------------------------------------------------------------------
+shotdir = "~/Pictures/Screenshots/"
 
 -- Config
 require("awful.autofocus")

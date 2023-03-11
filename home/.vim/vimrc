@@ -8,7 +8,6 @@ if &term =~ '^st\($\|-\)'
 endif
 
 color theme
-" set termguicolors
 syntax on
 
 nnoremap y "+y
@@ -19,8 +18,3 @@ vnoremap p "+p
 set titlestring=VIM\ %F\ %a%r%m titlelen=70
 
 set tabstop=4
-
-" call plug#begin()
-" Plug 'RRethy/vim-hexokinase'
-" call plug#end()
-" let g:Hexokinase_highlighters = ['foregroundfull']

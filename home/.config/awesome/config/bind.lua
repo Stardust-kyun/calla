@@ -1,63 +1,100 @@
 local awful = require("awful")
-local hotkeys_popup = require("awful.hotkeys_popup")
 
 -- Mouse 
-awful.mouse.append_global_mousebindings({
-	awful.button({ }, 1, function () rootmenu:hide() end),
-    awful.button({ }, 3, function () rootmenu:toggle() end),
-})
+client.connect_signal("request::default_mousebindings", function()
+    awful.mouse.append_client_mousebindings({
+		-- Focus
+        awful.button({ }, 1, function(c)
+            c:activate { context = "mouse_click" }
+        end),
+		-- Move
+        awful.button({ modkey }, 1, function(c)
+            c:activate { context = "mouse_click", action = "mouse_move"  }
+        end),
+		-- Resize
+        awful.button({ modkey }, 3, function(c)
+            c:activate { context = "mouse_click", action = "mouse_resize"}
+        end),
+    })
+end)
 
--- General keys
+-- Keys
 awful.keyboard.append_global_keybindings({
 
-    awful.key(
-		{ modkey }, "Return", function () awful.spawn.with_shell(terminal) end,
-        { description = "open a terminal", group = "awesome" }
-	),
+	-- Awesome
 	awful.key(
-		{ modkey }, "k", function() hotkeys_popup.show_help() end,
-		{ description = "show keybindings", group = "awesome" }
-	),
-	awful.key(
-		{ modkey }, "0", function() awesome.emit_signal("widget::power") end,
-		{ description = "show power menu", group = "awesome" }
-	),
-	awful.key(
-		{ modkey, "Shift" }, "r", awesome.restart,
+		{ modkey, "Shift" }, "r", 
+			awesome.restart,
 		{ description = "reload awesome", group = "awesome" }
 	),
 	awful.key(
-		{ modkey }, "z", function () awful.layout.inc(1) end,
+		{ modkey }, "z", function() 
+			awful.layout.inc(1) 
+		end,
  		{ description = "next layout", group = "awesome" }
 	),
-    awful.key(
-		{ modkey }, "d", function () awful.spawn.with_shell("rofi -show run") end,
-        { description = "run prompt", group = "launcher" }
-	),
-	--[[
+
+	-- Programs
 	awful.key(
-		{ modkey }, "d", function () require("themes/linear/menu").open() end,
+		{ modkey }, "Return", function() 
+			awful.spawn.with_shell(terminal) 
+		end,
+        { description = "open a terminal", group = "awesome" }
+	),
+	awful.key(
+		{ modkey }, "p", function() 
+			awful.spawn.with_shell("killall picom") 
+		end,
+        { description = "open a terminal", group = "awesome" }
+	),
+	awful.key(
+		{ modkey, "Shift" }, "p", function() 
+			awful.spawn.with_shell("picom & disown") 
+		end,
+        { description = "open a terminal", group = "awesome" }
+	),
+    awful.key(
+		{ modkey }, "d", function() 
+			awful.spawn.with_shell("rofi -show run") 
+		end,
         { description = "run prompt", group = "launcher" }
 	),
-	--]]
     awful.key(
-		{ modkey }, "e", function () awful.spawn.with_shell("~/.config/awesome/bin/kaomoji") end,
-        { description = "kaomoji menu", group = "launcher" }
+		{ modkey }, "e", function() 
+			awful.spawn.with_shell("rofi -modi emoji -show emoji -emoji-format '{emoji}'") -- Requires rofi-emoji from arch repos
+		end,
+        { description = "emoji menu", group = "launcher" }
 	),
     awful.key(
-		{ modkey, "Shift" }, "d", function () awful.spawn.with_shell("~/.config/awesome/themes/colors/scripts/rofi.sh") end,
+		{ modkey, "Shift" }, "d", function() 
+			awful.spawn.with_shell("~/.config/awesome/themes/colors/rofi.sh") 
+		end,
         { description = "desktop menu", group = "launcher" }
 	),
+
+	-- Screenshot
 	awful.key(
-		{ modkey }, "Delete", function () awful.spawn.with_shell("~/.config/awesome/bin/screenshot full") end,
+		{ modkey }, "Delete", function() 
+			awesome.emit_signal("screenshot::full") 
+		end,
         { description = "full screen", group = "screenshot" }
 	),
 	awful.key(
-		{ modkey, "Shift" }, "Delete", function () awful.spawn.with_shell("~/.config/awesome/bin/screenshot part") end,
+		{ modkey, "Control" }, "Delete", function()
+			awesome.emit_signal("screenshot::fullwait")
+		end,
+        { description = "full screen delay", group = "screenshot" }
+	),
+	awful.key(
+		{ modkey, "Shift" }, "Delete", function() 
+			awesome.emit_signal("screenshot::part") 
+		end,
         { description = "part screen", group = "screenshot" }
 	),
+
+	-- Volume
     awful.key(
-		{ }, "XF86AudioRaiseVolume", function () 
+		{ }, "XF86AudioRaiseVolume", function() 
 			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
 			awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%")
 			awesome.emit_signal("widget::volume")
@@ -65,7 +102,7 @@ awful.keyboard.append_global_keybindings({
         { description = "raise volume", group = "volume" }
 	),
     awful.key(
-		{ }, "XF86AudioLowerVolume", function () 
+		{ }, "XF86AudioLowerVolume", function() 
 			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
 			awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%")
 			awesome.emit_signal("widget::volume")
@@ -73,43 +110,64 @@ awful.keyboard.append_global_keybindings({
         { description = "lower volume", group = "volume" }
 	),
     awful.key(
-		{ }, "XF86AudioMute", function () 
+		{ }, "XF86AudioMute", function() 
 			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle")
 			awesome.emit_signal("widget::volume")
 		end,
         { description = "mute volume", group = "volume" }
 	),
+
+	-- Brightness
 	awful.key(
-		{ }, "XF86MonBrightnessUp", function () 
+		{ }, "XF86MonBrightnessUp", function() 
 			awful.spawn.with_shell("light -A 5")
 			awesome.emit_signal("widget::brightness")
 		end,
         { description = "raise brightness", group = "brightness" }
 	),
 	awful.key(
-		{ }, "XF86MonBrightnessDown", function () 
+		{ }, "XF86MonBrightnessDown", function() 
 			awful.spawn.with_shell("light -U 5")
 			awesome.emit_signal("widget::brightness")
 		end,
         { description = "lower brightness", group = "brightness" }
 	),
-})
+	
+	-- Power
+	awful.key(
+		{ modkey }, "0", function() 
+			awesome.emit_signal("widget::power") 
+		end,
+		{ description = "show power menu", group = "awesome" }
+	),
 
-awful.keyboard.append_global_keybindings({
+	-- Management
+	awful.key(
+		{ modkey }, "c", function() 
+			awful.placement.centered(client.focus, { honor_workarea = true }) 
+		end,
+		{ description = "center window", group = "management" }
+	),
     awful.key(
-		{ modkey }, "Tab", function () awful.client.focus.byidx(1) end,
-        { description = "focus next by index", group = "client" }
+		{ modkey }, "Tab", function() 
+			awful.client.focus.byidx(1) 
+		end,
+        { description = "focus next by index", group = "management" }
     ),
     awful.key(
-		{ modkey, "Shift" }, "Tab", function () awful.client.focus.byidx(-1) end,
-		{ description = "focus previous by index", group = "client" }
+		{ modkey, "Shift" }, "Tab", function() 
+			awful.client.focus.byidx(-1) 
+		end,
+		{ description = "focus previous by index", group = "management" }
     ),
+
+	-- Tag
     awful.key {
         modifiers   = { modkey },
         keygroup    = "numrow",
         description = "only view tag",
         group       = "tag",
-        on_press    = function (index)
+        on_press    = function(index)
             local screen = awful.screen.focused()
             local tag = screen.tags[index]
             if tag then
@@ -122,7 +180,7 @@ awful.keyboard.append_global_keybindings({
         keygroup    = "numrow",
         description = "move focused client to tag",
         group       = "tag",
-        on_press    = function (index)
+        on_press    = function(index)
             if client.focus then
                 local tag = client.focus.screen.tags[index]
                 if tag then
@@ -134,28 +192,13 @@ awful.keyboard.append_global_keybindings({
     }
 })
 
-client.connect_signal("request::default_mousebindings", function()
-    awful.mouse.append_client_mousebindings({
-		-- Focus
-        awful.button({ }, 1, function (c)
-            c:activate { context = "mouse_click" }
-        end),
-		-- Move
-        awful.button({ modkey }, 1, function (c)
-            c:activate { context = "mouse_click", action = "mouse_move"  }
-        end),
-		-- Resize
-        awful.button({ modkey }, 3, function (c)
-            c:activate { context = "mouse_click", action = "mouse_resize"}
-        end),
-    })
-end)
-
 client.connect_signal("request::default_keybindings", function()
     awful.keyboard.append_client_keybindings({
+
+		-- Client
         awful.key(
 			{ modkey }, "f",
-            function (c)
+            function(c)
                 c.fullscreen = not c.fullscreen
                 c:raise()
             end,
@@ -178,7 +221,9 @@ client.connect_signal("request::default_keybindings", function()
         	{ description = "toggle maximize", group = "client" }
 		),
 		awful.key(
-			{ modkey, "Shift" }, "q", function (c) c:kill() end,
+			{ modkey, "Shift" }, "q", function(c) 
+				c:kill() 
+			end,
  			{ description = "close", group = "client" }
 		),
     })

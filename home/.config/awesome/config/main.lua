@@ -1,8 +1,6 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local ruled = require("ruled")
-local naughty = require("naughty")
 local gears = require("gears")
 
 -- Put new windows in stack
@@ -13,25 +11,6 @@ client.connect_signal('manage', function(c)
 		awful.placement.no_offscreen(c)
 		end
 	end)
-
--- Wallpaper
-screen.connect_signal("request::wallpaper", function(s)
-	-- gears.wallpaper is DEPRECATED, but maximized wallpapers
-	-- are not functional in awful.wallpaper yet.
-	gears.wallpaper.maximized(beautiful.wallpaper, s)
-
-	--[[ old, stretched wallpaper
-    awful.wallpaper {
-        screen = s,
-        widget = {
-			horizontal_fit_policy = "fit",
-			vertical_fit_policy = "fit",
-    	    image     = beautiful.wallpaper,
-  	    	widget    = wibox.widget.imagebox,
-        }
-    }
-	--]]
-end)
 
 -- Sloppy focus
 client.connect_signal("mouse::enter", function(c)

@@ -21,7 +21,7 @@ ruled.client.connect_signal("request::rules", function()
         rule_any = {
             instance = { "copyq", "pinentry" },
             class    = {
-                "Arandr", "Gcolor3", "Blueberry.py", "SimpleScreenRecorder"
+                "Arandr", "Gcolor3", "Blueberry.py", "SimpleScreenRecorder", "Usbimager"
             },
             name    = {
                 "Event Tester",  -- xev

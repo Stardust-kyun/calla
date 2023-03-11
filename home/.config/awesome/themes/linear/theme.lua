@@ -1,6 +1,5 @@
 local theme_assets = require("beautiful.theme_assets")
 local dpi = require("beautiful").xresources.apply_dpi
-local color = require("themes.colors")
 local gears = require("gears")
 local menubar = require("menubar")
 local theme_path = require("gears").filesystem.get_configuration_dir() .. "themes/linear/"
@@ -86,7 +85,8 @@ theme.notification_spacing = dpi(10)
 theme.tooltip_opacity = 0
 
 -- Wallpaper
-theme.wallpaper = color.wall
+theme.wallpaper = wallpaper or color.wall
+gears.wallpaper.maximized(theme.wallpaper)
 
 -- Layout icons
 theme.layout_floating  = gears.color.recolor_image(icon_path .. "floating.png", color.fg)
@@ -97,6 +97,15 @@ theme.layout_tile	   = gears.color.recolor_image(icon_path .. "tile.png", color.
 theme.close    = gears.color.recolor_image(icon_path .. "close.png", color.fg)
 theme.minimize = gears.color.recolor_image(icon_path .. "minimize.png", color.fg)
 theme.maximize = gears.color.recolor_image(icon_path .. "maximize.png", color.fg)
+
+theme.titlebar_close_button_normal              = gears.color.recolor_image(theme.close, color.bg_alt)
+theme.titlebar_close_button_focus               = theme.close
+theme.titlebar_minimize_button_normal           = gears.color.recolor_image(theme.minimize, color.bg_alt)
+theme.titlebar_minimize_button_focus            = theme.minimize
+theme.titlebar_maximized_button_normal_inactive = gears.color.recolor_image(theme.maximize, color.bg_alt)
+theme.titlebar_maximized_button_focus_inactive  = theme.maximize
+theme.titlebar_maximized_button_normal_active   = gears.color.recolor_image(theme.maximize, color.bg_alt)
+theme.titlebar_maximized_button_focus_active    = theme.maximize
 
 -- Systray icon
 theme.systray = gears.color.recolor_image(icon_path .. "systray.png", color.fg)
