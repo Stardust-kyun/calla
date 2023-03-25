@@ -11,6 +11,6 @@ run picom
 run xsettingsd
 run nm-applet
 run cbatticon
+run blueman-applet
 run nemo-desktop
-run light-locker --no-lock-on-lid
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

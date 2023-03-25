@@ -67,7 +67,7 @@ awful.keyboard.append_global_keybindings({
 	),
     awful.key(
 		{ modkey, "Shift" }, "d", function() 
-			awful.spawn.with_shell("~/.config/awesome/themes/colors/rofi.sh") 
+			awful.spawn.with_shell("~/.config/awesome/color/rofi.sh") 
 		end,
         { description = "desktop menu", group = "launcher" }
 	),
@@ -120,25 +120,25 @@ awful.keyboard.append_global_keybindings({
 	-- Brightness
 	awful.key(
 		{ }, "XF86MonBrightnessUp", function() 
-			awful.spawn.with_shell("light -A 5")
+			awful.spawn.with_shell("brightnessctl s 5%+")
 			awesome.emit_signal("widget::brightness")
 		end,
         { description = "raise brightness", group = "brightness" }
 	),
 	awful.key(
 		{ }, "XF86MonBrightnessDown", function() 
-			awful.spawn.with_shell("light -U 5")
+			awful.spawn.with_shell("brightnessctl s 5%-")
 			awesome.emit_signal("widget::brightness")
 		end,
         { description = "lower brightness", group = "brightness" }
 	),
-	
-	-- Power
+
+	-- Launcher
 	awful.key(
-		{ modkey }, "0", function() 
-			awesome.emit_signal("widget::power") 
+		{ modkey }, "space", function() 
+			awesome.emit_signal("widget::launcher") 
 		end,
-		{ description = "show power menu", group = "awesome" }
+		{ description = "show launcher", group = "awesome" }
 	),
 
 	-- Management

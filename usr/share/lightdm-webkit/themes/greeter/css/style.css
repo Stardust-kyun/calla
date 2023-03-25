@@ -8,16 +8,11 @@
 	--fg-error: #824655;
 	--shadow: 0 0 18px 9px rgba(0, 0, 0, 0.25);
 	--font: "Roboto";
-	--image: url("../src/sakura.png");
 }
 
 body {
-	 background-image: var(--image);
-	 background-position: center center;
-	 background-size: cover;
-	 background-repeat: no-repeat;
-	 background-attachment: fixed;
 	 color: var(--fg);
+	 background-color: var(--bg);
 	 font-family: var(--font);
 	 font-size: 15px;
 }

@@ -1,0 +1,8 @@
+require("beautiful").init(require("gears").filesystem.get_configuration_dir() .. "theme/theme.lua")
+require("theme.panel")
+require("theme.title")
+require("theme.volume")
+require("theme.brightness")
+require("theme.launcher")
+require("theme.notif")
+require("theme.lock").init()

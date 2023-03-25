@@ -1,3 +1,7 @@
+# READ:
+
+There are many parts of this repo's README and installation script that are out of date due to recent updates. Proceed with caution.
+
 <h1 align=center>Sakura Dotfiles</h1>
 
 <div align="center">

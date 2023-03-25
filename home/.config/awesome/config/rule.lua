@@ -37,14 +37,27 @@ ruled.client.connect_signal("request::rules", function()
         properties = { titlebars_enabled = true }
     }
 
-	-- Make Nemo-desktop work "properly"
+	-- Make nemo-desktop work "properly"
 	ruled.client.append_rule {
-		id = "desktop",
+		id = "nemo-desktop",
 		rule_any = {
 			class = {
-				"Nemo-desktop"
+				"Nemo-desktop",
+				"Xfdesktop"
 			}
 		},
-		properties = { sticky = true, tag = " " }
+		except_any  = {
+			class = {
+				"Xfdesktop-settings"
+			}
+		},
+		properties = { 
+			tag = " ",
+			sticky = true,
+			valid = false,
+			buttons = {
+				awful.button{ button = "1", on_press = function() awesome.emit_signal("widget::hide") end}
+			}
+		}
 	}
 end)

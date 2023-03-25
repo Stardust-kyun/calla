@@ -7,26 +7,37 @@ require("naughty").connect_signal("request::display_error", function(message, st
     }
 end)
 
--- User Config
--- Modkey --------------------------------------------------------------------------
+---- User Config
+---- General -----------------------------------------------------------------
 modkey = "Mod4"
--- Apps ----------------------------------------------------------------------------
+passwd = "awesomewm"
+---- Apps --------------------------------------------------------------------
 terminal = "tym"
 browser = "librewolf"
 files = "nemo"
 editor = "vim"
-editor_cmd = terminal .. " -e " .. editor
--- Commands ------------------------------------------------------------------------
+editorcmd = terminal .. " -e  \"" .. editor .. "\""
+config = terminal .. " -e \"" .. editor .. " " .. require("gears").filesystem.get_configuration_dir() .. "\""
+---- Commands ----------------------------------------------------------------
+lock = "awesome-client command 'lock()'"
+suspend = "awesome-client command 'lock()' && systemctl suspend"
+exit = "awesome-client command 'awesome.quit()'"
 shutdown = "systemctl poweroff"
 reboot = "systemctl reboot"
--- Themes --------------------------------------------------------------------------
-color = require("themes.colors.sakura")
--- wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Plane.jpg"
--- Screenshots ---------------------------------------------------------------------
+---- Themes ------------------------------------------------------------------
+font = "RobotoMono Bold 11"
+fontalt = "RobotoMono Italic Bold 11"
+fonticon = "Material Icons 16"
+color = require("color.sakura")
+wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"
+---- Screenshots -------------------------------------------------------------
 shotdir = "~/Pictures/Screenshots/"
 
 -- Config
 require("awful.autofocus")
-require("signals")
-require("themes.linear")
+require("signal")
+require("theme")
 require("config")
+
+-- Autostart
+require("awful").spawn.with_shell("~/.config/awesome/autostart")
