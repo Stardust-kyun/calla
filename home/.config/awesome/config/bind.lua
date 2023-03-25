@@ -45,13 +45,13 @@ awful.keyboard.append_global_keybindings({
 		{ modkey }, "p", function() 
 			awful.spawn.with_shell("killall picom") 
 		end,
-        { description = "open a terminal", group = "awesome" }
+        { description = "kill picom", group = "awesome" }
 	),
 	awful.key(
 		{ modkey, "Shift" }, "p", function() 
 			awful.spawn.with_shell("picom & disown") 
 		end,
-        { description = "open a terminal", group = "awesome" }
+        { description = "start picom", group = "awesome" }
 	),
     awful.key(
 		{ modkey }, "d", function() 
@@ -60,16 +60,10 @@ awful.keyboard.append_global_keybindings({
         { description = "run prompt", group = "launcher" }
 	),
     awful.key(
-		{ modkey }, "e", function() 
-			awful.spawn.with_shell("rofi -modi emoji -show emoji -emoji-format '{emoji}'") -- Requires rofi-emoji from arch repos
-		end,
-        { description = "emoji menu", group = "launcher" }
-	),
-    awful.key(
 		{ modkey, "Shift" }, "d", function() 
 			awful.spawn.with_shell("~/.config/awesome/color/rofi.sh") 
 		end,
-        { description = "desktop menu", group = "launcher" }
+        { description = "color menu", group = "launcher" }
 	),
 
 	-- Screenshot
@@ -176,9 +170,23 @@ awful.keyboard.append_global_keybindings({
         end,
     },
     awful.key {
-        modifiers = { modkey, "Shift" },
+        modifiers = { modkey, "Control" },
         keygroup    = "numrow",
         description = "move focused client to tag",
+        group       = "tag",
+        on_press    = function(index)
+            if client.focus then
+                local tag = client.focus.screen.tags[index]
+                if tag then
+                    client.focus:move_to_tag(tag)
+                end
+            end
+        end,
+    },
+    awful.key {
+        modifiers = { modkey, "Shift" },
+        keygroup    = "numrow",
+        description = "move focused client to tag and follow",
         group       = "tag",
         on_press    = function(index)
             if client.focus then

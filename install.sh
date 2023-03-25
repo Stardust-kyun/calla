@@ -70,9 +70,9 @@ EOF
 
 	sleep 3;
 	yay -S base-devel xorg pipewire --needed --noconfirm
-	yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter light-locker rofi ttf-roboto \
-	ttf-roboto-mono xsettingsd picom papirus-icon-theme xcursor-breeze inotify-tools light maim \
-	polkit-gnome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
+	yes | yay -S xclip xorg-xprop xdg-user-dirs awesome-git lightdm lightdm-webkit2-greeter rofi \
+	xsettingsd picom papirus-icon-theme inotify-tools brightnessctl maim polkit-gnome \
+	ttf-roboto ttf-roboto-mono noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra --needed
 	sleep 3; clear
 }
 

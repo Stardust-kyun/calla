@@ -1,6 +1,6 @@
 [Icon Theme]
 Name=sakura
-Inherits=breeze,Papirus
+Inherits=Papirus
 
 Example=folder
 

@@ -1,7 +1,3 @@
-# READ:
-
-There are many parts of this repo's README and installation script that are out of date due to recent updates. Proceed with caution.
-
 <h1 align=center>Sakura Dotfiles</h1>
 
 <div align="center">
@@ -43,11 +39,10 @@ These packages use their names from the Arch repos and AUR. If you can't find th
     + xorg-xprop - fetch dep
     + xsettingsd - reload gtk/icons
 - pipewire - audio
-- light - brightness
+- brightnessctl - brightness
     + inotify-tools - brightness widget dep
 - lightdm - display manager
     + lightdm-webkit2-greeter - greeter
-    + light-locker - lock screen
 - awesome-git - window manager
 - rofi - run launcher
 - picom - compositor
@@ -56,12 +51,11 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - maim - screenshot
 - ttf-roboto - gtk font
 - ttf-roboto-mono - mono font
-- noto-fonts - font support
+- noto-fonts - general font support
 - noto-fonts-cjk - cjk font support
 - noto-fonts-emoji - emoji font support
 - noto-fonts-extra - extra font support
 - papirus-icon-theme - icon theme
-- xcursor-breeze - cursor theme
 
 ### Utilities
 
@@ -72,20 +66,17 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - zathura - pdf viewer
 - network-manager-applet - network applet
 - cbatticon - battery applet
-- volumeicon - volume applet
+- blueman - bluetooth applet
 
 ### Setup
 
 - copy contents of `home` to `~/`
 - copy contents of `usr/share` to `/usr/share`
 - copy contents of `usr/bin` to `/usr/bin`
-- copy contents of `lib/librewolf` to `/lib/librewolf` (if librewolf installed)
-    + edit mozilla.cfg and replace `USER` with your user's name
 - uncomment `#greeter-session=` and set it to `lightdm-webkit2-greeter` in `/etc/lightdm/lightdm.conf`
 - set `webkit_theme` to `greeter` in `/etc/lightdm/lightdm-webkit2-greeter.conf`
 - enable lightdm service
 - enable NetworkManager service (if network-manager-applet installed)
-- make contents of `~/.config/awesome/bin` executable
 - update font cache `fc-cache -fv`
 - update xrdb `xrdb ~/.Xresources`
 - generate home dirs `xdg-user-dirs-update`
@@ -136,18 +127,29 @@ Since the minimal install doesn't include many programs/utilities, you'll need t
 
 The file `~/.config/awesome/rc.lua` contains configuration options for awesome's default commands:
 
-| Configuration  | Description              | Default                            |
-| -------------- | ------------------------ | ---------------------------------- |
-| `c.terminal`   | Default Terminal         | `"tym"`                            |
-| `c.browser`    | Default Web Browser      | `"librewolf"`                      |
-| `c.files`      | Default File Manager     | `"nemo"`                           |
-| `c.editor`     | Default Text Editor      | `"vim"`                            |
-| `c.editor_cmd` | Default Editor Command   | `c.terminal .. " -e " .. c.editor` |
-| `c.modkey`     | Default Modkey           | `"Mod4"`                           |
-| `c.shutdown`   | Default Shutdown Command | `"systemctl poweroff"`             |
-| `c.reboot`     | Default Reboot Command   | `"systemctl reboot"`               |
+| Configuration | Description            | Default                                                                                                |
+| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| `modkey`      | Modkey                 | `"Mod4"`                                                                                               |
+| `passwd`      | Lockscreen Password    | `"awesomewm"`                                                                                          |
+| `terminal`    | Terminal               | `"tym"`                                                                                                |
+| `browser`     | Web Browser            | `"librewolf"`                                                                                          |
+| `files`       | File Manager           | `"nemo"`                                                                                               |
+| `editor`      | Text Editor            | `"vim"`                                                                                                |
+| `editorcmd`   | Editor Command         | `terminal .. " -e  \"" .. editor .. "\""`                                                              |
+| `config`      | Config Editing Command | `terminal .. " -e \"" .. editor .. " " .. require("gears").filesystem.get_configuration_dir() .. "\""` |
+| `lock`        | Lock Command           | `"awesome-client command 'lock()'"`                                                                    |
+| `suspend`     | Suspend Command        | `"awesome-client command 'lock()' && systemctl suspend"`                                               |
+| `exit`        | Exit Command           | `"awesome-client command 'awesome.quit()'"`                                                            |
+| `shutdown`    | Shutdown Command       | `"systemctl poweroff"`                                                                                 |
+| `reboot`      | Reboot Command         | `"systemctl reboot"`                                                                                   |
+| `font`        | Font                   | `"RobotoMono Bold 11"`                                                                                 |
+| `fontalt`     | Alt Font               | `"RobotoMono Italic Bold 11"`                                                                          |
+| `fonticon`    | Icon Font              | `"Material Icons 16"`                                                                                  |
+| `color`       | Color Scheme           | `require("color.sakura")`                                                                              |
+| `wallpaper`   | Wallpaper              | `os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"`                                                   |
+| `shotdir`     | Reboot Command         | `"~/Pictures/Screenshots/"`                                                                            |
 
-If your distribution uses `runit` instead of `systemd` you will need to set `c.shutdown` and `c.reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
+If your distribution uses `runit` instead of `systemd` you will need to set `shutdown` and `reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
 
 ---
 
@@ -162,24 +164,29 @@ If your distribution uses `runit` instead of `systemd` you will need to set `c.s
 
 The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
-| Keybinding         | Description           |
-| ------------------ | --------------------- |
-| `Mod+Enter`        | Open a Terminal       |
-| `Mod+k`            | Show Keybindings      |
-| `Mod+0`            | Show Power Menu       |
-| `Mod+d`            | Show Run Launcher     |
-| `Mod+e`            | Show Kaomoji Menu     |
-| `Mod+Shift+d`      | Show Desktop Menu     |
-| `Mod+Delete`       | Full Screenshot       |
-| `Mod+Shift+Delete` | Partial Screenshot    |
-| `Mod+Tab`          | Focus Next Window     |
-| `Mod+Shift+Tab`    | Focus Previous Window |
-| `Mod+1-6`          | Change Tag            |
-| `Mod+Shift+1-6`    | Move Client to Tag    |
-| `Mod+f`            | Toggle Fullscreen     |
-| `Mod+s`            | Toggle Floating       |
-| `Mod+m`            | Toggle Maximize       |
-| `Mod+Shift+q`      | Close Window          |
+| Keybinding         | Description                   |
+| ------------------ | ----------------------------- |
+| `Mod+Shift+r`      | Restart Awesome               |
+| `Mod+z`            | Next Layout                   |
+| `Mod+Enter`        | Open a Terminal               |
+| `Mod+p`            | Kill Picom                    |
+| `Mod+Shift+p`      | Start Picom                   |
+| `Mod+d`            | Show Run Launcher             |
+| `Mod+Shift+d`      | Show Color Menu               |
+| `Mod+Delete`       | Full Screenshot               |
+| `Mod+Ctrl+Delete`  | Delayed Screenshot            |
+| `Mod+Shift+Delete` | Partial Screenshot            |
+| `Mod+Space`        | Show Launcher                 |
+| `Mod+c`            | Center Window                 |
+| `Mod+Tab`          | Focus Next Window             |
+| `Mod+Shift+Tab`    | Focus Previous Window         |
+| `Mod+1-6`          | Change Tag                    |
+| `Mod+Ctrl+1-6`     | Move Client to Tag            |
+| `Mod+Shift+1-6`    | Move Client to Tag and Follow |
+| `Mod+f`            | Toggle Fullscreen             |
+| `Mod+s`            | Toggle Floating               |
+| `Mod+m`            | Toggle Maximize               |
+| `Mod+Shift+q`      | Close Window                  |
 
 ---
 
