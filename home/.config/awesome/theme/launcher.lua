@@ -284,6 +284,7 @@ local systray = wibox.widget {
 			widget = wibox.container.margin
 		},
 		bg = beautiful.bg_focus,
+		forced_height = dpi(45),
 		widget = wibox.container.background
 	},
 	bottom = dpi(15),
