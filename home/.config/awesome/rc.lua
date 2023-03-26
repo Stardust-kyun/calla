@@ -29,7 +29,7 @@ font = "RobotoMono Bold 11"
 fontalt = "RobotoMono Italic Bold 11"
 fonticon = "Material Icons 16"
 color = require("color.sakura")
-wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"
+-- wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"
 ---- Screenshots -------------------------------------------------------------
 shotdir = "~/Pictures/Screenshots/"
 
