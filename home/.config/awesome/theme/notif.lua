@@ -7,7 +7,7 @@ local ruled = require("ruled")
 local time = wibox.widget.textclock("%I:%M %p")
 
 naughty.config.defaults.ontop = true
-naughty.config.defaults.timeout = 5
+-- naughty.config.defaults.timeout = 5
 naughty.config.defaults.screen = awful.screen.focused()
 naughty.config.defaults.border_width = 0
 naughty.config.defaults.position = "top_right"

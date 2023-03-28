@@ -66,8 +66,8 @@ lockscreen.init = function()
 	}
 
 	local prompt = wibox.widget {
-		markup = "",
-		font = fonticon,
+		markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>",
+		font = font,
 		align = "center",
 		widget = wibox.widget.textbox
 	}
@@ -107,7 +107,7 @@ lockscreen.init = function()
 
 	local function reset()
 		characters_entered = 0;
-		prompt.markup = ""
+		prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>"
 		icon.markup = symbol
 	end
 
@@ -115,7 +115,7 @@ lockscreen.init = function()
 
 	local function fail()
 		characters_entered = 0;
-		prompt.markup = ""
+		prompt.markup = "<span foreground='" .. beautiful.fg_urgent .. "'>try again</span>"
 		icon.markup = "<span foreground='" .. beautiful.fg_urgent .. "'>" .. failsymbol .. "</span>"
 	end
 
@@ -133,12 +133,14 @@ lockscreen.init = function()
 			keypressed_callback  = function(mod, key, cmd)
 				if #key == 1 then
 					characters_entered = characters_entered + 1
-					prompt.markup = string.rep("", characters_entered)
+					prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
+					icon.markup = symbol
 				elseif key == "BackSpace" then
 					if characters_entered > 0 then
 						characters_entered = characters_entered - 1
 					end
-					prompt.markup = string.rep("", characters_entered)
+					prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
+					icon.markup = symbol
 				end
 			end,
 			exe_callback = function(input)

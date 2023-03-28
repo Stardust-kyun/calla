@@ -1,7 +1,4 @@
 local awful = require("awful")
-local wibox = require("wibox")
-local beautiful = require("beautiful")
-local gears = require("gears")
 
 -- Put new windows in stack
 client.connect_signal('manage', function(c)

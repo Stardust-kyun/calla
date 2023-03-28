@@ -10,7 +10,9 @@ end)
 ---- User Config
 ---- General -----------------------------------------------------------------
 modkey = "Mod4"
+batt = "BAT0"
 passwd = "awesomewm"
+-- sessionlock = true
 ---- Apps --------------------------------------------------------------------
 terminal = "tym"
 browser = "librewolf"
@@ -41,3 +43,15 @@ require("config")
 
 -- Autostart
 require("awful").spawn.with_shell("~/.config/awesome/autostart")
+
+-- Lock
+function is_restart()
+	awesome.register_xproperty("is_restart", "boolean")
+	local restart_detected = awesome.get_xproperty("is_restart") ~= nil
+	awesome.set_xproperty("is_restart", true)
+	return restart_detected
+end
+
+if sessionlock and not is_restart() then
+	lock()
+end

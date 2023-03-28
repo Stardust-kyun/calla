@@ -41,8 +41,6 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - pipewire - audio
 - brightnessctl - brightness
     + inotify-tools - brightness widget dep
-- lightdm - display manager
-    + lightdm-webkit2-greeter - greeter
 - awesome-git - window manager
 - rofi - run launcher
 - picom - compositor
@@ -73,9 +71,6 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - copy contents of `home` to `~/`
 - copy contents of `usr/share` to `/usr/share`
 - copy contents of `usr/bin` to `/usr/bin`
-- uncomment `#greeter-session=` and set it to `lightdm-webkit2-greeter` in `/etc/lightdm/lightdm.conf`
-- set `webkit_theme` to `greeter` in `/etc/lightdm/lightdm-webkit2-greeter.conf`
-- enable lightdm service
 - enable NetworkManager service (if network-manager-applet installed)
 - update font cache `fc-cache -fv`
 - update xrdb `xrdb ~/.Xresources`
@@ -295,9 +290,15 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 - [Crylia](https://github.com/Crylia) and [Sammy](https://github.com/TorchedSammy) for massive amounts of help learning awesomewm.
 - [Jimmy](https://github.com/Jimmysit0) and [Petrolblue](https://github.com/petrolblue) for help with color schemes and lots of support.
 
+### References
+
+- [Sammy's Dotfiles](https://github.com/TorchedSammy/dotfiles)
+- [Saimoom's Dotfiles](https://github.com/saimoomedits/dotfiles)
+- [Nuxsh's Dotfiles](https://github.com/nuxshed/dotfiles)
+- [Elena's Dotfiles](https://github.com/elenapan/dotfiles)
+
 ### Projects
 
-- [DmgBlue](https://github.com/davidmogar/lightdm-webkit2-dmg_blue), which I based my greeter on.
 - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), which I based my icon themes on.
 - [Phocus](https://github.com/phocus/gtk), which I based my gtk themes on.
 

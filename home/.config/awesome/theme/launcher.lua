@@ -2,12 +2,13 @@ local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
+local naughty = require("naughty")
 local dpi = beautiful.xresources.apply_dpi
 
 -- Launcher
 
 local launcherDisplay = wibox {
-	width = dpi(300),
+	width = dpi(650),
 	height = dpi(360),
 	bg = beautiful.bg_normal,
 	ontop = true,
@@ -27,7 +28,7 @@ local header = wibox.widget	{
 				valign = "center",
 				widget = wibox.widget.textbox
 			},
-			forced_width = dpi(200),
+			forced_width = dpi(650),
 			layout = wibox.layout.align.horizontal,
 		},
 		left = dpi(15),
@@ -43,6 +44,7 @@ local header = wibox.widget	{
 -- Volume
 
 local volumeicon = wibox.widget {
+	text = "",
 	font = fonticon,
 	valign = "center",
 	widget = wibox.widget.textbox
@@ -95,6 +97,7 @@ local volume = wibox.widget	{
 -- Brightness
 
 local brightnessicon = wibox.widget {
+	text = "",
 	font = fonticon,
 	valign = "center",
 	widget = wibox.widget.textbox
@@ -147,7 +150,7 @@ local brightness = wibox.widget {
 -- Battery
 
 local batteryicon = wibox.widget {
-	text = "",
+	text = "",
 	font = fonticon,
 	valign = "center",
 	widget = wibox.widget.textbox
@@ -209,7 +212,7 @@ local info = wibox.widget {
 	widget = wibox.container.margin
 }
 
--- Shortcuts (apps, systray, power)
+-- Buttons
 
 local textbutton = function(args)
 	local text = args.text
@@ -236,6 +239,8 @@ local textbutton = function(args)
 
 	return result
 end
+
+-- Apps
 
 local apps = wibox.widget {
 	{
@@ -269,6 +274,8 @@ local apps = wibox.widget {
 	widget = wibox.container.margin
 }
 
+-- Systray
+
 local systray = wibox.widget {
 	{
 		{	
@@ -290,6 +297,8 @@ local systray = wibox.widget {
 	bottom = dpi(15),
 	widget = wibox.container.margin
 }
+
+-- Power
 
 local power = wibox.widget {
 	{
@@ -319,6 +328,8 @@ local power = wibox.widget {
 	layout = wibox.layout.align.horizontal
 }
 
+-- Shortcuts (apps, systray, power)
+
 local shortcuts = wibox.widget {
 	{
 		apps,
@@ -331,13 +342,188 @@ local shortcuts = wibox.widget {
 	widget = wibox.container.margin
 }
 
+-- Notification center
+
+local notifstext = wibox.widget {
+	text = "Notifications",
+	halign = "center",
+	widget = wibox.widget.textbox
+}
+
+local notifsclear = wibox.widget {
+	text = "",
+	font = fonticon,
+	align = "center",
+	valign = "center",
+	buttons = {
+		awful.button({}, 1, function()
+			_G.resetnotifs()
+		end)
+	},
+	widget = wibox.widget.textbox
+}
+
+local notifsempty = wibox.widget {
+	{
+		nil,
+		{
+			nil,
+			{
+				text = "No Notifications",
+				align = "center",
+				valign = "center",
+				widget = wibox.widget.textbox
+			},
+			layout = wibox.layout.align.vertical
+		},
+		layout = wibox.layout.align.horizontal
+	},
+	forced_height = dpi(200),
+	widget = wibox.container.background
+}
+
+local notifscontainer = wibox.widget {
+	spacing = dpi(10),
+	layout = wibox.layout.fixed.vertical
+}
+
+local hidenotifsempty = true
+
+resetnotifs = function()
+	notifscontainer:reset(notifscontainer)
+	notifscontainer:insert(1, notifsempty)
+		hidenotifsempty = true
+	end
+
+	removenotif = function(box)
+	notifscontainer:remove_widgets(box)
+
+	if #notifscontainer.children == 0 then
+		notifscontainer:insert(1, notifsempty)
+		hidenotifsempty = true
+	end
+end
+
+local createnotif = function(n)
+	local box = wibox.widget {
+		{
+			{
+				{
+					nil,
+					{
+						{
+							text = n.title,
+							align = "left",
+							widget = wibox.widget.textbox
+						},
+						nil,
+						{
+							text = n.message,
+							align = "left",
+							widget = wibox.widget.textbox
+						},
+						spacing = dpi(10),
+						layout = wibox.layout.fixed.vertical
+					},
+					expand = "none",
+					layout = wibox.layout.align.vertical
+				},
+				layout = wibox.layout.align.horizontal
+			},
+			margins = dpi(10),
+			widget = wibox.container.margin
+		},
+		bg = beautiful.bg_focus,
+		widget = wibox.container.background
+	}
+
+	box:buttons(
+		gears.table.join(
+			awful.button({}, 1, function()
+				_G.removenotif(box)
+			end)
+		)
+	)
+
+	return box
+end
+
+notifscontainer:buttons(
+	gears.table.join(
+		awful.button({}, 4, nil, function()
+			if #notifscontainer.children == 1 then
+				return
+			end
+			notifscontainer:insert(1, notifscontainer.children[#notifscontainer.children])
+			notifscontainer:remove(#notifscontainer.children)
+		end),
+
+		awful.button({}, 5, nil, function()
+			if #notifscontainer.children == 1 then
+				return
+			end
+			notifscontainer:insert(#notifscontainer.children + 1, notifscontainer.children[1])
+			notifscontainer:remove(1)
+		end)
+	)
+)
+
+notifscontainer:insert(1, notifsempty)
+
+naughty.connect_signal("request::display", function(n)
+	if #notifscontainer.children == 1 and hidenotifsempty then
+		notifscontainer:reset(notifscontainer)
+		hidenotifsempty = false
+	end
+
+	notifscontainer:insert(1, createnotif(n))
+end)
+
+local notifs = wibox.widget {
+	{
+		{
+			{
+				{
+					notifstext,
+					nil,
+					notifsclear,
+					expand = "none",
+					layout = wibox.layout.align.horizontal
+				},
+				top = dpi(10),
+				bottom = dpi(10),
+				right = dpi(10),
+				left = dpi(15),
+				widget = wibox.container.margin
+			},
+			bg = beautiful.bg_focus,
+			widget = wibox.container.background
+		},
+		notifscontainer,
+		spacing = dpi(10),
+		layout = wibox.layout.fixed.vertical
+	},
+	forced_height = dpi(300),
+	top = dpi(15),
+	right = dpi(15),
+	widget = wibox.container.margin
+}
+
 -- Launcher setup (everything!)
 
 launcherDisplay:setup {
 	{
 		header,
-		info,
-		shortcuts,
+		{
+			{
+				info,
+				shortcuts,
+				forced_width = dpi(300),
+				layout = wibox.layout.align.vertical
+			},
+			notifs,
+			layout = wibox.layout.align.horizontal
+		},
 		layout = wibox.layout.align.vertical
 	},
 	valign = "top",
@@ -385,8 +571,8 @@ end)
 
 awesome.connect_signal("widget::launcher", function()
 	launcherDisplay.visible = not launcherDisplay.visible
-	
-	awful.widget.watch("cat /sys/class/power_supply/BAT0/capacity", 15, function(widget, stdout)
+
+	awful.widget.watch("cat /sys/class/power_supply/" .. batt .. "/capacity", 15, function(widget, stdout)
 		batterypercent.text = tonumber(stdout) .. "%"
  		batterybar.value = tonumber(stdout)
 		if tonumber(stdout) >= 95 then
@@ -405,8 +591,6 @@ awesome.connect_signal("widget::launcher", function()
 			batteryicon.text = ""
 		elseif tonumber(stdout) >= 0 then
 			batteryicon.text = ""
-		else
-			batteryicon.text = ""
 		end
 	end)
 

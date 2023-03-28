@@ -17,16 +17,16 @@ C="#8cd7d2"
 # func - background - foreground - selected background - selected foreground
 run $BG $FG $WH $FG 
 # func - enable/disable - radius - x offset - y offset - opacity
-comp 'true' '25' '-25' '-25' '.1' 
+comp "true" "25" "-25" "-25" ".1" 
 # func (change colors in #Colors section)
 term 
 # func - gtk - icons 
-gtk 'wave' 'wave' 
+gtk "wave" "wave" 
 # func - background - alt background - foreground - alt foreground
-browser $BG $WH $FG '#999999' 
+browser $BG $WH $FG "#26262675" 
 # func - background - background 2 - background 3 - foreground
-css $BG '#ebf5f5' '#e6f0f0' $FG 
+css $BG "#ebf5f5" "#e6f0f0" $FG 
 # func - background - foreground
 zath $BG $FG 
 # func - theme
-awes 'wave'
+awes "wave"
