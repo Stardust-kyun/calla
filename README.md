@@ -125,7 +125,9 @@ The file `~/.config/awesome/rc.lua` contains configuration options for awesome's
 | Configuration | Description            | Default                                                                                                |
 | ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ |
 | `modkey`      | Modkey                 | `"Mod4"`                                                                                               |
+| `batt`        | Battery Name           | `"BAT0"`                                                                                               |
 | `passwd`      | Lockscreen Password    | `"awesomewm"`                                                                                          |
+| `sessionlock` | Lock on Session Start  | `true` (commented)                                                                                     |
 | `terminal`    | Terminal               | `"tym"`                                                                                                |
 | `browser`     | Web Browser            | `"librewolf"`                                                                                          |
 | `files`       | File Manager           | `"nemo"`                                                                                               |
@@ -141,7 +143,7 @@ The file `~/.config/awesome/rc.lua` contains configuration options for awesome's
 | `fontalt`     | Alt Font               | `"RobotoMono Italic Bold 11"`                                                                          |
 | `fonticon`    | Icon Font              | `"Material Icons 16"`                                                                                  |
 | `color`       | Color Scheme           | `require("color.sakura")`                                                                              |
-| `wallpaper`   | Wallpaper              | `os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"`                                                   |
+| `wallpaper`   | Wallpaper              | `os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"` (commented)                                       |
 | `shotdir`     | Reboot Command         | `"~/Pictures/Screenshots/"`                                                                            |
 
 If your distribution uses `runit` instead of `systemd` you will need to set `shutdown` and `reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
@@ -304,4 +306,4 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ## Contact
 
-You can find me on discord at [Stardust-kyun#5994](https://discord.com/users/417133059654156299) and matrix at `stardust-kyun:matrix.org`. I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.
+You can find me on discord at [Stardust-kyun#5994](https://discord.com/users/417133059654156299), matrix at [stardust-kyun:matrix.org](https://matrix.to/#/@stardust-kyun:matrix.org), and email at [stardust-kyun@proton.me](mailto:stardust-kyun@proton.me). I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.
