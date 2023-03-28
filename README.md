@@ -301,8 +301,8 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ### Projects
 
-- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), which I based my icon themes on.
-- [Phocus](https://github.com/phocus/gtk), which I based my gtk themes on.
+- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+- [Phocus](https://github.com/phocus/gtk)
 
 ## Contact
 
