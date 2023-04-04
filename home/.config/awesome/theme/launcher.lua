@@ -129,16 +129,13 @@ local function filter(cmd)
 			},
 			widget = wibox.container.background
 		}
-		entries:add(widget)
+
+		if index_start <= i and i <= index_start + 9 then
+			entries:add(widget)
+		end
 
 		if i == index_entry then
 			widget.bg = beautiful.bg_focus
-		end
-
-		if index_start <= i and i <= index_start + 9 then
-			widget.visible = true
-		else
-			widget.visible = false
 		end
 	end
 
