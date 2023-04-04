@@ -27,10 +27,12 @@ exit = "awesome-client command 'awesome.quit()'"
 shutdown = "systemctl poweroff"
 reboot = "systemctl reboot"
 ---- Themes ------------------------------------------------------------------
+color = require("color.sakura")
 font = "RobotoMono Bold 11"
 fontalt = "RobotoMono Italic Bold 11"
 fonticon = "Material Icons 16"
-color = require("color.sakura")
+titlecontrols = false
+panelcontrols = true
 -- wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"
 ---- Screenshots -------------------------------------------------------------
 shotdir = "~/Pictures/Screenshots/"

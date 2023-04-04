@@ -1,45 +1,14 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
 local beautiful = require("beautiful")
-local dpi = require("beautiful").xresources.apply_dpi
+local dpi = beautiful.xresources.apply_dpi
 
--- Window control
-minimize = wibox.widget {
-	image = beautiful.minimize,
-	widget = wibox.widget.imagebox
-}
-minimize:connect_signal("button::press", function() 
-	if client.focus then
-		client.focus.minimized = true 
-	end
-end)
+-- Menu
 
-maximize = wibox.widget {
-	image = beautiful.maximize,
-	widget = wibox.widget.imagebox
-}
-maximize:connect_signal("button::press", function() 
-	if client.focus then
-		client.focus.maximized = not client.focus.maximized
-	end
-end)
-
-close = wibox.widget {
-	image = beautiful.close,
-	widget = wibox.widget.imagebox
-}
-close:connect_signal("button::press", function() 
-	if client.focus then
-		client.focus:kill() 
-	end
-end)
-
--- Launcher
-launcher = wibox.widget {
+local menu = wibox.widget {
 	buttons = {
 		awful.button({}, 1, function()
-			awesome.emit_signal('widget::launcher')
+			awesome.emit_signal('widget::menu')
 		end) 
 	},
 	image = beautiful.awesome_icon,
@@ -47,29 +16,74 @@ launcher = wibox.widget {
 }
 
 -- Clock
-textclock = wibox.widget.textclock('%I:%M %p')
 
--- Tags
+local clock = wibox.widget.textclock('%I:%M %p')
+
+-- Window controls
+
+local minimize = wibox.widget {
+	image = beautiful.minimize,
+	buttons = {
+		awful.button({ }, 1, function()
+			client.focus.minimized = true
+		end)
+	},
+	widget = wibox.widget.imagebox
+}
+
+local maximize = wibox.widget {
+	image = beautiful.maximize,
+	buttons = {
+		awful.button({ }, 1, function()
+			client.focus.maximized = not client.focus.maximized
+		end)
+	},
+	widget = wibox.widget.imagebox
+}
+
+local close = wibox.widget {
+	image = beautiful.close,
+	buttons = {
+		awful.button({ }, 1, function()
+			client.focus:kill()
+		end)
+	},
+	widget = wibox.widget.imagebox
+}
+
+if panelcontrols then
+	panelcontrols = wibox.widget {
+		{
+			minimize,
+			maximize,
+			close,
+			spacing = dpi(15),
+			layout = wibox.layout.fixed.horizontal
+		},
+		top = dpi(4),
+		bottom = dpi(4),
+		widget = wibox.container.margin
+	}
+end
+
+-- Screen
+
 screen.connect_signal("request::desktop_decoration", function(s)
-    -- Layout Widget
-    s.layoutbox = awful.widget.layoutbox {
-        screen  = s,
-        buttons = {
-            awful.button({ }, 1, function () awful.layout.inc( 1) end),
-            awful.button({ }, 3, function () awful.layout.inc(-1) end),
-        }
-    }
 
-	-- Taglist Widget
+	-- Taglist
+
 	s.taglist = awful.widget.taglist {
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		buttons = {
-			awful.button({ }, 1, function(t) t:view_only() end)
+			awful.button({ }, 1, function(t) 
+				t:view_only() 
+			end)
 		}
 	}
 
-	-- Tasklist widget
+	-- Tasklist
+
     s.tasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
@@ -78,85 +92,62 @@ screen.connect_signal("request::desktop_decoration", function(s)
       	    	{
         	   	    id     = "text_role",
 					forced_height = dpi(20),
-    	       	    widget = wibox.widget.textbox,
+    	       	    widget = wibox.widget.textbox
 	           	},
 				valign = "center",
 				halign = "center",
-				widget = wibox.container.place,
+				widget = wibox.container.place
 			},
 			id     = "background_role",
-			widget = wibox.container.background,
+			widget = wibox.container.background
     	},
         buttons = {
             awful.button({ }, 1, function (c)
                 c:activate { context = "tasklist", action = "toggle_minimization" }
-            end),
+            end)
         }
     }
 
-    -- Wibox
-    s.wibox = awful.wibar {
+    -- Layouts
+
+    s.layouts = awful.widget.layoutbox {
+        screen  = s,
+        buttons = {
+            awful.button({ }, 1, function () awful.layout.inc( 1) end),
+            awful.button({ }, 3, function () awful.layout.inc(-1) end),
+        }
+    }
+
+    -- Panel
+
+    s.wibar = awful.wibar {
 		border_width = dpi(5),
-		border_color = beautiful.tasklist_bg_focus,
+		border_color = beautiful.bg_normal,
 		position = "bottom",
 		height = dpi(40),
-		bg = beautiful.tasklist_bg_focus,
-		fg = beautiful.fg_focus,
-        screen   = s,
-        widget   = {
-            layout = wibox.layout.align.horizontal,
-            { -- Left
-                layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(20),
+		bg = beautiful.bg_normal,
+		fg = beautiful.fg_normal,
+        screen = s,
+        widget = {
+			{
 				{
-					launcher,
-					top = dpi(10),
-					bottom = dpi(10),
-					left = dpi(10),
-					widget = wibox.container.margin
+					menu,
+					s.taglist,
+					spacing = dpi(20),
+					layout = wibox.layout.fixed.horizontal
 				},
+				s.tasklist,
 				{
-					s.taglist, 
-					right = dpi(20), 
-					widget = wibox.container.margin
-				}
-            },
-			-- Middle
-            s.tasklist,
-            { -- Right
-                layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(15),
-				{
-					textclock,
-					left = dpi(24),
-					widget = wibox.container.margin
+					clock,
+					panelcontrols,
+					s.layouts,
+					spacing = dpi(15),
+					layout = wibox.layout.fixed.horizontal
 				},
-				{
-					minimize,
-					top = dpi(14),
-					bottom = dpi(14),
-					widget = wibox.container.margin
-				},
-				{
-					maximize,
-					top = dpi(14),
-					bottom = dpi(14),
-					widget = wibox.container.margin
-				},
-				{
-					close,
-					top = dpi(14),
-					bottom = dpi(14),
-					widget = wibox.container.margin
-				},
-				{
-					s.layoutbox,
-					right = dpi(10),
-					top = dpi(10),
-					bottom = dpi(10),
-					widget = wibox.container.margin
-				},
-            },
+				layout = wibox.layout.align.horizontal
+			},
+			margins = dpi(10),
+			widget = wibox.container.margin
         }
     }
 end)

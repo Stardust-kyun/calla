@@ -18,3 +18,4 @@ vnoremap p "+p
 set titlestring=VIM\ %F\ %a%r%m titlelen=70
 
 set tabstop=4
+set shiftwidth=4

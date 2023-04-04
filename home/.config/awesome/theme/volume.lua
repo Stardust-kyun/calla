@@ -4,25 +4,38 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-local volumeDisplay = wibox {
+local volumedisplay = wibox {
 	width = dpi(200),
 	height = dpi(100),
 	bg = beautiful.bg_normal,
 	ontop = true,
-	visible = false,
-	shape = function(cr, width, height)
-		gears.shape.rectangle(cr, width, height)
-	end
-}
-
-local header = wibox.widget {
-	text = "Volume",
-	valign = "center",
-	widget = wibox.widget.textbox
+	visible = false
 }
 
 local percent = wibox.widget {
 	widget = wibox.widget.textbox
+}
+
+local header = wibox.widget {
+		{
+			{
+				{
+					text = "Volume",
+					valign = "center",
+					widget = wibox.widget.textbox
+				},
+				nil,
+				percent,
+				layout = wibox.layout.align.horizontal,
+			},
+			left = dpi(15),
+			right = dpi(15),
+			top = dpi(10),
+			bottom = dpi(10),
+			widget = wibox.container.margin
+		},
+		bg = beautiful.bg_focus,
+		widget = wibox.container.background
 }
 
 local icon = wibox.widget {
@@ -37,59 +50,41 @@ local bar = wibox.widget {
 	color = beautiful.fg_normal,
 	background_color = beautiful.bg_focus,
 	max_value = 100,
+	value = 0,
 	widget = wibox.widget.progressbar
 }
 
-local displayTimer = gears.timer {
+local timer = gears.timer {
 	timeout = 2,
 	single_shot = true,
 	callback = function()
-		volumeDisplay.visible = false
+		volumedisplay.visible = false
 	end
 }
 
-volumeDisplay:setup {
+volumedisplay:setup {
+	header,
 	{
 		{
 			{
-				{
-					header,
-					nil,
-					percent,
-					layout = wibox.layout.align.horizontal,
-				},
-				left = dpi(15),
+				icon,
 				right = dpi(15),
-				top = dpi(10),
-				bottom = dpi(10),
 				widget = wibox.container.margin
 			},
-			bg = beautiful.bg_focus,
-			widget = wibox.container.background
-		},
-		{
+			nil,
 			{
-				{
-					icon,
-					right = dpi(15),
-					widget = wibox.container.margin
-				},
-				nil,
-				{
-					bar,
-					top = dpi(27),
-					bottom = dpi(27),
-					widget = wibox.container.margin
-				},
-				layout = wibox.layout.align.horizontal
+				bar,
+				top = dpi(27),
+				bottom = dpi(27),
+				widget = wibox.container.margin
 			},
-			left = dpi(15),
-			right = dpi(15),
-			widget = wibox.container.margin
+			layout = wibox.layout.align.horizontal
 		},
-		layout = wibox.layout.align.vertical
+		left = dpi(15),
+		right = dpi(15),
+		widget = wibox.container.margin
 	},
-	layout = wibox.container.place
+	layout = wibox.layout.align.vertical
 }
 
 awesome.connect_signal("signal::volume", function(volume, mute)
@@ -116,11 +111,11 @@ end)
 awesome.connect_signal("widget::volume", function()
 	awesome.emit_signal("widget::brightness:hide")
 
-	displayTimer:again()
+	timer:again()
 
 	if client.focus and client.focus.fullscreen == true then
 		awful.placement.bottom_right(
-			volumeDisplay, 
+			volumedisplay, 
 			{
 				margins = { 
 					bottom = dpi(10), 
@@ -131,7 +126,7 @@ awesome.connect_signal("widget::volume", function()
 		)
 	else
 		awful.placement.bottom_right(
-			volumeDisplay, 
+			volumedisplay, 
 			{
 				margins = { 
 					bottom = dpi(60), 
@@ -142,7 +137,9 @@ awesome.connect_signal("widget::volume", function()
 		)
 	end
 
-	volumeDisplay.visible = true
+	volumedisplay.visible = true
 end)
 
-awesome.connect_signal("widget::volume:hide", function() volumeDisplay.visible = false end)
+awesome.connect_signal("widget::volume:hide", function() 
+	volumedisplay.visible = false 
+end)

@@ -2,9 +2,10 @@ local awful = require("awful")
 local wibox = require("wibox")
 local dpi = require("beautiful").xresources.apply_dpi
 
--- Add titlebar
 client.connect_signal("request::titlebars", function(c)
-    -- Mouse
+
+	-- Button actions
+
     local buttons = {
         awful.button({ }, 1, function()
             c:activate { context = "titlebar", action = "mouse_move"  }
@@ -14,29 +15,38 @@ client.connect_signal("request::titlebars", function(c)
         end),
     }
 
-    awful.titlebar(c, { size = dpi(40) } ).widget = {
-		{
-			awful.titlebar.widget.titlewidget(c), 
-			left = dpi(15),
-			widget = wibox.container.margin
-		},
-		--[[ if you want titlebar buttons!
-		nil,
-		{
+	-- Window controls
+
+	if titlecontrols then
+		titlecontrols = wibox.widget {
 			{
 				awful.titlebar.widget.minimizebutton(c),
 				awful.titlebar.widget.maximizedbutton(c),
 				awful.titlebar.widget.closebutton(c),
-				spacing = dpi(14),
+				spacing = dpi(15),
 				widget = wibox.layout.fixed.horizontal
 			},
-			right = dpi(14),
-			top = dpi(14),
-			bottom = dpi(14),
+			right = dpi(15),
+			top = dpi(15),
+			bottom = dpi(15),
+			widget = wibox.container.margin
+		}
+	end
+
+	-- Titlebar
+
+    awful.titlebar(c, { size = dpi(40) } ).widget = {
+		{
+			awful.titlebar.widget.titlewidget(c), 
+			left = dpi(15),
+			buttons = buttons,
 			widget = wibox.container.margin
 		},
-		--]]
-		buttons = buttons,
+		{
+			buttons = buttons,
+			widget = wibox.container.background
+		},
+		titlecontrols,
         layout = wibox.layout.align.horizontal
     }
 end)

@@ -6,7 +6,7 @@ local dpi = beautiful.xresources.apply_dpi
 
 -- Widgets
 
-local launcherdisplay = wibox {
+local colordisplay = wibox {
 	width = dpi(400),
 	height = dpi(460),
 	bg = beautiful.bg_normal,
@@ -23,7 +23,7 @@ local entries = wibox.widget {
 	layout = wibox.layout.grid
 }
 
-launcherdisplay:setup {
+colordisplay:setup {
 	{
 		{
 			prompt,
@@ -69,15 +69,11 @@ end
 
 local function gen()
 	local entries = {}
-	for _, entry in ipairs(Gio.AppInfo.get_all()) do
-		if entry:should_show() then
-			local name = entry:get_name():gsub("&", "&amp;"):gsub("<", "&lt;"):gsub("'", "&#39;")
-			table.insert(
-				entries,
-				{ name = name, appinfo = entry }
-			)
-		end
+
+	for dir in io.popen([[ls ~/.config/awesome/color | sed 's/.*\.sh//g' | tr -s '\n']]):lines() do
+		table.insert(entries, dir)
 	end
+
 	return entries
 end
 
@@ -89,9 +85,9 @@ local function filter(cmd)
 	-- Filter entries
 
 	for _, entry in ipairs(unfiltered) do
-		if string.sub(string.lower(entry.name), 1, string.len(cmd)) == string.lower(cmd) then
+		if string.sub(string.lower(entry), 1, string.len(cmd)) == string.lower(cmd) then
 			table.insert(filtered, entry)
-		elseif string.match(string.lower(entry.name), string.lower(cmd)) then
+		elseif string.match(string.lower(entry), string.lower(cmd)) then
 			table.insert(regfiltered, entry)
 		end
 	end
@@ -99,10 +95,10 @@ local function filter(cmd)
 	-- Sort entries
 
 	table.sort(filtered, function(a, b) 
-		return string.lower(a.name) < string.lower(b.name) 
+		return string.lower(a) < string.lower(b) 
 	end)
 	table.sort(regfiltered, function(a, b) 
-		return string.lower(a.name) < string.lower(b.name) 
+		return string.lower(a) < string.lower(b) 
 	end)
 
 	-- Merge entries
@@ -121,7 +117,7 @@ local function filter(cmd)
 		local widget = wibox.widget {
 			{
 				{
-					text = entry.name,
+					text = entry,
 					widget = wibox.widget.textbox
 				},
 				margins = dpi(10),
@@ -169,21 +165,17 @@ local function open()
 	-- Prompt
 
 	awful.prompt.run {
-		prompt = "Launch ",
+		prompt = "Color ",
 		textbox = prompt,
 		done_callback = function() 
-			launcherdisplay.visible = false 
+			colordisplay.visible = false 
 		end,
 		changed_callback = function(cmd) 
 			filter(cmd) 
 		end,
 		exe_callback = function(cmd)
 			local entry = filtered[index_entry]
-			if entry then
-				entry.appinfo:launch()
-			else
-				awful.spawn.with_shell(cmd)
-			end
+			awful.spawn.easy_async_with_shell("~/.config/awesome/color/" .. entry .. "/" .. entry .. ".sh")
 		end,
 		keypressed_callback = function(mod, key, cmd)
 			if key == "Down" then
@@ -195,13 +187,13 @@ local function open()
 	}
 end
 
-awesome.connect_signal("widget::launcher", function()
+awesome.connect_signal("widget::color", function()
 	open()
 
-	launcherdisplay.visible = not launcherdisplay.visible
+	colordisplay.visible = not colordisplay.visible
 
 	awful.placement.centered(
-		launcherdisplay,
+		colordisplay,
 		{
 			parent = awful.screen.focused()
 		}

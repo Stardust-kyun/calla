@@ -3,7 +3,6 @@
 # Paths
 config="$HOME/.config"
 xresources="$HOME/.Xresources"
-rofi="$config/rofi/theme.rasi"
 gtk="$config/gtk-3.0/settings.ini"
 librewolf="$HOME/.librewolf/*.default-release/chrome"
 firefox="$HOME/.mozilla/firefox/*.default-release/chrome"
@@ -12,19 +11,11 @@ picom="$config/picom.conf"
 zathura="$config/zathura/zathurarc"
 awesomewm="$config/awesome"
 
-run() {
-sed -i -e "s/bg: .*/bg: $1;/g" \
-       -e "s/fg: .*/fg: $2;/g" \
-       -e "s/selbg: .*/selbg: $3;/g" \
-       -e "s/selfg: .*/selfg: $4;/g" $rofi
-}
-
 comp() {
-sed -i -e "s/shadow = .*/shadow = $1;/g" \
-       -e "s/shadow-radius = .*/shadow-radius = $2;/g" \
-       -e "s/shadow-offset-x = .*/shadow-offset-x = $3;/g" \
-       -e "s/shadow-offset-y = .*/shadow-offset-y = $4;/g" \
-       -e "s/shadow-opacity = .*/shadow-opacity = $5;/g" $picom
+sed -i -e "s/shadow-radius = .*/shadow-radius = $1;/g" \
+       -e "s/shadow-offset-x = .*/shadow-offset-x = $2;/g" \
+       -e "s/shadow-offset-y = .*/shadow-offset-y = $3;/g" \
+       -e "s/shadow-opacity = .*/shadow-opacity = $4;/g" $picom
 killall picom
 }
 

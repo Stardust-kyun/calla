@@ -1,27 +1,31 @@
 local awful = require("awful")
 
 -- Mouse 
+
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({
-		-- Focus
-        awful.button({ }, 1, function(c)
-            c:activate { context = "mouse_click" }
-        end),
+
 		-- Move
+
         awful.button({ modkey }, 1, function(c)
             c:activate { context = "mouse_click", action = "mouse_move"  }
         end),
+
 		-- Resize
+
         awful.button({ modkey }, 3, function(c)
             c:activate { context = "mouse_click", action = "mouse_resize"}
         end),
+
     })
 end)
 
 -- Keys
+
 awful.keyboard.append_global_keybindings({
 
 	-- Awesome
+
 	awful.key(
 		{ modkey, "Shift" }, "r", 
 			awesome.restart,
@@ -33,40 +37,66 @@ awful.keyboard.append_global_keybindings({
 		end,
  		{ description = "next layout", group = "awesome" }
 	),
+	awful.key(
+		{ modkey, "Shift" }, "z", function() 
+			awful.layout.inc(-1) 
+		end,
+ 		{ description = "previous layout", group = "awesome" }
+	),
+    awful.key(
+		{ modkey }, "Tab", function() 
+			awful.client.focus.byidx(1) 
+		end,
+        { description = "next window", group = "awesome" }
+    ),
+    awful.key(
+		{ modkey, "Shift" }, "Tab", function() 
+			awful.client.focus.byidx(-1) 
+		end,
+		{ description = "previous window", group = "awesome" }
+    ),
+	awful.key(
+		{ modkey }, "space", function() 
+			awesome.emit_signal("widget::menu") 
+		end,
+		{ description = "show menu", group = "awesome" }
+	),
+    awful.key(
+		{ modkey }, "d", function() 
+			awesome.emit_signal("widget::launcher")
+		end,
+        { description = "show launcher", group = "awesome" }
+	),
+    awful.key(
+		{ modkey, "Shift" }, "d", function() 
+			awesome.emit_signal("widget::color") 
+		end,
+        { description = "color menu", group = "awesome" }
+	),
 
 	-- Programs
+
 	awful.key(
 		{ modkey }, "Return", function() 
 			awful.spawn.with_shell(terminal) 
 		end,
-        { description = "open a terminal", group = "awesome" }
+        { description = "open a terminal", group = "programs" }
 	),
 	awful.key(
 		{ modkey }, "p", function() 
 			awful.spawn.with_shell("killall picom") 
 		end,
-        { description = "kill picom", group = "awesome" }
+        { description = "kill picom", group = "programs" }
 	),
 	awful.key(
 		{ modkey, "Shift" }, "p", function() 
 			awful.spawn.with_shell("picom & disown") 
 		end,
-        { description = "start picom", group = "awesome" }
-	),
-    awful.key(
-		{ modkey }, "d", function() 
-			awful.spawn.with_shell("rofi -show run") 
-		end,
-        { description = "run prompt", group = "launcher" }
-	),
-    awful.key(
-		{ modkey, "Shift" }, "d", function() 
-			awful.spawn.with_shell("~/.config/awesome/color/rofi.sh") 
-		end,
-        { description = "color menu", group = "launcher" }
+        { description = "start picom", group = "programs" }
 	),
 
 	-- Screenshot
+
 	awful.key(
 		{ modkey }, "Delete", function() 
 			awesome.emit_signal("screenshot::full") 
@@ -87,6 +117,7 @@ awful.keyboard.append_global_keybindings({
 	),
 
 	-- Volume
+
     awful.key(
 		{ }, "XF86AudioRaiseVolume", function() 
 			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
@@ -112,6 +143,7 @@ awful.keyboard.append_global_keybindings({
 	),
 
 	-- Brightness
+
 	awful.key(
 		{ }, "XF86MonBrightnessUp", function() 
 			awful.spawn.with_shell("brightnessctl s 5%+")
@@ -127,35 +159,8 @@ awful.keyboard.append_global_keybindings({
         { description = "lower brightness", group = "brightness" }
 	),
 
-	-- Launcher
-	awful.key(
-		{ modkey }, "space", function() 
-			awesome.emit_signal("widget::launcher") 
-		end,
-		{ description = "show launcher", group = "awesome" }
-	),
-
-	-- Management
-	awful.key(
-		{ modkey }, "c", function() 
-			awful.placement.centered(client.focus, { honor_workarea = true }) 
-		end,
-		{ description = "center window", group = "management" }
-	),
-    awful.key(
-		{ modkey }, "Tab", function() 
-			awful.client.focus.byidx(1) 
-		end,
-        { description = "focus next by index", group = "management" }
-    ),
-    awful.key(
-		{ modkey, "Shift" }, "Tab", function() 
-			awful.client.focus.byidx(-1) 
-		end,
-		{ description = "focus previous by index", group = "management" }
-    ),
-
 	-- Tag
+
     awful.key {
         modifiers   = { modkey },
         keygroup    = "numrow",
@@ -198,12 +203,21 @@ awful.keyboard.append_global_keybindings({
             end
         end,
     }
+
 })
 
 client.connect_signal("request::default_keybindings", function()
     awful.keyboard.append_client_keybindings({
 
 		-- Client
+	
+		awful.key(
+			{ modkey }, "c", 
+			function(c) 
+				awful.placement.centered(c, { honor_workarea = true }) 
+			end,
+			{ description = "center window", group = "client" }
+		),
         awful.key(
 			{ modkey }, "f",
             function(c)
@@ -221,6 +235,13 @@ client.connect_signal("request::default_keybindings", function()
         	{ description = "toggle floating", group = "client" }
 		),
 	    awful.key(
+			{ modkey }, "n", 
+			function(c)
+				client.focus.minimized = true
+			end,
+        	{ description = "minimize", group = "client" }
+		),
+	    awful.key(
 			{ modkey }, "m", 
 			function(c)
 				c.maximized = not c.maximized
@@ -234,5 +255,6 @@ client.connect_signal("request::default_keybindings", function()
 			end,
  			{ description = "close", group = "client" }
 		),
+
     })
 end)

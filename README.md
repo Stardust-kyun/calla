@@ -42,7 +42,6 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - brightnessctl - brightness
     + inotify-tools - brightness widget dep
 - awesome-git - window manager
-- rofi - run launcher
 - picom - compositor
 - polkit-gnome - polkit
 - xdg-user-dirs - generate home dirs
@@ -122,29 +121,31 @@ Since the minimal install doesn't include many programs/utilities, you'll need t
 
 The file `~/.config/awesome/rc.lua` contains configuration options for awesome's default commands:
 
-| Configuration | Description            | Default                                                                                                |
-| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ |
-| `modkey`      | Modkey                 | `"Mod4"`                                                                                               |
-| `batt`        | Battery Name           | `"BAT0"`                                                                                               |
-| `passwd`      | Lockscreen Password    | `"awesomewm"`                                                                                          |
-| `sessionlock` | Lock on Session Start  | `true` (commented)                                                                                     |
-| `terminal`    | Terminal               | `"tym"`                                                                                                |
-| `browser`     | Web Browser            | `"librewolf"`                                                                                          |
-| `files`       | File Manager           | `"nemo"`                                                                                               |
-| `editor`      | Text Editor            | `"vim"`                                                                                                |
-| `editorcmd`   | Editor Command         | `terminal .. " -e  \"" .. editor .. "\""`                                                              |
-| `config`      | Config Editing Command | `terminal .. " -e \"" .. editor .. " " .. require("gears").filesystem.get_configuration_dir() .. "\""` |
-| `lock`        | Lock Command           | `"awesome-client command 'lock()'"`                                                                    |
-| `suspend`     | Suspend Command        | `"awesome-client command 'lock()' && systemctl suspend"`                                               |
-| `exit`        | Exit Command           | `"awesome-client command 'awesome.quit()'"`                                                            |
-| `shutdown`    | Shutdown Command       | `"systemctl poweroff"`                                                                                 |
-| `reboot`      | Reboot Command         | `"systemctl reboot"`                                                                                   |
-| `font`        | Font                   | `"RobotoMono Bold 11"`                                                                                 |
-| `fontalt`     | Alt Font               | `"RobotoMono Italic Bold 11"`                                                                          |
-| `fonticon`    | Icon Font              | `"Material Icons 16"`                                                                                  |
-| `color`       | Color Scheme           | `require("color.sakura")`                                                                              |
-| `wallpaper`   | Wallpaper              | `os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"` (commented)                                       |
-| `shotdir`     | Reboot Command         | `"~/Pictures/Screenshots/"`                                                                            |
+| Configuration   | Description            | Default                                                                                                |
+| --------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| `modkey`        | Modkey                 | `"Mod4"`                                                                                               |
+| `batt`          | Battery Name           | `"BAT0"`                                                                                               |
+| `passwd`        | Lockscreen Password    | `"awesomewm"`                                                                                          |
+| `sessionlock`   | Lock on Session Start  | `true` (commented)                                                                                     |
+| `terminal`      | Terminal               | `"tym"`                                                                                                |
+| `browser`       | Web Browser            | `"librewolf"`                                                                                          |
+| `files`         | File Manager           | `"nemo"`                                                                                               |
+| `editor`        | Text Editor            | `"vim"`                                                                                                |
+| `editorcmd`     | Editor Command         | `terminal .. " -e  \"" .. editor .. "\""`                                                              |
+| `config`        | Config Editing Command | `terminal .. " -e \"" .. editor .. " " .. require("gears").filesystem.get_configuration_dir() .. "\""` |
+| `lock`          | Lock Command           | `"awesome-client command 'lock()'"`                                                                    |
+| `suspend`       | Suspend Command        | `"awesome-client command 'lock()' && systemctl suspend"`                                               |
+| `exit`          | Exit Command           | `"awesome-client command 'awesome.quit()'"`                                                            |
+| `shutdown`      | Shutdown Command       | `"systemctl poweroff"`                                                                                 |
+| `reboot`        | Reboot Command         | `"systemctl reboot"`                                                                                   |
+| `color`         | Color Scheme           | `require("color.sakura")`                                                                              |
+| `font`          | Font                   | `"RobotoMono Bold 11"`                                                                                 |
+| `fontalt`       | Alt Font               | `"RobotoMono Italic Bold 11"`                                                                          |
+| `fonticon`      | Icon Font              | `"Material Icons 16"`                                                                                  |
+| `titlecontrols` | Titlebar Controls      | `false`                                                                                                |
+| `panelcontrols` | Panel Controls         | `true`                                                                                                 |
+| `wallpaper`     | Wallpaper              | `os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"` (commented)                                       |
+| `shotdir`       | Reboot Command         | `"~/Pictures/Screenshots/"`                                                                            |
 
 If your distribution uses `runit` instead of `systemd` you will need to set `shutdown` and `reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
 
@@ -165,23 +166,26 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 | ------------------ | ----------------------------- |
 | `Mod+Shift+r`      | Restart Awesome               |
 | `Mod+z`            | Next Layout                   |
+| `Mod+Shift+z`      | Previous Layout               |
+| `Mod+Tab`          | Focus Next Window             |
+| `Mod+Shift+Tab`    | Focus Previous Window         |
+| `Mod+Space`        | Show Menu                     |
+| `Mod+d`            | Show Launcher                 |
+| `Mod+Shift+d`      | Show Color Menu               |
 | `Mod+Enter`        | Open a Terminal               |
 | `Mod+p`            | Kill Picom                    |
 | `Mod+Shift+p`      | Start Picom                   |
-| `Mod+d`            | Show Run Launcher             |
-| `Mod+Shift+d`      | Show Color Menu               |
 | `Mod+Delete`       | Full Screenshot               |
 | `Mod+Ctrl+Delete`  | Delayed Screenshot            |
 | `Mod+Shift+Delete` | Partial Screenshot            |
 | `Mod+Space`        | Show Launcher                 |
-| `Mod+c`            | Center Window                 |
-| `Mod+Tab`          | Focus Next Window             |
-| `Mod+Shift+Tab`    | Focus Previous Window         |
 | `Mod+1-6`          | Change Tag                    |
 | `Mod+Ctrl+1-6`     | Move Client to Tag            |
 | `Mod+Shift+1-6`    | Move Client to Tag and Follow |
+| `Mod+c`            | Center Window                 |
 | `Mod+f`            | Toggle Fullscreen             |
 | `Mod+s`            | Toggle Floating               |
+| `Mod+n`            | Minimize Window               |
 | `Mod+m`            | Toggle Maximize               |
 | `Mod+Shift+q`      | Close Window                  |
 
@@ -285,7 +289,7 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 ### Contributions
 
 - [AloneERO](https://gitlab.com/AloneER0) for help adding support for Void, Fedora, OpenSUSE, and Alpine!
-- [Frankfut](https://github.com/frankfutlg) for help adding support for Void.
+- [Frankfut](https://github.com/frankfutlg) for help adding support for Void and lots of help with debugging.
 - [Qwickdom](https://github.com/Qwickdom) for help adding support for Arch.
 - [Reverse](https://github.com/Reversedc) for help adding support for Debian.
 - [Alyssa](https://github.com/alyssa-sudo) for help adding support for Gentoo.
@@ -297,6 +301,7 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 - [Sammy's Dotfiles](https://github.com/TorchedSammy/dotfiles)
 - [Saimoom's Dotfiles](https://github.com/saimoomedits/dotfiles)
 - [Nuxsh's Dotfiles](https://github.com/nuxshed/dotfiles)
+- [Smeueg's Dotfiles](https://github.com/Smeueg/Dotfiles)
 - [Elena's Dotfiles](https://github.com/elenapan/dotfiles)
 
 ### Projects

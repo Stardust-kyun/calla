@@ -1,15 +1,15 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
-local pampath = os.getenv("HOME").."/.config/awesome/liblua_pam.so"
+local pampath = require("gears").filesystem.get_configuration_dir() .. "liblua_pam.so"
 
 local lockscreen = {}
 
 lockscreen.init = function()
 
 	-- Authentication
+
 	awful.spawn.easy_async_with_shell("stat "..pampath.." >/dev/null 2>&1", function (_, __, ___, exitcode)
 		if exitcode == 0 then
 			lockscreen.authenticate = function(password)
@@ -78,9 +78,6 @@ lockscreen.init = function()
 		bg = beautiful.bg_normal,
 		ontop = true,
 		visible = false,
-		shape = function(cr, width, height)
-			gears.shape.rectangle(cr, width, height)
-		end
 	}
 
 	-- Background

@@ -14,10 +14,8 @@ B="#505a82"
 M="#735a87"
 C="#5a7387"
 
-# func - background - foreground - selected background - selected foreground
-run $BG $FG $BL $FG 
 # func - enable/disable - radius - x offset - y offset - opacity
-comp "true" "25" "-25" "-25" ".5" 
+comp "25" "-25" "-25" ".5" 
 # func (change colors in #Colors section)
 term 
 # func - gtk - icons 
