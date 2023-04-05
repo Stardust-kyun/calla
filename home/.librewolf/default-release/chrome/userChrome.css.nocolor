@@ -1,0 +1,81 @@
+:root {
+	--toolbar-field-focus-border-color: #0000 !important;
+}
+
+.titlebar-spacer,
+#tracking-protection-icon-container,
+#PanelUI-button,
+#urlbar-zoom-button,
+#pageActionButton,
+#page-action-buttons,
+#urlbar-go-button,
+#unified-extensions-button,
+#alltabs-button,
+#identity-box,
+#statuspanel,
+#nav-bar-overflow-button,
+#home-button,
+toolbarspring {
+	display: none !important;
+}
+
+/* urlbar */
+
+#nav-bar {
+    border: none !important;
+    box-shadow: none !important;
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    margin-top: -45px !important;
+    margin-bottom: -1px !important;
+    margin-right: 75vw !important;
+    height: 45px !important;
+}
+
+#navigator-toolbox {
+    border: 0px !important;
+}
+
+#TabsToolbar {
+    margin-top: -1px !important;
+    margin-bottom: 1px !important;
+    margin-left: 25vw !important;
+    max-height: 45px !important;
+}
+
+#urlbar .urlbarView {
+	display: none !important;
+}
+
+#urlbar-background {
+    border: transparent !important;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+#urlbar,
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+	box-shadow: none !important;
+}
+
+#urlbar-input-container {
+	padding: 0px 7px !important;
+}
+
+/* tabs */
+
+.tabbrowser-tab:not(:hover) .tab-close-button { 
+	display: none !important; 
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button { 
+	display: block !important; 
+}
+
+scrollbox, .scrollbox-clip {
+	padding-left: 2px !important;
+}
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+	margin-inline-start: 0px !important;
+}

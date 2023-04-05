@@ -6,7 +6,6 @@ xresources="$HOME/.Xresources"
 gtk="$config/gtk-3.0/settings.ini"
 librewolf="$HOME/.librewolf/*.default-release/chrome"
 firefox="$HOME/.mozilla/firefox/*.default-release/chrome"
-startpage="$config/startpage/css/style.css"
 picom="$config/picom.conf"
 zathura="$config/zathura/zathurarc"
 awesomewm="$config/awesome"
@@ -65,10 +64,6 @@ sed -i -e "s/--bg: .*/--bg: $1 !important;/g" \
        -e "s/--bg2: .*/--bg2: $2 !important;/g" \
        -e "s/--bg3: .*/--bg3: $3 !important;/g" \
        -e "s/--fg: .*/--fg: $4 !important;/g" $firefox/userContent.css
-sed -i -e "s/--bg: .*/--bg: $1;/g" \
-       -e "s/--bg2: .*/--bg2: $2;/g" \
-       -e "s/--bg3: .*/--bg3: $3;/g" \
-       -e "s/--fg: .*/--fg: $4;/g" $startpage
 }
 
 zath() {
