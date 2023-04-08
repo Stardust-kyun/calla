@@ -28,8 +28,10 @@ launcherdisplay:setup {
 		{
 			prompt,
 			forced_height = dpi(40),
-			margins = { left = dpi(15), right = dpi(15),
-			top = dpi(10), bottom = dpi(10) },
+			left = dpi(15),
+			right = dpi(15),
+			top = dpi(10),
+			bottom = dpi(10),
 			widget = wibox.container.margin
 		},
 		bg = beautiful.bg_focus,
@@ -126,7 +128,9 @@ local function filter(cmd)
 			entries:add(widget)
 		end
 
-		widget.bg = i == index_entry and beautiful.bg_focus
+		if i == index_entry then
+			widget.bg = beautiful.bg_focus
+		end
 	end
 
 	-- Fix position
@@ -170,7 +174,7 @@ local function open()
 				awful.spawn.with_shell(cmd)
 			end
 		end,
-		keypressed_callback = function(mod, key, cmd)
+		keypressed_callback = function(_, key)
 			if key == "Down" then
 				next(entries)
 			elseif key == "Up" then
