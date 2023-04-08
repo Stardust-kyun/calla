@@ -12,7 +12,7 @@ color.blue		   = "#505a82"
 color.magenta	   = "#735a87"
 color.cyan		   = "#5a7387"
 
-color.bg_alt       = color.black
+color.bgalt        = color.black
 color.urgent 	   = color.red
 color.wall	   	   = theme_path .. "shore.png"
 

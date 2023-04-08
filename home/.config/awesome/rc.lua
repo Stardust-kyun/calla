@@ -1,8 +1,12 @@
+-- To Do:
+-- Desktop icons widget
+-- Refactoring, always
+
 -- Errors
 require("naughty").connect_signal("request::display_error", function(message, startup)
     require("naughty").notification {
         urgency = "critical",
-        title   = "Error "..(startup and " during startup!" or "!"),
+        title   = "Error"..(startup and " during startup!" or "!"),
         message = message
     }
 end)
@@ -13,6 +17,8 @@ modkey = "Mod4"
 batt = "BAT0"
 passwd = "awesomewm"
 -- sessionlock = true
+shotdir = "~/Pictures/Screenshots/"
+-- pfp = os.getenv("HOME") .. "/Pictures/Misc/pfp.png"
 ---- Apps --------------------------------------------------------------------
 terminal = "tym"
 browser = "librewolf"
@@ -26,7 +32,7 @@ suspend = "awesome-client command 'lock()' && systemctl suspend"
 exit = "awesome-client command 'awesome.quit()'"
 shutdown = "systemctl poweroff"
 reboot = "systemctl reboot"
----- Themes ------------------------------------------------------------------
+---- Theme -------------------------------------------------------------------
 color = require("color.sakura")
 font = "RobotoMono Bold 11"
 fontalt = "RobotoMono Italic Bold 11"
@@ -34,8 +40,6 @@ fonticon = "Material Icons 16"
 titlecontrols = false
 panelcontrols = true
 -- wallpaper = os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"
----- Screenshots -------------------------------------------------------------
-shotdir = "~/Pictures/Screenshots/"
 
 -- Config
 require("awful.autofocus")

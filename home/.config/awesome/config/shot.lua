@@ -10,14 +10,15 @@ local function screenshot(args, time)
 				awful.spawn.easy_async_with_shell("cat " .. tmp .. " | xclip -se c -t image/png -i")
 				awful.spawn.easy_async_with_shell("cp " .. tmp .. " " .. shotdir)
 				awful.spawn.easy_async_with_shell("rm " .. tmp)
-				naughty.notify {
+
+				naughty.notification {
 					title = "Screenshot",
-					text = "Saved to " .. shotdir,
+					text = "Saved to " .. shotdir
 				}
 			else
-				naughty.notify {
+				naughty.notification {
 					title = "Screenshot",
-					text = "Cancelled",
+					text = "Cancelled"
 				}
 			end
 		end)

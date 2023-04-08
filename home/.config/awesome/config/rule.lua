@@ -12,7 +12,7 @@ ruled.client.connect_signal("request::rules", function()
             focus     = awful.client.focus.filter,
             raise     = true,
             screen    = awful.screen.preferred,
-            placement = awful.placement.no_offscreen+awful.placement.centered
+			placement = awful.placement.no_offscreen--+awful.placement.centered
 		}
     }
 

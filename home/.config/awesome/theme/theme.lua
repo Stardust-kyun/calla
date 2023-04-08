@@ -4,12 +4,21 @@ local icon_path = require("gears").filesystem.get_configuration_dir() .. "theme/
 
 local theme = {}
 
+theme.black   = color.black
+theme.white	  = color.white
+theme.red     = color.red
+theme.green	  = color.green
+theme.yellow  = color.yellow
+theme.blue	  = color.blue
+theme.magenta = color.magenta
+theme.cyan	  = color.cyan
+
 -- Default
 
 theme.font 			= font
 
 theme.bg_normal     = color.bg
-theme.bg_focus      = color.bg_alt
+theme.bg_focus      = color.bgalt
 theme.bg_urgent     = color.urgent
 
 theme.fg_normal     = color.fg
@@ -18,11 +27,11 @@ theme.fg_urgent     = color.urgent
 
 -- Titlebar
 
-theme.titlebar_bg_normal   = color.bg_alt
-theme.titlebar_bg_focus    = color.bg_alt
-theme.titlebar_bg_urgent   = color.bg_alt
+theme.titlebar_bg_normal   = color.bgalt
+theme.titlebar_bg_focus    = color.bgalt
+theme.titlebar_bg_urgent   = color.bgalt
 
-theme.titlebar_fg_normal   = color.bg_alt
+theme.titlebar_fg_normal   = color.bgalt
 theme.titlebar_fg_focus    = color.fg
 theme.titlebar_fg_urgent   = color.urgent
 
@@ -55,7 +64,7 @@ theme.taglist_spacing = dpi(10)
 
 theme.useless_gap           = dpi(8)
 theme.border_width          = dpi(0)
-theme.bg_systray    	    = color.bg_alt
+theme.bg_systray    	    = color.bgalt
 theme.systray_icon_spacing  = dpi(13)
 theme.systray_max_rows		= 7
 theme.notification_spacing = dpi(10)
@@ -65,6 +74,10 @@ theme.tooltip_opacity = 0
 
 theme.wallpaper = wallpaper or color.wall
 gears.wallpaper.maximized(theme.wallpaper)
+
+-- Profile picture
+
+theme.pfp = pfp or gears.color.recolor_image(icon_path .. "pfp.png", color.fg)
 
 -- Layout icons
 
@@ -78,18 +91,18 @@ theme.close    = gears.color.recolor_image(icon_path .. "close.png", color.fg)
 theme.minimize = gears.color.recolor_image(icon_path .. "minimize.png", color.fg)
 theme.maximize = gears.color.recolor_image(icon_path .. "maximize.png", color.fg)
 
-theme.titlebar_close_button_normal              = gears.color.recolor_image(theme.close, color.bg_alt)
+theme.titlebar_close_button_normal              = gears.color.recolor_image(theme.close, color.bgalt)
 theme.titlebar_close_button_focus               = theme.close
-theme.titlebar_minimize_button_normal           = gears.color.recolor_image(theme.minimize, color.bg_alt)
+theme.titlebar_minimize_button_normal           = gears.color.recolor_image(theme.minimize, color.bgalt)
 theme.titlebar_minimize_button_focus            = theme.minimize
-theme.titlebar_maximized_button_normal_inactive = gears.color.recolor_image(theme.maximize, color.bg_alt)
+theme.titlebar_maximized_button_normal_inactive = gears.color.recolor_image(theme.maximize, color.bgalt)
 theme.titlebar_maximized_button_focus_inactive  = theme.maximize
-theme.titlebar_maximized_button_normal_active   = gears.color.recolor_image(theme.maximize, color.bg_alt)
+theme.titlebar_maximized_button_normal_active   = gears.color.recolor_image(theme.maximize, color.bgalt)
 theme.titlebar_maximized_button_focus_active    = theme.maximize
 
 -- Awesome icon
 
-theme.awesome_icon = require("beautiful.theme_assets").awesome_icon(dpi(40), color.fg, color.bg)
+theme.awesome = require("beautiful.theme_assets").awesome_icon(dpi(40), color.fg, color.bg)
 
 -- Icon theme
 

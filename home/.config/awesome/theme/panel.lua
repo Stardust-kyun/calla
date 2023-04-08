@@ -11,7 +11,7 @@ local menu = wibox.widget {
 			awesome.emit_signal('widget::menu')
 		end) 
 	},
-	image = beautiful.awesome_icon,
+	image = beautiful.awesome,
 	widget = wibox.widget.imagebox
 }
 

@@ -13,7 +13,7 @@ color.blue		   = "#326482"
 color.magenta	   = "#645078"
 color.cyan		   = "#327d7d"
 
-color.bg_alt	   = color.black
+color.bgalt	   	   = color.black
 color.urgent 	   = color.red
 color.wall	   	   = theme_path .. "sakura.png"
 
