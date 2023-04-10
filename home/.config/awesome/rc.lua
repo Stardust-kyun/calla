@@ -1,5 +1,8 @@
 -- To Do:
--- Desktop icons widget
+-- Desktop icons/menu
+-- Panel redesign
+-- Theme placement userconf
+-- Launcher/Color merge
 -- Refactoring, always
 
 -- Errors

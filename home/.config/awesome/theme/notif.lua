@@ -55,11 +55,13 @@ naughty.connect_signal("request::display", function(n)
 							{
 								{
 									naughty.widget.title,
-									forced_height = dpi(40),
+									forced_height = dpi(20),
 									layout = wibox.layout.align.horizontal
 								},
 								left = dpi(15),
 								right = dpi(15),
+								top = dpi(10),
+								bottom = dpi(10),
 								widget = wibox.container.margin
 							},
 							bg = beautiful.bg_focus,

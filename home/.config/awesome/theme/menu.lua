@@ -8,8 +8,8 @@ local dpi = beautiful.xresources.apply_dpi
 -- Menu
 
 local menudisplay = wibox {
-	width = dpi(315),
-	height = dpi(685),
+	width = dpi(375),
+	height = dpi(655),
 	bg = beautiful.bg_normal,
 	ontop = true,
 	visible = false
@@ -18,13 +18,11 @@ local menudisplay = wibox {
 -- Header
 
 local headertext = wibox.widget {
-	text = "Control Center",
 	valign = "center",
 	widget = wibox.widget.textbox
 }
 
 local menutoggle = wibox.widget {
-	text = "",
 	font = fonticon,
 	widget = wibox.widget.textbox
 }
@@ -44,6 +42,7 @@ local header = wibox.widget	{
 		bottom = dpi(10),
 		widget = wibox.container.margin
 	},
+	forced_height = dpi(40),
 	bg = beautiful.bg_focus,
 	widget = wibox.container.background
 }
@@ -56,12 +55,12 @@ local pfp = wibox.widget {
 }
 
 local user = wibox.widget {
-	markup = "Username",
+	text = "Username",
 	widget = wibox.widget.textbox
 }
 
 local host = wibox.widget {
-	markup = "<span foreground='" .. beautiful.fg_normal .. "75'>@host</span>",
+	text = "@host",
 	font = fontalt,
 	widget = wibox.widget.textbox
 }
@@ -81,22 +80,55 @@ local profile = wibox.widget {
 		{
 			{
 				user,
-				host,
-				layout = wibox.layout.fixed.vertical
+				nil,
+				{
+					host,
+					fg = beautiful.fg_normal .. "75",
+					widget = wibox.container.background
+				},
+				layout = wibox.layout.align.vertical
 			},
-			left = dpi(15),
-			right = dpi(10),
-			top = dpi(10),
-			bottom = dpi(10),
+			margins = dpi(15),
 			widget = wibox.container.margin
 		},
-		bg = beautiful.bg_focus,
 		forced_height = dpi(85),
 		forced_width = dpi(185),
+		bg = beautiful.bg_focus,
 		widget = wibox.container.background
 	},
 	spacing = dpi(15),
 	layout = wibox.layout.fixed.horizontal
+}
+
+-- Calendar
+
+local date = wibox.widget {
+	format = "%A %B %e, %Y",
+	widget = wibox.widget.textclock
+}
+
+local uptime = wibox.widget {
+	font = fontalt,
+	widget = wibox.widget.textbox
+}
+
+local calendar = wibox.widget {
+	{
+		{
+			date,
+			{
+				uptime,
+				fg = beautiful.fg_normal.."75",
+				widget = wibox.container.background
+			},
+			layout = wibox.layout.align.vertical
+		},
+		margins = dpi(15),
+		widget = wibox.container.margin
+	},
+	forced_height = dpi(85),
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
 }
 
 -- Player
@@ -142,27 +174,15 @@ local next = wibox.widget {
 	widget = wibox.widget.textbox
 }
 
-local playbutton = wibox.widget {
+local play = wibox.widget {
 	text = "",
 	font = fonticon,
-	widget = wibox.widget.textbox
-}
-
-local playertimer =	gears.timer {
-	timeout = 1,
-	callback = function()
-		awful.spawn.easy_async_with_shell("playerctl metadata --format 'title_{{title}}album_{{album}}artist_{{artist}}'", function(out)
-			title.text = out:match("title_(.*)album_") or "Not Playing"
-			album.text = out:match("album_(.*)artist_") or "No Album"
-			artist.text = out:match("artist_(.*)") or "No Artist"
+	buttons = {
+		awful.button({}, 1, function()
+			awful.spawn.with_shell("playerctl play-pause")
 		end)
-	end
-}
-
-playbutton:buttons {
-	awful.button({}, 1, function()
-		awful.spawn.with_shell("playerctl play-pause")
-	end)
+	},
+	widget = wibox.widget.textbox
 }
 
 local player = wibox.widget {
@@ -170,9 +190,9 @@ local player = wibox.widget {
 		{
 			{
 				prev,
-				playbutton,
+				play,
 				next,
-				spacing = dpi(20),
+				spacing = dpi(15),
 				layout = wibox.layout.fixed.vertical
 			},
 			{
@@ -196,7 +216,7 @@ local player = wibox.widget {
 		margins = dpi(15),
 		widget = wibox.container.margin
 	},
-	forced_height = dpi(130),
+	forced_height = dpi(125),
 	bg = beautiful.bg_focus,
 	widget = wibox.container.background
 }
@@ -218,20 +238,31 @@ local wifi = wibox.widget {
 	widget = wibox.container.background
 }
 
-local wifienable = true
-
-wifi:buttons {
-	awful.button({}, 1, function()
-		wifienable = not wifienable
-		if wifienable then
+local function wifistatus(change)
+	awful.spawn.easy_async_with_shell("nmcli radio wifi", function(out)
+		if out:match("enabled") then
 			wifi.fg = beautiful.fg_normal
 			wifibutton.text = ""
-			awful.spawn.with_shell("nmcli radio wifi on")
+			if change then
+				wifi.fg = beautiful.fg_normal .. "75"
+				wifibutton.text = ""
+				awful.spawn.with_shell("nmcli radio wifi off")
+			end
 		else
 			wifi.fg = beautiful.fg_normal .. "75"
 			wifibutton.text = ""
-			awful.spawn.with_shell("nmcli radio wifi off")
+			if change then
+				wifi.fg = beautiful.fg_normal
+				wifibutton.text = ""
+				awful.spawn.with_shell("nmcli radio wifi on")
+			end
 		end
+	end)
+end
+
+wifi:buttons {
+	awful.button({}, 1, function()
+		wifistatus(true)
 	end)
 }
 
@@ -252,20 +283,31 @@ local bt = wibox.widget {
 	widget = wibox.container.background
 }
 
-local btenable = true
-
-bt:buttons {
-	awful.button({}, 1, function()
-		btenable = not btenable
-		if btenable then
+local function btstatus(change)
+	awful.spawn.easy_async_with_shell("bluetoothctl show", function(out)
+		if out:match("Powered: yes") then
 			bt.fg = beautiful.fg_normal
 			btbutton.text = ""
-			awful.spawn.with_shell("bluetoothctl power on")
+			if change then
+				bt.fg = beautiful.fg_normal .. "75"
+				btbutton.text = ""
+				awful.spawn.with_shell("bluetoothctl power off")
+			end
 		else
 			bt.fg = beautiful.fg_normal .. "75"
 			btbutton.text = ""
-			awful.spawn.with_shell("bluetoothctl power off")
+			if change then
+				bt.fg = beautiful.fg_normal
+				btbutton.text = ""
+				awful.spawn.with_shell("bluetoothctl power on")
+			end
 		end
+	end)
+end
+
+bt:buttons {
+	awful.button({}, 1, function()
+		btstatus(true)
 	end)
 }
 
@@ -286,19 +328,15 @@ local dnd = wibox.widget {
 	widget = wibox.container.background
 }
 
-local dndenable = true
-
 dnd:buttons {
 	awful.button({}, 1, function()
-		dndenable = not dndenable
-		if dndenable then
-			dnd.fg = beautiful.fg_normal
-			dndbutton.text = ""
-			naughty.resume()
-		else
+		naughty.toggle()
+		if naughty.suspended then
 			dnd.fg = beautiful.fg_normal .. "75"
 			dndbutton.text = ""
-			naughty.suspend()
+		else
+			dnd.fg = beautiful.fg_normal
+			dndbutton.text = ""
 		end
 	end)
 }
@@ -319,6 +357,7 @@ local volumeicon = wibox.widget {
 	text = "",
 	font = fonticon,
 	valign = "center",
+	align = "center",
 	widget = wibox.widget.textbox
 }
 
@@ -334,28 +373,37 @@ local volumebar = wibox.widget {
 
 local volumepercent = wibox.widget {
 	text = "N/A",
+	align = "center",
 	widget = wibox.widget.textbox
 }
 
 local volume = wibox.widget	{
-	volumeicon,
 	{
-		volumebar,
-		top = dpi(7),
-		bottom = dpi(7),
-		forced_width = dpi(165),
+		{
+			volumeicon,
+			{
+				{
+				volumebar,
+				direction = "east",
+				forced_height = dpi(105),
+				widget = wibox.container.rotate
+			},
+			left = dpi(19),
+			right = dpi(19),
+			widget = wibox.container.margin
+			},
+			volumepercent,
+			forced_width = dpi(20),
+			spacing = dpi(10),
+			layout = wibox.layout.fixed.vertical
+		},
+		top = dpi(10),
+		bottom = dpi(5),
 		widget = wibox.container.margin
 	},
-	{
-		nil,
-		nil,
-		volumepercent,
-		forced_width = dpi(40),
-		layout = wibox.layout.align.horizontal
-	},
-	forced_height = dpi(20),
-	spacing = dpi(15),
-	layout = wibox.layout.fixed.horizontal
+	forced_height = dpi(185),
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
 }
 
 -- Brightness
@@ -364,6 +412,7 @@ local brightnessicon = wibox.widget {
 	text = "",
 	font = fonticon,
 	valign = "center",
+	align = "center",
 	widget = wibox.widget.textbox
 }
 
@@ -379,28 +428,37 @@ local brightnessbar = wibox.widget {
 
 local brightnesspercent = wibox.widget {
 	text = "N/A",
+	align = "center",
 	widget = wibox.widget.textbox
 }
 
 local brightness = wibox.widget {
-	brightnessicon,
 	{
-		brightnessbar,
-		top = dpi(7),
-		bottom = dpi(7),
-		forced_width = dpi(165),
+		{
+			brightnessicon,
+			{
+				{
+				brightnessbar,
+				direction = "east",
+				forced_height = dpi(105),
+				widget = wibox.container.rotate
+			},
+			left = dpi(19),
+			right = dpi(19),
+			widget = wibox.container.margin
+			},
+			brightnesspercent,
+			forced_width = dpi(20),
+			spacing = dpi(10),
+			layout = wibox.layout.fixed.vertical
+		},
+		top = dpi(10),
+		bottom = dpi(5),
 		widget = wibox.container.margin
 	},
-	{
-		nil,
-		nil,
-		brightnesspercent,
-		forced_width = dpi(40),
-		layout = wibox.layout.align.horizontal
-	},
-	forced_height = dpi(20),
-	spacing = dpi(15),
-	layout = wibox.layout.fixed.horizontal
+	forced_height = dpi(185),
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
 }
 
 -- Battery
@@ -409,6 +467,7 @@ local batteryicon = wibox.widget {
 	text = "",
 	font = fonticon,
 	valign = "center",
+	align = "center",
 	widget = wibox.widget.textbox
 }
 
@@ -424,47 +483,49 @@ local batterybar = wibox.widget {
 
 local batterypercent = wibox.widget {
 	text = "N/A",
+	align = "center",
 	widget = wibox.widget.textbox
 }
 
 local battery = wibox.widget {
-	batteryicon,
 	{
-		batterybar,
-		top = dpi(7),
-		bottom = dpi(7),
-		forced_width = dpi(165),
+		{
+			batteryicon,
+			{
+				{
+				batterybar,
+				direction = "east",
+				forced_height = dpi(105),
+				widget = wibox.container.rotate
+			},
+			left = dpi(19),
+			right = dpi(19),
+			widget = wibox.container.margin
+			},
+			batterypercent,
+			forced_width = dpi(20),
+			spacing = dpi(10),
+			layout = wibox.layout.fixed.vertical
+		},
+		top = dpi(10),
+		bottom = dpi(5),
 		widget = wibox.container.margin
 	},
-	{
-		nil,
-		nil,
-		batterypercent,
-		forced_width = dpi(40),
-		layout = wibox.layout.align.horizontal
-	},
-	forced_height = dpi(20),
-	spacing = dpi(15),
-	layout = wibox.layout.fixed.horizontal
+	forced_height = dpi(185),
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
 }
 
 -- Info (volume, brightness, battery)
 
 local info = wibox.widget {
-	{
-		{
 			volume,
 			brightness,
 			battery,
-			spacing = dpi(20),
+			spacing = dpi(15),
+			forced_width = dpi(45),
 			layout = wibox.layout.fixed.vertical
-		},
-		margins = dpi(15),
-		widget = wibox.container.margin
-	},
-	bg = beautiful.bg_focus,
-	widget = wibox.container.background
-}
+		}
 
 -- Buttons
 
@@ -474,8 +535,8 @@ local button = function(args)
 			text = args.icon,
 			font = fonticon,
 			align = "center",
-			forced_height = dpi(45),
-			forced_width = dpi(45),
+			forced_height = args.size,
+			forced_width = args.size,
 			widget = wibox.widget.textbox
 		},
 		bg = beautiful.bg_focus,
@@ -493,11 +554,11 @@ end
 -- Apps
 
 local apps = wibox.widget {
-	button{ icon="", run=browser },
-	button{ icon="", run=terminal },
-	button{ icon="", run=files },
-	button{ icon="", run=editorcmd },
-	button{ icon="", run=config },
+	button{ icon="", run=browser, size=dpi(45) },
+	button{ icon="", run=terminal, size=dpi(45) },
+	button{ icon="", run=files, size=dpi(45) },
+	button{ icon="", run=editorcmd, size=dpi(45) },
+	button{ icon="", run=config, size=dpi(45) },
 	spacing = dpi(15),
 	layout = wibox.layout.fixed.horizontal
 }
@@ -508,25 +569,24 @@ local systray = wibox.widget {
 	{	
 		{
 			widget = wibox.widget.systray,
-			base_size = dpi(25),
+			base_size = dpi(16),
 			horizontal = false
 		},
-		margins = dpi(10),
+		margins = dpi(12),
 		widget = wibox.container.margin
 	},
 	bg = beautiful.bg_focus,
-	forced_height = dpi(45),
+	forced_height = dpi(50),
 	widget = wibox.container.background
 }
 
 -- Power
 
 local power = wibox.widget {
-	button{ icon="", run=lock },
-	button{ icon="", run=suspend },
-	button{ icon="", run=exit },
-	button{ icon="", run=shutdown },
-	button{ icon="", run=reboot },
+	button{ icon="", run=lock, size=dpi(60) },
+	button{ icon="", run=exit, size=dpi(60) },
+	button{ icon="", run=shutdown, size=dpi(60) },
+	button{ icon="", run=reboot, size=dpi(60) },
 	spacing = dpi(15),
 	layout = wibox.layout.fixed.horizontal
 }
@@ -544,14 +604,20 @@ local shortcuts = wibox.widget {
 -- Control center
 
 local controlcenter = wibox.widget {
-	profile,
-	player,
-	toggles,
+	{
+		profile,
+		calendar,
+		player,
+		toggles,
+		shortcuts,
+		spacing = dpi(15),
+		forced_width = dpi(285),
+		layout = wibox.layout.fixed.vertical
+	},
 	info,
-	shortcuts,
 	spacing = dpi(15),
 	visible = true,
-	layout = wibox.layout.fixed.vertical
+	layout = wibox.layout.fixed.horizontal
 }
 
 -- Notification center
@@ -601,7 +667,7 @@ local createnotif = function(n)
 							widget = wibox.widget.textbox
 						},
 						strategy = "exact",
-						width = dpi(180),
+						width = dpi(230),
 						height = dpi(20),
 						widget = wibox.container.constraint
 					},
@@ -621,7 +687,7 @@ local createnotif = function(n)
 				spacing = dpi(10),
 				layout = wibox.layout.fixed.vertical
 			},
-			margins = dpi(10),
+			margins = dpi(15),
 			widget = wibox.container.margin
 		},
 		bg = beautiful.bg_focus,
@@ -717,6 +783,17 @@ menutoggle:buttons {
 
 -- Signals
 
+awesome.connect_signal("signal::playerctl", function(titlename, albumname, artistname, status)
+	title.text = titlename
+	album.text = albumname
+	artist.text = artistname
+	if status then
+		play.text = ""
+	else
+		play.text = ""
+	end
+end)
+
 awesome.connect_signal("signal::volume", function(volume, mute)
 	if mute then
 		volumepercent.text = "Mute"
@@ -754,29 +831,10 @@ awesome.connect_signal("signal::brightness", function(brightness)
 	end
 end)
 
-awesome.connect_signal("widget::menu", function()
-	menudisplay.visible = not menudisplay.visible
-	menutoggle.text = ""
-	headertext.text = "Control Center"
-	notifs.visible = false
-	controlcenter.visible = true
-
-	awful.spawn.easy_async_with_shell([[getent passwd | grep "$USER" | cut -d":" -f5 | cut -d"," -f1]], function(out)
-		user.markup = out
-	end)
-	awful.spawn.easy_async_with_shell("hostname", function(out)
-		host.markup = "<span foreground='" .. beautiful.fg_normal .. "75'>@" .. out .. "</span>"
-	end)
-	
-	if menudisplay.visible then
-		playertimer:start()
-	else
-		playertimer:stop()
-	end
-
+if batt ~= nil then
 	awful.widget.watch("cat /sys/class/power_supply/" .. batt .. "/capacity", 15, function(widget, stdout)
 		batterypercent.text = tonumber(stdout) .. "%"
- 		batterybar.value = tonumber(stdout)
+		batterybar.value = tonumber(stdout)
 		if tonumber(stdout) >= 95 then
 			batteryicon.text = ""
 		elseif tonumber(stdout) >= 80 then
@@ -795,6 +853,29 @@ awesome.connect_signal("widget::menu", function()
 			batteryicon.text = ""
 		end
 	end)
+end
+
+awesome.connect_signal("widget::menu", function()
+	menudisplay.visible = not menudisplay.visible
+
+	menutoggle.text = ""
+	headertext.text = "Control Center"
+	notifs.visible = false
+	controlcenter.visible = true
+
+	awful.spawn.easy_async_with_shell("uptime -p", function(out)
+		uptime.text = out:gsub("up ", "")
+	end)
+
+	awful.spawn.easy_async_with_shell([[getent passwd | grep "$USER" | cut -d":" -f5 | cut -d"," -f1]], function(out)
+		user.text = out:gsub("\n", "")
+	end)
+	awful.spawn.easy_async_with_shell("hostname", function(out)
+		host.text = "@" .. out
+	end)
+
+	wifistatus()
+	btstatus()
 
 	if client.focus and client.focus.fullscreen == true then
 		awful.placement.bottom_left(

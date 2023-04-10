@@ -27,7 +27,6 @@ launcherdisplay:setup {
 	{
 		{
 			prompt,
-			forced_width = dpi(400),
 			forced_height = dpi(40),
 			left = dpi(15),
 			right = dpi(15),
@@ -43,7 +42,6 @@ launcherdisplay:setup {
 		margins = dpi(10),
 		widget = wibox.container.margin
 	},
-	forced_height = dpi(460),
 	layout = wibox.layout.fixed.vertical
 }
 
@@ -89,21 +87,17 @@ local function filter(cmd)
 	-- Filter entries
 
 	for _, entry in ipairs(unfiltered) do
-		if string.sub(string.lower(entry.name), 1, string.len(cmd)) == string.lower(cmd) then
+		if entry.name:lower():sub(1, cmd:len()) == cmd:lower() then
 			table.insert(filtered, entry)
-		elseif string.match(string.lower(entry.name), string.lower(cmd)) then
+		elseif entry.name:lower():match(cmd:lower()) then
 			table.insert(regfiltered, entry)
 		end
 	end
 
 	-- Sort entries
 
-	table.sort(filtered, function(a, b) 
-		return string.lower(a.name) < string.lower(b.name) 
-	end)
-	table.sort(regfiltered, function(a, b) 
-		return string.lower(a.name) < string.lower(b.name) 
-	end)
+	table.sort(filtered, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
+	table.sort(regfiltered, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
 
 	-- Merge entries
 
@@ -142,21 +136,19 @@ local function filter(cmd)
 	-- Fix position
 
 	if index_entry > #filtered then
-		index_entry = 1
-		index_start = 1
+		index_entry, index_start = 1, 1
 	elseif index_entry < 1 then
 		index_entry = 1
 	end
 
-	collectgarbage()
+	collectgarbage("collect")
 end
 
 local function open()
 
 	-- Reset index and page
 
-	index_start = 1
-	index_entry = 1
+	index_entry, index_start = 1, 1
 
 	-- Get entries
 
@@ -182,7 +174,7 @@ local function open()
 				awful.spawn.with_shell(cmd)
 			end
 		end,
-		keypressed_callback = function(mod, key, cmd)
+		keypressed_callback = function(_, key)
 			if key == "Down" then
 				next(entries)
 			elseif key == "Up" then

@@ -120,23 +120,23 @@ awful.keyboard.append_global_keybindings({
 
     awful.key(
 		{ }, "XF86AudioRaiseVolume", function() 
-			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
-			awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%")
+			awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0")
+			awful.spawn.with_shell("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
 			awesome.emit_signal("widget::volume")
 		end,
         { description = "raise volume", group = "volume" }
 	),
     awful.key(
 		{ }, "XF86AudioLowerVolume", function() 
-			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
-			awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%")
+			awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0")
+			awful.spawn.with_shell("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
 			awesome.emit_signal("widget::volume")
 		end,
         { description = "lower volume", group = "volume" }
 	),
     awful.key(
 		{ }, "XF86AudioMute", function() 
-			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+			awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 			awesome.emit_signal("widget::volume")
 		end,
         { description = "mute volume", group = "volume" }
