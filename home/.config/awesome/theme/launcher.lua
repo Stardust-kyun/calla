@@ -96,8 +96,13 @@ local function filter(cmd)
 
 	-- Sort entries
 
+<<<<<<< HEAD
 	table.sort(filtered, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
 	table.sort(regfiltered, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
+=======
+	table.sort(filtered, function(a, b) return a.name:lower() < b.name:lower() end)
+	table.sort(regfiltered, function(a, b) return a.name:lower() < b.name:lower() end)
+>>>>>>> cf2045750d39a11989ffbe2c9610cfc3a5863d7c
 
 	-- Merge entries
 
@@ -148,7 +153,11 @@ local function open()
 
 	-- Reset index and page
 
+<<<<<<< HEAD
 	index_entry, index_start = 1, 1
+=======
+	index_start, index_entry = 1, 1
+>>>>>>> cf2045750d39a11989ffbe2c9610cfc3a5863d7c
 
 	-- Get entries
 
