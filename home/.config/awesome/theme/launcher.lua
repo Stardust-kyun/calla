@@ -96,13 +96,8 @@ local function filter(cmd)
 
 	-- Sort entries
 
-<<<<<<< HEAD
-	table.sort(filtered, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
-	table.sort(regfiltered, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
-=======
 	table.sort(filtered, function(a, b) return a.name:lower() < b.name:lower() end)
 	table.sort(regfiltered, function(a, b) return a.name:lower() < b.name:lower() end)
->>>>>>> cf2045750d39a11989ffbe2c9610cfc3a5863d7c
 
 	-- Merge entries
 
