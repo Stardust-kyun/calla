@@ -148,11 +148,7 @@ local function open()
 
 	-- Reset index and page
 
-<<<<<<< HEAD
-	index_entry, index_start = 1, 1
-=======
 	index_start, index_entry = 1, 1
->>>>>>> cf2045750d39a11989ffbe2c9610cfc3a5863d7c
 
 	-- Get entries
 
