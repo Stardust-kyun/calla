@@ -15,7 +15,6 @@ sed -i -e "s/shadow-radius = .*/shadow-radius = $1;/g" \
        -e "s/shadow-offset-x = .*/shadow-offset-x = $2;/g" \
        -e "s/shadow-offset-y = .*/shadow-offset-y = $3;/g" \
        -e "s/shadow-opacity = .*/shadow-opacity = $4;/g" $picom
-killall picom
 }
 
 term() {
@@ -84,7 +83,8 @@ sed -i -e "s/recolor-lightcolor.*/recolor-lightcolor		\"$1\"/g" \
 }
 
 awes() {
-sed -i "s/require(\"color\..*/require(\"color\.$1\")/g" $awesomewm/rc.lua
+sed -i "s/require(\"color\..*/require(\"color\.$1\")/g" $awesomewm/user.lua
 # Restart awesome
 awesome-client 'awesome.restart()'
+# awesome-client 'awesome.emit_signal("theme::apply")'
 }

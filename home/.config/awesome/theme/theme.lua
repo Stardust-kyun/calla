@@ -60,20 +60,37 @@ theme.taglist_fg_occupied = color.fg .. "75"
 
 theme.taglist_spacing = dpi(10)
 
+-- Menu
+
+theme.menu_submenu_icon = gears.color.recolor_image(icon_path .. "submenu.png", color.fg)
+theme.menu_font         = color.font
+theme.menu_bg_normal    = color.bg
+theme.menu_bg_focus     = color.bg_alt
+theme.menu_fg_normal    = color.fg
+theme.menu_fg_focus     = color.fg
+theme.menu_height       = dpi(40)
+theme.menu_width        = dpi(160)
+
 -- Misc
 
 theme.useless_gap           = dpi(8)
 theme.border_width          = dpi(0)
 theme.bg_systray    	    = color.bgalt
-theme.systray_icon_spacing  = dpi(13)
-theme.systray_max_rows		= 7
-theme.notification_spacing = dpi(10)
-theme.tooltip_opacity = 0
+theme.systray_icon_spacing  = dpi(20)
+theme.systray_max_rows		= 3
+theme.notification_spacing  = dpi(10)
+theme.tooltip_opacity       = 0
 
 -- Wallpaper
 
 theme.wallpaper = wallpaper or color.wall
-gears.wallpaper.maximized(theme.wallpaper)
+
+screen.connect_signal("request::wallpaper", function(s)
+	require("awful").wallpaper {
+		screen = s,
+		bg = theme.bg_normal
+	}
+end)
 
 -- Profile picture
 
@@ -106,6 +123,6 @@ theme.awesome = require("beautiful.theme_assets").awesome_icon(dpi(40), color.fg
 
 -- Icon theme
 
-theme.icon_theme = nil
+theme.icons = color.icons
 
 return theme

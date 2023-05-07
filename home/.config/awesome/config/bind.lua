@@ -67,12 +67,6 @@ awful.keyboard.append_global_keybindings({
 		end,
         { description = "show launcher", group = "awesome" }
 	),
-    awful.key(
-		{ modkey, "Shift" }, "d", function() 
-			awesome.emit_signal("widget::color") 
-		end,
-        { description = "color menu", group = "awesome" }
-	),
 
 	-- Programs
 

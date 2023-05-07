@@ -15,5 +15,6 @@ color.cyan		   = "#5a7387"
 color.bgalt        = color.black
 color.urgent 	   = color.red
 color.wall	   	   = theme_path .. "shore.png"
+color.icons		   = "shore"
 
 return color

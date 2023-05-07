@@ -4,212 +4,212 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local pampath = require("gears").filesystem.get_configuration_dir() .. "liblua_pam.so"
 
-local lockscreen = {}
+-- Authentication
 
-lockscreen.init = function()
-
-	-- Authentication
-
-	awful.spawn.easy_async_with_shell("stat "..pampath.." >/dev/null 2>&1", function (_, __, ___, exitcode)
-		if exitcode == 0 then
-			lockscreen.authenticate = function(password)
-				return password == passwd
-			end
-			local pam = require("liblua_pam")
-			lockscreen.authenticate = function(password)
-				return pam.auth_current_user(password)
-			end
-		else
-			lockscreen.authenticate = function(password)
-				return password == passwd
-			end
+awful.spawn.easy_async_with_shell("stat "..pampath.." >/dev/null 2>&1", function (_, _, _, exitcode)
+	if exitcode == 0 then
+		authenticate = function(password)
+			return password == passwd
 		end
-	end)
+		local pam = require("liblua_pam")
+		authenticate = function(password)
+			return pam.auth_current_user(password)
+		end
+	else
+		authenticate = function(password)
+			return password == passwd
+		end
+	end
+end)
 
-	-- Variables
+-- Variables
 
-	local symbol = ""
-	local failsymbol = ""
-	local characters_entered = 0
+local symbol = ""
+local failsymbol = ""
+local characters_entered = 0
 
-	-- Header
+-- Header
 
-	local header = wibox.widget	{
+local header = wibox.widget	{
+	{
 		{
 			{
-				{
-					text = "Lockscreen",
-					valign = "center",
-					widget = wibox.widget.textbox
-				},
-				forced_width = dpi(450),
-				layout = wibox.layout.align.horizontal,
+				text = "Lockscreen",
+				valign = "center",
+				widget = wibox.widget.textbox
 			},
-			left = dpi(15),
-			right = dpi(15),
-			top = dpi(10),
-			bottom = dpi(10),
-			widget = wibox.container.margin
+			forced_width = dpi(450),
+			layout = wibox.layout.align.horizontal,
 		},
-		bg = beautiful.bg_focus,
-		widget = wibox.container.background
-	}
+		left = dpi(15),
+		right = dpi(15),
+		top = dpi(10),
+		bottom = dpi(10),
+		widget = wibox.container.margin
+	},
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
+}
 
-	-- Prompt
+-- Prompt
 
-	local icon = wibox.widget {
-		markup = symbol,
-		font = fonticon,
-		align = "center",
-		valign = "center",
-		widget = wibox.widget.textbox
-	}
+local icon = wibox.widget {
+	markup = symbol,
+	font = fonticon,
+	align = "center",
+	valign = "center",
+	widget = wibox.widget.textbox
+}
 
-	local prompt = wibox.widget {
-		markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>",
-		font = font,
-		align = "center",
-		widget = wibox.widget.textbox
-	}
+local prompt = wibox.widget {
+	markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>",
+	font = font,
+	align = "center",
+	widget = wibox.widget.textbox
+}
 
-	local promptbox = wibox {
-		width = dpi(450),
-		height = dpi(185),
-		bg = beautiful.bg_normal,
-		ontop = true,
-		visible = false,
-	}
+local promptbox = wibox {
+	width = dpi(450),
+	height = dpi(185),
+	bg = beautiful.bg_normal,
+	ontop = true,
+	visible = false,
+}
 
-	-- Background
-
-	local background = wibox {
-		fg = beautiful.fg_normal,
-		bgimage = beautiful.wallpaper,
-		visible = false,
-		ontop = true,
-		screen = screen.primary,
-		type = "splash"
-	}
-
-	awful.placement.maximize(background)
-
-	-- Visibile
-
-	local function visible(v)
-			background.visible = v
-			promptbox.visible = v
-	end
-
-	-- Reset
-
-	local function reset()
-		characters_entered = 0;
-		prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>"
-		icon.markup = symbol
-	end
-
-	-- Fail
-
-	local function fail()
-		characters_entered = 0;
-		prompt.markup = "<span foreground='" .. beautiful.fg_urgent .. "'>try again</span>"
-		icon.markup = "<span foreground='" .. beautiful.fg_urgent .. "'>" .. failsymbol .. "</span>"
-	end
-
-	-- Input
-
-	local function grabpassword()
-		awful.prompt.run {
-			hooks = {
-				{{ }, 'Escape', function(_)
-						reset()
-						grabpassword()
-					end
-				}
-			},
-			keypressed_callback  = function(mod, key, cmd)
-				if #key == 1 then
-					characters_entered = characters_entered + 1
-					prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
-					icon.markup = symbol
-				elseif key == "BackSpace" then
-					if characters_entered > 0 then
-						characters_entered = characters_entered - 1
-					end
-					prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
-					icon.markup = symbol
-				end
-			end,
-			exe_callback = function(input)
-				if lockscreen.authenticate(input) then
-					reset()
-					visible(false)
-				else
-					fail()
-					grabpassword()
-				end
-			end,
-			textbox = wibox.widget.textbox(),
-		}
-	end
-
-	-- Lock
-
-	function lock()
-		visible(true)
-		grabpassword()
-	end
-
-	-- Setup
-
-	background:setup {
-		layout = wibox.container.place
-	}
-
-	promptbox:setup {
+promptbox:setup {
+	{
+		header,
 		{
-			header,
 			{
 				{
 					{
 						{
-							{
-								prompt,
-								left = dpi(5),
-								widget = wibox.container.margin
-							},
-							nil,
-							{
-								icon,
-								right = dpi(5),
-								widget = wibox.container.margin
-							},
-							layout = wibox.layout.align.horizontal,
-							expand = "none"
+							prompt,
+							left = dpi(5),
+							widget = wibox.container.margin
 						},
-						margins = dpi(10),
-						forced_height = dpi(45),
-						widget = wibox.container.margin
+						nil,
+						{
+							icon,
+							right = dpi(5),
+							widget = wibox.container.margin
+						},
+						layout = wibox.layout.align.horizontal,
+						expand = "none"
 					},
-					bg = beautiful.bg_focus,
-					widget = wibox.container.background
+					margins = dpi(10),
+					forced_height = dpi(45),
+					widget = wibox.container.margin
 				},
-				margins = dpi(50),
-				widget = wibox.container.margin
+				bg = beautiful.bg_focus,
+				widget = wibox.container.background
 			},
-			layout = wibox.layout.align.vertical
+			margins = dpi(50),
+			widget = wibox.container.margin
 		},
-		valign = "top",
-		layout = wibox.container.place
+		layout = wibox.layout.align.vertical
+	},
+	valign = "top",
+	layout = wibox.container.place
+}
+
+awful.placement.centered(
+	promptbox,
+	{
+		parent = awful.screen.focused()
 	}
+)
 
-	awful.placement.centered(
-		promptbox,
-		{
-			parent = awful.screen.focused()
-		}
-	)
+-- Background
 
+background = wibox {
+	visible = false,
+	ontop = true,
+	bgimage = beautiful.wallpaper,
+	type = "splash",
+	screen = s
+}
+
+awful.placement.maximize(background)
+
+background:setup {
+	layout = wibox.container.place
+}
+
+-- Visibile
+
+local function visible(v)
+	background.visible = v
+	promptbox.visible = v
 end
 
-return lockscreen
+-- Reset
+
+local function reset()
+	characters_entered = 0;
+	prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>"
+	icon.markup = symbol
+end
+
+-- Fail
+
+local function fail()
+	characters_entered = 0;
+	prompt.markup = "<span foreground='" .. beautiful.fg_urgent .. "'>try again</span>"
+	icon.markup = "<span foreground='" .. beautiful.fg_urgent .. "'>" .. failsymbol .. "</span>"
+end
+
+-- Input
+
+local function grabpassword()
+	awful.prompt.run {
+		hooks = {
+			{{ }, 'Escape', function(_)
+					reset()
+					grabpassword()
+				end
+			}
+		},
+		keypressed_callback  = function(mod, key, cmd)
+			if #key == 1 then
+				characters_entered = characters_entered + 1
+				prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
+				icon.markup = symbol
+			elseif key == "BackSpace" then
+				if characters_entered > 0 then
+					characters_entered = characters_entered - 1
+				end
+				prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
+				icon.markup = symbol
+			end
+		end,
+		exe_callback = function(input)
+			if authenticate(input) then
+				reset()
+				visible(false)
+			else
+				fail()
+				grabpassword()
+			end
+		end,
+		textbox = wibox.widget.textbox()
+	}
+end
+
+-- Lock
+
+function lock()
+	visible(true)
+	grabpassword()
+end
+
+local function is_restart()
+	awesome.register_xproperty("is_restart", "boolean")
+	local restart_detected = awesome.get_xproperty("is_restart") ~= nil
+	awesome.set_xproperty("is_restart", true)
+	return restart_detected
+end
+
+if sessionlock and not is_restart() then
+	lock()
+end

@@ -535,8 +535,8 @@ local button = function(args)
 			text = args.icon,
 			font = fonticon,
 			align = "center",
-			forced_height = args.size,
-			forced_width = args.size,
+			forced_height = dpi(45),
+			forced_width = dpi(45),
 			widget = wibox.widget.textbox
 		},
 		bg = beautiful.bg_focus,
@@ -545,60 +545,153 @@ local button = function(args)
 
 	button:connect_signal("button::press", function() 
 		awesome.emit_signal("widget::menu")
-		awful.spawn.with_shell(args.run)
+		awful.spawn.with_shell(args.exec)
 	end)
 
 	return button
 end
 
--- Apps
+-- Power
 
-local apps = wibox.widget {
-	button{ icon="", run=browser, size=dpi(45) },
-	button{ icon="", run=terminal, size=dpi(45) },
-	button{ icon="", run=files, size=dpi(45) },
-	button{ icon="", run=editorcmd, size=dpi(45) },
-	button{ icon="", run=config, size=dpi(45) },
+local power = wibox.widget {
+	button{ icon="", exec=lock },
+	button{ icon="", exec=exit },
+	button{ icon="", exec=shutdown },
+	button{ icon="", exec=reboot },
+	forced_num_cols = 2,
 	spacing = dpi(15),
-	layout = wibox.layout.fixed.horizontal
+	layout = wibox.layout.grid
 }
 
 -- Systray
 
 local systray = wibox.widget {
-	{	
+	{
 		{
-			widget = wibox.widget.systray,
-			base_size = dpi(16),
-			horizontal = false
+			{
+				{
+					widget = wibox.widget.systray,
+					base_size = dpi(24),
+					horizontal = false
+				},
+				widget = wibox.layout.align.vertical
+			},
+			valign = "top",
+			halign = "left",
+			layout = wibox.container.place
 		},
-		margins = dpi(12),
+		top = dpi(18),
+		bottom = dpi(18),
+		left = dpi(26),
+		right = dpi(26),
 		widget = wibox.container.margin
 	},
+	forced_width = dpi(165),
+	forced_height = dpi(105),
 	bg = beautiful.bg_focus,
-	forced_height = dpi(50),
 	widget = wibox.container.background
-}
-
--- Power
-
-local power = wibox.widget {
-	button{ icon="", run=lock, size=dpi(60) },
-	button{ icon="", run=exit, size=dpi(60) },
-	button{ icon="", run=shutdown, size=dpi(60) },
-	button{ icon="", run=reboot, size=dpi(60) },
-	spacing = dpi(15),
-	layout = wibox.layout.fixed.horizontal
 }
 
 -- Shortcuts (apps, systray, power)
 
 local shortcuts = wibox.widget {
-	apps,
-	systray,
 	power,
+	systray,
 	spacing = dpi(15),
-	layout = wibox.layout.fixed.vertical
+	layout = wibox.layout.fixed.horizontal
+}
+
+-- Colors
+
+local function colorgen()
+	local colors = {}
+
+	for dir in io.popen([[ls ~/.config/awesome/color | sed 's/.*\.sh//g' | tr -s '\n']]):lines() do
+		table.insert(colors, dir)
+	end
+
+	return colors
+end
+
+local colorentries = colorgen()
+
+local colorpos = 1
+
+local colorname = wibox.widget {
+	text = colorentries[colorpos],
+	widget = wibox.widget.textbox
+}
+
+local colorprev = wibox.widget {
+	text = "",
+	font = fonticon,
+	buttons = {
+		awful.button({}, 1, function()
+			if colorpos ~= 1 then
+				colorpos = colorpos - 1
+				colorname.text = colorentries[colorpos]
+			end
+		end)
+	},
+	widget = wibox.widget.textbox
+}
+
+local colornext = wibox.widget {
+	text = "",
+	font = fonticon,
+	buttons = {
+		awful.button({}, 1, function()
+			if colorpos ~= #colorentries then
+				colorpos = colorpos + 1
+				colorname.text = colorentries[colorpos]
+			end
+		end)
+	},
+	widget = wibox.widget.textbox
+}
+
+local colorapply = wibox.widget {
+	{
+		text = "Apply",
+		valign = "center",
+		align = "center",
+		widget = wibox.widget.textbox
+	},
+	buttons = {
+		awful.button({}, 1, function()
+			awful.spawn.easy_async_with_shell("~/.config/awesome/color/" .. colorentries[colorpos] .. "/" .. colorentries[colorpos] .. ".sh")
+		end)
+	},
+	forced_height = dpi(65),
+	forced_width = dpi(85),
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
+}
+
+local color = wibox.widget {
+	{
+		{
+			{
+				colorprev,
+				{
+					colorname,
+					halign = "center",
+					widget = wibox.container.place
+				},
+				colornext,
+				layout = wibox.layout.align.horizontal
+			},
+			margins = dpi(15),
+			widget = wibox.container.margin
+		},
+		forced_height = dpi(65),
+		forced_width = dpi(185),
+		bg = beautiful.bg_focus,
+		widget = wibox.container.background
+	},
+	colorapply,
+	spacing = dpi(15),
+	layout = wibox.layout.fixed.horizontal
 }
 
 -- Control center
@@ -610,6 +703,7 @@ local controlcenter = wibox.widget {
 		player,
 		toggles,
 		shortcuts,
+		color,
 		spacing = dpi(15),
 		forced_width = dpi(285),
 		layout = wibox.layout.fixed.vertical

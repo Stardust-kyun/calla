@@ -10,7 +10,4 @@ run tym --daemon
 run picom
 run xsettingsd
 run nm-applet
-run cbatticon
-run blueman-applet
-run nemo-desktop
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
