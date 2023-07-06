@@ -47,22 +47,32 @@ launcherdisplay:setup {
 
 -- Functions
 
-local function next(entries)
-	if index_entry ~= #filtered then
-		index_entry = index_entry + 1
-		if index_entry > index_start + 9 then
-			index_start = index_start + 1
+local function next()
+	if entryindex ~= #filtered then
+		entries:get_widgets_at(entryindex, 1)[1].bg = nil
+		entries:get_widgets_at(entryindex+1, 1)[1].bg = beautiful.bg_focus
+		entryindex = entryindex + 1
+		if entryindex > startindex + 9 then
+			entries:get_widgets_at(entryindex-10, 1)[1].visible = false
+			entries:get_widgets_at(entryindex, 1)[1].visible = true
+			startindex = startindex + 1
 		end
 	end
+	move = true
 end
 
-local function back(entries)
-	if index_entry ~= 1 then
-		index_entry = index_entry - 1
-		if index_entry < index_start then
-			index_start = index_start - 1
+local function back()
+	if entryindex ~= 1 then
+		entries:get_widgets_at(entryindex, 1)[1].bg = nil
+		entries:get_widgets_at(entryindex-1, 1)[1].bg = beautiful.bg_focus
+		entryindex = entryindex - 1
+		if entryindex < startindex then
+			entries:get_widgets_at(entryindex+10, 1)[1].visible = false
+			entries:get_widgets_at(entryindex, 1)[1].visible = true
+			startindex = startindex - 1
 		end
 	end
+	move = true
 end
 
 local function gen()
@@ -109,10 +119,14 @@ local function filter(cmd)
 
 	entries:reset()
 
+	-- Fix position
+
+	entryindex, startindex = 1, 1
+
 	-- Add filtered entries
 
 	for i, entry in ipairs(filtered) do
-		local widget = wibox.widget {
+		local widget = hovercursor(wibox.widget {
 			{
 				{
 					text = entry.name,
@@ -121,34 +135,55 @@ local function filter(cmd)
 				margins = dpi(10),
 				widget = wibox.container.margin
 			},
+			buttons = {
+				awful.button({}, 1, function()
+					if entryindex == i then
+						local entry = filtered[entryindex]
+						entry.appinfo:launch()
+						awful.keygrabber.stop()
+						launcherdisplay.visible = false
+					else
+						entries:get_widgets_at(entryindex, 1)[1].bg = nil
+						entryindex = i
+						entries:get_widgets_at(entryindex, 1)[1].bg = beautiful.bg_focus
+					end
+				end),
+				awful.button({}, 3, function()
+					awful.keygrabber.stop()
+					launcherdisplay.visible = false
+				end),
+				awful.button({}, 4, function()
+					back()
+				end),
+				awful.button({}, 5, function()
+					next()
+				end)
+			},
 			widget = wibox.container.background
-		}
+		})
 
-		if index_start <= i and i <= index_start + 9 then
-			entries:add(widget)
+		if startindex <= i and i <= startindex + 9 then
+			widget.visible = true
+		else
+			widget.visible = false
 		end
 
-		if i == index_entry then
+		entries:add(widget)
+
+		if i == entryindex then
 			widget.bg = beautiful.bg_focus
 		end
 	end
 
-	-- Fix position
-
-	if index_entry > #filtered then
-		index_entry, index_start = 1, 1
-	elseif index_entry < 1 then
-		index_entry = 1
-	end
-
 	collectgarbage("collect")
+
 end
 
 local function open()
 
-	-- Reset index and page
+	-- Reset variables
 
-	index_start, index_entry = 1, 1
+	startindex, entryindex, move = 1, 1, false
 
 	-- Get entries
 
@@ -163,11 +198,15 @@ local function open()
 		done_callback = function() 
 			launcherdisplay.visible = false 
 		end,
-		changed_callback = function(cmd) 
-			filter(cmd) 
+		changed_callback = function(cmd)
+			if move == false then	
+				filter(cmd)
+			else
+				move = false
+			end
 		end,
 		exe_callback = function(cmd)
-			local entry = filtered[index_entry]
+			local entry = filtered[entryindex]
 			if entry then
 				entry.appinfo:launch()
 			else
@@ -176,9 +215,9 @@ local function open()
 		end,
 		keypressed_callback = function(_, key)
 			if key == "Down" then
-				next(entries)
+				next()
 			elseif key == "Up" then
-				back(entries)
+				back()
 			end
 		end
 	}

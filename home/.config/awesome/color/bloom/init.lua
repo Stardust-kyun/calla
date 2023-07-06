@@ -13,7 +13,6 @@ color.magenta	   = "#d7a0e6"
 color.cyan		   = "#a0e1d2"
 
 color.bgalt        = color.white
-color.urgent 	   = color.red
 color.wall	   	   = theme_path .. "bloom.png"
 color.icons		   = "bloom"
 

@@ -15,10 +15,17 @@ require("naughty").connect_signal("request::display_error", function(message, st
     }
 end)
 
+-- User
+
+local r = assert(io.open(".config/awesome/json/user.json", "r"))
+local table = r:read("*all")
+r:close()
+
+user = require("json.json").decode(table)
+
 -- Config
 
 require("awful.autofocus")
-require("user")
 require("signal")
 require("config")
 require("theme")

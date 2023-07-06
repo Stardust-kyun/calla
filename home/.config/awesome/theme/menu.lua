@@ -22,10 +22,10 @@ local headertext = wibox.widget {
 	widget = wibox.widget.textbox
 }
 
-local menutoggle = wibox.widget {
-	font = fonticon,
+local menutoggle = hovercursor(wibox.widget {
+	font = user.fonticon,
 	widget = wibox.widget.textbox
-}
+})
 
 local header = wibox.widget	{
 	{
@@ -54,14 +54,14 @@ local pfp = wibox.widget {
 	widget = wibox.widget.imagebox
 }
 
-local user = wibox.widget {
+local username = wibox.widget {
 	text = "Username",
 	widget = wibox.widget.textbox
 }
 
 local host = wibox.widget {
 	text = "@host",
-	font = fontalt,
+	font = user.fontalt,
 	widget = wibox.widget.textbox
 }
 
@@ -79,7 +79,7 @@ local profile = wibox.widget {
 	{
 		{
 			{
-				user,
+				username,
 				nil,
 				{
 					host,
@@ -103,12 +103,12 @@ local profile = wibox.widget {
 -- Calendar
 
 local date = wibox.widget {
-	format = "%A %B %e, %Y",
+	format = "%A %B %d, %Y",
 	widget = wibox.widget.textclock
 }
 
 local uptime = wibox.widget {
-	font = fontalt,
+	font = user.fontalt,
 	widget = wibox.widget.textbox
 }
 
@@ -141,49 +141,49 @@ local title = wibox.widget {
 
 local album = wibox.widget {
 	text = "No Album",
-	font = fontalt,
+	font = user.fontalt,
 	widget = wibox.widget.textbox
 }
 
 local artist = wibox.widget {
 	text = "No Artist",
-	font = fontalt,
+	font = user.fontalt,
 	forced_height = dpi(20),
 	widget = wibox.widget.textbox
 }
 
-local prev = wibox.widget {
+local prev = hovercursor(wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	buttons = {
 		awful.button({}, 1, function()
 			awful.spawn.with_shell("playerctl previous")
 		end)
 	},
 	widget = wibox.widget.textbox
-}
+})
 
-local next = wibox.widget {
+local next = hovercursor(wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	buttons = {
 		awful.button({}, 1, function()
 			awful.spawn.with_shell("playerctl next")
 		end)
 	},
 	widget = wibox.widget.textbox
-}
+})
 
-local play = wibox.widget {
+local play = hovercursor(wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	buttons = {
 		awful.button({}, 1, function()
 			awful.spawn.with_shell("playerctl play-pause")
 		end)
 	},
 	widget = wibox.widget.textbox
-}
+})
 
 local player = wibox.widget {
 	{
@@ -223,14 +223,14 @@ local player = wibox.widget {
 
 -- Wifi
 
-local wifibutton = wibox.widget {
+local wifibutton = hovercursor(wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	align = "center",
 	forced_height = dpi(45),
 	forced_width = dpi(85),
 	widget = wibox.widget.textbox
-}
+})
 
 local wifi = wibox.widget {
 	wifibutton,
@@ -268,14 +268,14 @@ wifi:buttons {
 
 -- Bluetooth
 
-local btbutton = wibox.widget {
+local btbutton = hovercursor(wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	align = "center",
 	forced_height = dpi(45),
 	forced_width = dpi(85),
 	widget = wibox.widget.textbox
-}
+})
 
 local bt = wibox.widget {
 	btbutton,
@@ -313,14 +313,14 @@ bt:buttons {
 
 -- Do Not Disturb
 
-local dndbutton = wibox.widget {
+local dndbutton = hovercursor(wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	align = "center",
 	forced_height = dpi(45),
 	forced_width = dpi(85),
 	widget = wibox.widget.textbox
-}
+})
 
 local dnd = wibox.widget {
 	dndbutton,
@@ -355,7 +355,7 @@ local toggles = wibox.widget {
 
 local volumeicon = wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	valign = "center",
 	align = "center",
 	widget = wibox.widget.textbox
@@ -410,7 +410,7 @@ local volume = wibox.widget	{
 
 local brightnessicon = wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	valign = "center",
 	align = "center",
 	widget = wibox.widget.textbox
@@ -465,7 +465,7 @@ local brightness = wibox.widget {
 
 local batteryicon = wibox.widget {
 	text = "",
-	font = fonticon,
+	font = user.fonticon,
 	valign = "center",
 	align = "center",
 	widget = wibox.widget.textbox
@@ -519,21 +519,21 @@ local battery = wibox.widget {
 -- Info (volume, brightness, battery)
 
 local info = wibox.widget {
-			volume,
-			brightness,
-			battery,
-			spacing = dpi(15),
-			forced_width = dpi(45),
-			layout = wibox.layout.fixed.vertical
-		}
+	volume,
+	brightness,
+	battery,
+	spacing = dpi(15),
+	forced_width = dpi(45),
+	layout = wibox.layout.fixed.vertical
+}
 
 -- Buttons
 
 local button = function(args)
-	local button = wibox.widget {
+	local button = hovercursor(wibox.widget {
 		{
 			text = args.icon,
-			font = fonticon,
+			font = user.fonticon,
 			align = "center",
 			forced_height = dpi(45),
 			forced_width = dpi(45),
@@ -541,7 +541,7 @@ local button = function(args)
 		},
 		bg = beautiful.bg_focus,
 		widget = wibox.container.background
-	}
+	})
 
 	button:connect_signal("button::press", function() 
 		awesome.emit_signal("widget::menu")
@@ -554,10 +554,10 @@ end
 -- Power
 
 local power = wibox.widget {
-	button{ icon="", exec=lock },
-	button{ icon="", exec=exit },
-	button{ icon="", exec=shutdown },
-	button{ icon="", exec=reboot },
+	button{ icon="", exec=user.lock },
+	button{ icon="", exec=user.exit },
+	button{ icon="", exec=user.shutdown },
+	button{ icon="", exec=user.reboot },
 	forced_num_cols = 2,
 	spacing = dpi(15),
 	layout = wibox.layout.grid
@@ -601,95 +601,65 @@ local shortcuts = wibox.widget {
 	layout = wibox.layout.fixed.horizontal
 }
 
--- Colors
+-- Widgets
 
-local function colorgen()
-	local colors = {}
-
-	for dir in io.popen([[ls ~/.config/awesome/color | sed 's/.*\.sh//g' | tr -s '\n']]):lines() do
-		table.insert(colors, dir)
-	end
-
-	return colors
-end
-
-local colorentries = colorgen()
-
-local colorpos = 1
-
-local colorname = wibox.widget {
-	text = colorentries[colorpos],
-	widget = wibox.widget.textbox
-}
-
-local colorprev = wibox.widget {
-	text = "",
-	font = fonticon,
-	buttons = {
-		awful.button({}, 1, function()
-			if colorpos ~= 1 then
-				colorpos = colorpos - 1
-				colorname.text = colorentries[colorpos]
-			end
-		end)
-	},
-	widget = wibox.widget.textbox
-}
-
-local colornext = wibox.widget {
-	text = "",
-	font = fonticon,
-	buttons = {
-		awful.button({}, 1, function()
-			if colorpos ~= #colorentries then
-				colorpos = colorpos + 1
-				colorname.text = colorentries[colorpos]
-			end
-		end)
-	},
-	widget = wibox.widget.textbox
-}
-
-local colorapply = wibox.widget {
+local launcher = hovercursor(wibox.widget {
 	{
-		text = "Apply",
+		{
+			{
+				text = "",
+				font = user.fonticon,
+				valign = "center",
+				align = "center",
+				widget = wibox.widget.textbox
+			},
+			{
+				text = "Search...",
+				valign = "center",
+				align = "center",
+				widget = wibox.widget.textbox
+			},
+			spacing = dpi(15),
+			layout = wibox.layout.fixed.horizontal
+		},
+		margins = dpi(15),
+		widget = wibox.container.margin
+	},
+	buttons = {
+		awful.button({}, 1, function()
+			awesome.emit_signal("widget::menu")
+			awesome.emit_signal("widget::launcher")
+		end)
+	},
+	forced_height = dpi(65),
+	forced_width = dpi(185),
+	bg = beautiful.bg_focus,
+	widget = wibox.container.background
+})
+
+local config = hovercursor(wibox.widget {
+	{
+		text = "",
+		font = user.fonticon,
 		valign = "center",
 		align = "center",
 		widget = wibox.widget.textbox
 	},
 	buttons = {
 		awful.button({}, 1, function()
-			awful.spawn.easy_async_with_shell("~/.config/awesome/color/" .. colorentries[colorpos] .. "/" .. colorentries[colorpos] .. ".sh")
+			awesome.emit_signal("widget::menu")
+			awesome.emit_signal("widget::config")
 		end)
 	},
 	forced_height = dpi(65),
 	forced_width = dpi(85),
 	bg = beautiful.bg_focus,
 	widget = wibox.container.background
-}
+})
 
-local color = wibox.widget {
-	{
-		{
-			{
-				colorprev,
-				{
-					colorname,
-					halign = "center",
-					widget = wibox.container.place
-				},
-				colornext,
-				layout = wibox.layout.align.horizontal
-			},
-			margins = dpi(15),
-			widget = wibox.container.margin
-		},
-		forced_height = dpi(65),
-		forced_width = dpi(185),
-		bg = beautiful.bg_focus,
-		widget = wibox.container.background
-	},
-	colorapply,
+local widgets = wibox.widget {
+	launcher,
+	config,
 	spacing = dpi(15),
 	layout = wibox.layout.fixed.horizontal
 }
@@ -703,7 +673,7 @@ local controlcenter = wibox.widget {
 		player,
 		toggles,
 		shortcuts,
-		color,
+		widgets,
 		spacing = dpi(15),
 		forced_width = dpi(285),
 		layout = wibox.layout.fixed.vertical
@@ -925,8 +895,8 @@ awesome.connect_signal("signal::brightness", function(brightness)
 	end
 end)
 
-if batt ~= nil then
-	awful.widget.watch("cat /sys/class/power_supply/" .. batt .. "/capacity", 15, function(widget, stdout)
+if user.batt ~= nil then
+	awful.widget.watch("cat /sys/class/power_supply/" .. user.batt .. "/capacity", 15, function(widget, stdout)
 		batterypercent.text = tonumber(stdout) .. "%"
 		batterybar.value = tonumber(stdout)
 		if tonumber(stdout) >= 95 then
@@ -962,7 +932,7 @@ awesome.connect_signal("widget::menu", function()
 	end)
 
 	awful.spawn.easy_async_with_shell([[getent passwd | grep "$USER" | cut -d":" -f5 | cut -d"," -f1]], function(out)
-		user.text = out:gsub("\n", "")
+		username.text = out:gsub("\n", "")
 	end)
 	awful.spawn.easy_async_with_shell("hostname", function(out)
 		host.text = "@" .. out
@@ -989,7 +959,8 @@ awesome.connect_signal("widget::menu", function()
 				margins = { 
 					bottom = dpi(60), 
 					left = dpi(10)
-				}, 
+				},
+				honor_workarea = true,
 				parent = awful.screen.focused()
 			}
 		)

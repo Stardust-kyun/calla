@@ -24,7 +24,3 @@ gtk "bloom" "bloom"
 browser $BG $WH $FG "#4b464675" 
 # func - background - background 2 - background 3 - foreground
 css $BG "#f5f0eb" "#ebe6e1" $FG 
-# func - background - foreground
-zath $BG $FG 
-# func - theme
-awes "bloom"

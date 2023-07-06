@@ -14,7 +14,7 @@ This is my desktop made with awesomewm! Here's some details:
 - **Window Manager** - awesomewm
 - **File Manager** - nemo
 - **Browser** - librewolf
-- **Terminal** - tym
+- **Terminal** - st
 - **Shell** - bash
 - **Editor** - vim
 
@@ -59,8 +59,6 @@ These packages use their names from the Arch repos and AUR. If you can't find th
 - gvim - vim with clipboard
 - librewolf - browser
 - nemo - file manager
-- gpicview - image viewer
-- zathura - pdf viewer
 - network-manager-applet - network applet
 - cbatticon - battery applet
 - blueman - bluetooth applet
@@ -119,35 +117,7 @@ Since the minimal install doesn't include many programs/utilities, you'll need t
 
 ### Configuration
 
-The file `~/.config/awesome/rc.lua` contains configuration options for awesome's default commands:
-
-| Configuration   | Description            | Default                                                                                                |
-| --------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ |
-| `modkey`        | Modkey                 | `"Mod4"`                                                                                               |
-| `batt`          | Battery Name           | `"BAT0"`                                                                                               |
-| `passwd`        | Lockscreen Password    | `"awesomewm"`                                                                                          |
-| `sessionlock`   | Lock on Session Start  | `true` (commented)                                                                                     |
-| `terminal`      | Terminal               | `"tym"`                                                                                                |
-| `browser`       | Web Browser            | `"librewolf"`                                                                                          |
-| `files`         | File Manager           | `"nemo"`                                                                                               |
-| `editor`        | Text Editor            | `"vim"`                                                                                                |
-| `editorcmd`     | Editor Command         | `terminal .. " -e  \"" .. editor .. "\""`                                                              |
-| `config`        | Config Editing Command | `terminal .. " -e \"" .. editor .. " " .. require("gears").filesystem.get_configuration_dir() .. "\""` |
-| `lock`          | Lock Command           | `"awesome-client command 'lock()'"`                                                                    |
-| `suspend`       | Suspend Command        | `"awesome-client command 'lock()' && systemctl suspend"`                                               |
-| `exit`          | Exit Command           | `"awesome-client command 'awesome.quit()'"`                                                            |
-| `shutdown`      | Shutdown Command       | `"systemctl poweroff"`                                                                                 |
-| `reboot`        | Reboot Command         | `"systemctl reboot"`                                                                                   |
-| `color`         | Color Scheme           | `require("color.sakura")`                                                                              |
-| `font`          | Font                   | `"RobotoMono Bold 11"`                                                                                 |
-| `fontalt`       | Alt Font               | `"RobotoMono Italic Bold 11"`                                                                          |
-| `fonticon`      | Icon Font              | `"Material Icons 16"`                                                                                  |
-| `titlecontrols` | Titlebar Controls      | `false`                                                                                                |
-| `panelcontrols` | Panel Controls         | `true`                                                                                                 |
-| `wallpaper`     | Wallpaper              | `os.getenv("HOME") .. "/Pictures/Wallpaper/Fog.png"` (commented)                                       |
-| `shotdir`       | Reboot Command         | `"~/Pictures/Screenshots/"`                                                                            |
-
-If your distribution uses `runit` instead of `systemd` you will need to set `shutdown` and `reboot` to `loginctl poweroff` and `loginctl reboot`, respectively. You must have `elogind` installed and enabled for this to work.
+This used to have a lot of stuff. Now most user variables are configured in a dedicated widget.
 
 ---
 
@@ -171,14 +141,13 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 | `Mod+Shift+Tab`    | Focus Previous Window         |
 | `Mod+Space`        | Show Menu                     |
 | `Mod+d`            | Show Launcher                 |
-| `Mod+Shift+d`      | Show Color Menu               |
+| `Mod+Shift+c`      | Show Config                   |
 | `Mod+Enter`        | Open a Terminal               |
 | `Mod+p`            | Kill Picom                    |
 | `Mod+Shift+p`      | Start Picom                   |
 | `Mod+Delete`       | Full Screenshot               |
 | `Mod+Ctrl+Delete`  | Delayed Screenshot            |
 | `Mod+Shift+Delete` | Partial Screenshot            |
-| `Mod+Space`        | Show Launcher                 |
 | `Mod+1-6`          | Change Tag                    |
 | `Mod+Ctrl+1-6`     | Move Client to Tag            |
 | `Mod+Shift+1-6`    | Move Client to Tag and Follow |
@@ -311,4 +280,4 @@ The file `~/.config/awesome/config/bind.lua` contains awesome's keybindings:
 
 ## Contact
 
-You can find me on discord at [Stardust-kyun#5994](https://discord.com/users/417133059654156299), matrix at [stardust-kyun:matrix.org](https://matrix.to/#/@stardust-kyun:matrix.org), and email at [stardust-kyun@proton.me](mailto:stardust-kyun@proton.me). I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.
+You can find me on discord at [stardustkyun](https://discord.com/users/417133059654156299), matrix at [stardust-kyun:matrix.org](https://matrix.to/#/@stardust-kyun:matrix.org), and email at [stardust-kyun@proton.me](mailto:stardust-kyun@proton.me). I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.

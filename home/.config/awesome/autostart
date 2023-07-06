@@ -6,7 +6,7 @@ run() {
 	fi
 }
 
-run tym --daemon
+run /usr/bin/prime-offload
 run picom
 run xsettingsd
 run nm-applet

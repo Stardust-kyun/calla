@@ -8,12 +8,12 @@ local function screenshot(args, time)
 		awful.spawn.easy_async_with_shell("[ -e '" .. tmp .. "' ] && echo exists", function(output)
 			if output:match('%w+') then
 				awful.spawn.easy_async_with_shell("cat " .. tmp .. " | xclip -se c -t image/png -i")
-				awful.spawn.easy_async_with_shell("cp " .. tmp .. " " .. shotdir)
+				awful.spawn.easy_async_with_shell("cp " .. tmp .. " " .. user.shotdir)
 				awful.spawn.easy_async_with_shell("rm " .. tmp)
 
 				naughty.notification {
 					title = "Screenshot",
-					text = "Saved to " .. shotdir
+					text = "Saved to " .. user.shotdir
 				}
 			else
 				naughty.notification {

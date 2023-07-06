@@ -8,7 +8,7 @@ emit()
 
 local subscribe = [[
    bash -c "
-   while (inotifywait -e close_write -e delete -e create -e moved_from $HOME/Desktop/ -qq) do echo; done
+   while inotifywait -e close_write -e delete -e create -e moved_from $HOME/Desktop/ -qq; do echo; done
 "]]
 
 awful.spawn.easy_async_with_shell("ps x | grep \"inotifywait -e close_write -e delete -e create -e moved_from $HOME/Desktop/\" | grep -v grep | awk '{print $1}' | xargs kill", function ()

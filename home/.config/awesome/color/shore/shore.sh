@@ -24,7 +24,3 @@ gtk "shore" "shore"
 browser $BG $BL $FG "#9999a875" 
 # func - background - background 2 - background 3 - foreground
 css $BG "#1c1c21" "#1e1e24" $FG 
-# func - background - foreground
-zath $BG $FG
-# func - theme
-awes "shore"

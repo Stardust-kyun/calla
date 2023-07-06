@@ -24,7 +24,3 @@ gtk "wave" "wave"
 browser $BG $WH $FG "#26262675" 
 # func - background - background 2 - background 3 - foreground
 css $BG "#ebf5f5" "#e6f0f0" $FG 
-# func - background - foreground
-zath $BG $FG 
-# func - theme
-awes "wave"

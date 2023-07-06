@@ -5,7 +5,7 @@ local dpi = beautiful.xresources.apply_dpi
 
 -- Menu
 
-local menu = wibox.widget {
+local menu = hovercursor(wibox.widget {
 	buttons = {
 		awful.button({}, 1, function()
 			awesome.emit_signal('widget::menu')
@@ -13,7 +13,7 @@ local menu = wibox.widget {
 	},
 	image = beautiful.awesome,
 	widget = wibox.widget.imagebox
-}
+})
 
 -- Clock
 
@@ -21,7 +21,7 @@ local clock = wibox.widget.textclock('%I:%M %p')
 
 -- Window controls
 
-local minimize = wibox.widget {
+local minimize = hovercursor(wibox.widget {
 	image = beautiful.minimize,
 	buttons = {
 		awful.button({ }, 1, function()
@@ -29,9 +29,9 @@ local minimize = wibox.widget {
 		end)
 	},
 	widget = wibox.widget.imagebox
-}
+})
 
-local maximize = wibox.widget {
+local maximize = hovercursor(wibox.widget {
 	image = beautiful.maximize,
 	buttons = {
 		awful.button({ }, 1, function()
@@ -39,9 +39,9 @@ local maximize = wibox.widget {
 		end)
 	},
 	widget = wibox.widget.imagebox
-}
+})
 
-local close = wibox.widget {
+local close = hovercursor(wibox.widget {
 	image = beautiful.close,
 	buttons = {
 		awful.button({ }, 1, function()
@@ -49,10 +49,10 @@ local close = wibox.widget {
 		end)
 	},
 	widget = wibox.widget.imagebox
-}
+})
 
-if panelcontrols then
-	panelcontrols = wibox.widget {
+if user.panelcontrols then
+	controlspanel = wibox.widget {
 		{
 			minimize,
 			maximize,
@@ -72,7 +72,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
 	-- Taglist
 
-	s.taglist = awful.widget.taglist {
+	s.taglist = hovercursor(awful.widget.taglist {
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		buttons = {
@@ -80,11 +80,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
 				t:view_only() 
 			end)
 		}
-	}
+	})
 
 	-- Tasklist
 
-    s.tasklist = awful.widget.tasklist {
+    s.tasklist = hovercursor(awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
 		widget_template = {
@@ -106,17 +106,17 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 c:activate { context = "tasklist", action = "toggle_minimization" }
             end)
         }
-    }
+    })
 
     -- Layouts
 
-    s.layouts = awful.widget.layoutbox {
+    s.layouts = hovercursor(awful.widget.layoutbox {
         screen  = s,
         buttons = {
             awful.button({ }, 1, function () awful.layout.inc( 1) end),
             awful.button({ }, 3, function () awful.layout.inc(-1) end),
         }
-    }
+    })
 
     -- Panel
 
@@ -137,7 +137,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 				s.tasklist,
 				{
 					clock,
-					panelcontrols,
+					controlspanel,
 					s.layouts,
 					spacing = dpi(15),
 					layout = wibox.layout.fixed.horizontal

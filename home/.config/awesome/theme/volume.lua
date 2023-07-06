@@ -39,7 +39,7 @@ local header = wibox.widget {
 }
 
 local icon = wibox.widget {
-	font = fonticon,
+	font = user.fonticon,
 	valign = "center",
 	widget = wibox.widget.textbox
 }

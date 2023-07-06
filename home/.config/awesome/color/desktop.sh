@@ -4,11 +4,9 @@
 config="$HOME/.config"
 xresources="$HOME/.Xresources"
 gtk="$config/gtk-3.0/settings.ini"
-librewolf="$HOME/.librewolf/*.default-release/chrome"
+librewolf="$HOME/.librewolf/*.default-default/chrome"
 firefox="$HOME/.mozilla/firefox/*.default-release/chrome"
 picom="$config/picom.conf"
-zathura="$config/zathura/zathurarc"
-awesomewm="$config/awesome"
 
 comp() {
 sed -i -e "s/shadow-radius = .*/shadow-radius = $1;/g" \
@@ -31,7 +29,7 @@ sed -i -e "s/#define FG .*/#define FG $FG/g" \
        -e "s/#define C .*/#define C $C/g" $xresources
 # Update Xresources, Terminals, and Vim
 xrdb $xresources
-$awesomewm/color/livereload.sh
+pidof st | xargs kill -s USR1
 }
 
 gtk() {
@@ -63,28 +61,4 @@ sed -i -e "s/--bg: .*/--bg: $1 !important;/g" \
        -e "s/--bg2: .*/--bg2: $2 !important;/g" \
        -e "s/--bg3: .*/--bg3: $3 !important;/g" \
        -e "s/--fg: .*/--fg: $4 !important;/g" $firefox/userContent.css
-}
-
-zath() {
-sed -i -e "s/recolor-lightcolor.*/recolor-lightcolor		\"$1\"/g" \
-       -e "s/recolor-darkcolor.*/recolor-darkcolor		\"$2\"/g" \
-       -e "s/statusbar-bg.*/statusbar-bg		\"$1\"/g" \
-       -e "s/statusbar-fg.*/statusbar-fg		\"$2\"/g" \
-       -e "s/default-bg.*/default-bg			\"$1\"/g" \
-       -e "s/default-fg.*/default-fg			\"$2\"/g" \
-       -e "s/inputbar-bg.*/inputbar-bg			\"$1\"/g" \
-       -e "s/inputbar-fg.*/inputbar-fg			\"$2\"/g" \
-       -e "s/completion-bg.*/completion-bg		\"$1\"/g" \
-       -e "s/completion-fg.*/completion-fg		\"$2\"/g" \
-       -e "s/completion-highlight-bg.*/completion-highlight-bg	\"$2\"/g" \
-       -e "s/completion-highlight-fg.*/completion-highlight-fg	\"$1\"/g" \
-       -e "s/completion-group-bg.*/completion-group-bg		\"$1\"/g" \
-       -e "s/completion-group-fg.*/completion-group-fg		\"$2\"/g" $zathura
-}
-
-awes() {
-sed -i "s/require(\"color\..*/require(\"color\.$1\")/g" $awesomewm/user.lua
-# Restart awesome
-awesome-client 'awesome.restart()'
-# awesome-client 'awesome.emit_signal("theme::apply")'
 }

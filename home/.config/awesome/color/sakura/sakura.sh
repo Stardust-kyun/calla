@@ -24,7 +24,3 @@ gtk "sakura" "sakura"
 browser $BG $BL $FG "#a0a0b475" 
 # func - background - background 2 - background 3 - foreground
 css $BG "#09151a" "#0a191e" $FG 
-# func - background - foreground
-zath $BG $FG 
-# func - theme
-awes "sakura"

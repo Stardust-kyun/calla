@@ -17,8 +17,8 @@ client.connect_signal("request::titlebars", function(c)
 
 	-- Window controls
 
-	if titlecontrols then
-		titlecontrols = wibox.widget {
+	if user.titlecontrols then
+		controlstitle = wibox.widget {
 			{
 				awful.titlebar.widget.minimizebutton(c),
 				awful.titlebar.widget.maximizedbutton(c),
@@ -46,7 +46,7 @@ client.connect_signal("request::titlebars", function(c)
 			buttons = buttons,
 			widget = wibox.container.background
 		},
-		titlecontrols,
+		controlstitle,
         layout = wibox.layout.align.horizontal
     }
 end)

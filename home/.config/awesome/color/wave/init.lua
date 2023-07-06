@@ -13,7 +13,6 @@ color.magenta	   = "#e1aae1"
 color.cyan		   = "#8cd7d2"
 
 color.bgalt        = color.white
-color.urgent 	   = color.red
 color.wall	   	   = theme_path .. "wave.png"
 color.icons		   = "wave"
 

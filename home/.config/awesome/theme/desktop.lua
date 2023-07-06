@@ -6,17 +6,17 @@ local appicons = "/usr/share/icons/Papirus/64x64/"
 local foldericons = "/usr/share/icons/" .. beautiful.icons .. "/64x64/places/"
 
 local awmmenu = {
-	{ "Config", config },
+	{ "Config", user.config },
 	{ "Restart", awesome.restart },
 }
 
 local rootmenu = require("awful").menu ({
 	items = {
 		{ "Awesome", awmmenu },
-		{ "Terminal", terminal },
-		{ "Browser", browser },
-		{ "Files", files },
-		{ "Editor", editorcmd }
+		{ "Terminal", user.terminal },
+		{ "Browser", user.browser },
+		{ "Files", user.files },
+		{ "Editor", user.editorcmd }
 	}
 })
 
@@ -78,7 +78,7 @@ local function gen()
 			exec = function() awful.spawn.with_shell(files " Desktop/" .. entry) end
 			table.insert(folders, { name = name, icon = icon, exec = exec })
 		else
-			exec = function() require("naughty").notification{ text="lol this extension isn't supported yet" } end
+			exec = function() awful.spawn.with_shell("xdg-open " .. os.getenv("HOME") .. "/Desktop/" .. name) end
 			table.insert(files, { name = name, icon = icon, exec = exec })
 		end
 	end
@@ -103,7 +103,7 @@ local function refresh()
 	local dentries = gen()
 
 	for _, entry in ipairs(dentries) do
-		local widget = wibox.widget {
+		local widget = hovercursor(wibox.widget {
 			{
 				{
 					image = entry.icon,
@@ -136,7 +136,7 @@ local function refresh()
 			},
 			spacing = dpi(5),
 			layout = wibox.layout.fixed.vertical
-		}
+		})
 		entries:add(widget)
 	end
 end

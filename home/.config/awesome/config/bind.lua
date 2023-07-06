@@ -1,4 +1,5 @@
 local awful = require("awful")
+local mod = user.mod
 
 -- Mouse 
 
@@ -7,13 +8,13 @@ client.connect_signal("request::default_mousebindings", function()
 
 		-- Move
 
-        awful.button({ modkey }, 1, function(c)
+        awful.button({ mod }, 1, function(c)
             c:activate { context = "mouse_click", action = "mouse_move"  }
         end),
 
 		-- Resize
 
-        awful.button({ modkey }, 3, function(c)
+        awful.button({ mod }, 3, function(c)
             c:activate { context = "mouse_click", action = "mouse_resize"}
         end),
 
@@ -27,63 +28,69 @@ awful.keyboard.append_global_keybindings({
 	-- Awesome
 
 	awful.key(
-		{ modkey, "Shift" }, "r", 
+		{ mod, "Shift" }, "r", 
 			awesome.restart,
 		{ description = "reload awesome", group = "awesome" }
 	),
 	awful.key(
-		{ modkey }, "z", function() 
+		{ mod }, "z", function() 
 			awful.layout.inc(1) 
 		end,
  		{ description = "next layout", group = "awesome" }
 	),
 	awful.key(
-		{ modkey, "Shift" }, "z", function() 
+		{ mod, "Shift" }, "z", function() 
 			awful.layout.inc(-1) 
 		end,
  		{ description = "previous layout", group = "awesome" }
 	),
     awful.key(
-		{ modkey }, "Tab", function() 
+		{ mod }, "Tab", function() 
 			awful.client.focus.byidx(1) 
 		end,
         { description = "next window", group = "awesome" }
     ),
     awful.key(
-		{ modkey, "Shift" }, "Tab", function() 
+		{ mod, "Shift" }, "Tab", function() 
 			awful.client.focus.byidx(-1) 
 		end,
 		{ description = "previous window", group = "awesome" }
     ),
 	awful.key(
-		{ modkey }, "space", function() 
+		{ mod }, "space", function() 
 			awesome.emit_signal("widget::menu") 
 		end,
 		{ description = "show menu", group = "awesome" }
 	),
     awful.key(
-		{ modkey }, "d", function() 
+		{ mod }, "d", function() 
 			awesome.emit_signal("widget::launcher")
 		end,
         { description = "show launcher", group = "awesome" }
+	),
+    awful.key(
+		{ mod, "Shift" }, "c", function() 
+			awesome.emit_signal("widget::config")
+		end,
+        { description = "show config", group = "awesome" }
 	),
 
 	-- Programs
 
 	awful.key(
-		{ modkey }, "Return", function() 
-			awful.spawn.with_shell(terminal) 
+		{ mod }, "Return", function() 
+			awful.spawn.with_shell(user.terminal) 
 		end,
         { description = "open a terminal", group = "programs" }
 	),
 	awful.key(
-		{ modkey }, "p", function() 
+		{ mod }, "p", function() 
 			awful.spawn.with_shell("killall picom") 
 		end,
         { description = "kill picom", group = "programs" }
 	),
 	awful.key(
-		{ modkey, "Shift" }, "p", function() 
+		{ mod, "Shift" }, "p", function() 
 			awful.spawn.with_shell("picom & disown") 
 		end,
         { description = "start picom", group = "programs" }
@@ -92,19 +99,19 @@ awful.keyboard.append_global_keybindings({
 	-- Screenshot
 
 	awful.key(
-		{ modkey }, "Delete", function() 
+		{ mod }, "Delete", function() 
 			awesome.emit_signal("screenshot::full") 
 		end,
         { description = "full screen", group = "screenshot" }
 	),
 	awful.key(
-		{ modkey, "Control" }, "Delete", function()
+		{ mod, "Control" }, "Delete", function()
 			awesome.emit_signal("screenshot::fullwait")
 		end,
         { description = "full screen delay", group = "screenshot" }
 	),
 	awful.key(
-		{ modkey, "Shift" }, "Delete", function() 
+		{ mod, "Shift" }, "Delete", function() 
 			awesome.emit_signal("screenshot::part") 
 		end,
         { description = "part screen", group = "screenshot" }
@@ -156,7 +163,7 @@ awful.keyboard.append_global_keybindings({
 	-- Tag
 
     awful.key {
-        modifiers   = { modkey },
+        modifiers   = { mod },
         keygroup    = "numrow",
         description = "only view tag",
         group       = "tag",
@@ -169,7 +176,7 @@ awful.keyboard.append_global_keybindings({
         end,
     },
     awful.key {
-        modifiers = { modkey, "Control" },
+        modifiers = { mod, "Control" },
         keygroup    = "numrow",
         description = "move focused client to tag",
         group       = "tag",
@@ -183,7 +190,7 @@ awful.keyboard.append_global_keybindings({
         end,
     },
     awful.key {
-        modifiers = { modkey, "Shift" },
+        modifiers = { mod, "Shift" },
         keygroup    = "numrow",
         description = "move focused client to tag and follow",
         group       = "tag",
@@ -206,14 +213,14 @@ client.connect_signal("request::default_keybindings", function()
 		-- Client
 	
 		awful.key(
-			{ modkey }, "c", 
+			{ mod }, "c", 
 			function(c) 
 				awful.placement.centered(c, { honor_workarea = true }) 
 			end,
 			{ description = "center window", group = "client" }
 		),
         awful.key(
-			{ modkey }, "f",
+			{ mod }, "f",
             function(c)
                 c.fullscreen = not c.fullscreen
                 c:raise()
@@ -221,7 +228,7 @@ client.connect_signal("request::default_keybindings", function()
             { description = "toggle fullscreen", group = "client" }
 		),
 	    awful.key(
-			{ modkey }, "s", 
+			{ mod }, "s", 
 			function(c)
 				c.floating = not c.floating
 				c:raise()
@@ -229,14 +236,14 @@ client.connect_signal("request::default_keybindings", function()
         	{ description = "toggle floating", group = "client" }
 		),
 	    awful.key(
-			{ modkey }, "n", 
+			{ mod }, "n", 
 			function(c)
 				client.focus.minimized = true
 			end,
         	{ description = "minimize", group = "client" }
 		),
 	    awful.key(
-			{ modkey }, "m", 
+			{ mod }, "m", 
 			function(c)
 				c.maximized = not c.maximized
 				c:raise()
@@ -244,7 +251,7 @@ client.connect_signal("request::default_keybindings", function()
         	{ description = "toggle maximize", group = "client" }
 		),
 		awful.key(
-			{ modkey, "Shift" }, "q", function(c) 
+			{ mod, "Shift" }, "q", function(c) 
 				c:kill() 
 			end,
  			{ description = "close", group = "client" }

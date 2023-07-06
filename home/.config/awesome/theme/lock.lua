@@ -9,7 +9,7 @@ local pampath = require("gears").filesystem.get_configuration_dir() .. "liblua_p
 awful.spawn.easy_async_with_shell("stat "..pampath.." >/dev/null 2>&1", function (_, _, _, exitcode)
 	if exitcode == 0 then
 		authenticate = function(password)
-			return password == passwd
+			return password == user.passwd
 		end
 		local pam = require("liblua_pam")
 		authenticate = function(password)
@@ -17,7 +17,7 @@ awful.spawn.easy_async_with_shell("stat "..pampath.." >/dev/null 2>&1", function
 		end
 	else
 		authenticate = function(password)
-			return password == passwd
+			return password == user.passwd
 		end
 	end
 end)
@@ -55,7 +55,7 @@ local header = wibox.widget	{
 
 local icon = wibox.widget {
 	markup = symbol,
-	font = fonticon,
+	font = user.fonticon,
 	align = "center",
 	valign = "center",
 	widget = wibox.widget.textbox
@@ -63,7 +63,7 @@ local icon = wibox.widget {
 
 local prompt = wibox.widget {
 	markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>",
-	font = font,
+	font = user.font,
 	align = "center",
 	widget = wibox.widget.textbox
 }
@@ -122,6 +122,7 @@ awful.placement.centered(
 
 -- Background
 
+for s in screen do
 background = wibox {
 	visible = false,
 	ontop = true,
@@ -135,6 +136,7 @@ awful.placement.maximize(background)
 background:setup {
 	layout = wibox.container.place
 }
+end
 
 -- Visibile
 
@@ -176,10 +178,13 @@ local function grabpassword()
 				prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
 				icon.markup = symbol
 			elseif key == "BackSpace" then
-				if characters_entered > 0 then
+				if characters_entered > 1 then
 					characters_entered = characters_entered - 1
+					prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
+				else
+					characters_entered = 0
+					prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "75'>enter password</span>"
 				end
-				prompt.markup = "<span foreground='" .. beautiful.fg_normal .. "'>" .. string.rep("", characters_entered) .. "</span>"
 				icon.markup = symbol
 			end
 		end,
@@ -198,7 +203,7 @@ end
 
 -- Lock
 
-function lock()
+function lockscreen()
 	visible(true)
 	grabpassword()
 end
@@ -210,6 +215,6 @@ local function is_restart()
 	return restart_detected
 end
 
-if sessionlock and not is_restart() then
-	lock()
+if user.sessionlock and not is_restart() then
+	lockscreen()
 end
