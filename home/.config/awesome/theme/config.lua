@@ -7,7 +7,8 @@ local configdisplay = wibox {
 	width = dpi(830),
 	height = dpi(670),
 	bg = beautiful.bg_normal,
-	visible = false
+	visible = false,
+  ontop = true,
 }
 
 local header = wibox.widget	{
@@ -489,6 +490,7 @@ local app = wibox.widget {
 local command = wibox.widget {
 	inputbox("Lock", "lock", user.lock, "awesome-client command \"lockscreen()\""),
 	inputbox("Exit", "exit", user.exit, "awesome-client command \"awesome.quit()\""),
+  inputbox("Suspend", "suspend", user.suspend, "systemctl suspend"),
 	inputbox("Shutdown", "shutdown", user.shutdown, "systemctl poweroff"),
 	inputbox("Reboot", "reboot", user.reboot, "systemctl reboot"),
 	visible = false,

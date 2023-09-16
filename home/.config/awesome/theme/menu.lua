@@ -553,14 +553,16 @@ end
 
 -- Power
 
+
 local power = wibox.widget {
-	button{ icon="", exec=user.lock },
+	button{ icon="", exec=user.lock },
 	button{ icon="", exec=user.exit },
+  button{ icon="", exec=user.suspend },
 	button{ icon="", exec=user.shutdown },
 	button{ icon="", exec=user.reboot },
-	forced_num_cols = 2,
+	forced_height = dpi(48),
 	spacing = dpi(15),
-	layout = wibox.layout.grid
+	layout = wibox.layout.flex.horizontal
 }
 
 -- Systray
@@ -580,14 +582,14 @@ local systray = wibox.widget {
 			halign = "left",
 			layout = wibox.container.place
 		},
-		top = dpi(18),
-		bottom = dpi(18),
-		left = dpi(26),
-		right = dpi(26),
+		top = dpi(12),
+		bottom = dpi(12),
+		left = dpi(12),
+		right = dpi(12),
 		widget = wibox.container.margin
 	},
 	forced_width = dpi(165),
-	forced_height = dpi(105),
+	forced_height = dpi(55),
 	bg = beautiful.bg_focus,
 	widget = wibox.container.background
 }
@@ -598,7 +600,7 @@ local shortcuts = wibox.widget {
 	power,
 	systray,
 	spacing = dpi(15),
-	layout = wibox.layout.fixed.horizontal
+	layout = wibox.layout.fixed.vertical
 }
 
 -- Widgets
@@ -931,7 +933,7 @@ awesome.connect_signal("widget::menu", function()
 		uptime.text = out:gsub("up ", "")
 	end)
 
-	awful.spawn.easy_async_with_shell([[getent passwd | grep "$USER" | cut -d":" -f5 | cut -d"," -f1]], function(out)
+	awful.spawn.easy_async_with_shell("whoami", function(out)
 		username.text = out:gsub("\n", "")
 	end)
 	awful.spawn.easy_async_with_shell("hostname", function(out)

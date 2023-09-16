@@ -11,3 +11,4 @@ run picom
 run xsettingsd
 run nm-applet
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+run xrdb merge .Xresources

@@ -74,6 +74,12 @@ awful.keyboard.append_global_keybindings({
 		end,
         { description = "show config", group = "awesome" }
 	),
+    awful.key(
+		{ mod }, "BackSpace", function() 
+			awful.spawn.with_shell(user.lock)
+		end,
+        { description = "lock screen", group = "awesome" }
+	),
 
 	-- Programs
 
@@ -143,6 +149,30 @@ awful.keyboard.append_global_keybindings({
         { description = "mute volume", group = "volume" }
 	),
 
+    awful.key(
+		{ mod, "Control" }, "equal", function() 
+			awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0")
+			awful.spawn.with_shell("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
+			awesome.emit_signal("widget::volume")
+		end,
+        { description = "raise volume", group = "volume" }
+	),
+    awful.key(
+		{ mod, "Control" }, "minus", function() 
+			awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0")
+			awful.spawn.with_shell("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+			awesome.emit_signal("widget::volume")
+		end,
+        { description = "lower volume", group = "volume" }
+	),
+    awful.key(
+		{ mod, "Control" }, "0", function() 
+			awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+			awesome.emit_signal("widget::volume")
+		end,
+        { description = "mute volume", group = "volume" }
+	),
+
 	-- Brightness
 
 	awful.key(
@@ -154,6 +184,21 @@ awful.keyboard.append_global_keybindings({
 	),
 	awful.key(
 		{ }, "XF86MonBrightnessDown", function() 
+			awful.spawn.with_shell("brightnessctl s 5%-")
+			awesome.emit_signal("widget::brightness")
+		end,
+        { description = "lower brightness", group = "brightness" }
+	),
+
+	awful.key(
+		{ mod, "Control" }, "bracketright", function() 
+			awful.spawn.with_shell("brightnessctl s 5%+")
+			awesome.emit_signal("widget::brightness")
+		end,
+        { description = "raise brightness", group = "brightness" }
+	),
+	awful.key(
+		{ mod, "Control" }, "bracketleft", function() 
 			awful.spawn.with_shell("brightnessctl s 5%-")
 			awesome.emit_signal("widget::brightness")
 		end,
@@ -256,6 +301,48 @@ client.connect_signal("request::default_keybindings", function()
 			end,
  			{ description = "close", group = "client" }
 		),
+ -- Focus client by direction (arrow keys)
+    awful.key({ mod }, "Down",
+        function()
+            awful.client.focus.bydirection("down")
+        end,
+        {description = "focus down", group = "client"}),
+    awful.key({ mod }, "Up",
+        function()
+            awful.client.focus.bydirection("up")
+        end,
+        {description = "focus up", group = "client"}),
+    awful.key({ mod }, "Left",
+        function()
+            awful.client.focus.bydirection("left")
+        end,
+        {description = "focus left", group = "client"}),
+    awful.key({ mod }, "Right",
+        function()
+            awful.client.focus.bydirection("right")
+        end,
+        {description = "focus right", group = "client"}),
 
+    -- Focus client by direction (hjkl keys)
+    awful.key({ mod }, "j",
+        function()
+            awful.client.focus.bydirection("down")
+        end,
+        {description = "focus down", group = "client"}),
+    awful.key({ mod }, "k",
+        function()
+            awful.client.focus.bydirection("up")
+        end,
+        {description = "focus up", group = "client"}),
+    awful.key({ mod }, "h",
+        function()
+            awful.client.focus.bydirection("left")
+        end,
+        {description = "focus left", group = "client"}),
+    awful.key({ mod }, "l",
+        function()
+            awful.client.focus.bydirection("right")
+        end,
+        {description = "focus right", group = "client"}),
     })
 end)
