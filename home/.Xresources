@@ -1,3 +1,6 @@
+st.font:              Roboto Mono:pixelsize=16:antialias=true:autohint=true;
+st.borderpx:          32
+
 #define BG #000f14
 #define FG #a0a0b4
 #define BL #0a191e
