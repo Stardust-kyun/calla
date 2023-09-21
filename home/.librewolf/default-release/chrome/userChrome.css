@@ -1,0 +1,129 @@
+:root {
+	--bg: #000f14;
+	--bg-alt: #0a191e;
+	--fg: #a0a0b4;
+	--fg-alt: #a0a0b475;
+	--toolbar-field-focus-border-color: #0000 !important;
+	--lwt-tab-text: var(--fg) !important;
+}
+
+.titlebar-spacer,
+#tracking-protection-icon-container,
+#urlbar-zoom-button,
+#pageActionButton,
+#page-action-buttons,
+#urlbar-go-button,
+#alltabs-button,
+#identity-box,
+#statuspanel,
+#home-button,
+#downloads-button,
+toolbarspring {
+	display: none !important;
+}
+
+/* urlbar */
+
+#nav-bar {
+    border: none !important;
+    box-shadow: none !important;
+    height: 45px !important;
+    background-color: var(--bg) !important;
+}
+
+#navigator-toolbox {
+    border: 0px !important;
+}
+
+#TabsToolbar {
+    height: 45px !important;
+	margin-top: 3px !important;
+	margin-bottom: -3px !important;
+    background-color: var(--bg) !important;
+}
+
+#urlbar .urlbarView {
+	display: none !important;
+}
+
+#urlbar[breakout][breakout-extend]{
+  display: block !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: var(--urlbar-height) !important;
+  top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+  left: 0 !important;
+}
+
+#urlbar-input {
+	color: var(--fg) !important;
+}
+
+#urlbar-input-container {
+	padding: 0px 7px !important;
+	height: 100% !important;
+}
+
+#urlbar-background {
+    border: transparent !important;
+    animation: none !important;
+    box-shadow: none !important;
+	background-color: var(--bg-alt) !important;
+}
+
+.urlbarView-row[selectable][selected] > .urlbarView-row-inner, .urlbarView-row-inner[selectable][selected] {
+	background-color: var(--bg-alt) !important;
+}
+
+#urlbar,
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+	box-shadow: none !important;
+}
+
+/* tabs */
+
+.tabbrowser-tab[selected] .tab-background {
+	background: var(--bg-alt) !important;
+}
+
+tab:not([selected]) .tab-label {
+	color: var(--fg-alt) !important;
+}
+
+#tabs-newtab-button {
+	fill: var(--fg-alt) !important;
+}
+
+#tabs-newtab-button:hover {
+	fill: var(--fg) !important;
+}
+
+.tabbrowser-tab:not(:hover) .tab-close-button { 
+	display: none !important; 
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button { 
+	display: block !important; 
+}
+
+scrollbox, .scrollbox-clip {
+	padding-left: 2px !important;
+}
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+	margin-inline-start: 0px !important;
+}
+
+.tabbrowser-tab[fadein] {
+	max-width: 100vw !important 
+}
+
+/* misc */
+
+.header-container,
+.body-container,
+.footer-container,
+findbar {
+	background-color: var(--bg) !important;
+	color: var(--fg) !important;
+}

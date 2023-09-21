@@ -1,0 +1,21 @@
+{
+	"batt": "BAT0",
+	"browser": "librewolf",
+	"color": "sakura",
+	"config": "st -e 'vim ~/.config/awesome/'",
+	"editor": "vim",
+	"editorcmd": "st -e vim",
+	"files": "nemo",
+	"font": "RobotoMono Bold 11",
+	"fontalt": "RobotoMono Italic Bold 11",
+	"fonticon": "Material Icons 16",
+	"mod": "Mod4",
+	"panelcontrols": true,
+	"passwd": "awesomewm",
+	"reboot": "loginctl reboot",
+	"sessionlock": false,
+	"shotdir": "~/Pictures/Screenshots/",
+	"shutdown": "loginctl poweroff",
+	"terminal": "st",
+	"titlecontrols": false
+}
