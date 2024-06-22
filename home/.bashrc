@@ -12,7 +12,7 @@ alias untar='tar -xvf'
 alias keys='xev | awk -F'\''[ )]+'\'' '\''/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'\'''
 
 function xses() {
-	read -r -p "Session name: " session
+	read -r -p "Session command: " session
 	read -r -p "Resolution: " screen
 	startx ~/.xinitrc $session -- /usr/bin/Xephyr -screen $screen :1 & disown
 }

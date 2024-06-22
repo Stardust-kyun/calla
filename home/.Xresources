@@ -1,13 +1,16 @@
-#define BG #000f14
-#define FG #a0a0b4
-#define BL #0a191e
-#define WH #a0a0b4
-#define R #824655
-#define G #468264
-#define Y #827d50
-#define B #326482
-#define M #645078
-#define C #327d7d
+#define BG #151515
+#define FG #f5f5f5
+#define BL #505050
+#define WH #d0d0d0
+#define R #ac4142
+#define G #90a959
+#define Y #f4bf75
+#define B #6a9fb5
+#define M #aa759f
+#define C #75b5aa
+
+st.font: RobotoMono:size=12
+st.borderpx: 25
 
 ! special
 *.foreground:   FG

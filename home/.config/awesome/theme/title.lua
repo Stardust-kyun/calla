@@ -1,6 +1,9 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local dpi = require("beautiful").xresources.apply_dpi
+local gears = require("gears")
+local beautiful = require("beautiful")
+local dpi = beautiful.xresources.apply_dpi
+local iconpath = require("gears").filesystem.get_configuration_dir() .. "theme/icons/"
 
 client.connect_signal("request::titlebars", function(c)
 
@@ -15,41 +18,126 @@ client.connect_signal("request::titlebars", function(c)
         end),
     }
 
-	-- Window controls
+	-- Widgets
 
-	if user.titlecontrols then
-		controlstitle = wibox.widget {
+	local icon = wibox.widget {
+		{
 			{
-				awful.titlebar.widget.minimizebutton(c),
-				awful.titlebar.widget.maximizedbutton(c),
-				awful.titlebar.widget.closebutton(c),
-				spacing = dpi(15),
-				widget = wibox.layout.fixed.horizontal
+				awful.titlebar.widget.iconwidget(c), 
+				buttons = buttons,
+				margins = dpi(5),
+				widget = wibox.container.margin
 			},
-			right = dpi(15),
-			top = dpi(15),
-			bottom = dpi(15),
-			widget = wibox.container.margin
+			shape = function(cr, width, height)
+						gears.shape.rounded_rect(cr, width, height, dpi(10))
+					end,
+			widget = live(wibox.container.background, { bg = "bgmid" })
+		},
+		top = dpi(5),
+		left = dpi(5),
+		bottom = dpi(5),
+		widget = wibox.container.margin
+	}
+
+	local title = wibox.widget {
+		{
+			{
+				awful.titlebar.widget.titlewidget(c), 
+				buttons = buttons,
+				top = dpi(5),
+				bottom = dpi(5),
+				left = dpi(10),
+				right = dpi(10),
+				widget = wibox.container.margin
+			},
+			bg = beautiful.bgmid,
+			shape = function(cr, width, height)
+						gears.shape.rounded_rect(cr, width, height, dpi(10))
+					end,
+			widget = live(wibox.container.background, { bg = "bgmid" })
+		},
+		margins = dpi(5),
+		widget = wibox.container.margin
+	}
+
+	local function titlebutton(action, run)
+		local img = gears.color.recolor_image(iconpath .. action .. ".png", beautiful.bgmid)
+		local button = wibox.widget {
+			image = gears.color.recolor_image(img, beautiful.fg.."40"),
+			buttons = {
+				awful.button({}, 1, run)
+			},
+			widget = wibox.widget.imagebox
 		}
+
+		local function update()
+			local img = gears.color.recolor_image(iconpath .. action .. ".png", beautiful.bgmid)
+			if client.focus == c then
+				button.image = gears.color.recolor_image(img, beautiful.fg)
+			else
+				button.image = gears.color.recolor_image(img, beautiful.fg.."40")
+			end
+		end
+
+		client.connect_signal("focus", update)
+		client.connect_signal("unfocus", update)
+		awesome.connect_signal("live::reload", update)
+
+		return button
 	end
+
+	local titlebuttons = wibox.widget {
+		{
+			{
+				{
+					titlebutton("minimize", function() c.minimized = true end),
+					titlebutton("maximize", function() c.maximized = not c.maximized end),
+					titlebutton("close", function() c:kill() end),
+					spacing = dpi(10),
+					widget = wibox.layout.fixed.horizontal
+				},
+				top = dpi(10),
+				bottom = dpi(10),
+				left = dpi(10),
+				right = dpi(10),
+				widget = wibox.container.margin
+			},
+			shape = function(cr, width, height)
+						gears.shape.rounded_rect(cr, width, height, dpi(10))
+					end,
+			widget = live(wibox.container.background, { bg = "bgmid" })
+		},
+		margins = dpi(5),
+		widget = wibox.container.margin
+	}
 
 	-- Titlebar
 
-    awful.titlebar(c, { size = dpi(40) } ).widget = {
+    local titlebar = awful.titlebar(c, { size = dpi(40), position = "top" })
+	local handle = awful.titlebar(c, { size = dpi(20), position = "bottom" })
+
+	titlebar:setup {
 		{
-			awful.titlebar.widget.titlewidget(c), 
-			left = dpi(15),
-			right = dpi(15),
-			top = dpi(10),
-			bottom = dpi(10),
-			buttons = buttons,
-			widget = wibox.container.margin
+			icon,
+			title,
+			layout = wibox.layout.fixed.horizontal
 		},
 		{
 			buttons = buttons,
 			widget = wibox.container.background
 		},
-		controlstitle,
-        layout = wibox.layout.align.horizontal
-    }
+		titlebuttons,
+		layout = wibox.layout.align.horizontal
+	}
+	handle:setup {
+		buttons = buttons,
+		widget = wibox.container.background
+	}
+
+	awesome.connect_signal("live::reload", function(c)
+		titlebar:set_bg(beautiful.bg)
+		titlebar:set_fg(beautiful.fg)
+		handle:set_bg(beautiful.bg)
+	end)
+
 end)

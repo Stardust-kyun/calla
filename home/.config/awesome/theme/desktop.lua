@@ -25,25 +25,35 @@ local grid = wibox.widget {
 local manual = wibox.layout {
 	layout = wibox.layout.manual
 }
-
-local desktopdisplay = wibox {
-	visible = true,
-	ontop = false,
-	bgimage = beautiful.wallpaper,
-	type = "desktop",
-	screen = s,
-	widget = wibox.widget {
-		{
-			grid,
-			margins = dpi(30),
-			widget = wibox.container.margin
-		},
-		manual,
-		layout = wibox.layout.stack
+function createdesktop(s)
+	local desktopdisplay = wibox {
+		screen = s,
+		visible = true,
+		ontop = false,
+		type = "desktop",
+		widget = wibox.widget {
+			{
+				image = gears.surface.crop_surface {
+					surface = gears.surface.load_uncached(beautiful.wallpaper),
+					ratio = s.geometry.width/s.geometry.height
+				},
+				widget = wibox.widget.imagebox
+			},
+			{
+				grid,
+				margins = dpi(30),
+				widget = wibox.container.margin
+			},
+			manual,
+			layout = wibox.layout.stack
+		}
 	}
-}
+	return desktopdisplay
+end
 
-awful.placement.maximize(desktopdisplay)
+for s in screen do
+	awful.placement.maximize(createdesktop(s))
+end
 
 local function gen()
 	local shortcuts = {}
@@ -333,7 +343,7 @@ local function load()
 			rootmenu:hide()
 		end),
 		awful.button({}, 3, function()
-			if mouse.current_widgets[4] == manual then
+			if mouse.current_widgets[5] == manual then
 				awesome.emit_signal("iconmenu::hide")
 				rootmenu:toggle()
 			end

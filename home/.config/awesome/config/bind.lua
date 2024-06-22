@@ -74,6 +74,12 @@ awful.keyboard.append_global_keybindings({
 		end,
         { description = "show config", group = "awesome" }
 	),
+    awful.key(
+		{ mod }, "BackSpace", function() 
+			awesome.emit_signal("widget::lockscreen")
+		end,
+        { description = "lock screen", group = "awesome" }
+	),
 
 	-- Programs
 
@@ -100,19 +106,19 @@ awful.keyboard.append_global_keybindings({
 
 	awful.key(
 		{ mod }, "Delete", function() 
-			awesome.emit_signal("screenshot::full") 
+			awesome.emit_signal("util::screenshot", { args = "-u", time = "0" }) 
 		end,
         { description = "full screen", group = "screenshot" }
 	),
 	awful.key(
 		{ mod, "Control" }, "Delete", function()
-			awesome.emit_signal("screenshot::fullwait")
+			awesome.emit_signal("util::screenshot", { args = "-u", time = "5" }) 
 		end,
         { description = "full screen delay", group = "screenshot" }
 	),
 	awful.key(
 		{ mod, "Shift" }, "Delete", function() 
-			awesome.emit_signal("screenshot::part") 
+			awesome.emit_signal("util::screenshot", { args = "-s -u", time = "0" }) 
 		end,
         { description = "part screen", group = "screenshot" }
 	),
@@ -249,6 +255,15 @@ client.connect_signal("request::default_keybindings", function()
 				c:raise()
 			end,
         	{ description = "toggle maximize", group = "client" }
+		),
+	    awful.key(
+			{ mod }, "b", 
+			function(c)
+				c.sticky = not c.sticky
+				c.above = not c.above
+				c:raise()
+			end,
+        	{ description = "toggle sticky", group = "client" }
 		),
 		awful.key(
 			{ mod, "Shift" }, "q", function(c) 

@@ -1,0 +1,226 @@
+*xml-plugin.txt*  Help edit XML and SGML documents.                   v1.84
+
+                                   XML Edit      ~
+
+A filetype plugin to help edit XML and SGML documents.
+
+This script provides some convenience when editing XML (and some SGML
+including HTML) formated documents. It allows you to jump to the beginning
+or end of the tag block your cursor is in. '%' will jump between '<' and '>'
+within the tag your cursor is in. When in insert mode and you finish a tag
+(pressing '>') the tag will be completed. If you press '>' twice it will
+complete the tag and place the cursor in the middle of the tags on it's own
+line (helps with nested tags).
+
+Usage: Place this file into your ftplugin directory. To add html support
+Sym-link or copy this file to html.vim in your ftplugin directory. To activte
+the script place 'filetype plugin on' in your |.vimrc| file. See |ftplugins|
+for more information on this topic.
+
+If the file edited is of type "html" and "xml_use_html" is  defined then the
+following tags will not auto complete:
+<img>, <input>, <param>, <frame>, <br>, <hr>, <meta>, <link>, <base>, <area>
+
+If the file edited is of type 'html' and 'xml_use_xhtml' is defined the above
+tags will autocomplete the xml closing staying xhtml compatable.
+ex. <hr> becomes <hr /> (see |xml-plugin-settings|)
+
+NOTE: If you used the VIM 5.x version of this file (xmledit.vim) you'll need
+to comment out the section where you called it. It is no longer used in the
+VIM 6.x version. 
+
+Known Bugs      ~
+
+- This script will modify registers ". and "x; register "" will be restored.
+- < & > marks inside of a CDATA section are interpreted as actual XML tags
+  even if unmatched.
+- Although the script can handle leading spaces such as < tag></ tag> it is
+  illegal XML syntax and considered very bad form.
+- Placing a literal `>' in an attribute value will auto complete dispite that
+  the start tag isn't finished. This is poor XML anyway you should use
+  &gt; instead.
+- The matching algorithm can handle illegal tag characters where as the tag
+  completion algorithm can not.
+
+------------------------------------------------------------------------------
+                                                         *xml-plugin-mappings*
+Mappings      ~
+
+<LocalLeader> is a setting in VIM that depicts a prefix for scripts and
+plugins to use. By default this is the backslash key `\'. See |mapleader|
+for details.
+
+<LocalLeader><Space>
+        Normal or Insert - Continue editing after the ending tag. This
+        option requires xml_jump_string to be set to function. When a tag
+        is completed it will append the xml_jump_string. Once this mapping
+        is ran it will delete the next xml_jump_string pattern to the right
+        of the curser and delete it leaving you in insert mode to continue
+        editing.
+
+<LocalLeader>w
+        Normal - Will clear the entire file of left over xml_jump_string garbage.
+        * This will also happen automatically when you save the file. *
+
+<LocalLeader>x
+        Visual - Place a custom XML tag to suround the selected text. You
+        need to have selected text in visual mode before you can use this
+        mapping. See |visual-mode| for details.
+
+<LocalLeader>.   or      <LocalLeader>>
+        Insert - Place a literal '>' without parsing tag.
+
+<LocalLeader>5   or      <LocalLeader>%
+        Normal or Visual - Jump to the begining or end tag.
+
+<LocalLeader>d
+        Normal - Deletes the surrounding tags from the cursor. >
+            <tag1>outter <tag2>inner text</tag2> text</tag1>
+                    ^
+<       Turns to: >
+            outter <tag2>inner text</tag2> text
+            ^
+<
+
+------------------------------------------------------------------------------
+                                                         *xml-plugin-settings*
+Options      ~
+
+(All options must be placed in your |.vimrc| prior to the |ftplugin|
+command.)
+
+xml_tag_completion_map
+        Use this setting to change the default mapping to auto complete a
+        tag. By default typing a literal `>' will cause the tag your editing
+        to auto complete; pressing twice will auto nest the tag. By using
+        this setting the `>' will be a literal `>' and you must use the new
+        mapping to perform auto completion and auto nesting. For example if
+        you wanted Control-L to perform auto completion inmstead of typing a
+        `>' place the following into your .vimrc: >
+            let xml_tag_completion_map = "<C-l>"
+<
+xml_no_auto_nesting
+        This turns off the auto nesting feature. After a completion is made
+        and another `>' is typed xml-edit automatically will break the tag
+        accross multiple lines and indent the curser to make creating nested
+        tqags easier. This feature turns it off. Enter the following in your
+        .vimrc: >
+            let xml_no_auto_nesting = 1
+<
+xml_use_xhtml
+        When editing HTML this will auto close the short tags to make valid
+        XML like <hr /> and <br />. Enter the following in your vimrc to
+        turn this option on: >
+            let xml_use_xhtml = 1
+<
+xml_no_html
+        This turns off the support for HTML specific tags. Place this in your
+        .vimrc: >
+            let xml_no_html = 1
+<
+xml_jump_string
+        This turns off the support for continuing edits after an ending tag.
+        xml_jump_string can be any string how ever a simple character will
+        suffice. Pick a character or small string that is unique and will
+        not interfer with your normal editing. See the <LocalLeader>Space
+        mapping for more.
+        .vimrc: >
+            let xml_jump_string = "`"
+<
+------------------------------------------------------------------------------
+                                                        *xml-plugin-callbacks*
+Callback Functions      ~
+
+A callback function is a function used to customize features on a per tag
+basis. For example say you wish to have a default set of attributs when you
+type an empty tag like this:
+    You type: <tag>
+    You get:  <tag default="attributes"></tag>
+
+This is for any script programmers who wish to add xml-plugin support to
+there own filetype plugins.
+
+Callback functions recive one attribute variable which is the tag name. The
+all must return either a string or the number zero. If it returns a string
+the plugin will place the string in the proper location. If it is a zero the
+plugin will ignore and continue as if no callback existed.
+
+The following are implemented callback functions:
+
+HtmlAttribCallback
+        This is used to add default attributes to html tag. It is intended
+        for HTML files only.
+
+XmlAttribCallback
+        This is a generic callback for xml tags intended to add attributes.
+
+                                                             *xml-plugin-html*
+Callback Example      ~
+
+The following is an example of using XmlAttribCallback in your .vimrc
+>
+        function XmlAttribCallback (xml_tag)
+            if a:xml_tag ==? "my-xml-tag"
+                return "attributes=\"my xml attributes\""
+            else
+                return 0
+            endif
+        endfunction
+<
+The following is a sample html.vim file type plugin you could use:
+>
+  " Vim script file                                       vim600:fdm=marker:
+  " FileType:   HTML
+  " Maintainer: Devin Weaver <vim (at) tritarget.com>
+  " Location:   http://www.vim.org/scripts/script.php?script_id=301
+
+  " This is a wrapper script to add extra html support to xml documents.
+  " Original script can be seen in xml-plugin documentation.
+
+  " Only do this when not done yet for this buffer
+  if exists("b:did_ftplugin")
+    finish
+  endif
+  " Don't set 'b:did_ftplugin = 1' because that is xml.vim's responsability.
+
+  let b:html_mode = 1
+
+  if !exists("*HtmlAttribCallback")
+  function HtmlAttribCallback( xml_tag )
+      if a:xml_tag ==? "table"
+          return "cellpadding=\"0\" cellspacing=\"0\" border=\"0\""
+      elseif a:xml_tag ==? "link"
+          return "href=\"/site.css\" rel=\"StyleSheet\" type=\"text/css\""
+      elseif a:xml_tag ==? "body"
+          return "bgcolor=\"white\""
+      elseif a:xml_tag ==? "frame"
+          return "name=\"NAME\" src=\"/\" scrolling=\"auto\" noresize"
+      elseif a:xml_tag ==? "frameset"
+          return "rows=\"0,*\" cols=\"*,0\" border=\"0\""
+      elseif a:xml_tag ==? "img"
+          return "src=\"\" width=\"0\" height=\"0\" border=\"0\" alt=\"\""
+      elseif a:xml_tag ==? "a"
+          if has("browse")
+              " Look up a file to fill the href. Used in local relative file
+              " links. typeing your own href before closing the tag with `>'
+              " will override this.
+              let cwd = getcwd()
+              let cwd = substitute (cwd, "\\", "/", "g")
+              let href = browse (0, "Link to href...", getcwd(), "")
+              let href = substitute (href, cwd . "/", "", "")
+              let href = substitute (href, " ", "%20", "g")
+          else
+              let href = ""
+          endif
+          return "href=\"" . href . "\""
+      else
+          return 0
+      endif
+  endfunction
+  endif
+
+  " On to loading xml.vim
+  runtime ftplugin/xml.vim
+<
+
+ vim:tw=78:ts=8:ft=help:norl:

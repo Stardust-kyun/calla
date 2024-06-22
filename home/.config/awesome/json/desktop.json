@@ -1,0 +1,11 @@
+[
+	{
+		"col": 1,
+		"row": 1,
+		"widget": {
+			"exec": "nemo Desktop/'Website'",
+			"icon": "/usr/share/icons/Papirus/64x64/places/folder.svg",
+			"label": "Website"
+		}
+	}
+]

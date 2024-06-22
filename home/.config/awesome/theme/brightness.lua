@@ -4,102 +4,105 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-local brightnessdisplay = wibox {
+local brightnessbox = wibox {
 	width = dpi(200),
-	height = dpi(100),
-	bg = beautiful.bg_normal,
+	height = dpi(85),
 	ontop = true,
 	visible = false
 }
 
-local percent = wibox.widget {
-	widget = wibox.widget.textbox
-}
+local percent = colortext()
 
 local header = wibox.widget {
+	{
 		{
 			{
 				{
-					text = "Brightness",
 					valign = "center",
-					widget = wibox.widget.textbox
+					widget = colortext({ text = "Brightness" })
 				},
 				nil,
 				percent,
 				layout = wibox.layout.align.horizontal,
 			},
-			left = dpi(15),
-			right = dpi(15),
-			top = dpi(10),
-			bottom = dpi(10),
+			top = dpi(5),
+			bottom = dpi(5),
+			left = dpi(10),
+			right = dpi(10),
 			widget = wibox.container.margin
 		},
-		bg = beautiful.bg_focus,
-		widget = wibox.container.background
+		shape = function(cr, width, height)
+					gears.shape.rounded_rect(cr, width, height, dpi(10))
+				end,
+		widget = live(wibox.container.background, { bg = "bgmid" })
+	},
+	margins = dpi(5),
+	widget = wibox.container.margin
 }
 
 local icon = wibox.widget {
 	font = user.fonticon,
 	valign = "center",
-	widget = wibox.widget.textbox
+	widget = colortext()
 }
 
 local bar = wibox.widget {
 	shape = gears.shape.rounded_rect,
 	bar_shape = gears.shape.rounded_rect,
-	color = beautiful.fg_normal,
-	background_color = beautiful.bg_focus,
 	max_value = 100,
 	value = 0,
-	widget = wibox.widget.progressbar
+	widget = live(wibox.widget.progressbar, { background_color = "bgalt", color = "fg" })
 }
 
 local timer = gears.timer {
 	timeout = 2,
 	single_shot = true,
 	callback = function()
-		brightnessdisplay.visible = false
+		brightnessbox.visible = false
 	end
 }
 
-brightnessdisplay:setup {
-	header,
+brightnessbox:setup {
 	{
+		header,
 		{
 			{
-				icon,
-				right = dpi(15),
-				widget = wibox.container.margin
+				{
+					icon,
+					right = dpi(15),
+					widget = wibox.container.margin
+				},
+				nil,
+				{
+					bar,
+					top = dpi(20),
+					bottom = dpi(20),
+					widget = wibox.container.margin
+				},
+				layout = wibox.layout.align.horizontal
 			},
-			nil,
-			{
-				bar,
-				top = dpi(27),
-				bottom = dpi(27),
-				widget = wibox.container.margin
-			},
-			layout = wibox.layout.align.horizontal
+			left = dpi(15),
+			right = dpi(15),
+			widget = wibox.container.margin
 		},
-		left = dpi(15),
-		right = dpi(15),
-		widget = wibox.container.margin
+		layout = wibox.layout.align.vertical
 	},
-	layout = wibox.layout.align.vertical
+	widget = live(wibox.container.background, { bg = "bg" })
 }
 
 awesome.connect_signal("signal::brightness", function(brightness)
-	percent.text = tostring(brightness) .. "%"
+	percent.markup = markup({ text = tostring(brightness) .. "%" })
 	bar.value = brightness
 	if brightness >= 75 then
-		icon.text = ""
+		icon.markup = markup({ text = "" })
 	elseif brightness >= 50 then
-		icon.text = ""
+		icon.markup = markup({ text = "" })
 	elseif brightness >= 25 then
-		icon.text = ""
+		icon.markup = markup({ text = "" })
 	elseif brightness > 0 then
-		icon.text = ""
+		icon.markup = markup({ text = "" })
 	elseif brightness == 0 then
-		icon.text = ""
+		icon.markup = markup({ text = "" })
 	end
 end)
 
@@ -109,32 +112,32 @@ awesome.connect_signal("widget::brightness", function()
 	timer:again()
 
 	if client.focus and client.focus.fullscreen == true then
-		awful.placement.bottom_right(
-			brightnessdisplay, 
+		awful.placement.bottom(
+			brightnessbox, 
 			{
 				margins = { 
-					bottom = dpi(10), 
-					right = dpi(10)
+					bottom = dpi(16), 
+					right = dpi(16)
 				}, 
 				parent = awful.screen.focused()
 			}
 		)
 	else
-		awful.placement.bottom_right(
-			brightnessdisplay, 
+		awful.placement.bottom(
+			brightnessbox, 
 			{
 				margins = { 
-					bottom = dpi(60), 
-					right = dpi(10)
+					bottom = dpi(72), 
+					right = dpi(16)
 				}, 
 				parent = awful.screen.focused()
 			}
 		)
 	end
 
-	brightnessdisplay.visible = true
+	brightnessbox.visible = true
 end)
 
 awesome.connect_signal("widget::brightness:hide", function() 
-	brightnessdisplay.visible = false 
+	brightnessbox.visible = false 
 end)

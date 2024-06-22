@@ -1,83 +1,78 @@
-local config="$HOME/.config"
-local xresources="$HOME/.Xresources"
-local xsettingsd="$HOME/.xsettingsd"
-local gtk=config.."/gtk-3.0/settings.ini"
-local librewolf="$HOME/.librewolf/*.default-default/chrome"
-local firefox="$HOME/.mozilla/firefox/*.default-release/chrome"
+local config=".config"
 local picom=config.."/picom.conf"
-local awesomewm=config.."/awesome"
+local xresources=".Xresources"
+local xsettingsd=".xsettingsd"
+local gtk=config.."/gtk-3.0/settings.ini"
 
 local function compositor(radius, x, y, opacity)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/shadow-radius = .*/shadow-radius = "..radius..";/g\" \\
-				-e \"s/shadow-offset-x = .*/shadow-offset-x = "..x..";/g\" \\
-				-e \"s/shadow-offset-y = .*/shadow-offset-y = "..y..";/g\" \\
-				-e \"s/shadow-opacity = .*/shadow-opacity = "..opacity..";/g\" "..picom
-	)
+	local r = assert(io.open(picom, "r"))
+	local file = r:read("*all")
+	r:close()
+	
+	file = file:gsub("shadow%-radius = .-\n", "shadow-radius = "..radius..";\n")
+	file = file:gsub("shadow%-offset%-x = .-\n", "shadow-offset-x = "..x..";\n")
+	file = file:gsub("shadow%-offset%-y = .-\n", "shadow-offset-y = "..y..";\n")
+	file = file:gsub("shadow%-opacity = .-\n", "shadow-opacity = "..opacity..";\n")
+
+	local w = assert(io.open(picom, "w"))
+	w:write(file)
+	w:close()
 end
 
-local function terminal(fg, bg, bl, wh, r, g, y, b, m, c)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/#define FG .*/#define FG "..fg.."/g\" \\
-				-e \"s/#define BG .*/#define BG "..bg.."/g\" \\
-				-e \"s/#define BL .*/#define BL "..bl.."/g\" \\
-				-e \"s/#define WH .*/#define WH "..wh.."/g\" \\
-				-e \"s/#define R .*/#define R "..r.."/g\" \\
-				-e \"s/#define G .*/#define G "..g.."/g\" \\
-				-e \"s/#define Y .*/#define Y "..y.."/g\" \\
-				-e \"s/#define B .*/#define B "..b.."/g\" \\
-				-e \"s/#define M .*/#define M "..m.."/g\" \\
-				-e \"s/#define C .*/#define C "..c.."/g\" "..xresources
-	)
-	awful.spawn.easy_async_with_shell("xrdb "..xresources)
-	awful.spawn.easy_async_with_shell("pidof st | xargs kill -s USR1")
+local function terminal(bg, fg, bl, wh, r, g, y, b, m, c)
+	local read = assert(io.open(xresources, "r"))
+	local file = read:read("*all")
+	read:close()
+
+	file = file:gsub("%#define BG .-\n", "#define BG "..bg.."\n")
+	file = file:gsub("%#define FG .-\n", "#define FG "..fg.."\n")
+	file = file:gsub("%#define BL .-\n", "#define BL "..bl.."\n")
+	file = file:gsub("%#define WH .-\n", "#define WH "..wh.."\n")
+	file = file:gsub("%#define R .-\n", "#define R "..r.."\n")
+	file = file:gsub("%#define G .-\n", "#define G "..g.."\n")
+	file = file:gsub("%#define Y .-\n", "#define Y "..y.."\n")
+	file = file:gsub("%#define B .-\n", "#define B "..b.."\n")
+	file = file:gsub("%#define M .-\n", "#define M "..m.."\n")
+	file = file:gsub("%#define C .-\n", "#define C "..c.."\n")
+
+	local w = assert(io.open(xresources, "w"))
+	w:write(file)
+	w:close()
+
+	os.execute("xrdb ~/" .. xresources)
+	os.execute("pidof st | xargs kill -s USR1")
 end
 
-local function gtk(gtk, icon)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/gtk-theme-name=.*/gtk-theme-name="..gtk.."/g\" \
-				-e \"s/gtk-icon-theme-name=.*/gtk-icon-theme-name="..icon.."/g\" "..gtk
-	)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/Net\/ThemeName .*/Net\/ThemeName \""..gtk.."\"/g\" \
-				-e \"s/Net\/IconThemeName .*/Net\/IconThemeName \""..icon.."\"/g\" "..xsettingsd
-	)
-	awful.spawn.easy_async_with_shell(xsettingsd &)
+local function theme(theme, icon)
+	local r = assert(io.open(gtk, "r"))
+	local file = r:read("*all")
+	r:close()
+
+	file = file:gsub("gtk%-theme%-name=.-\n", "gtk-theme-name="..theme.."\n")
+	file = file:gsub("gtk%-icon%-theme%-name=.-\n", "gtk-icon-theme-name="..icon.."\n")
+
+	local w = assert(io.open(gtk, "w"))
+	w:write(file)
+	w:close()
+
+	local r = assert(io.open(xsettingsd, "r"))
+	local file = r:read("*all")
+	r:close()
+
+	file = file:gsub("Net/ThemeName .-\n", "Net/ThemeName \""..theme.."\"\n")
+	file = file:gsub("Net/IconThemeName .-\n", "Net/IconThemeName \""..icon.."\"\n")
+
+	local w = assert(io.open(xsettingsd, "w"))
+	w:write(file)
+	w:close()
+
+	os.execute("xsettingsd &")
 end
 
-local function browser(bg, altbg, fg, altfg)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/--bg: .*/--bg: "..bg..";/g\" \
-				-e \"s/--bg-alt: .*/--bg-alt: "..altbg..";/g\" \
-				-e \"s/--fg: .*/--fg: "..fg..";/g\" \
-				-e \"s/--fg-alt: .*/--fg-alt: "..altfg..";/g\" "..librewolf.."/userChrome.css"
-	)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/--bg: .*/--bg: "..bg..";/g\" \
-				-e \"s/--bg-alt: .*/--bg-alt: "..altbg..";/g\" \
-				-e \"s/--fg: .*/--fg: "..fg..";/g\" \
-				-e \"s/--fg-alt: .*/--fg-alt: "..altfg..";/g\" "..firefox.."/userChrome.css"
-	)
-end
+awesome.connect_signal("color::change", function(color)
+	compositor(color.compradius, color.compoffset, color.compoffset, color.compopacity)
 
-local function css(bg, bg2, bg3, fg)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/--bg: .*/--bg: "..bg.." !important;/g\" \
-				-e \"s/--bg2: .*/--bg2: "..bg2.." !important;/g\" \
-				-e \"s/--bg3: .*/--bg3: "..bg3.." !important;/g\" \
-				-e \"s/--fg: .*/--fg: "..fg.." !important;/g\" "..librewolf.."/userContent.css"
-	)
-	awful.spawn.easy_async_with_shell(
-		"sed -i -e \"s/--bg: .*/--bg: "..bg.." !important;/g\" \
-				-e \"s/--bg2: .*/--bg2: "..bg2.." !important;/g\" \
-				-e \"s/--bg3: .*/--bg3: "..bg3.." !important;/g\" \
-				-e \"s/--fg: .*/--fg: "..fg.." !important;/g\" "..firefox.."/userContent.css"
-	)
-end
+	terminal(color.bg, color.fg, color.black, color.white, color.red, color.green, color.yellow, color.blue, color.magenta, color.cyan)
 
-local function awesomewm(color)
-	awful.spawn.easy_async_with_shell(
-		"sed -i \"s/require(\"color\..*/require(\"color\."..color.."\")/g\" $awesomewm/theme/theme.lua"
-	)
-	awesome.restart()
-end
+	theme(color.gtk, color.icons)
+end)
