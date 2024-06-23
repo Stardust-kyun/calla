@@ -19,7 +19,7 @@
 --	new screen when connected
 --5	Launcher fg when typing does not update after live reload
 --6	Sometimes live reloading will prevent interaction with floating
---	windows as they can only be moved
+--	windows as they can only be moved (or when switching tags?)
 --
 --	Unknown Bugs:
 --	Many

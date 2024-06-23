@@ -8,6 +8,8 @@
 
 [showcase](https://github.com/Stardust-kyun/dotfiles/assets/56178655/d52b1338-b3f6-444e-b97c-59bdc2544414)
 
+---
+
 ## Install
 
 ### Read Before Installing
@@ -34,21 +36,22 @@ These packages use their names from the Debian repos. If you can't find them for
 - [awesome-git](https://github.com/awesomeWM/awesome) - window manager (built on commit ad0290b)
 - picom - compositor
 - maim - screenshot
-- ttf-roboto - gtk font
-- ttf-roboto-mono - mono font
-- noto-fonts - general font support
-- noto-fonts-cjk - cjk font support
-- noto-fonts-emoji - emoji font support
-- noto-fonts-extra - extra font support
+- fonts-roboto - default font
+    + In my experience the Debian package has not worked, so you may need to install it manually
+    + You will need the monospace version for the default terminal
+- fonts-noto - general font support
+- fonts-noto-cjk - cjk font support
+- fonts-noto-color-emoji - emoji font support
+- fonts-noto-extra - extra font support
 - papirus-icon-theme - icon theme
 
 ### Recommended Packages
 
 - [st](https://github.com/siduck/st) - terminal (supports live reloading, more support WIP)
-- gvim - vim with clipboard
+- vim-gtk3 - vim with clipboard
 - firefox-esr - browser (extended support release)
 - nemo - file manager
-- network-manager-applet - network applet
+- network-manager-gnome - network applet
 - polkit-gnome - polkit
 - cbatticon - battery applet
 - blueman - bluetooth applet
