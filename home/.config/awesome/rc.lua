@@ -1,25 +1,45 @@
 --[[ 
 --	TODO:
+--	Features:
+--	Add modkey/sessionlock to settings
 --	User defined tags
+--	User defined rounding (yes/no)
+--	Create Gtk theme from color json
+--	Import theme (Xresources?)
+--	User defined widget position
+--	Desktop icons
+--	Media widget
+--	Notification center
+--	Alt+tab menu
+--
+--	Refactoring:
+--	Rewrite preview to look more like macos
+--	-- Full tag with awful.screenshot?
+--	Port Xresources live reloading to lua?
 --	Define cropped wallpaper in theme init?
---  Better multihead support
---  Import theme (Xresources?)
---  Add Xresources live reloading
---  Create Gtk theme from color json
---  Create deb package (others?)
+--	Do something about the dock's fixed width
+--
+--	Long Term:
+--	Better multihead support
+--	Create deb package (other distros?)
 --]]
 
 --[[
 --	Known Bugs:
---1	Location of lockscreen promptbox depends on focused screen at startup,
+--	Multihead:
+--	Location of lockscreen promptbox depends on focused screen at startup,
 --	doesn't appear if laptop screen focused
---2	Systray opens/closes for both screens, one is redundant
---3	Awful.wallpaper uses wrong dimensions when new screen is connected
---4 (Untested) Lockscreen appears to not add background widgets to
+--	Systray opens/closes for both screens, one is redundant
+--	Awful.wallpaper uses wrong dimensions when new screen is connected
+--	(Untested) Lockscreen appears to not add background widgets to
 --	new screen when connected
---5	Launcher fg when typing does not update after live reload
---6	Sometimes live reloading will prevent interaction with floating
---	windows as they can only be moved (or when switching tags?)
+--
+--	General:
+--	Launcher fg when typing does not update after live reload
+--
+--	There appears to be some kind of issue with resource allocation,
+--	as things become progressively slower over time
+--	(likely culprits: launcher, preview, settings?)
 --
 --	Unknown Bugs:
 --	Many
@@ -28,11 +48,11 @@
 -- Errors
 
 require("naughty").connect_signal("request::display_error", function(message, startup)
-    require("naughty").notification {
-        urgency = "critical",
-        title   = "Error"..(startup and " during startup!" or "!"),
-        message = message
-    }
+	require("naughty").notification {
+		urgency = "critical",
+		title   = "Error"..(startup and " during startup!" or "!"),
+		message = message
+	}
 end)
 
 -- User

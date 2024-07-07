@@ -22,42 +22,32 @@ client.connect_signal("request::titlebars", function(c)
 
 	local icon = wibox.widget {
 		{
-			{
-				awful.titlebar.widget.iconwidget(c), 
-				buttons = buttons,
-				margins = dpi(5),
-				widget = wibox.container.margin
-			},
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end,
-			widget = live(wibox.container.background, { bg = "bgmid" })
+			awful.titlebar.widget.iconwidget(c), 
+			buttons = buttons,
+			margins = dpi(5),
+			widget = wibox.container.margin
 		},
-		top = dpi(5),
-		left = dpi(5),
-		bottom = dpi(5),
-		widget = wibox.container.margin
+		shape = function(cr, width, height)
+					gears.shape.rounded_rect(cr, width, height, dpi(10))
+				end,
+		widget = live(wibox.container.background, { bg = "bgmid" })
 	}
 
 	local title = wibox.widget {
 		{
-			{
-				awful.titlebar.widget.titlewidget(c), 
-				buttons = buttons,
-				top = dpi(5),
-				bottom = dpi(5),
-				left = dpi(10),
-				right = dpi(10),
-				widget = wibox.container.margin
-			},
-			bg = beautiful.bgmid,
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end,
-			widget = live(wibox.container.background, { bg = "bgmid" })
+			awful.titlebar.widget.titlewidget(c), 
+			buttons = buttons,
+			top = dpi(5),
+			bottom = dpi(5),
+			left = dpi(10),
+			right = dpi(10),
+			widget = wibox.container.margin
 		},
-		margins = dpi(5),
-		widget = wibox.container.margin
+		bg = beautiful.bgmid,
+		shape = function(cr, width, height)
+					gears.shape.rounded_rect(cr, width, height, dpi(10))
+				end,
+		widget = live(wibox.container.background, { bg = "bgmid" })
 	}
 
 	local function titlebutton(action, run)
@@ -89,26 +79,19 @@ client.connect_signal("request::titlebars", function(c)
 	local titlebuttons = wibox.widget {
 		{
 			{
-				{
-					titlebutton("minimize", function() c.minimized = true end),
-					titlebutton("maximize", function() c.maximized = not c.maximized end),
-					titlebutton("close", function() c:kill() end),
-					spacing = dpi(10),
-					widget = wibox.layout.fixed.horizontal
-				},
-				top = dpi(10),
-				bottom = dpi(10),
-				left = dpi(10),
-				right = dpi(10),
-				widget = wibox.container.margin
+				titlebutton("minimize", function() c.minimized = true end),
+				titlebutton("maximize", function() c.maximized = not c.maximized end),
+				titlebutton("close", function() c:kill() end),
+				spacing = dpi(10),
+				widget = wibox.layout.fixed.horizontal
 			},
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end,
-			widget = live(wibox.container.background, { bg = "bgmid" })
+			margins = dpi(10),
+			widget = wibox.container.margin
 		},
-		margins = dpi(5),
-		widget = wibox.container.margin
+		shape = function(cr, width, height)
+					gears.shape.rounded_rect(cr, width, height, dpi(10))
+				end,
+		widget = live(wibox.container.background, { bg = "bgmid" })
 	}
 
 	-- Titlebar
@@ -118,16 +101,21 @@ client.connect_signal("request::titlebars", function(c)
 
 	titlebar:setup {
 		{
-			icon,
-			title,
-			layout = wibox.layout.fixed.horizontal
+			{
+				icon,
+				title,
+				spacing = dpi(5),
+				layout = wibox.layout.fixed.horizontal
+			},
+			{
+				buttons = buttons,
+				widget = wibox.container.background
+			},
+			titlebuttons,
+			layout = wibox.layout.align.horizontal
 		},
-		{
-			buttons = buttons,
-			widget = wibox.container.background
-		},
-		titlebuttons,
-		layout = wibox.layout.align.horizontal
+		margins = dpi(5),
+		widget = wibox.container.margin
 	}
 	handle:setup {
 		buttons = buttons,

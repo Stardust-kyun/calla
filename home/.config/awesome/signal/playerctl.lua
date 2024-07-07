@@ -4,19 +4,9 @@ local function emit()
 	awful.spawn.easy_async_with_shell("playerctl metadata --format 'title_{{title}}album_{{album}}artist_{{artist}}' && playerctl status", function(out)
 		local title, album, artist, status
 
-		title = out:match("title_(.*)album_") or ""
-		album = out:match("album_(.*)artist_") or ""
-		artist = out:match("artist_(.*)") or ""
-
-		if title == "" then
-			title = "Not Playing"
-		end
-		if album == "" then
-			album = "No Album"
-		end
-		if artist == "" then
-			artist = "No Artist"
-		end
+		title = out:match("title_(.*)album_") or "Not Playing"
+		album = out:match("album_(.*)artist_") or "No Album"
+		artist = out:match("artist_(.*)") or "No Artist"
 
 		if out:match("Playing") then
 			status = true

@@ -13,6 +13,57 @@ local menu = button {
 	end
 }
 
+-- Media
+
+local function musicbutton(args)
+	return hovercursor(wibox.widget {
+		text = args.text,
+		font = user.fonticon,
+		buttons = { awful.button({}, 1, args.run) },
+		widget = wibox.widget.textbox
+	})
+end
+
+local media = wibox.widget {
+	{
+		{
+			{
+				musicbutton({ text = "", run = function() awful.spawn.with_shell("playerctl previous") end }),
+				{
+					id = "pause",
+					widget = musicbutton({ text = "", run = function() awful.spawn.with_shell("playerctl play-pause") end })
+				},
+				musicbutton({ text = "", run = function() awful.spawn.with_shell("playerctl next") end }),
+				layout = wibox.layout.fixed.horizontal
+			},
+			{
+				id = "title",
+				widget = wibox.widget.textbox()
+			},
+			spacing = dpi(5),
+			layout = wibox.layout.fixed.horizontal
+		},
+		top = dpi(5),
+		bottom = dpi(5),
+		left = dpi(5),
+		right = dpi(10),
+		widget = wibox.container.margin
+	},
+	shape = function(cr, width, height)
+				gears.shape.rounded_rect(cr, width, height, dpi(10))
+			end,
+	widget = live(wibox.container.background, { bg = "bgmid" })
+}
+
+awesome.connect_signal("signal::playerctl", function(title, album, artist, status)
+	media:get_children_by_id("title")[1].text = title .. " - " .. artist
+	if status then
+		media:get_children_by_id("pause")[1].text = ""
+	else
+		media:get_children_by_id("pause")[1].text = ""
+	end
+end)
+
 -- Systray
 -- TODO: This can probably be slimmed a lot
 
@@ -163,40 +214,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		}
 	}
 
-	-- Tasklist
-	
-	s.tasklist = awful.widget.tasklist {
-		screen = s,
-		filter = awful.widget.tasklist.filter.currenttags,
-		style = {
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end
-		},
-		layout = {
-			spacing = dpi(5),
-			spacing_widget = wibox.container.background,
-			layout = wibox.layout.fixed.horizontal
-		},
-		widget_template = {
-			{
-				awful.widget.clienticon,
-				margins = dpi(5),
-				widget = wibox.container.margin
-			},
-			id = "background_role",
-			widget = wibox.container.background
-		},
-        buttons = {
-            awful.button({ }, 1, function (c)
-                c:activate { context = "tasklist", action = "focus" }
-            end),
-            awful.button({ }, 3, function (c)
-                c:activate { context = "tasklist", action = "toggle_minimization" }
-            end)
-        }
-	}
-
     -- Layouts
 
     s.layouts = awful.widget.layoutbox {
@@ -223,13 +240,14 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
     s.wibar = awful.wibar {
 		position = "bottom",
+		align = "left",
 		height = dpi(40),
+		width = ((s:get_bounding_geometry().width-dpi(20))*5)/6-dpi(10),
 		bg = beautiful.bg,
 		fg = beautiful.fg,
 		margins = {
-			left = dpi(16),
-			right = dpi(16),
-			bottom = dpi(16)
+			left = dpi(10),
+			bottom = dpi(10)
 		},
         screen = s,
         widget = {
@@ -253,11 +271,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
 					layout = wibox.layout.align.horizontal
 				},
 				{
-					s.tasklist,
+					media,
 					valign = "center",
-					widget = wibox.container.place
+					layout = wibox.container.place
 				},
-				widget = wibox.layout.stack
+				layout = wibox.layout.stack
 			},
 			margins = dpi(5),
 			widget = wibox.container.margin
@@ -268,7 +286,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		s.wibar:set_bg(beautiful.bg)
 		s.wibar:set_fg(beautiful.fg)
 		s.taglist._do_taglist_update_now()
-		s.tasklist._do_tasklist_update_now()
 		client.emit_signal("property::icon")
 		tag.emit_signal("property::layout", awful.screen.focused().selected_tag)
 	end)

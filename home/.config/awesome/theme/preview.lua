@@ -185,8 +185,8 @@ awesome.connect_signal("widget::preview", function()
 		previewbox,
 		{
 			margins = {
-				bottom = dpi(72),
-				left = dpi(16),
+				bottom = dpi(60),
+				left = dpi(10),
 			},
 			parent = awful.screen.focused()
 		}

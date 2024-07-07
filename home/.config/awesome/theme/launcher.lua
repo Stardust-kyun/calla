@@ -325,8 +325,8 @@ awesome.connect_signal("widget::launcher", function()
 			launcherbox,
 			{
 				margins = {
-					bottom = dpi(16),
-					left = dpi(16),
+					bottom = dpi(10),
+					left = dpi(10),
 				},
 				parent = awful.screen.focused()
 			}
@@ -336,8 +336,8 @@ awesome.connect_signal("widget::launcher", function()
 			launcherbox,
 			{
 				margins = {
-					bottom = dpi(72),
-					left = dpi(16),
+					bottom = dpi(60),
+					left = dpi(10),
 				},
 				parent = awful.screen.focused()
 			}

@@ -123,8 +123,7 @@ function button(widget)
 		},
 		forced_width = width,
 		forced_height = height,
-		buttons = { 
-			awful.button({}, 1, widget.run)},
+		buttons = { awful.button({}, 1, widget.run) },
 		shape = function(cr, width, height)
 					gears.shape.rounded_rect(cr, width, height, dpi(10))
 				end,
@@ -144,3 +143,4 @@ require("theme.launcher")
 require("theme.lock")
 require("theme.settings")
 require("theme.preview")
+require("theme.dock")

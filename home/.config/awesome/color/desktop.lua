@@ -40,7 +40,7 @@ local function terminal(bg, fg, bl, wh, r, g, y, b, m, c)
 	w:close()
 
 	os.execute("xrdb ~/" .. xresources)
-	os.execute("pidof st | xargs kill -s USR1")
+	require("awful").spawn.easy_async_with_shell(require("gears").filesystem.get_configuration_dir() .. "color/terminal.sh")
 end
 
 local function theme(theme, icon)

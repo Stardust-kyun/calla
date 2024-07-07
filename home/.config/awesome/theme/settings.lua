@@ -126,6 +126,8 @@ local function doGeneral()
 		local filter = Gtk.FileFilter()
 		filter:add_pattern("*.png")
 		filter:add_pattern("*.jpg")
+		filter:add_pattern("*.JPG")
+		filter:add_pattern("*.jpeg")
 
 		if settings.wallpaper ~= nil then
 			local pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(settings.wallpaper:gsub("~", os.getenv("HOME")), 500, 500, true)

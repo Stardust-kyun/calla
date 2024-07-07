@@ -51,7 +51,7 @@ local bar = wibox.widget {
 	bar_shape = gears.shape.rounded_rect,
 	max_value = 100,
 	value = 0,
-	widget = live(wibox.widget.progressbar, { background_color = "bgalt", color = "fg" })
+	widget = live(wibox.widget.progressbar, { background_color = "bgmid", color = "fg" })
 }
 
 local timer = gears.timer {
@@ -116,8 +116,8 @@ awesome.connect_signal("widget::brightness", function()
 			brightnessbox, 
 			{
 				margins = { 
-					bottom = dpi(16), 
-					right = dpi(16)
+					bottom = dpi(10), 
+					right = dpi(10)
 				}, 
 				parent = awful.screen.focused()
 			}
@@ -127,8 +127,8 @@ awesome.connect_signal("widget::brightness", function()
 			brightnessbox, 
 			{
 				margins = { 
-					bottom = dpi(72), 
-					right = dpi(16)
+					bottom = dpi(60), 
+					right = dpi(10)
 				}, 
 				parent = awful.screen.focused()
 			}
