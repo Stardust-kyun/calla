@@ -104,7 +104,9 @@ if not restarted() then
 			require("awful").spawn.easy_async_with_shell(command, function() end) -- func needed to avoid callback error
 		end)
 	end
-	awesome.emit_signal("widget::lockscreen")
+	if user.sessionlock then
+		awesome.emit_signal("widget::lockscreen")
+	end
 end
 
 -- Theme Init

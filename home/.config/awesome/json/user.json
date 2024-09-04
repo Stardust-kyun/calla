@@ -7,7 +7,7 @@
 	"mod": "Mod4",
 	"passwd": "awesomewm",
 	"reboot": "systemctl reboot",
-	"sessionlock": true,
+	"sessionlock": false,
 	"shotdir": "~/Pictures/Screenshots",
 	"shutdown": "systemctl poweroff",
 	"terminal": "st"
