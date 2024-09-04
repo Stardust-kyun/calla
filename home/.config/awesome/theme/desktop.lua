@@ -1,205 +1,232 @@
---[[
---  background on icon hover ?
---  macos-like behavior ?
---  multi selecting ?
---  multi screen ?
---]]
-
 local awful = require("awful")
 local wibox = require("wibox")
-local awful = require("awful")
 local gears = require("gears")
-local json = require("json")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
-local appicons = "/usr/share/icons/Papirus/64x64/"
-local foldericons = "/usr/share/icons/" .. beautiful.icons .. "/64x64/places/"
+local icons = "/usr/share/icons/" .. beautiful.icons .. "/64x64/"
+local lgi = require("lgi")
+local Gtk = lgi.require("Gtk", "3.0")
+local Gio = lgi.Gio
+local UPower = lgi.require("UPowerGlib")
 
-local grid = wibox.widget {
-	forced_num_rows = 8,
-	forced_num_cols = 16,
-	orientation = "horizontal",
-	layout = wibox.layout.grid
-}
+screen.connect_signal("request::desktop_decoration", function(s)
 
-local manual = wibox.layout {
-	layout = wibox.layout.manual
-}
-function createdesktop(s)
-	local desktopdisplay = wibox {
-		screen = s,
-		visible = true,
-		ontop = false,
-		type = "desktop",
-		widget = wibox.widget {
-			{
-				image = gears.surface.crop_surface {
-					surface = gears.surface.load_uncached(beautiful.wallpaper),
-					ratio = s.geometry.width/s.geometry.height
-				},
-				widget = wibox.widget.imagebox
-			},
-			{
-				grid,
-				margins = dpi(30),
-				widget = wibox.container.margin
-			},
-			manual,
-			layout = wibox.layout.stack
-		}
-	}
-	return desktopdisplay
-end
+	--[[ logic for grabbing batteries, for use in future desktop widgets
+	local function listdevices()
+		local ret = {}
+		local devices = UPower.Client():get_devices()
 
-for s in screen do
-	awful.placement.maximize(createdesktop(s))
-end
+		for _, device in ipairs(devices) do
+			table.insert(ret, device:get_object_path())
+		end
 
-local function gen()
-	local shortcuts = {}
-	local folders = {}
-	local files = {}
-	local entries = {}
+		return ret
+	end
 
-	for entry in io.popen([[ls ~/Desktop | sed '']]):lines() do
-		local label = entry
-		local exec = nil
-		local icon = appicons .. "mimetypes/text-x-generic.svg"
-		local ext = label:match("^.+(%..+)$")
+	local function getdevice(path)
+		local devices = UPower.Client():get_devices()
 
-		if ext == ".desktop" then
-			for line in io.popen("cat ~/Desktop/'" .. entry .. "'"):lines() do
-				if line:match("Name=") and label == entry then
-					label = line:gsub("Name=", "")
-				end
-				if line:match("Exec=") and exec == nil then
-					local cmd = line:gsub("Exec=", "")
-					exec = cmd
-				end
-				if line:match("CustomIcon=") then
-					icon = line:gsub("CustomIcon=", "")
-				elseif line:match("Icon=") then
-					icon = appicons .. "apps/" .. line:gsub("Icon=", "") .. ".svg"
-				end
+		for _, device in ipairs(devices) do
+			if device:get_object_path() == path then
+				return device
 			end
-			table.insert(entries, { icon = icon, label = label, exec = exec })
-		elseif os.execute("cd ~/Desktop/'" .. entry .. "'") then
-			icon = foldericons .. "folder.svg"
-			exec = user.files .. " Desktop/'" .. entry .. "'"
-			table.insert(entries, { icon = icon, label = label, exec = exec })
-		elseif os.execute("wc -c < ~/Desktop/'" .. entry .. "'") then
-			icon = appicons .. "mimetypes/application-x-zerosize.svg"
-			exec = user.editorcmd .. " ~/Desktop/'" .. entry .. "'"
-			table.insert(entries, { icon = icon, label = label, exec = exec })
-		else
-			exec = "xdg-open " .. os.getenv("HOME") .. "/Desktop/'" .. label .. "'"
-			table.insert(entries, { icon = icon, label = label, exec = exec })
+		end
+
+		return nil
+	end
+
+	local devicepaths = listdevices()
+
+	for _, path in ipairs(devicepaths) do
+		local device = getdevice(path)
+
+		device.on_notify = function()
 		end
 	end
+	--]]
 
-	return entries
-end
+	local cell = dpi(120)
+	local geometry = s:get_bounding_geometry()
+	local rows = math.floor((geometry.height-dpi(60))/cell)
+	local cols = math.floor((geometry.width-dpi(20))/cell)
+	local vspacing = math.floor((((geometry.height-dpi(60))-(rows*cell))/(rows-1))+0.5)
+	local hspacing = math.floor((((geometry.width-dpi(20))-(cols*cell))/(cols-1))+0.5)
 
-local function save()
-	layout = {}
+	s.grid = wibox.widget {
+		forced_num_rows = rows,
+		forced_num_cols = cols,
+		vertical_spacing = vspacing,
+		horizontal_spacing = hspacing,
+		orientation = "horizontal",
+		layout = wibox.layout.grid
+	}
 
-	for i, widget in ipairs(grid.children) do
-		local pos = grid:get_widget_position(widget)
+	s.manual = wibox.layout {
+		layout = wibox.layout.manual
+	}
 
-		layout[i] = {
-			row = pos.row,
-			col = pos.col,
-			widget = {
-				icon = widget.icon,
-				label = widget.label,
-				exec = widget.exec
+	s.padding = {
+		top = dpi(10),
+		bottom = dpi(50),
+		left = dpi(10),
+		right = dpi(10)
+	}
+
+	s.base = wibox {
+		screen = s,
+		ontop = false,
+		visible = true,
+		type = "splash",
+	}
+
+	s.desktop = wibox {
+		screen = s,
+		width = s.geometry.width-dpi(20),
+		height = s.geometry.height-dpi(60),
+		ontop = false,
+		visible = true,
+		type = "normal"
+	}
+
+	awful.placement.maximize(s.base)
+
+	awful.placement.top(
+		s.desktop,
+		{
+			margins = {
+				top = dpi(10)
 			}
 		}
+	)
+
+	s.panel = require("theme.panel")(s)
+
+	s.base:setup {
+		{
+			s.panel,
+			valign = "bottom",
+			content_fill_horizontal = true,
+			widget = wibox.container.place
+		},
+		widget = live(wibox.container.background, { bg = "bg" })
+	}
+
+	s.desktop:setup {
+		{
+			id = "wallpaper",
+			image = gears.surface.crop_surface {
+				surface = gears.surface.load_uncached(beautiful.wallpaper),
+				ratio = (s.geometry.width-dpi(20))/(s.geometry.height-dpi(60))
+			},
+			widget = wibox.widget.imagebox
+		},
+		s.grid,
+		s.manual,
+		layout = wibox.layout.stack
+	}
+
+	local function generate()
+		local entries = {}
+
+		for entry in io.popen([[ls ~/Desktop | sed '']]):lines() do
+			local label = nil
+			local exec = nil
+			local icon = nil
+
+			if entry:match("^.+(%..+)$") == ".desktop" then
+				for line in io.popen("cat ~/Desktop/'" .. entry .. "'"):lines() do
+					if line:match("Name=") and not label then
+						label = line:gsub("Name=", "")
+					end
+					if line:match("Exec=") and not exec then
+						exec = line:gsub("Exec=", ""):gsub("%%U", ""):gsub("%%u", "")
+					end
+					if line:match("CustomIcon=") and not icon then
+						icon = line:gsub("CustomIcon=", "")
+					elseif line:match("Icon=") and not icon then
+						icon = line:gsub("Icon=", "")
+					end
+				end
+				table.insert(entries, { label = label, exec = exec, icon = icon })
+			elseif os.execute("cd ~/Desktop'" .. entry .. "'") then
+				label = entry
+				icon = "folder"
+				exec = "gio open ~/Desktop/'" .. entry .. "'"
+				table.insert(entries, { label = label, exec = exec, icon = icon })
+			else
+				label = entry
+				icon = Gio.File.new_for_path(os.getenv("HOME") .. "/Desktop/" .. entry):query_info("standard::*", Gio.FileQueryInfoFlags.NONE):get_icon()
+				for _, name in ipairs(icon:get_names()) do
+					if Gtk.IconTheme.get_default():has_icon(name) then
+						icon = name
+						break
+					end
+					icon = "application-x-generic"
+				end
+				exec = "gio open ~/Desktop/'" .. entry .. "'"
+				table.insert(entries, { label = label, exec = exec, icon = icon })
+			end
+		end
+
+		return entries
 	end
 
-	local w = assert(io.open(".config/awesome/json/desktop.json", "w"))
-	w:write(json:encode_pretty(layout, nil, { pretty = true, indent = "	", align_keys = false, array_newline = true }))
-	w:close()
-end
+	local function save()
+		layout = {}
 
-local function gridindexat(y, x)
-	local margin = dpi(30)
-	local cellwidth, cellheight = dpi(115), dpi(125)
+		for i, widget in ipairs(s.grid.children) do
+			local pos = s.grid:get_widget_position(widget)
 
-	local row = math.ceil((y - margin) / cellheight)
-	row = math.min(row, 8)
-	row = math.max(row, 1)
+			layout[i] = {
+				row = pos.row,
+				col = pos.col,
+				widget = {
+					label = widget.label,
+					exec = widget.exec,
+					icon = widget.icon
+				}
+			}
+		end
 
-	local col = math.ceil((x - margin) / cellwidth)
-	col = math.min(col, 16)
-	col = math.max(col, 1)
+		local w = assert(io.open(".config/awesome/json/desktop.json", "w"))
+		w:write(require("json"):encode_pretty(layout, nil, { pretty = true, indent = "	", align_keys = false, array_newline = true}))
+		w:close()
+	end
 
-	return row, col
-end
+	local function gridindexat(y, x) -- gotta fix this to account for spacing
+		local margin = dpi(10)
 
-local function createicon(icon, label, exec)
-	local widget = hovercursor(wibox.widget {
-		{
-			{
-				{
-					image = icon,
-					halign = "center",
-					widget = wibox.widget.imagebox
-				},
-				strategy = "exact",
-				width = dpi(50),
-				height = dpi(50),
-				widget = wibox.container.constraint
-			},
+		local row = math.ceil((y - margin) / cell)
+		row = math.min(row, rows)
+		row = math.max(row, 1)
+
+		local col = math.ceil((x - margin) / cell)
+		col = math.min(col, cols)
+		col = math.max(col, 1)
+
+		return row, col
+	end
+
+	local function exists(path)
+		local f = io.open(path, "r")
+		if f~=nil then io.close(f) return true else return false end
+	end
+
+	local function createicon(label, exec, icon)
+		local image
+		if exists(icons .. "places/" .. icon .. ".svg") then
+			image = icons .. "places/" .. icon .. ".svg"
+		elseif exists(icons .. "mimetypes/" .. icon .. ".svg") then
+			image = icons .. "mimetypes/" .. icon .. ".svg"
+		elseif exists(icons .. "apps/" .. icon .. ".svg") then
+			image = icons .. "apps/" .. icon .. ".svg"
+		end
+
+		local widget = hovercursor(wibox.widget {
 			{
 				{
 					{
-						text = label,
-						valign = "top",
-						align = "center",
-						widget = wibox.widget.textbox
-					},
-					margins = dpi(5),
-					widget = wibox.container.margin
-				},
-				strategy = "max",
-				width = dpi(100),
-				height = dpi(50),
-				widget = wibox.container.constraint
-			},
-			spacing = dpi(5),
-			layout = wibox.layout.fixed.vertical
-		},
-		icon = icon,
-		label = label,
-		exec = exec,
-		forced_width = dpi(115),
-		forced_height = dpi(125),
-		margins = dpi(10),
-		widget = wibox.container.margin
-	})
-
-	local iconmenu = awful.menu({
-		items = {
-			{ "Open", exec },
-			{ "Delete", function()
-				awful.spawn.with_shell("rm -rf " .. os.getenv("HOME") .. "/Desktop/'" .. label .. "'")
-			end },
-		}
-	})
-
-	awesome.connect_signal("iconmenu::hide", function()
-		iconmenu:hide()
-	end)
-
-	widget:connect_signal("button::press", function(_, _, _, button)
-		if not mousegrabber.isrunning() then
-
-			local heldwidget = wibox.widget {
-				{
-					{
-						image = icon,
-						opacity = 0.5,
+						image = image,
 						halign = "center",
 						widget = wibox.widget.imagebox
 					},
@@ -211,188 +238,200 @@ local function createicon(icon, label, exec)
 				{
 					{
 						{
-							text = label,
-							opacity = 0.5,
-							valign = "top",
-							align = "center",
-							widget = wibox.widget.textbox
+							{
+								valign = "top",
+								align = "center",
+								widget = colortext({ text = label })
+							},
+							margins = dpi(5),
+							widget = wibox.container.margin
 						},
-						margins = dpi(5),
-						widget = wibox.container.margin
+						shape = function(cr, width, height)
+									gears.shape.rounded_rect(cr, width, height, dpi(10))
+								end,
+						widget = live(wibox.container.background, { bg = "bgmid" })
 					},
 					strategy = "max",
 					width = dpi(100),
 					height = dpi(50),
 					widget = wibox.container.constraint
 				},
-				forced_height = dpi(105),
-				forced_width = dpi(100),
 				spacing = dpi(5),
-				visible = false,
 				layout = wibox.layout.fixed.vertical
-			}
+			},
+			label = label,
+			exec = exec,
+			icon = icon,
+			forced_width = cell,
+			forced_height = cell,
+			margins = dpi(10),
+			widget = wibox.container.margin
+		})
 
-			local startpos = mouse.coords()
-			heldwidget.point = { x = startpos.x, y = startpos.y }
-			local oldpos = grid:get_widget_position(widget)
-			manual:add(heldwidget)
+		widget:connect_signal("button::press", function(_, _, _, button)
+			if not mousegrabber.isrunning() then
+				local heldwidget = wibox.widget {
+					{
+						{
+							{
+								image = image,
+								opacity = 0.5,
+								halign = "center",
+								widget = wibox.widget.imagebox
+							},
+							strategy = "exact",
+							width = dpi(50),
+							height = dpi(50),
+							widget = wibox.container.constraint
+						},
+						{
+							{
+								{
+									{
+										opacity = 0.5,
+										valign = "top",
+										align = "center",
+										widget = colortext({ text = label })
+									},
+									margins = dpi(5),
+									widget = wibox.container.margin
+								},
+								shape = function(cr, width, height)
+											gears.shape.rounded_rect(cr, width, height, dpi(10))
+										end,
+								widget = live(wibox.container.background, { bg = "bgmid" })
+							},
+							strategy = "max",
+							width = dpi(100),
+							height = dpi(50),
+							widget = wibox.container.constraint
+						},
+						spacing = dpi(5),
+						layout = wibox.layout.fixed.vertical
+					},
+					forced_width = cell,
+					forced_height = cell,
+					margins = dpi(10),
+					visible = false,
+					widget = wibox.container.margin
+				}
 
-			mousegrabber.run(function(mouse)
-				if (math.abs(mouse.x - startpos.x) > 10 or
-					math.abs(mouse.y - startpos.y) > 10) and
-					mouse.buttons[1] then
-					
-					grid:remove(widget)
-					heldwidget.visible = true
+				local startpos = mouse.coords()
+				heldwidget.point = { x = startpos.x, y = startpos.y }
+				local oldpos = s.grid:get_widget_position(widget)
+				s.manual:add(heldwidget)
 
-					manual:move_widget(heldwidget, {
-						x = mouse.x - dpi(50),
-						y = mouse.y - dpi(50)
-					})
-				end
+				mousegrabber.run(function(mouse)
+					if (math.abs(mouse.x - startpos.x) > 10 or
+						math.abs(mouse.y - startpos.y) > 10) and
+						mouse.buttons[1] then
 
-				if not mouse.buttons[1] then
-					if button == 1 then
-						if heldwidget.visible then
-							heldwidget.visible = false
+						s.grid:remove(widget)
+						heldwidget.visible = true
 
-							local newrow, newcol = gridindexat(
-								mouse.y,
-								mouse.x
-							)
-							if not grid:get_widgets_at(newrow, newcol) then
-								grid:add_widget_at(widget, newrow, newcol)
-								save()
-							else
-								grid:add_widget_at(widget, oldpos.row, oldpos.col)
-							end
-						else
-							awful.spawn.with_shell(exec)
-							manual:reset()
-						end
-						mousegrabber.stop()
-					elseif button == 3 then
-						awesome.emit_signal("iconmenu::hide")
-						iconmenu:toggle()
-						mousegrabber.stop()
+						s.manual:move_widget(heldwidget, {
+							x = mouse.x - dpi(50),
+							y = mouse.y - dpi(50)
+						})
 					end
-				end
-				return mouse.buttons[1]
-			end, "hand2") 
-		end
-	end)
 
-	return widget
-end
+					if not mouse.buttons[1] then
+						if button == 1 then
+							if heldwidget.visible then
+								heldwidget.visible = false
 
-local function load()
-	local layoutfile = gears.filesystem.get_configuration_dir() .. 'json/desktop.json'
-	if not gears.filesystem.file_readable(layoutfile) then
-		local entries = gen()
-		for _, entry in ipairs(entries) do
-			grid:add(createicon(entry.icon, entry.label, entry.exec))
-		end
-		save()
-		return
-	end
-
-	local awmmenu = {
-		{ "Config", user.config },
-		{ "Restart", awesome.restart }
-	}
-
-	local createmenu = {
-		{ "File", function()
-			local filename = "New File"
-			local filepath = os.getenv("HOME") .. "/Desktop/" .. filename
-			local i = 1
-			while gears.filesystem.file_readable(filepath) do
-				filename = "New File " .. "(" .. i .. ")"
-				filepath = os.getenv("HOME") .. "/Desktop/" .. filename
-				i = i + 1
-			end
-			awful.spawn.with_shell("touch '" .. filepath .. "'")
-		end },
-		{ "Folder", function()
-			local foldername = "New Folder"
-			local folderpath = os.getenv("HOME") .. "/Desktop/" .. foldername
-			local i = 1
-			while gears.filesystem.dir_readable(folderpath) do
-				foldername = "New Folder " .. "(" .. i .. ")"
-				folderpath = os.getenv("HOME") .. "/Desktop/" .. foldername
-				i = i + 1
-			end
-			gears.filesystem.make_directories(folderpath)
-		end }
-	}
-
-	local rootmenu = awful.menu({
-		items = {
-			{ "Awesome", awmmenu },
-			{ "Create", createmenu },
-			{ "Terminal", user.terminal },
-			{ "Browser", user.browser },
-			{ "Files", user.files },
-			{ "Editor", user.editorcmd }
-		}
-	})
-
-	manual:buttons {
-		awful.button({}, 1, function()
-			awesome.emit_signal("iconmenu::hide")
-			rootmenu:hide()
-		end),
-		awful.button({}, 3, function()
-			if mouse.current_widgets[5] == manual then
-				awesome.emit_signal("iconmenu::hide")
-				rootmenu:toggle()
+								local newrow, newcol = gridindexat(
+									mouse.y,
+									mouse.x
+								)
+								if not s.grid:get_widgets_at(newrow, newcol) then
+									s.grid:add_widget_at(widget, newrow, newcol)
+									save()
+								else
+									s.grid:add_widget_at(widget, oldpos.row, oldpos.col)
+								end
+							else
+								awful.spawn.with_shell(exec)
+								s.manual:reset()
+							end
+							mousegrabber.stop()
+						end
+					end
+					return mouse.buttons[1]
+				end, "hand2")
 			end
 		end)
-	}
 
-	local r = assert(io.open(".config/awesome/json/desktop.json", "r"))
-	local table = r:read("*all")
-	r:close()
-	local layout = json:decode(table)
-
-	for _, entry in ipairs(layout) do
-		grid:add_widget_at(createicon(entry.widget.icon, entry.widget.label, entry.widget.exec), entry.row, entry.col)
-	end
-end
-
-load()
-
-awesome.connect_signal("signal::desktop", function(type) 
-	local entries = gen()
-	local check = false
-
-	if type == add then
-		for _, entry in ipairs(entries) do
-			for _, widget in ipairs(grid.children) do
-				if entry.label == widget.label then
-					check = true
-				end
-			end
-			if check == false then
-				grid:add(createicon(entry.icon, entry.label, entry.exec))
-			end
-			check = false
-		end
+		return widget
 	end
 
-	if type == remove then
-		for _, widget in ipairs(grid.children) do
+	local function load()
+		s.grid:reset()
+
+		local layoutfile = gears.filesystem.get_configuration_dir() .. "json/desktop.json"
+		if not gears.filesystem.file_readable(layoutfile) then
+			local entries = generate()
 			for _, entry in ipairs(entries) do
-				if entry.label == widget.label then
-					check = true
-				end
+				s.grid:add(createicon(entry.label, entry.exec, entry.icon))
 			end
-			if check == false then
-				grid:remove(widget)
-			end
-			check = false
+			save()
+			return
+		end
+
+		local r = assert(io.open(".config/awesome/json/desktop.json", "r"))
+		local table = r:read("*all")
+		r:close()
+		local layout = require("json"):decode(table)
+
+		for _, entry in ipairs(layout) do
+			s.grid:add_widget_at(createicon(entry.widget.label, entry.widget.exec, entry.widget.icon), entry.row, entry.col)
 		end
 	end
 
-	save()
+	load()
+
+	awesome.connect_signal("signal::desktop", function(type)
+		local entries = generate()
+		local check = false
+
+		if type == "add" then
+			for _, entry in ipairs(entries) do
+				for _, widget in ipairs(s.grid.children) do
+					if entry.label == widget.label then
+						check = true
+						break
+					end
+				end
+				if check == false then
+					s.grid:add(createicon(entry.label, entry.exec, entry.icon))
+				end
+				check = false
+			end
+		end
+
+		if type == "remove" then
+			for _, widget in ipairs(s.grid.children) do
+				for _, entry in ipairs(entries) do
+					if entry.label == widget.label then
+						check = true
+						break
+					end
+				end
+				if check == false then
+					s.grid:remove(widget)
+				end
+				check = false
+			end
+		end
+
+		save()
+	end)
+
+	awesome.connect_signal("live::reload", function()
+		s.desktop:get_children_by_id("wallpaper")[1].image = gears.surface.crop_surface {
+			surface = gears.surface.load_uncached(beautiful.wallpaper),
+			ratio = (s.geometry.width-dpi(20))/(s.geometry.height-dpi(60))
+		}
+	end)
+
 end)

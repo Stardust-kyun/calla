@@ -105,19 +105,19 @@ awful.keyboard.append_global_keybindings({
 	-- Screenshot
 
 	awful.key(
-		{ mod }, "Delete", function() 
+		{ mod }, "Print", function() 
 			awesome.emit_signal("util::screenshot", { args = "-u", time = "0" }) 
 		end,
         { description = "full screen", group = "screenshot" }
 	),
 	awful.key(
-		{ mod, "Control" }, "Delete", function()
+		{ mod, "Control" }, "Print", function()
 			awesome.emit_signal("util::screenshot", { args = "-u", time = "5" }) 
 		end,
         { description = "full screen delay", group = "screenshot" }
 	),
 	awful.key(
-		{ mod, "Shift" }, "Delete", function() 
+		{ mod, "Shift" }, "Print", function() 
 			awesome.emit_signal("util::screenshot", { args = "-s -u", time = "0" }) 
 		end,
         { description = "part screen", group = "screenshot" }

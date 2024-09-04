@@ -63,7 +63,7 @@ local function createpreview(t, s, geometry)
 				{
 					image = gears.surface.crop_surface {
 						surface = gears.surface.load_uncached(beautiful.wallpaper),
-						ratio = s.geometry.width/s.geometry.height
+						ratio = s.geometry.width/(s.geometry.height-dpi(40))
 					},
 					widget = wibox.widget.imagebox
 				},
@@ -104,7 +104,7 @@ local function createpreview(t, s, geometry)
 				{
 					image = gears.surface.crop_surface {
 						surface = gears.surface.load_uncached(beautiful.wallpaper),
-						ratio = s.geometry.width/s.geometry.height
+						ratio = s.geometry.width/(s.geometry.height-dpi(40))
 					},
 					widget = wibox.widget.imagebox
 				},
@@ -171,7 +171,7 @@ awesome.connect_signal("widget::preview", function()
 	end
 
 	previewbox.width = geometry.width * scale * numtags + (numtags + 1) * dpi(5)
-	previewbox.height = geometry.height * scale + (2 * dpi(5))
+	previewbox.height = (geometry.height-dpi(40)) * scale + (2 * dpi(5))
 	previewbox.widget = wibox.widget {
 			{
 			previewlist,
@@ -186,7 +186,7 @@ awesome.connect_signal("widget::preview", function()
 		{
 			margins = {
 				bottom = dpi(60),
-				left = dpi(10),
+				left = dpi(20),
 			},
 			parent = awful.screen.focused()
 		}

@@ -122,7 +122,6 @@ awesome.connect_signal("widget::volume", function()
 			{
 				margins = { 
 					bottom = dpi(10), 
-					right = dpi(10)
 				}, 
 				parent = awful.screen.focused()
 			}
@@ -133,7 +132,6 @@ awesome.connect_signal("widget::volume", function()
 			{
 				margins = { 
 					bottom = dpi(60), 
-					right = dpi(10)
 				}, 
 				parent = awful.screen.focused()
 			}

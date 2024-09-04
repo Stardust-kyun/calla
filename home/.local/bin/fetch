@@ -1,0 +1,47 @@
+#!/bin/sh
+
+os=$(. /etc/os-release && echo $ID)
+
+read -r _ _ version _ < /proc/version
+kr=${version%%-*}
+
+if command -v pacman >/dev/null; then
+	pa=$(pacman -Q | wc -l)
+elif command -v dpkg >/dev/null; then
+	pa="$(dpkg-query -f '.\n' -W | wc -l)"
+elif command -v rpm >/dev/null; then
+	pa=$(rpm -qa | wc -l)
+elif command -v xbps-query >/dev/null; then
+  	pa=$(xbps-query -l | wc -l)
+elif command -v emerge >/dev/null; then
+  	pa=$(ls -d /var/db/pkg/*/* | wc -l)
+elif command -v apk >/dev/null; then
+  	pa=$(apk info | wc -l)
+fi
+
+sh=${SHELL##*/}
+
+id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+id=${id##* }
+wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t)
+wm=${wm##*WM_NAME = \"}
+wm=${wm%%\"*}
+
+# Stolen from pfetch
+s='[7m';   e='[m'
+c1='[31m'; c2='[32m'
+c3='[33m'; c4='[34m'
+c5='[35m'; c6='[36m'
+c7='[30m'; c8='[37m'
+palette="$s$c7 $c7 $c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 $c8 $c8 $e"
+
+printf "
+  os  -  ${os}
+  kr  -  ${kr}
+  pa  -  ${pa}
+  sh  -  ${sh}
+  wm  -  ${wm}
+
+  ${palette}
+
+" | tr '[:upper:]' '[:lower:]'

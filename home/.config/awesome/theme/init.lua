@@ -6,17 +6,11 @@ local dpi = beautiful.xresources.apply_dpi
 
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
-screen.connect_signal("request::wallpaper", function(s)
+screen.connect_signal("request::desktop_decoration", function(s)
 	awesome.connect_signal("live::reload", function()
 		awful.wallpaper {
 			screen = s,
-			widget = {
-				image = gears.surface.crop_surface {
-					surface = gears.surface.load_uncached(beautiful.wallpaper),
-					ratio = s.geometry.width/s.geometry.height
-				},
-				widget = wibox.widget.imagebox
-			}
+			bg = beautiful.bg
 		}
 	end)
 end)
@@ -64,9 +58,11 @@ end
 function colortext(args)
 	local table = args or {}
 	local fg = beautiful[table.fg] or beautiful.fg
+	local font = table.font or user.font
 	local text = table.text or "N/A"
 	local textbox = wibox.widget {
 		markup = markup({ text = text, fg = fg }),
+		font = font,
 		widget = wibox.widget.textbox
 	}
 
@@ -105,13 +101,13 @@ function button(widget)
 		if widget.height then
 			height = widget.height
 		else
-			height = dpi(40)
+			height = dpi(30)
 		end
 
 		if widget.width then
 			width = widget.width
 		else
-			width = dpi(40)
+			width = dpi(30)
 		end
 	end
 
@@ -133,9 +129,8 @@ function button(widget)
 	return button
 end
 
---require("theme.desktop")
+require("theme.desktop")
 require("theme.notif")
-require("theme.panel")
 require("theme.title")
 require("theme.volume")
 require("theme.brightness")
@@ -143,4 +138,3 @@ require("theme.launcher")
 require("theme.lock")
 require("theme.settings")
 require("theme.preview")
-require("theme.dock")

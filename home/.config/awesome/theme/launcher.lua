@@ -9,13 +9,18 @@ local appicons = "/usr/share/icons/" .. beautiful.icons .. "/64x64/apps/"
 -- Widgets
 
 local launcherbox = wibox {
-	width = dpi(345),
-	height = dpi(470),
+	width = dpi(265),
+	height = dpi(320),
 	ontop = true,
 	visible = false
 }
 
-local prompt = colortext()
+local prompt = colortext({ text = "Search..." })
+
+local textbox = wibox.widget {
+	forced_height = dpi(30),
+	widget = wibox.widget.textbox
+}
 
 local entries = wibox.widget {
 	homogeneous = false,
@@ -25,6 +30,8 @@ local entries = wibox.widget {
 }
 
 local settings = button {
+	type = "text",
+	image = "",
 	run = function() 
 		awesome.emit_signal("widget::launcher") 
 		awesome.emit_signal("widget::config") 
@@ -76,7 +83,7 @@ launcherbox:setup {
 					reboot,
 					exit,
 					lock,
-					spacing = dpi(10),
+					spacing = dpi(5),
 					layout = wibox.layout.fixed.vertical
 				},
 				layout = wibox.layout.align.vertical
@@ -87,21 +94,25 @@ launcherbox:setup {
 				{
 					{
 						prompt,
-						margins = dpi(10),
+						top = dpi(5),
+						bottom = dpi(5),
+						left = dpi(8),
+						right = dpi(8),
 						widget = wibox.container.margin
 					},
 					shape = function(cr, width, height)
 								gears.shape.rounded_rect(cr, width, height, dpi(10))
 							end,
+					forced_height = dpi(30),
 					widget = live(wibox.container.background, { bg = "bgmid" })
 				},
 				forced_width = dpi(300),
 				layout = wibox.layout.align.vertical
 			},
-			spacing = dpi(10),
+			spacing = dpi(5),
 			layout = wibox.layout.fixed.horizontal
 		},
-		margins = dpi(10),
+		margins = dpi(5),
 		widget = wibox.container.margin
 	},
 	widget = live(wibox.container.background, { bg = "bg" })
@@ -111,11 +122,11 @@ launcherbox:setup {
 
 local function next()
 	if entryindex ~= #filtered then
-		entries:get_widgets_at(entryindex, 1)[1].bg = nil
-		entries:get_widgets_at(entryindex+1, 1)[1].bg = beautiful.bgmid
+		entries:get_widgets_at(entryindex, 1)[1]:get_children_by_id("bg")[1].bg = nil
+		entries:get_widgets_at(entryindex+1, 1)[1]:get_children_by_id("bg")[1].bg = beautiful.bgmid
 		entryindex = entryindex + 1
-		if entryindex > startindex + 9 then
-			entries:get_widgets_at(entryindex-10, 1)[1].visible = false
+		if entryindex > startindex + 7 then
+			entries:get_widgets_at(entryindex-8, 1)[1].visible = false
 			entries:get_widgets_at(entryindex, 1)[1].visible = true
 			startindex = startindex + 1
 		end
@@ -125,17 +136,26 @@ end
 
 local function back()
 	if entryindex ~= 1 then
-		entries:get_widgets_at(entryindex, 1)[1].bg = nil
-		entries:get_widgets_at(entryindex-1, 1)[1].bg = beautiful.bgmid
+		entries:get_widgets_at(entryindex, 1)[1]:get_children_by_id("bg")[1].bg = nil
+		entries:get_widgets_at(entryindex-1, 1)[1]:get_children_by_id("bg")[1].bg = beautiful.bgmid
 		entryindex = entryindex - 1
 		if entryindex < startindex then
-			entries:get_widgets_at(entryindex+10, 1)[1].visible = false
+			entries:get_widgets_at(entryindex+8, 1)[1].visible = false
 			entries:get_widgets_at(entryindex, 1)[1].visible = true
 			startindex = startindex - 1
 		end
 	end
 	move = true
 end
+
+entries.buttons = {
+	awful.button({}, 4, function()
+		back()
+	end),
+	awful.button({}, 5, function()
+		next()
+	end)
+}
 
 local function gen()
 	local entries = {}
@@ -212,43 +232,41 @@ local function filter(cmd)
 		local widget = hovercursor(wibox.widget {
 			{
 				{
-					wibox.widget.imagebox(entry.icon),
-					colortext({ text = entry.name }),
-					spacing = dpi(5),
-					layout = wibox.layout.fixed.horizontal
+					{
+						wibox.widget.imagebox(entry.icon),
+						colortext({ text = entry.name }),
+						spacing = dpi(5),
+						layout = wibox.layout.fixed.horizontal
+					},
+					forced_height = dpi(30),
+					margins = dpi(5),
+					widget = wibox.container.margin
 				},
-				forced_height = dpi(40),
-				margins = dpi(10),
-				widget = wibox.container.margin
+				buttons = {
+					awful.button({}, 1, function()
+						if entryindex == i then
+							local entry = filtered[entryindex]
+							entry.appinfo:launch()
+							awful.keygrabber.stop()
+							launcherbox.visible = false
+						else
+							entries:get_widgets_at(entryindex, 1)[1]:get_children_by_id("bg")[1].bg = nil
+							entryindex = i
+							entries:get_widgets_at(entryindex, 1)[1]:get_children_by_id("bg")[1].bg = beautiful.bgmid
+						end
+					end)
+				},
+				id = "bg",
+				shape = function(cr, width, height)
+							gears.shape.rounded_rect(cr, width, height, dpi(10))
+						end,
+				widget = wibox.container.background
 			},
-			buttons = {
-				awful.button({}, 1, function()
-					if entryindex == i then
-						local entry = filtered[entryindex]
-						entry.appinfo:launch()
-						awful.keygrabber.stop()
-						launcherbox.visible = false
-					else
-						entries:get_widgets_at(entryindex, 1)[1].bg = nil
-						entryindex = i
-						entries:get_widgets_at(entryindex, 1)[1].bg = beautiful.bgmid
-					end
-				end),
-				awful.button({}, 4, function()
-					back()
-				end),
-				awful.button({}, 5, function()
-					next()
-				end)
-			},
-			id = "background_role",
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end,
-			widget = wibox.container.background
+			bottom = dpi(5),
+			widget = wibox.container.margin
 		})
 
-		if startindex <= i and i <= startindex + 9 then
+		if startindex <= i and i <= startindex + 7 then
 			widget.visible = true
 		else
 			widget.visible = false
@@ -257,7 +275,7 @@ local function filter(cmd)
 		entries:add(widget)
 
 		if i == entryindex then
-			widget.bg = beautiful.bgmid
+			widget:get_children_by_id("bg")[1].bg = beautiful.bgmid
 		end
 	end
 
@@ -279,12 +297,16 @@ local function open()
 	-- Prompt
 
 	awful.prompt.run {
-		prompt = markup({ text = "Launch " }),
-		textbox = prompt,
+		textbox = textbox,
 		done_callback = function() 
 			launcherbox.visible = false 
 		end,
 		changed_callback = function(cmd)
+			if cmd ~= "" then
+				prompt.markup = markup({ text = cmd, fg = "fg" })
+			else
+				prompt.markup = markup({ text = "Search...", fg = "fg" })
+			end
 			if move == false then	
 				filter(cmd)
 			else
@@ -292,6 +314,7 @@ local function open()
 			end
 		end,
 		exe_callback = function(cmd)
+			prompt.markup = markup({ text = "Search...", fg = "fg" })
 			local entry = filtered[entryindex]
 			if entry then
 				entry.appinfo:launch()
@@ -311,7 +334,8 @@ end
 
 awesome.connect_signal("widget::launcher", function()
 	awesome.emit_signal("widget::preview:hide")
-	
+
+	prompt.markup = markup({ text = "Search...", fg = "fg" })
 	launcherbox.visible = not launcherbox.visible
 	
 	if launcherbox.visible then
@@ -337,7 +361,7 @@ awesome.connect_signal("widget::launcher", function()
 			{
 				margins = {
 					bottom = dpi(60),
-					left = dpi(10),
+					left = dpi(20),
 				},
 				parent = awful.screen.focused()
 			}

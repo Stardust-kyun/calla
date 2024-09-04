@@ -18,12 +18,12 @@ local removesubscribe = [[
 
 awful.spawn.easy_async_with_shell("ps x | grep \"inotifywait -e create -e moved_to $HOME/Desktop/\" | grep -v grep | awk '{print $1}' | xargs kill", function ()
     awful.spawn.with_line_callback(addsubscribe, {
-        stdout = function() emit(add) end
+        stdout = function() emit("add") end
     })
 end)
 
 awful.spawn.easy_async_with_shell("ps x | grep \"inotifywait -e delete -e moved_from $HOME/Desktop/\" | grep -v grep | awk '{print $1}' | xargs kill", function ()
     awful.spawn.with_line_callback(removesubscribe, {
-        stdout = function() emit(remove) end
+        stdout = function() emit("remove") end
     })
 end)

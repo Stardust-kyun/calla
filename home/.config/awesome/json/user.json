@@ -1,13 +1,13 @@
 {
 	"batt": "BAT0",
-	"color": "dark",
+	"color": "light",
 	"font": "Roboto Bold 11",
 	"fontalt": "Roboto Italic Bold 11",
-	"fonticon": "Material Icons 16",
+	"fonticon": "Material Icons 13",
 	"mod": "Mod4",
 	"passwd": "awesomewm",
 	"reboot": "systemctl reboot",
-	"sessionlock": false,
+	"sessionlock": true,
 	"shotdir": "~/Pictures/Screenshots",
 	"shutdown": "systemctl poweroff",
 	"terminal": "st"

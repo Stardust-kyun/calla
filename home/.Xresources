@@ -1,5 +1,5 @@
-#define BG #151515
-#define FG #f5f5f5
+#define BG #f5f5f5
+#define FG #303030
 #define BL #505050
 #define WH #d0d0d0
 #define R #ac4142
@@ -9,7 +9,7 @@
 #define M #aa759f
 #define C #75b5aa
 
-st.font: RobotoMono:size=12
+st.font: RobotoMono:size=11
 st.borderpx: 25
 
 ! special

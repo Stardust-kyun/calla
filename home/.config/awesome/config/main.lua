@@ -46,3 +46,18 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
     awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
 end)
+
+-- Touchpad gestures
+
+awesome.connect_signal("touchpad::gesture", function(direction)
+	require("naughty").notification{text="test"}
+	if direction == "left" then
+		awful.tag.viewprev()
+	elseif direction == "right" then
+		awful.tag.viewnext()
+	elseif direction == "up" then
+		awesome.emit_signal("widget::preview")
+	elseif direction == "down" then
+		awesome.emit_signal("widget::preview:hide")
+	end
+end)

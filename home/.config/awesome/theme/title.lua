@@ -53,19 +53,23 @@ client.connect_signal("request::titlebars", function(c)
 	local function titlebutton(action, run)
 		local img = gears.color.recolor_image(iconpath .. action .. ".png", beautiful.bgmid)
 		local button = wibox.widget {
-			image = gears.color.recolor_image(img, beautiful.fg.."40"),
+			{
+				id = "image",
+				image = gears.color.recolor_image(img, beautiful.fg.."40"),
+				widget = wibox.widget.imagebox
+			},
 			buttons = {
 				awful.button({}, 1, run)
 			},
-			widget = wibox.widget.imagebox
+			widget = wibox.widget.background
 		}
 
 		local function update()
 			local img = gears.color.recolor_image(iconpath .. action .. ".png", beautiful.bgmid)
 			if client.focus == c then
-				button.image = gears.color.recolor_image(img, beautiful.fg)
+				button:get_children_by_id("image")[1].image = gears.color.recolor_image(img, beautiful.fg)
 			else
-				button.image = gears.color.recolor_image(img, beautiful.fg.."40")
+				button:get_children_by_id("image")[1].image = gears.color.recolor_image(img, beautiful.fg.."40")
 			end
 		end
 
@@ -122,7 +126,7 @@ client.connect_signal("request::titlebars", function(c)
 		widget = wibox.container.background
 	}
 
-	awesome.connect_signal("live::reload", function(c)
+	awesome.connect_signal("live::reload", function()
 		titlebar:set_bg(beautiful.bg)
 		titlebar:set_fg(beautiful.fg)
 		handle:set_bg(beautiful.bg)
