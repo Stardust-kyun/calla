@@ -22,6 +22,12 @@ local separator = wibox.widget {
 	widget = live(wibox.widget.separator, { color = "bgalt" })
 }
 
+if not gears.filesystem.file_readable(gears.filesystem.get_configuration_dir() .. "json/dock.json") then
+	local w = assert(io.open(".config/awesome/json/dock.json", "w"))
+	w:write(require("json"):encode_pretty({}, nil, { pretty = true, indent = "	", align_keys = false, array_newline = true }))
+	w:close()
+end
+
 local r = assert(io.open(".config/awesome/json/dock.json", "r"))
 local t = r:read("*all")
 r:close()
@@ -203,7 +209,7 @@ tasklist = awful.widget.tasklist {
 			end
 		end
 
-		if seen[1] then
+		if seen[1] and pinned[1] then
 			separator.visible = true
 		else
 			separator.visible = false
