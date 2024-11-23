@@ -159,3 +159,7 @@ Calla contains a settings app to configure itself without editing any files. It 
 ## Contact
 
 You can find my contact information on my [website](https://star.is-a.dev/). I also have a [discord server](https://discord.gg/38hQb6V8AW) with help available and updates for when new features are added.
+
+## Stars
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Stardust-kyun/calla&type=Date)](https://star-history.com/#Stardust-kyun/calla&Date)
