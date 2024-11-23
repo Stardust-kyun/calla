@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../ldoc.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="410pt" height="40pt" viewBox="0 0 410 40" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 0 L 99 0 L 99 30 L 0 30 Z M 0 0 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 0 0 L 16 0 L 16 30 L 0 30 Z M 0 0 "/>
+</clipPath>
+<clipPath id="clip3">
+  <path d="M 104 0 L 203 0 L 203 30 L 104 30 Z M 104 0 "/>
+</clipPath>
+<clipPath id="clip4">
+  <path d="M 104 0 L 134 0 L 134 30 L 104 30 Z M 104 0 "/>
+</clipPath>
+<clipPath id="clip5">
+  <path d="M 208 0 L 306 0 L 306 30 L 208 30 Z M 208 0 "/>
+</clipPath>
+<clipPath id="clip6">
+  <path d="M 208 0 L 238 0 L 238 30 L 208 30 Z M 208 0 "/>
+</clipPath>
+<clipPath id="clip7">
+  <path d="M 311 0 L 410 0 L 410 30 L 311 30 Z M 311 0 "/>
+</clipPath>
+<clipPath id="clip8">
+  <path d="M 311 0 L 341 0 L 341 30 L 311 30 Z M 311 0 "/>
+</clipPath>
+</defs>
+<g id="surface2">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 99 0 L 99 30 L 0 30 Z M 0 0 "/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 0 0 L 15 0 L 15 30 L 0 30 Z M 0 0 "/>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 15 0 L 15 30 L 0 30 Z M 0 0 "/>
+</g>
+<g clip-path="url(#clip3)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 99 0 L 99 30 L 0 30 Z M 0 0 " transform="matrix(1,0,0,1,104,0)"/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 111.5 0 L 119 15 L 111.5 30 L 104 15 Z M 111.5 0 "/>
+<g clip-path="url(#clip4)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 7.5 0 L 15 15 L 7.5 30 L 0 15 Z M 7.5 0 " transform="matrix(1,0,0,1,104,0)"/>
+</g>
+<g clip-path="url(#clip5)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 98 0 L 98 30 L 0 30 Z M 0 0 " transform="matrix(1,0,0,1,208,0)"/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 223 15 C 223 19.140625 219.640625 22.5 215.5 22.5 C 211.359375 22.5 208 19.140625 208 15 C 208 10.859375 211.359375 7.5 215.5 7.5 C 219.640625 7.5 223 10.859375 223 15 Z M 223 15 "/>
+<g clip-path="url(#clip6)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 15 15 C 15 19.140625 11.640625 22.5 7.5 22.5 C 3.359375 22.5 0 19.140625 0 15 C 0 10.859375 3.359375 7.5 7.5 7.5 C 11.640625 7.5 15 10.859375 15 15 Z M 15 15 " transform="matrix(1,0,0,1,208,0)"/>
+</g>
+<g clip-path="url(#clip7)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 99 0 L 99 30 L 0 30 Z M 0 0 " transform="matrix(1,0,0,1,311,0)"/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 318.5 0 L 326 30 L 311 30 Z M 318.5 0 "/>
+<g clip-path="url(#clip8)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 7.5 0 L 15 30 L 0 30 Z M 7.5 0 " transform="matrix(1,0,0,1,311,0)"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../ldoc.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110pt" height="40pt" viewBox="0 0 110 40" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 0 L 110 0 L 110 30 L 0 30 Z M 0 0 "/>
+</clipPath>
+</defs>
+<g id="surface2">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 1 15 C 1 13.894531 1.894531 13 3 13 L 107 13 C 108.105469 13 109 13.894531 109 15 C 109 16.105469 108.105469 17 107 17 L 3 17 C 1.894531 17 1 16.105469 1 15 Z M 1 15 "/>
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 2 C 0 0.894531 0.894531 0 2 0 L 106 0 C 107.105469 0 108 0.894531 108 2 C 108 3.105469 107.105469 4 106 4 L 2 4 C 0.894531 4 0 3.105469 0 2 Z M 0 2 " transform="matrix(1,0,0,1,1,13)"/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:1;" d="M 5 15 C 5 9.476562 9.476562 5 15 5 L 70 5 C 75.523438 5 80 9.476562 80 15 C 80 20.523438 75.523438 25 70 25 L 15 25 C 9.476562 25 5 20.523438 5 15 Z M 5 15 "/>
+</g>
+</svg>

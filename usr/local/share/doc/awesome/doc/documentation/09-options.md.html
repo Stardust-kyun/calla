@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Topic 09-options.md - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Command_line">Command line </a></li>
+<li><a href="#Modelines">Modelines </a></li>
+<li><a href="#____shebang__support">#! (shebang) support </a></li>
+<li><a href="#Options_description">Options description </a></li>
+</ul>
+
+
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><strong>Startup options</strong></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h1>Startup options</h1>
+
+<p>This document explains how to control how AwesomeWM behaves before <a href="../sample files/rc.lua.html#">rc.lua</a> is
+executed.</p>
+
+<p><a name="Command_line"></a></p>
+
+<h2>Command line</h2>
+
+<p>AwesomeWM has the following command line options:</p>
+
+<pre>
+Usage: awesome [OPTION]
+  -h, <span class="comment">--help             show help
+</span>  -v, <span class="comment">--version          show version
+</span>  -c, <span class="comment">--config FILE      configuration file to use
+</span>  -f  <span class="comment">--force            ignore modelines and apply the command line arguments
+</span>  -s, <span class="comment">--search DIR       add a directory to the library search path
+</span>  -k, <span class="comment">--check            check configuration file syntax
+</span>  -a, <span class="comment">--no-argb          disable client transparency support
+</span>  -l  <span class="comment">--api-level LEVEL  select a different API support level than the current version
+</span>  -m, <span class="comment">--screen on|off    enable or disable automatic screen creation (default: on)
+</span>  -r, <span class="comment">--replace          replace an existing window manager</span>
+</pre>
+
+
+<p><a name="Modelines"></a></p>
+
+<h2>Modelines</h2>
+
+<p>Usually, AwesomeWM is started using a session manager rather than directly using
+the command line. On top of that, to make <a href="../sample files/rc.lua.html#">rc.lua</a> more portable, it is possible
+to set many of those options directly in your config file. They will be
+interpreted before the Lua virtual machine is started. The keys are:</p>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Name</th>
+  <th align='center'>Has argument</th>
+  <th align='center'>Allow many</th>
+  <th align='center'>Type</th>
+  <th align='center'>Description</th>
+ </tr>
+ <tr><td>search</td><td>Yes</td><td>Yes</td><td>string</td><td>Path where the AwesomeWM core libraries are located</td></tr>
+ <tr><td>no-argb</td><td>No</td><td>No</td><td>N/A</td><td>Disable built-in (real) transparency.</td></tr>
+ <tr><td>api-level</td><td>Yes</td><td>No</td><td>integer</td><td>The config API level.</td></tr>
+ <tr><td>screen</td><td>Yes</td><td>No</td><td>string</td><td>Create the screen before executing <a href="../sample files/rc.lua.html#">rc.lua</a> (<code>on</code> or <code>off</code>)</td></tr>
+ <tr><td>replace</td><td>No</td><td>No</td><td>N/A</td><td>Replace the current window manager.</td></tr>
+</table>
+
+
+<p>A <code>modeline</code> must be near the top of <a href="../sample files/rc.lua.html#">rc.lua</a> and start with <code>&ndash; awesome_mode:</code>.
+The options are separated by <code>:</code>. If an option has a value, it is separated by
+<code>=</code>. The default modeline is:</p>
+
+<pre>
+<span class="comment">-- awesome_mode: api-level=4:screen=on</span>
+</pre>
+
+
+<p>To display more deprecation errors, you can increase the API level by 2:</p>
+
+<pre>
+<span class="comment">-- awesome_mode: api-level=6:screen=on</span>
+</pre>
+
+
+<p><a name="____shebang__support_"></a></p>
+
+<h2>#! (shebang) support.</h2>
+
+<p>It is possible to make some <code>.lua</code> file executable and use the POSIX magic
+prefix (<code>#!</code>, often referred as the shebang operator). AwesomeWM will attempt
+to parse the header. Note that for now UTF-8 paths are not supported. A typical
+file header will look like:</p>
+
+<pre>
+#! /usr/bin/env awesome <span class="comment">--replace
+</span><span class="comment">-- If LuaRocks is installed, make sure that packages installed through it
+</span><span class="comment">-- are found (e.g. lgi). If LuaRocks is not installed, do nothing.
+</span><span class="global">pcall</span>(<span class="global">require</span>, <span class="string">"luarocks.loader"</span>)
+
+<span class="comment">-- Standard awesome library
+</span><span class="keyword">local</span> gears = <span class="global">require</span>(<span class="string">"gears"</span>)
+[... more <span class="backtick"><a href="../sample files/rc.lua.html#">rc.lua</a></span> content ...]
+</pre>
+
+
+<p>Then you can make the script executable with <code>chmod +x</code> and run it.</p>
+
+<p><a name="Options_description"></a></p>
+
+<h2>Options description</h2>
+
+<h3>version (-v)</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>No</td>
+   <td align='center'>No</td></tr>
+ </tr>
+</table>
+
+
+<p>The typical output will look like:</p>
+
+<pre>
+awesome v4.<span class="number">3</span> (Too long)
+  • Compiled against Lua <span class="number">5.1</span>.<span class="number">5</span> (running with Lua <span class="number">5.1</span>)
+  • API level: <span class="number">4</span>
+  • D-Bus support: yes
+  • xcb-errors support: no
+  • execinfo support: yes
+  • xcb-randr version: <span class="number">1.6</span>
+  • LGI version: <span class="number">0.9</span>.<span class="number">2</span>
+  • Transparency enabled: yes
+  • Custom search paths: no
+</pre>
+
+
+<p>The content is useful when reporting a bug.</p>
+
+<h3>config (-c): Alternate config path.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>No</td>
+   <td align='center'>No</td></tr>
+ </tr>
+</table>
+
+
+<p>This option allows to pass an arbitrary Lua file to be used as a config rather
+than <code>~/.config/awesome/rc.lua</code> or <code>/etc/xdg/awesome/rc.lua</code>. It makes zero
+sense in the shebang since you invoke a script directly. It doesn&rsquo;t make sense
+in the modeline either since at that point the file is already being read.</p>
+
+<h3>force (-f): Use the command line arguments even when the modeline disagree.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>No</td>
+   <td align='center'>No</td></tr>
+ </tr>
+</table>
+
+
+<p>Usually, modelines have the final say of which options to enable. This allows
+<a href="../sample files/rc.lua.html#">rc.lua</a> to be portable between computers without have to modify <code>~/.xinitrc</code>
+or your session files. However, sometime, it is useful to override these
+parameters. The most common use case is the to bump the API level to see more
+deprecation warnings.</p>
+
+<h3>search (-s): Add directories to the Lua search paths.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+  </tr>
+ </tr>
+</table>
+
+
+<p>This option allows to add more paths to the Lua search path. It can be used
+to set an alternate version of the core libraries such as <code>awful</code> to make
+upstream patches development easier. It can also be used to point to custom
+modules. It is usually recommended to place custom modules in
+<code>~/.config/awesome/</code> or <code>/usr/share/awesome/lib</code>. Again, this option is mostly
+useful for development.</p>
+
+<h3>check (-k): Check the config <strong>SYNTAX</strong>.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>No</td>
+   <td align='center'>No</td></tr>
+ </tr>
+</table>
+
+
+<p>This option only check if the file is a valid Lua script. It will not check if
+your custom logic makes sense. Even when this option says your config is fine,
+it does <strong>NOT</strong> mean it can load properly. It only means it can be parsed and
+the interpreter can attempt to execute it.</p>
+
+<h3>no-argb (-a): Mitigate buggy graphics drivers.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+  </tr>
+ </tr>
+</table>
+
+
+<p>This option disables the built-in real transparency support. This means
+titlebars and wiboxes can no longer be made fully transparent. If you don&rsquo;t
+use a compositing manager such as <code>compton</code> or <code>picom</code>, this will only improve
+reliability and portability. Transparency is enabled by default and this should
+only be used when your config misbehave with a popular graphics driver. If it
+does, please notify them. The bug is on their side.</p>
+
+<h3>api-level (-l): Force your config to use a different API version.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+  </tr>
+ </tr>
+</table>
+
+
+<p>If you invested a lot of effort into a configuration and a new major version
+is AwesomeWM is released, you might want to postpone having to update everything
+until you are ready to begin using the new features. If the API level is set,
+AwesomeWM will try to honor the behavior and content of the previous APIs.</p>
+
+<p>You can also set this value forward to get notified faster of your usage of
+newly deprecated API and enjoy cutting edge experimental features.</p>
+
+<p>The default API level matches the first component of the AwesomeWM version.
+For example, AwesomeWM v4.3 API level is &ldquo;4&rdquo;. This only goes back to AwesomeWM
+4.0. The older 3.x APIs have been removed.</p>
+
+<h3>screen (-m): Set the screen creation behavior.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+  </tr>
+ </tr>
+</table>
+
+
+<p>This option changes <em>when</em> screen objects are created. In AwesomeWM 4.x, by
+default, they are created before <a href="../sample files/rc.lua.html#">rc.lua</a> is parsed. This is very convenient
+for setup where the number of screen never changes. By creating them before
+<a href="../sample files/rc.lua.html#">rc.lua</a>, it is possible to make many assumptions such as <a href="../input_handling/mouse.html#screen">mouse.screen</a> and
+<code>awful.screen.focused()</code> to always point to a valid screen. This is the <code>on</code>
+behavior. The main downside is that when the number of screen changes or when
+the DPI must be modified, all the automatic magic becomes very inconvenient.</p>
+
+<p>When set to <code>off</code>, the screens are created early when executing <a href="../sample files/rc.lua.html#">rc.lua</a>. This
+has the advantages of sending multiple signals and giving a lot more
+configuration options for features like the DPI or ultra-wide monitor. It also
+make it easier to add and remove screens dynamically since they are fully. In
+the future, the default will be <code>off</code> to allow HiDPI support to be enabled by
+default.
+controllable by Lua code.</p>
+
+<h3>replace (-r): Replace the current window manager with AwesomeWM.</h3>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Command line</th>
+  <th align='center'>Modeline</th>
+  <th align='center'>Shebang</th>
+  <tr>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+   <td align='center'>Yes</td>
+  </tr>
+ </tr>
+</table>
+
+
+<p>If this option is set, AwesomeWM will kill the current window manager (even
+if it is another <a href="../core_components/awesome.html#">awesome</a> instance and replace it. This is disabled by default.</p>
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

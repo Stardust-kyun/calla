@@ -1,0 +1,1378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Coreclassmod gears.timer - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Constructors">Constructors</a></li>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Object_properties">Object properties</a></li>
+<li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Signals">Signals</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><strong>gears.timer</strong></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>gears.timer</code></h1>
+<p>Class to execute code at specific intervals.</p>
+<p></p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">-- Create a widget and update its content using the output of a shell
+-- command every 10 seconds:
+local mybatterybar = wibox.widget {
+    {
+        min_value    = 0,
+        max_value    = 100,
+        value        = 0,
+        paddings     = 1,
+        border_width = 1,
+        forced_width = 50,
+        border_color = &quot;#0000ff&quot;,
+        id           = &quot;mypb&quot;,
+        widget       = wibox.widget.progressbar,
+    },
+    {
+        id           = &quot;mytb&quot;,
+        text         = &quot;100%&quot;,
+        widget       = wibox.widget.textbox,
+    },
+    layout      = wibox.layout.stack,
+    set_battery = function(self, val)
+        self.mytb.text  = tonumber(val)..&quot;%&quot;
+        self.mypb.value = tonumber(val)
+    end,
+}
+
+gears.timer {
+    timeout   = 10,
+    call_now  = true,
+    autostart = true,
+    callback  = function()
+        -- You should read it from `/sys/class/power_supply/` (on Linux)
+        -- instead of spawning a shell. This is only an example.
+        awful.spawn.easy_async(
+            {&quot;sh&quot;, &quot;-c&quot;, &quot;acpi | sed -n &apos;s/^.*, \([0-9]*\)%/\1/p&apos;&quot;},
+            function(out)
+                mybatterybar.battery = out
+            end
+        )
+    end
+}
+</pre>
+    </ul>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2014 Uli Schlachter</li>
+                <li>
+                    <strong>Originally authored by</strong>: Uli Schlachter<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Constructors">Constructors</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#gears.timer">gears.timer <span class='function_named_args'><b>{</b>[args]<b>}</b></span></a>
+      </td>
+      <td class="summary">
+        Create a new timer object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#start_new"><span class='function_modname'>gears.timer.</span>start_new <span class='function_args'> <b>(</b>timeout, callback<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;timer</span></span>
+      </td>
+      <td class="summary">
+        Create a simple timer for calling the <code>callback</code> function continuously.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#weak_start_new"><span class='function_modname'>gears.timer.</span>weak_start_new <span class='function_args'> <b>(</b>timeout, callback<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;timer</span></span>
+      </td>
+      <td class="summary">
+        Create a simple timer for calling the <code>callback</code> function continuously.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#run_delayed_calls_now"><span class='function_modname'>gears.timer.</span>run_delayed_calls_now <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Run all pending delayed calls now.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#delayed_call"><span class='function_modname'>gears.timer.</span>delayed_call <span class='function_args'> <b>(</b>callback, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Call the given function at the end of the current GLib event loop iteration.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_properties">Object properties</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#started">started</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        The timer is started.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#timeout">timeout</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        The timer timeout value in seconds.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_methods">Object methods </a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#start">:start <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Start the timer.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stop">:stop <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Stop the timer.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#again">:again <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Restart the timer.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#emit_signal">:emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emit a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#connect_signal">:connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#weak_connect_signal">:weak_connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal weakly.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#start">start</a>
+      </td>
+      <td class="summary">
+        Emitted when the timer is started.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stop">stop</a>
+      </td>
+      <td class="summary">
+        Emitted when the timer is stopped.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#timeout">timeout</a>
+      </td>
+      <td class="summary">
+        Emitted when <a href="../core_components/gears.timer.html#timeout">timeout</a> seconds have elapsed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#timer"><span class='function_modname'>gears.timer.</span>timer</a>
+      </td>
+      <td class="summary">
+        Timer objects.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="gears.timer" href="#gears.timer">&#128279;</a>
+    <strong>gears.timer <span class='function_named_args'><b>{</b>[args]<b>}</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a new timer object.</p>
+
+<p> <code>call_now</code> only takes effect when a <code>callback</code> is provided. <code>single_shot</code>,
+ on the other hand, also stops signals connected to the <a href="../core_components/gears.timer.html#timeout">timeout</a> signal.</p>
+
+<p> Specifying a function <code>func</code> as <code>args.callback</code> is equivalent to calling
+ <code>:connect_signal(func)</code> on the timer object.
+
+    <h3>Parameters:</h3>
+        <div class="important_box">
+          <b>Note:</b> This constructors uses named parameters calling convention. It
+          means you call it with <code>{}</code> and omit the parantheses. For example,
+          calling this will all default argument would be <code>gears.timer{}</code>.
+          This is a Lua shortcut syntax equivalent to <code>gears.timer({})</code>.
+          <code>args</code> is only a placeholder name for the "lone table argument"
+          used in named parameters calls.
+        </div>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+        <tr>
+           <td><span class="parameter">args</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Arguments. </td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">timeout</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Timeout in seconds (e.g. <code>1.5</code>).</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">autostart</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Immediately start the timer countdown.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">call_now</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Immediately call the callback function.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Callback function to connect to the
+  &ldquo;timeout&rdquo; signal.</td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">single_shot</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Run only once then stop.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../core_components/gears.timer.html#timer">timer</a></span>
+
+    </ol>
+
+
+
+
+
+    <span id=item1275 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="start_new" href="#start_new">&#128279;</a>
+    <strong><span class='function_modname'>gears.timer.</span>start_new <span class='function_args'> <b>(</b>timeout, callback<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;timer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a simple timer for calling the <code>callback</code> function continuously.</p>
+
+<p> This is a small wrapper around <a href="../core_components/gears.timer.html#">gears.timer</a>, that creates a timer based on
+ <code>callback</code>.
+ The timer will run continuously and call <code>callback</code> every <a href="../core_components/gears.timer.html#timeout">timeout</a> seconds.
+ It is stopped when <code>callback</code> returns <code>false</code>, when <code>callback</code> throws an
+ error or when the <code>:stop()</code> method is called on the return value.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">timeout</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Timeout in seconds (e.g. 1.5).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function to run.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../core_components/gears.timer.html#timer">timer</a></span>
+        The new timer object.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/gears.timer.html#weak_start_new" title="In the gears.timer module.">gears.timer.weak_start_new</a></td>
+         <td>Create a simple timer for calling the <code>callback</code> function continuously. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1276 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="weak_start_new" href="#weak_start_new">&#128279;</a>
+    <strong><span class='function_modname'>gears.timer.</span>weak_start_new <span class='function_args'> <b>(</b>timeout, callback<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;timer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a simple timer for calling the <code>callback</code> function continuously.</p>
+
+<p> This function is almost identical to <a href="../core_components/gears.timer.html#start_new">gears.timer.start_new</a>. The only
+ difference is that this does not prevent the callback function from being
+ garbage collected.
+ In addition to the conditions in <a href="../core_components/gears.timer.html#start_new">gears.timer.start_new</a>,
+ this timer will also stop if <code>callback</code> was garbage collected since the
+ previous run.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">timeout</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Timeout in seconds (e.g. 1.5).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function to start.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../core_components/gears.timer.html#timer">timer</a></span>
+        The new timer object.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/gears.timer.html#start_new" title="In the gears.timer module.">gears.timer.start_new</a></td>
+         <td>Create a simple timer for calling the <code>callback</code> function continuously. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1277 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="run_delayed_calls_now" href="#run_delayed_calls_now">&#128279;</a>
+    <strong><span class='function_modname'>gears.timer.</span>run_delayed_calls_now <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Run all pending delayed calls now.  This function should best not be used at
+ all, because it means that less batching happens and the delayed calls run
+ prematurely.
+
+
+
+
+
+
+
+    <span id=item1278 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="delayed_call" href="#delayed_call">&#128279;</a>
+    <strong><span class='function_modname'>gears.timer.</span>delayed_call <span class='function_args'> <b>(</b>callback, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Call the given function at the end of the current GLib event loop iteration.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The function that should be called</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Arguments to the callback function</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1279 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="started" href="#started">&#128279;</a>
+    <strong>started</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The timer is started.</p>
+
+<p> For this to be <code>true</code> by default, pass <code>autostart</code> to the constructor.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/gears.timer.html#start" title="In the gears.timer module.">start</a></td>
+         <td>Emitted when the timer is started. </td>
+         <td>
+             <span class="chips">signals</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/gears.timer.html#stop" title="In the gears.timer module.">stop</a></td>
+         <td>Emitted when the timer is stopped. </td>
+         <td>
+             <span class="chips">signals</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1280 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="timeout" href="#timeout">&#128279;</a>
+    <strong>timeout</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    The timer timeout value in seconds.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Unit
+         </i>
+        </td>
+        <td>: second</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+     <br />
+     <center id=button1281>
+     <a class="show_more_button" onclick="show_extra('1281')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1281 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::timeout</code></span>  When the <a href="../core_components/gears.timer.html#timeout">timeout</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../core_components/gears.timer.html#">gears.timer</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../core_components/gears.timer.html#timeout">timeout</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="start" href="#start">&#128279;</a>
+    <strong>:start <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    Start the timer.
+
+
+
+
+
+
+     <br />
+     <center id=button1282>
+     <a class="show_more_button" onclick="show_extra('1282')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1282 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><a href="../core_components/gears.timer.html#start">start</a></span>  </li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop" href="#stop">&#128279;</a>
+    <strong>:stop <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    Stop the timer.</p>
+
+<p> Does nothing if the timer isn&rsquo;t running.
+
+
+
+
+
+
+     <br />
+     <center id=button1283>
+     <a class="show_more_button" onclick="show_extra('1283')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1283 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><a href="../core_components/gears.timer.html#stop">stop</a></span>  </li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="again" href="#again">&#128279;</a>
+    <strong>:again <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 2 signals
+    </span>
+    </dt>
+    <dd>
+    Restart the timer.
+ This is equivalent to stopping the timer if it is running and then starting
+ it.
+
+
+
+
+
+
+     <br />
+     <center id=button1284>
+     <a class="show_more_button" onclick="show_extra('1284')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1284 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><a href="../core_components/gears.timer.html#start">start</a></span>  </li>
+
+          <li><span class="parameter"><a href="../core_components/gears.timer.html#stop">stop</a></span>  </li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="emit_signal" href="#emit_signal">&#128279;</a>
+    <strong>:emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Emit a signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Extra arguments for the callback functions. Each connected
+   function receives the object as first argument and then any extra
+   arguments that are given to emit_signal().</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1285 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="connect_signal" href="#connect_signal">&#128279;</a>
+    <strong>:connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Connect to a signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback to call when the signal is emitted.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1286 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="weak_connect_signal" href="#weak_connect_signal">&#128279;</a>
+    <strong>:weak_connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Connect to a signal weakly.</p>
+
+<p> This allows the callback function to be garbage collected and
+ automatically disconnects the signal when that happens.</p>
+
+<p> <strong>Warning:</strong>
+ Only use this function if you really, really, really know what you
+ are doing.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback to call when the signal is emitted.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1287 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="start" href="#start">&#128279;</a>
+    <strong>start</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when the timer is started.
+
+
+
+
+
+
+
+    <span id=item1288 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop" href="#stop">&#128279;</a>
+    <strong>stop</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when the timer is stopped.
+
+
+
+
+
+
+
+    <span id=item1289 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="timeout" href="#timeout">&#128279;</a>
+    <strong>timeout</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when <a href="../core_components/gears.timer.html#timeout">timeout</a> seconds have elapsed.</p>
+
+<p> This will be emitted repeatedly, unless <code>single_shot</code> has been set to <code>true</code>
+ for the timer.
+
+
+
+
+
+
+
+    <span id=item1290 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="timer" href="#timer">&#128279;</a>
+    <strong><span class='function_modname'>gears.timer.</span>timer</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Timer objects.  This type of object is useful when triggering events repeatedly.</p>
+
+<p> The timer will emit the &ldquo;timeout&rdquo; signal every N seconds, N being the timeout
+ value. Note that a started timer will not be garbage collected. Call <code>:stop</code>
+ before dropping the last reference to prevent leaking the object.
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">timeout</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Interval in seconds to emit the timeout signal.
+   Can be any value, including floating point ones (e.g. <code>1.5</code> seconds).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">started</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Read-only boolean field indicating if the timer has been
+   started.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1291 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

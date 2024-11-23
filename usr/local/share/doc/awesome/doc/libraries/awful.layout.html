@@ -1,0 +1,2763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Module awful.layout - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Request_handlers">Request handlers</a></li>
+<li><a href="#Theme_variables">Theme variables</a></li>
+<li><a href="#Client_layouts">Client layouts</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><strong>awful.layout</strong></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>awful.layout</code></h1>
+<p>Deterministically lay the clients in a screen workarea.</p>
+<p> The <a href="../libraries/awful.layout.html#">awful.layout</a> module contains many sub-modules. Each of them contain
+ one or more layout. <a href="../libraries/awful.layout.html#">awful.layout</a> offers static layouts rather than
+ tree based like other WMs. The layout have a small number of configuration
+ variables:</p>
+
+<ul>
+<li><code>master_width_factor</code>: The ratio between the main (master) section of the
+layout and a sub-section. For example, in the <code>tile.left</code> layout, the main
+(master) part contains <code>master_count</code> clients and the secondary part contains
+all other clients.</li>
+<li><code>master_count</code>: The number of clients which belong to the main (master) area.</li>
+<li><code>column_count</code>: The number of columns to store the clients in the secondary
+area.</li>
+<li><code>master_fill_policy</code>: When the number of clients is below <code>master_count</code>,
+how is the remaining space used.</li>
+<li><code>gaps</code>: The empty space between the clients.</li>
+<li><code>gap_single_client</code>: Same as gap, but when there is a single client. Gaps
+are often useful as a visual cue to know where a client starts and ends.
+This makes no sense when there is only one.</li>
+</ul>
+
+
+<p> Not all layouts make use of all variables. Having such an overloaded meaning
+ to a small set of variable is useful to attach those values to keybindings
+ without having special logic for each layouts. AwesomeWM keybindings are not
+ modal, so such &ldquo;limitation&rdquo; actually improves usability.</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2008 Julien Danjou</li>
+                <li>
+                    <strong>Originally authored by</strong>: Julien Danjou &lt;julien@danjou.info&gt;<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.get_tag_layout_index"><span class='function_modname'>awful.layout.</span>get_tag_layout_index <span class='function_args'> <b>(</b>t<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;nil <i>or</i> number</span></span>
+      </td>
+      <td class="summary">
+        Return the tag layout index (from <a href="../libraries/awful.layout.html#awful.layout.layouts">awful.layout.layouts</a>).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.get"><span class='function_modname'>awful.layout.</span>get <span class='function_args'> <b>(</b>screen<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Get the current layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.inc"><span class='function_modname'>awful.layout.</span>inc <span class='function_args'> <b>(</b>i, s, <span class="optional_param">layouts</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Change the layout of the current tag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.set"><span class='function_modname'>awful.layout.</span>set <span class='function_args'> <b>(</b>l, <span class="optional_param">t</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set the layout function of the current tag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.parameters"><span class='function_modname'>awful.layout.</span>parameters <span class='function_args'> <b>(</b><span class="optional_param">t</span>, <span class="optional_param">screen</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+      </td>
+      <td class="summary">
+        Get the layout parameters used for the screen</p>
+
+<p> This should give the same result as &ldquo;arrange&rdquo;, but without the &ldquo;geometries&rdquo;
+ parameter, as this is computed during arranging.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.arrange"><span class='function_modname'>awful.layout.</span>arrange <span class='function_args'> <b>(</b>screen<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Arrange a screen using its current layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.append_default_layout"><span class='function_modname'>awful.layout.</span>append_default_layout <span class='function_args'> <b>(</b>to_add<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Append a layout to the list of default tag layouts.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.remove_default_layout"><span class='function_modname'>awful.layout.</span>remove_default_layout <span class='function_args'> <b>(</b>to_remove<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Remove a layout from the list of default layouts.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.append_default_layouts"><span class='function_modname'>awful.layout.</span>append_default_layouts <span class='function_args'> <b>(</b>layouts<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Append many layouts to the list of default tag layouts.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.getname"><span class='function_modname'>awful.layout.</span>getname <span class='function_args'> <b>(</b>_layout<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Get the current layout name.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Request_handlers">Request handlers</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.move_handler"><span class='function_modname'>awful.layout.</span>move_handler <span class='function_args'> <b>(</b>c, context, hints<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Default handler for <code>request::geometry</code> signals for tiled clients with
+ the &ldquo;mouse.move&rdquo; context.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Theme_variables">Theme variables</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_cornernw">beautiful.layout_cornernw</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The cornernw layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_cornerne">beautiful.layout_cornerne</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The cornerne layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_cornersw">beautiful.layout_cornersw</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The cornersw layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_cornerse">beautiful.layout_cornerse</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The cornerse layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_fairh">beautiful.layout_fairh</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The fairh layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_fairv">beautiful.layout_fairv</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The fairv layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_floating">beautiful.layout_floating</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The floating layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_magnifier">beautiful.layout_magnifier</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The magnifier layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_max">beautiful.layout_max</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The max layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_fullscreen">beautiful.layout_fullscreen</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The fullscreen layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_spiral">beautiful.layout_spiral</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The spiral layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_dwindle">beautiful.layout_dwindle</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The dwindle layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_tile">beautiful.layout_tile</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The tile layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_tiletop">beautiful.layout_tiletop</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The tile top layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_tilebottom">beautiful.layout_tilebottom</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The tile bottom layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.layout_tileleft">beautiful.layout_tileleft</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>surface</span></td>
+      <td class="summary">
+        The tile left layout layoutbox icon.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Client_layouts">Client layouts</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.corner.nw"><span class='function_modname'>awful.layout.</span>suit.corner.nw</a>
+      </td>
+      <td class="summary">
+        Corner layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.corner.ne"><span class='function_modname'>awful.layout.</span>suit.corner.ne</a>
+      </td>
+      <td class="summary">
+        Corner layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.corner.sw"><span class='function_modname'>awful.layout.</span>suit.corner.sw</a>
+      </td>
+      <td class="summary">
+        Corner layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.corner.se"><span class='function_modname'>awful.layout.</span>suit.corner.se</a>
+      </td>
+      <td class="summary">
+        Corner layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.fair"><span class='function_modname'>awful.layout.</span>suit.fair</a>
+      </td>
+      <td class="summary">
+        The fair layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.fair.horizontal"><span class='function_modname'>awful.layout.</span>suit.fair.horizontal</a>
+      </td>
+      <td class="summary">
+        The horizontal fair layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.floating"><span class='function_modname'>awful.layout.</span>suit.floating</a>
+      </td>
+      <td class="summary">
+        The floating layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.magnifier"><span class='function_modname'>awful.layout.</span>suit.magnifier</a>
+      </td>
+      <td class="summary">
+        The magnifier layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.max"><span class='function_modname'>awful.layout.</span>suit.max</a>
+      </td>
+      <td class="summary">
+        Maximized layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.max.fullscreen"><span class='function_modname'>awful.layout.</span>suit.max.fullscreen</a>
+      </td>
+      <td class="summary">
+        Fullscreen layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.spiral.dwindle"><span class='function_modname'>awful.layout.</span>suit.spiral.dwindle</a>
+      </td>
+      <td class="summary">
+        Dwindle layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.spiral.name"><span class='function_modname'>awful.layout.</span>suit.spiral.name</a>
+      </td>
+      <td class="summary">
+        Spiral layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.tile.right"><span class='function_modname'>awful.layout.</span>suit.tile.right</a>
+      </td>
+      <td class="summary">
+        The main tile algo, on the right.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.tile.left"><span class='function_modname'>awful.layout.</span>suit.tile.left</a>
+      </td>
+      <td class="summary">
+        The main tile algo, on the left.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.tile.bottom"><span class='function_modname'>awful.layout.</span>suit.tile.bottom</a>
+      </td>
+      <td class="summary">
+        The main tile algo, on the bottom.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.layout.suit.tile.top"><span class='function_modname'>awful.layout.</span>suit.tile.top</a>
+      </td>
+      <td class="summary">
+        The main tile algo, on the top.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#awful.layout.layouts"><span class='function_modname'>awful.layout.</span>layouts</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>N/A</span></td>
+      <td class="summary">
+        The default list of layouts.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#floating.resize_jump_to_corner"><span class='function_modname'>awful.layout.</span>floating.resize_jump_to_corner</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>N/A</span></td>
+      <td class="summary">
+        Jump mouse cursor to the client&rsquo;s corner when resizing it.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#tile.resize_jump_to_corner"><span class='function_modname'>awful.layout.</span>tile.resize_jump_to_corner</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>N/A</span></td>
+      <td class="summary">
+        Jump mouse cursor to the client&rsquo;s corner when resizing it.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.get_tag_layout_index" href="#awful.layout.get_tag_layout_index">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>get_tag_layout_index <span class='function_args'> <b>(</b>t<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;nil <i>or</i> number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Return the tag layout index (from <a href="../libraries/awful.layout.html#awful.layout.layouts">awful.layout.layouts</a>).</p>
+
+<p> If the layout isn&rsquo;t part of <a href="../libraries/awful.layout.html#awful.layout.layouts">awful.layout.layouts</a>, this function returns
+ nil.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">t</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">tag</span></span></td>
+           <td class="see_also_description"> The tag.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span> or <span class="type">number</span></span>
+        The layout index.
+    </ol>
+
+
+
+
+
+    <span id=item218 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.get" href="#awful.layout.get">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>get <span class='function_args'> <b>(</b>screen<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the current layout.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">screen</span></span></td>
+           <td class="see_also_description"> The screen.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The layout function.
+    </ol>
+
+
+
+
+
+    <span id=item219 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.inc" href="#awful.layout.inc">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>inc <span class='function_args'> <b>(</b>i, s, <span class="optional_param">layouts</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Change the layout of the current tag.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">i</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Relative index.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">s</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">screen</span></span></td>
+           <td class="see_also_description"> The screen.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">layouts</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> A table of layouts.</td>
+           <td><span class="default_value"><code>s.selected_tag.layouts</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item220 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.set" href="#awful.layout.set">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>set <span class='function_args'> <b>(</b>l, <span class="optional_param">t</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the layout function of the current tag.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">l</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">layout</span> or <span class="type">function</span></span></td>
+           <td class="see_also_description"> Layout object or function.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">t</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">tag</span></span></td>
+           <td class="see_also_description"> The tag to modify.</td>
+           <td><span class="default_value"><code>mouse.screen.selected_tag</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item221 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.parameters" href="#awful.layout.parameters">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>parameters <span class='function_args'> <b>(</b><span class="optional_param">t</span>, <span class="optional_param">screen</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the layout parameters used for the screen</p>
+
+<p> This should give the same result as &ldquo;arrange&rdquo;, but without the &ldquo;geometries&rdquo;
+ parameter, as this is computed during arranging.</p>
+
+<p> If <code>t</code> is given, <a href="../core_components/screen.html#">screen</a> is ignored, if none are given, the mouse screen is
+ used.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">t</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">tag</span></span></td>
+           <td class="see_also_description"> The tag to query</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The screen</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+         A table with the workarea (x, y, width, height), the screen
+   geometry (x, y, width, height), the clients, the screen and sometime, a
+   &ldquo;geometries&rdquo; table with client as keys and geometry as value
+    </ol>
+
+
+
+
+
+    <span id=item222 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.arrange" href="#awful.layout.arrange">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>arrange <span class='function_args'> <b>(</b>screen<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Arrange a screen using its current layout.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">screen</span></span></td>
+           <td class="see_also_description"> The screen to arrange.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item223 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.append_default_layout" href="#awful.layout.append_default_layout">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>append_default_layout <span class='function_args'> <b>(</b>to_add<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Append a layout to the list of default tag layouts.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">to_add</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">layout</span></span></td>
+           <td class="see_also_description"> A valid tag layout.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/awful.layout.html#awful.layout.layouts" title="In the awful.layout module.">awful.layout.layouts</a></td>
+         <td>The default list of layouts. </td>
+         <td>
+             <span class="chips">fields</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item224 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.remove_default_layout" href="#awful.layout.remove_default_layout">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>remove_default_layout <span class='function_args'> <b>(</b>to_remove<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>Remove a layout from the list of default layouts.</p>
+
+<p><strong>Usage example output</strong>:</p>
+
+<pre><code>Before: floating
+Before: tile
+Before: max
+After:  floating
+After:  max
+</code></pre>
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">to_remove</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">layout</span></span></td>
+           <td class="see_also_description"> A valid tag layout.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the layout was found and removed.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/awful.layout.html#awful.layout.layouts" title="In the awful.layout module.">awful.layout.layouts</a></td>
+         <td>The default list of layouts. </td>
+         <td>
+             <span class="chips">fields</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">awful.layout.append_default_layouts({
+    awful.layout.suit.floating,
+    awful.layout.suit.tile,
+    awful.layout.suit.max,
+})
+<span class="keyword">for</span> _, l <span class="keyword">in</span> <span class="global">ipairs</span>(awful.layout.layouts) <span class="keyword">do</span>
+    <span class="global">print</span>(<span class="string">"Before:"</span>, l.name)
+<span class="keyword">end</span>
+
+awful.layout.remove_default_layout(awful.layout.suit.tile)
+
+<span class="keyword">for</span> _, l <span class="keyword">in</span> <span class="global">ipairs</span>(awful.layout.layouts) <span class="keyword">do</span>
+    <span class="global">print</span>(<span class="string">"After:"</span>, l.name)
+<span class="keyword">end</span></pre>
+    </ul>
+
+
+    <span id=item225 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.append_default_layouts" href="#awful.layout.append_default_layouts">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>append_default_layouts <span class='function_args'> <b>(</b>layouts<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Append many layouts to the list of default tag layouts.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">layouts</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> A table of valid tag layout.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/awful.layout.html#awful.layout.layouts" title="In the awful.layout module.">awful.layout.layouts</a></td>
+         <td>The default list of layouts. </td>
+         <td>
+             <span class="chips">fields</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item226 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.getname" href="#awful.layout.getname">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>getname <span class='function_args'> <b>(</b>_layout<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the current layout name.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">_layout</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The layout.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The layout name.
+    </ol>
+
+
+
+
+
+    <span id=item227 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Request_handlers"></a>Request handlers</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.move_handler" href="#awful.layout.move_handler">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>move_handler <span class='function_args'> <b>(</b>c, context, hints<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Default handler for <code>request::geometry</code> signals for tiled clients with
+ the &ldquo;mouse.move&rdquo; context.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">client</span></span></td>
+           <td class="see_also_description"> The client</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">context</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The context</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">hints</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> Additional hints</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item228 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Theme_variables"></a>Theme variables</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_cornernw" href="#beautiful.layout_cornernw">&#128279;</a>
+    <strong>beautiful.layout_cornernw</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The cornernw layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button229>
+     <a class="show_more_button" onclick="show_extra('229')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item229 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.corner.nw">awful.layout.suit.corner.nw</a> Corner layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_cornerne" href="#beautiful.layout_cornerne">&#128279;</a>
+    <strong>beautiful.layout_cornerne</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The cornerne layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button230>
+     <a class="show_more_button" onclick="show_extra('230')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item230 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.corner.ne">awful.layout.suit.corner.ne</a> Corner layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_cornersw" href="#beautiful.layout_cornersw">&#128279;</a>
+    <strong>beautiful.layout_cornersw</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The cornersw layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button231>
+     <a class="show_more_button" onclick="show_extra('231')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item231 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.corner.sw">awful.layout.suit.corner.sw</a> Corner layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_cornerse" href="#beautiful.layout_cornerse">&#128279;</a>
+    <strong>beautiful.layout_cornerse</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The cornerse layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button232>
+     <a class="show_more_button" onclick="show_extra('232')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item232 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.corner.se">awful.layout.suit.corner.se</a> Corner layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_fairh" href="#beautiful.layout_fairh">&#128279;</a>
+    <strong>beautiful.layout_fairh</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The fairh layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button233>
+     <a class="show_more_button" onclick="show_extra('233')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item233 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.fair.horizontal">awful.layout.suit.fair.horizontal</a> The horizontal fair layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_fairv" href="#beautiful.layout_fairv">&#128279;</a>
+    <strong>beautiful.layout_fairv</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The fairv layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button234>
+     <a class="show_more_button" onclick="show_extra('234')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item234 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.fair">awful.layout.suit.fair</a> The fair layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_floating" href="#beautiful.layout_floating">&#128279;</a>
+    <strong>beautiful.layout_floating</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The floating layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button235>
+     <a class="show_more_button" onclick="show_extra('235')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item235 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.floating">awful.layout.suit.floating</a> The floating layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_magnifier" href="#beautiful.layout_magnifier">&#128279;</a>
+    <strong>beautiful.layout_magnifier</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The magnifier layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button236>
+     <a class="show_more_button" onclick="show_extra('236')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item236 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.magnifier">awful.layout.suit.magnifier</a> The magnifier layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_max" href="#beautiful.layout_max">&#128279;</a>
+    <strong>beautiful.layout_max</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The max layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button237>
+     <a class="show_more_button" onclick="show_extra('237')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item237 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.max">awful.layout.suit.max</a> Maximized layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_fullscreen" href="#beautiful.layout_fullscreen">&#128279;</a>
+    <strong>beautiful.layout_fullscreen</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The fullscreen layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button238>
+     <a class="show_more_button" onclick="show_extra('238')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item238 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.max.fullscreen">awful.layout.suit.max.fullscreen</a> Fullscreen layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_spiral" href="#beautiful.layout_spiral">&#128279;</a>
+    <strong>beautiful.layout_spiral</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The spiral layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button239>
+     <a class="show_more_button" onclick="show_extra('239')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item239 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.spiral.name">awful.layout.suit.spiral.name</a> Spiral layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_dwindle" href="#beautiful.layout_dwindle">&#128279;</a>
+    <strong>beautiful.layout_dwindle</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The dwindle layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button240>
+     <a class="show_more_button" onclick="show_extra('240')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item240 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.spiral.dwindle">awful.layout.suit.spiral.dwindle</a> Dwindle layout.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_tile" href="#beautiful.layout_tile">&#128279;</a>
+    <strong>beautiful.layout_tile</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The tile layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button241>
+     <a class="show_more_button" onclick="show_extra('241')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item241 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.tile.right">awful.layout.suit.tile.right</a> The main tile algo, on the right.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_tiletop" href="#beautiful.layout_tiletop">&#128279;</a>
+    <strong>beautiful.layout_tiletop</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The tile top layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button242>
+     <a class="show_more_button" onclick="show_extra('242')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item242 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.tile.top">awful.layout.suit.tile.top</a> The main tile algo, on the top.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_tilebottom" href="#beautiful.layout_tilebottom">&#128279;</a>
+    <strong>beautiful.layout_tilebottom</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The tile bottom layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button243>
+     <a class="show_more_button" onclick="show_extra('243')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item243 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.tile.bottom">awful.layout.suit.tile.bottom</a> The main tile algo, on the bottom.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.layout_tileleft" href="#beautiful.layout_tileleft">&#128279;</a>
+    <strong>beautiful.layout_tileleft</strong>
+    <span class="proptype"><span class='summary_type'>surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The tile left layout layoutbox icon.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.surface.html#" title="In the gears.surface module.">gears.surface</a></td>
+         <td>Utilities to integrate and manipulate Cairo drawing surfaces. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button244>
+     <a class="show_more_button" onclick="show_extra('244')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item244 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../libraries/awful.layout.html#awful.layout.suit.tile.left">awful.layout.suit.tile.left</a> The main tile algo, on the left.</li>
+
+     </ul>
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Client_layouts"></a>Client layouts</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.corner.nw" href="#awful.layout.suit.corner.nw">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.corner.nw</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Corner layout.
+ Display master client in a corner of the screen, and slaves in one
+ column and one row around the master.
+
+
+
+
+
+
+     <br />
+     <center id=button245>
+     <a class="show_more_button" onclick="show_extra('245')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item245 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_cornernw">beautiful.layout_cornernw</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.corner.ne" href="#awful.layout.suit.corner.ne">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.corner.ne</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Corner layout.
+ Display master client in a corner of the screen, and slaves in one
+ column and one row around the master.
+
+
+
+
+
+
+     <br />
+     <center id=button246>
+     <a class="show_more_button" onclick="show_extra('246')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item246 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_cornerne">beautiful.layout_cornerne</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.corner.sw" href="#awful.layout.suit.corner.sw">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.corner.sw</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Corner layout.
+ Display master client in a corner of the screen, and slaves in one
+ column and one row around the master.
+
+
+
+
+
+
+     <br />
+     <center id=button247>
+     <a class="show_more_button" onclick="show_extra('247')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item247 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_cornersw">beautiful.layout_cornersw</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.corner.se" href="#awful.layout.suit.corner.se">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.corner.se</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Corner layout.
+ Display master client in a corner of the screen, and slaves in one
+ column and one row around the master.
+
+
+
+
+
+
+     <br />
+     <center id=button248>
+     <a class="show_more_button" onclick="show_extra('248')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item248 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_cornerse">beautiful.layout_cornerse</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.fair" href="#awful.layout.suit.fair">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.fair</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The fair layout.
+ Try to give all clients the same size.
+
+
+
+
+
+
+     <br />
+     <center id=button249>
+     <a class="show_more_button" onclick="show_extra('249')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item249 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_fairv">beautiful.layout_fairv</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.fair.horizontal" href="#awful.layout.suit.fair.horizontal">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.fair.horizontal</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The horizontal fair layout.
+ Try to give all clients the same size.
+
+
+
+
+
+
+     <br />
+     <center id=button250>
+     <a class="show_more_button" onclick="show_extra('250')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item250 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_fairh">beautiful.layout_fairh</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.floating" href="#awful.layout.suit.floating">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.floating</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The floating layout.
+
+
+
+
+
+
+     <br />
+     <center id=button251>
+     <a class="show_more_button" onclick="show_extra('251')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item251 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_floating">beautiful.layout_floating</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.magnifier" href="#awful.layout.suit.magnifier">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.magnifier</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The magnifier layout.
+
+
+
+
+
+
+     <br />
+     <center id=button252>
+     <a class="show_more_button" onclick="show_extra('252')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item252 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_magnifier">beautiful.layout_magnifier</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.max" href="#awful.layout.suit.max">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.max</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Maximized layout.
+
+
+
+
+
+
+     <br />
+     <center id=button253>
+     <a class="show_more_button" onclick="show_extra('253')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item253 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_max">beautiful.layout_max</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.max.fullscreen" href="#awful.layout.suit.max.fullscreen">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.max.fullscreen</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Fullscreen layout.
+
+
+
+
+
+
+     <br />
+     <center id=button254>
+     <a class="show_more_button" onclick="show_extra('254')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item254 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_fullscreen">beautiful.layout_fullscreen</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.spiral.dwindle" href="#awful.layout.suit.spiral.dwindle">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.spiral.dwindle</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Dwindle layout.
+
+
+
+
+
+
+     <br />
+     <center id=button255>
+     <a class="show_more_button" onclick="show_extra('255')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item255 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_dwindle">beautiful.layout_dwindle</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.spiral.name" href="#awful.layout.suit.spiral.name">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.spiral.name</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    Spiral layout.
+
+
+
+
+
+
+     <br />
+     <center id=button256>
+     <a class="show_more_button" onclick="show_extra('256')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item256 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_spiral">beautiful.layout_spiral</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.tile.right" href="#awful.layout.suit.tile.right">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.tile.right</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The main tile algo, on the right.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The screen number to tile.</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button257>
+     <a class="show_more_button" onclick="show_extra('257')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item257 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_tile">beautiful.layout_tile</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.tile.left" href="#awful.layout.suit.tile.left">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.tile.left</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The main tile algo, on the left.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The screen number to tile.</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button258>
+     <a class="show_more_button" onclick="show_extra('258')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item258 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_tileleft">beautiful.layout_tileleft</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.tile.bottom" href="#awful.layout.suit.tile.bottom">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.tile.bottom</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The main tile algo, on the bottom.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The screen number to tile.</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button259>
+     <a class="show_more_button" onclick="show_extra('259')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item259 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_tilebottom">beautiful.layout_tilebottom</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.suit.tile.top" href="#awful.layout.suit.tile.top">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>suit.tile.top</strong>
+    <span class="baseclass" >
+         &middot 1 theme variable
+    </span>
+    </dt>
+    <dd>
+    The main tile algo, on the top.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The screen number to tile.</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button260>
+     <a class="show_more_button" onclick="show_extra('260')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item260 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../libraries/awful.layout.html#beautiful.layout_tiletop">beautiful.layout_tiletop</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.layout.layouts" href="#awful.layout.layouts">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>layouts</strong>
+    <span class="proptype"><span class='summary_type'>N/A</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>The default list of layouts.</p>
+
+<p> The default value is:</p>
+
+<pre><code>awful.layout.suit.floating,
+awful.layout.suit.tile,
+awful.layout.suit.tile.left,
+awful.layout.suit.tile.bottom,
+awful.layout.suit.tile.top,
+awful.layout.suit.fair,
+awful.layout.suit.fair.horizontal,
+awful.layout.suit.spiral,
+awful.layout.suit.spiral.dwindle,
+awful.layout.suit.max,
+awful.layout.suit.max.fullscreen,
+awful.layout.suit.magnifier,
+awful.layout.suit.corner.nw,
+awful.layout.suit.corner.ne,
+awful.layout.suit.corner.sw,
+awful.layout.suit.corner.se,
+</code></pre>
+
+
+
+
+
+
+
+    <span id=item261 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="floating.resize_jump_to_corner" href="#floating.resize_jump_to_corner">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>floating.resize_jump_to_corner</strong>
+    <span class="proptype"><span class='summary_type'>N/A</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Jump mouse cursor to the client&rsquo;s corner when resizing it.
+
+
+
+
+
+
+
+    <span id=item262 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tile.resize_jump_to_corner" href="#tile.resize_jump_to_corner">&#128279;</a>
+    <strong><span class='function_modname'>awful.layout.</span>tile.resize_jump_to_corner</strong>
+    <span class="proptype"><span class='summary_type'>N/A</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Jump mouse cursor to the client&rsquo;s corner when resizing it.
+
+
+
+
+
+
+
+    <span id=item263 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

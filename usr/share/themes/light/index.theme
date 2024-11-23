@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=light
+Comment=base16-defaultlight
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=light
+IconTheme=Papirus
+CursorTheme=Breeze
+ButtonLayout=menu

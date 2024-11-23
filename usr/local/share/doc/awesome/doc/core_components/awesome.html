@@ -1,0 +1,2296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Coreclassmod awesome - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Signals">Signals</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><strong>awesome</strong></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>awesome</code></h1>
+<p>AwesomeWM lifecycle and low-level APIs.</p>
+<p> This module contains the functions and signal to manage the lifecycle of the
+ AwesomeWM process. It allows to execute code at specific point from the early
+ initialization all the way to the last events before exiting or restarting.</p>
+
+<p> Additionally it handles signals for spawn and keyboard related events.</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2008-2009 Julien Danjou</li>
+                <li>
+                    <strong>Originally authored by</strong>: Julien Danjou &lt;julien@danjou.info&gt;<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#register_xproperty"><span class='function_modname'>awesome.</span>register_xproperty <span class='function_args'> <b>(</b>name, type<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Register a new xproperty.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#quit"><span class='function_modname'>awesome.</span>quit <span class='function_args'> <b>(</b><span class="optional_param">code</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Quit awesome.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#exec"><span class='function_modname'>awesome.</span>exec <span class='function_args'> <b>(</b>cmd<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Execute another application, probably a window manager, to replace
+ awesome.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#restart"><span class='function_modname'>awesome.</span>restart <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Restart awesome.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#kill"><span class='function_modname'>awesome.</span>kill <span class='function_args'> <b>(</b>pid, sig<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Send a signal to a process.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#sync"><span class='function_modname'>awesome.</span>sync <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Synchronize with the X11 server.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#pixbuf_to_surface"><span class='function_modname'>awesome.</span>pixbuf_to_surface <span class='function_args'> <b>(</b>pixbuf, path<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;gears.surface</span></span>
+      </td>
+      <td class="summary">
+        Translate a GdkPixbuf to a cairo image surface..
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#load_image"><span class='function_modname'>awesome.</span>load_image <span class='function_args'> <b>(</b>name<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;(gears.surface, nil <i>or</i> string)</span></span>
+      </td>
+      <td class="summary">
+        Load an image from a given path.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_preferred_icon_size"><span class='function_modname'>awesome.</span>set_preferred_icon_size <span class='function_args'> <b>(</b>size<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set the preferred size for client icons.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#connect_signal"><span class='function_modname'>awesome.</span>connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a global signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#disconnect_signal"><span class='function_modname'>awesome.</span>disconnect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Remove a global signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#emit_signal"><span class='function_modname'>awesome.</span>emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emit a global signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#spawn"><span class='function_modname'>awesome.</span>spawn <span class='function_args'> <b>(</b><span class="optional_param">cmd</span>, <span class="optional_param">use_sn</span>, <span class="optional_param">stdin</span>, <span class="optional_param">stdout</span>, <span class="optional_param">stderr</span>, <span class="optional_param">exit_callback</span>, <span class="optional_param">cmd</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;(integer, string, integer, integer, integer) <i>or</i> string</span></span>
+      </td>
+      <td class="summary">
+        Spawn a program.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#xkb_set_layout_group"><span class='function_modname'>awesome.</span>xkb_set_layout_group <span class='function_args'> <b>(</b>num<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Switch keyboard layout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#xkb_get_layout_group"><span class='function_modname'>awesome.</span>xkb_get_layout_group <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;integer</span></span>
+      </td>
+      <td class="summary">
+        Get current layout number.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#xkb_get_group_names"><span class='function_modname'>awesome.</span>xkb_get_group_names <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+      </td>
+      <td class="summary">
+        Get layout short names.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#debug::error">debug::error</a>
+      </td>
+      <td class="summary">
+        A call into the Lua code aborted with an error.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#debug::deprecation">debug::deprecation</a>
+      </td>
+      <td class="summary">
+        A deprecated Lua function was called.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#debug::index::miss">debug::index::miss</a>
+      </td>
+      <td class="summary">
+        An invalid key was read from an object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#debug::newindex::miss">debug::newindex::miss</a>
+      </td>
+      <td class="summary">
+        An invalid key was written to an object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#systray::update">systray::update</a>
+      </td>
+      <td class="summary">
+        The systray should be updated.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#wallpaper_changed">wallpaper_changed</a>
+      </td>
+      <td class="summary">
+        The wallpaper has changed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#xkb::map_changed">xkb::map_changed</a>
+      </td>
+      <td class="summary">
+        Keyboard map has changed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#xkb::group_changed.">xkb::group_changed.</a>
+      </td>
+      <td class="summary">
+        Keyboard group has changed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#refresh">refresh</a>
+      </td>
+      <td class="summary">
+        Refresh.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#startup">startup</a>
+      </td>
+      <td class="summary">
+        AwesomeWM is about to enter the event loop.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#exit">exit</a>
+      </td>
+      <td class="summary">
+        AwesomeWM is exiting / about to restart.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#screen::change">screen::change</a>
+      </td>
+      <td class="summary">
+        The output status of a screen has changed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#spawn::canceled">spawn::canceled</a>
+      </td>
+      <td class="summary">
+        For some reason the application aborted startup
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#spawn::change">spawn::change</a>
+      </td>
+      <td class="summary">
+        When one of the fields from the <a href="../core_components/awesome.html#spawn::initiated">spawn::initiated</a> table changes
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#spawn::completed">spawn::completed</a>
+      </td>
+      <td class="summary">
+        An application finished starting
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#spawn::initiated">spawn::initiated</a>
+      </td>
+      <td class="summary">
+        When a new client is beginning to start
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#spawn::timeout">spawn::timeout</a>
+      </td>
+      <td class="summary">
+        An application started a spawn event but didn&rsquo;t start in time.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#version"><span class='function_modname'>awesome.</span>version</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The AwesomeWM version.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#release"><span class='function_modname'>awesome.</span>release</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The AwesomeWM release name.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#api_level"><span class='function_modname'>awesome.</span>api_level</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The AwesomeWM API level.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#conffile"><span class='function_modname'>awesome.</span>conffile</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The configuration file which has been loaded.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#startup"><span class='function_modname'>awesome.</span>startup</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        True if we are still in startup, false otherwise.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#startup_errors"><span class='function_modname'>awesome.</span>startup_errors</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Error message for errors that occurred during
+  startup.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#composite_manager_running"><span class='function_modname'>awesome.</span>composite_manager_running</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        True if a composite manager is running.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#unix_signal"><span class='function_modname'>awesome.</span>unix_signal</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
+      <td class="summary">
+        Table mapping between signal numbers and signal identifiers.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#hostname"><span class='function_modname'>awesome.</span>hostname</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The hostname of the computer on which we are running.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#themes_path"><span class='function_modname'>awesome.</span>themes_path</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The path where themes were installed to.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#icon_path"><span class='function_modname'>awesome.</span>icon_path</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The path where icons were installed to.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="register_xproperty" href="#register_xproperty">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>register_xproperty <span class='function_args'> <b>(</b>name, type<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Register a new xproperty.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the X11 property.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">type</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> One of &ldquo;string&rdquo;, &ldquo;number&rdquo; or &ldquo;boolean&rdquo;.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item79 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="quit" href="#quit">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>quit <span class='function_args'> <b>(</b><span class="optional_param">code</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Quit awesome.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">code</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The exit code to use when exiting.</td>
+           <td><span class="default_value"><code>0</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item80 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="exec" href="#exec">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>exec <span class='function_args'> <b>(</b>cmd<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Execute another application, probably a window manager, to replace
+ awesome.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The command line to execute.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item81 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="restart" href="#restart">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>restart <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Restart awesome.
+
+
+
+
+
+
+
+    <span id=item82 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="kill" href="#kill">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>kill <span class='function_args'> <b>(</b>pid, sig<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Send a signal to a process.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">pid</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Process identifier.  0 and negative values have special
+   meaning.  See <code>man 3 kill</code>.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">sig</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Signal number.
+   See <a href="../core_components/awesome.html#unix_signal">awesome.unix_signal</a> for a list of signals.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the signal was successfully sent, else false
+    </ol>
+
+
+
+
+
+    <span id=item83 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="sync" href="#sync">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>sync <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Synchronize with the X11 server.  This is needed in the test suite to avoid
+ some race conditions. You should never need to use this function.
+
+
+
+
+
+
+
+    <span id=item84 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="pixbuf_to_surface" href="#pixbuf_to_surface">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>pixbuf_to_surface <span class='function_args'> <b>(</b>pixbuf, path<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;gears.surface</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Translate a GdkPixbuf to a cairo image surface..
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">pixbuf</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The pixbuf as a light user datum.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">path</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The pixbuf origin path</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">gears.surface</span></span>
+        A cairo surface as light user datum.
+    </ol>
+
+
+
+
+
+    <span id=item85 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="load_image" href="#load_image">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>load_image <span class='function_args'> <b>(</b>name<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;(gears.surface, nil <i>or</i> string)</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Load an image from a given path.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The file name.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">gears.surface</span></span>
+        A cairo surface as light user datum.</li>
+        <li>
+           <span class="types"><span class="type">nil</span> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        The error message, if any.</li>
+    </ol>
+
+
+
+
+
+    <span id=item86 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_preferred_icon_size" href="#set_preferred_icon_size">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>set_preferred_icon_size <span class='function_args'> <b>(</b>size<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the preferred size for client icons.</p>
+
+<p> The closest equal or bigger size is picked if present, otherwise the closest
+ smaller size is picked. The default is 0 pixels, ie. the smallest icon.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">size</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The size of the icons in pixels.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item87 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="connect_signal" href="#connect_signal">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a global signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> A string with the event name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The function to call.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item88 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="disconnect_signal" href="#disconnect_signal">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>disconnect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove a global signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> A string with the event name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The function to call.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item89 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="emit_signal" href="#emit_signal">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emit a global signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A string with the event name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The signal arguments.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item90 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="spawn" href="#spawn">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>spawn <span class='function_args'> <b>(</b><span class="optional_param">cmd</span>, <span class="optional_param">use_sn</span>, <span class="optional_param">stdin</span>, <span class="optional_param">stdout</span>, <span class="optional_param">stderr</span>, <span class="optional_param">exit_callback</span>, <span class="optional_param">cmd</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;(integer, string, integer, integer, integer) <i>or</i> string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Spawn a program.
+ The program will be started on the default screen.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The environment to use for the spawned program.
+   Without this the spawned process inherits awesome&rsquo;s environment.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">use_sn</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Use startup-notification?</td>
+           <td><span class="default_value"><code>true</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">stdin</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Return a fd for stdin?</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">stdout</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Return a fd for stdout?</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">stderr</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Return a fd for stderr?</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">exit_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function to call on process exit. The
+   function arguments will be type of exit (&ldquo;exit&rdquo; or &ldquo;signal&rdquo;) and the exit
+   code / the signal number causing process termination.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The environment to use for the spawned program.
+   Without this the spawned process inherits awesome&rsquo;s environment.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        Process ID if everything is OK.</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        Startup-notification ID, if <code>use_sn</code> is true.</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        stdin, if <code>stdin</code> is true.</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        stdout, if <code>stdout</code> is true.</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        stderr, if <code>stderr</code> is true.</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        An error string if an error occurred.
+    </ol>
+
+
+
+
+
+    <span id=item91 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_set_layout_group" href="#xkb_set_layout_group">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>xkb_set_layout_group <span class='function_args'> <b>(</b>num<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Switch keyboard layout.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">num</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Keyboard layout number, integer from 0 to 3</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item92 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_get_layout_group" href="#xkb_get_layout_group">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>xkb_get_layout_group <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get current layout number.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        num Current layout number, integer from 0 to 3.
+    </ol>
+
+
+
+
+
+    <span id=item93 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_get_group_names" href="#xkb_get_group_names">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>xkb_get_group_names <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get layout short names.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        A string describing the current layout settings,
+   e.g.: &lsquo;pc+us+de:2+inet(evdev)+group(alt_shift_toggle)+ctrl(nocaps)&rsquo;
+    </ol>
+
+
+
+
+
+    <span id=item94 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="debug::error" href="#debug::error">&#128279;</a>
+    <strong>debug::error</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A call into the Lua code aborted with an error.</p>
+
+<p> This signal is used in the example configuration, <a href="../documentation/05-awesomerc.md.html#">05-awesomerc.md</a>,
+ to let a notification box pop up.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">err</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> Table with the error object, can be converted to a string with
+ <code>tostring(err)</code>.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item95 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="debug::deprecation" href="#debug::deprecation">&#128279;</a>
+    <strong>debug::deprecation</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A deprecated Lua function was called.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">hint</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> String with a hint on what to use instead of the
+ deprecated functionality.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">see</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <span class="type">nil</span></span></td>
+           <td class="see_also_description"> The name of the newer API</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">args</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a> or <span class="type">nil</span></span></td>
+           <td class="see_also_description"> The name of the newer API</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item96 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="debug::index::miss" href="#debug::index::miss">&#128279;</a>
+    <strong>debug::index::miss</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    An invalid key was read from an object.</p>
+
+<p> This can happen if <code>foo</code> in an <code>c.foo</code> access does not exist.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">unknown1</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Class?</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">unknown2</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Key?</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item97 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="debug::newindex::miss" href="#debug::newindex::miss">&#128279;</a>
+    <strong>debug::newindex::miss</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    An invalid key was written to an object.</p>
+
+<p> This can happen if <code>foo</code> in an <code>c.foo = &quot;bar&quot;</code> assignment doesn&rsquo;t exist.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">unknown1</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Class?</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">unknown2</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Key?</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">unknown3</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Value?</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item98 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="systray::update" href="#systray::update">&#128279;</a>
+    <strong>systray::update</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The systray should be updated.</p>
+
+<p> This signal is used in <a href="../widgets/wibox.widget.systray.html#">wibox.widget.systray</a>.
+
+
+
+
+
+
+
+    <span id=item99 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="wallpaper_changed" href="#wallpaper_changed">&#128279;</a>
+    <strong>wallpaper_changed</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The wallpaper has changed.</p>
+
+<p> This signal is used for pseudo-transparency in <code>wibox.drawable</code> if no
+ composite manager is running.
+
+
+
+
+
+
+
+    <span id=item100 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb::map_changed" href="#xkb::map_changed">&#128279;</a>
+    <strong>xkb::map_changed</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Keyboard map has changed.</p>
+
+<p> This signal is sent after the new keymap has been loaded. It is used in
+ <a href="../widgets/awful.widget.keyboardlayout.html#">awful.widget.keyboardlayout</a> to redraw the layout.
+
+
+
+
+
+
+
+    <span id=item101 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb::group_changed." href="#xkb::group_changed.">&#128279;</a>
+    <strong>xkb::group_changed.</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Keyboard group has changed.</p>
+
+<p> It&rsquo;s used in <a href="../widgets/awful.widget.keyboardlayout.html#">awful.widget.keyboardlayout</a> to redraw the layout.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">group</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Integer containing the changed group</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item102 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="refresh" href="#refresh">&#128279;</a>
+    <strong>refresh</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Refresh.</p>
+
+<p> This signal is emitted as a kind of idle signal in the event loop.
+ One example usage is in <a href="../core_components/gears.timer.html#">gears.timer</a> to executed delayed calls.
+
+
+
+
+
+
+
+    <span id=item103 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="startup" href="#startup">&#128279;</a>
+    <strong>startup</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    AwesomeWM is about to enter the event loop.</p>
+
+<p> This means all initialization has been done.
+
+
+
+
+
+
+
+    <span id=item104 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="exit" href="#exit">&#128279;</a>
+    <strong>exit</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    AwesomeWM is exiting / about to restart.</p>
+
+<p> This signal is emitted in the <code>atexit</code> handler as well when awesome
+ restarts.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">reason_restart</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Boolean value is true if the signal was sent
+  because of a restart.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item105 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="screen::change" href="#screen::change">&#128279;</a>
+    <strong>screen::change</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The output status of a screen has changed.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">output</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> String containing which output has changed.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">connection_state</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> String containing the connection status of
+ the output: It will be either &ldquo;Connected&rdquo;, &ldquo;Disconnected&rdquo; or
+ &ldquo;Unknown&rdquo;.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item106 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="spawn::canceled" href="#spawn::canceled">&#128279;</a>
+    <strong>spawn::canceled</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    For some reason the application aborted startup
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Table which only got the &ldquo;id&rdquo; key set</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item107 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="spawn::change" href="#spawn::change">&#128279;</a>
+    <strong>spawn::change</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    When one of the fields from the <a href="../core_components/awesome.html#spawn::initiated">spawn::initiated</a> table changes
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Table which describes the spawn event</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item108 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="spawn::completed" href="#spawn::completed">&#128279;</a>
+    <strong>spawn::completed</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    An application finished starting
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Table which only got the &ldquo;id&rdquo; key set</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item109 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="spawn::initiated" href="#spawn::initiated">&#128279;</a>
+    <strong>spawn::initiated</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    When a new client is beginning to start
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Table which describes the spawn event</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item110 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="spawn::timeout" href="#spawn::timeout">&#128279;</a>
+    <strong>spawn::timeout</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    An application started a spawn event but didn&rsquo;t start in time.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Table which only got the &ldquo;id&rdquo; key set</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item111 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="version" href="#version">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>version</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The AwesomeWM version.
+
+
+
+
+
+
+
+    <span id=item112 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="release" href="#release">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>release</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The AwesomeWM release name.
+
+
+
+
+
+
+
+    <span id=item113 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="api_level" href="#api_level">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>api_level</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The AwesomeWM API level.</p>
+
+<p> By default, this matches the major version (first component of the version).</p>
+
+<p> API levels are used to allow newer version of AwesomeWM to alter the behavior
+ and subset deprecated APIs. Using an older API level than the current major
+ version allows to use legacy <a href="../sample files/rc.lua.html#">rc.lua</a> with little porting. However, they won&rsquo;t
+ be able to use all the new features. Attempting to use a newer feature along
+ with an older API level is not and will not be supported, even if it almost
+ works. Keeping up to date with the newer API levels is highly recommended.</p>
+
+<p> Going the other direction, setting an higher API level allows to take
+ advantage of experimental feature. It will also be much harsher when it comes
+ to deprecation. Setting the API level value beyond <code>current+3</code> will treat
+ using APIs currently pending deprecation as fatal errors. All new code
+ submitted to the upstream AwesomeWM codebase is forbidden to use deprecated
+ APIs. Testing your patches with mode and the default config is recommended
+ before submitting a patch.</p>
+
+<p> You can use the <a href="../core_components/awesome.html#unix_signal">-l</a> command line option or <code>api-level</code> modeline key to set
+ the API level for your <a href="../sample files/rc.lua.html#">rc.lua</a>. This setting is global and read only,
+ individual modules cannot set their own API level.
+
+
+
+
+
+
+
+    <span id=item114 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="conffile" href="#conffile">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>conffile</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The configuration file which has been loaded.
+
+
+
+
+
+
+
+    <span id=item115 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="startup" href="#startup">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>startup</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    True if we are still in startup, false otherwise.
+
+
+
+
+
+
+
+    <span id=item116 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="startup_errors" href="#startup_errors">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>startup_errors</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Error message for errors that occurred during
+  startup.
+
+
+
+
+
+
+
+    <span id=item117 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="composite_manager_running" href="#composite_manager_running">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>composite_manager_running</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    True if a composite manager is running.
+
+
+
+
+
+
+
+    <span id=item118 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="unix_signal" href="#unix_signal">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>unix_signal</strong>
+    <span class="proptype"><span class='summary_type'>table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Table mapping between signal numbers and signal identifiers.
+
+
+
+
+
+
+
+    <span id=item119 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="hostname" href="#hostname">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>hostname</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The hostname of the computer on which we are running.
+
+
+
+
+
+
+
+    <span id=item120 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="themes_path" href="#themes_path">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>themes_path</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The path where themes were installed to.
+
+
+
+
+
+
+
+    <span id=item121 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="icon_path" href="#icon_path">&#128279;</a>
+    <strong><span class='function_modname'>awesome.</span>icon_path</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The path where icons were installed to.
+
+
+
+
+
+
+
+    <span id=item122 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

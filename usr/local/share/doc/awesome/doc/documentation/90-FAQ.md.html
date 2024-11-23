@@ -1,0 +1,907 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Topic 90-FAQ.md - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Configuration">Configuration </a></li>
+<li><a href="#General">General </a></li>
+<li><a href="#Common_issues">Common issues </a></li>
+<li><a href="#Usage">Usage </a></li>
+<li><a href="#Development">Development </a></li>
+</ul>
+
+
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><strong>FAQ</strong></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h1>FAQ</h1>
+
+<p><a name="General"></a></p>
+
+<h2>General</h2>
+
+<h3>Why call it Awesome?</h3>
+
+<p>The name <em>Awesome</em> comes from the English word <em>awesome</em> often used by the
+character <a href="http://en.wikipedia.org/wiki/Barney_Stinson">Barney Stinson</a>
+from the TV series HIMYM.</p>
+
+<p><a name="Common_issues"></a></p>
+
+<h2>Common issues</h2>
+
+<h3>My screens are not configured correctly</h3>
+
+<p>Awesome is a window manager, not a desktop environment. To configure your
+screens, the <code>xrandr</code> tool or various GUI applications exist. For more
+information, refer to the
+<a href="https://wiki.archlinux.org/index.php/xrandr">Arch Linux wiki</a>.</p>
+
+<h3>There is a noticeable delay with inputs</h3>
+
+<p>There are two common causes for this:</p>
+
+<p>The first is a display driver issue where painting on the screen takes long
+time. All input events (keyboard and mouse) are processed in the main thread.
+The drawing is also locking the main thread to avoid artifacts and race
+conditions. If there is a delay with the painting, it will delay the inputs.
+The solution to this problem is using a compositing manager such as
+<a href="https://github.com/chjj/compton">compton</a> or the older <code>xcompmgr</code>. This will
+move painting to another process and fully mitigate the issue.</p>
+
+<p>The second one is when using <a href="https://www.lua.org/manual/5.2/manual.html#pdf-io.popen">io.popen</a> or other blocking functions in <a href="../sample files/rc.lua.html#">rc.lua</a>
+and most commonly manifests itself as occasional freezes instead of a generic delay.
+Do <strong>not</strong> use such functions and prefer <a href="../libraries/awful.spawn.html#awful.spawn.easy_async">awful.spawn.easy_async</a>,
+<a href="../widgets/awful.widget.watch.html#">awful.widget.watch</a> or the GIO async API. Even if you <em>think</em> a command is
+fast enough and won&rsquo;t impact the main event loop iteration time, you are wrong.
+<em>Every</em> call to <a href="https://www.lua.org/manual/5.2/manual.html#pdf-io.open">io.open</a> is impacted by the system <code>iowait</code> queue and can
+spend hundreds of milliseconds blocked <em>before</em> being executed. Note that
+some common widget or probe libraries do not follow this
+advice currently and are known to cause input lag on some systems (but not all).</p>
+
+<p>In both case, a warning like:</p>
+
+<pre>
+<span class="number">2018</span>-<span class="number">01</span>-<span class="number">23</span> <span class="number">09</span>:<span class="number">58</span>:<span class="number">48</span> W: awesome: a_glib_poll:<span class="number">432</span>: Last main loop iteration took <span class="number">14.416777</span> seconds! Increasing limit <span class="keyword">for</span> this warning to that value
+</pre>
+
+
+<p>will be printed to warn you about the issue.</p>
+
+<h3>The applications look ugly</h3>
+
+<p>Awesome is a window manager, not a desktop environment. It does not
+provide a theme daemon. For more information about how to manage the
+look and feel of applications, refer to the
+<a href="https://wiki.archlinux.org/index.php/Category:Eye_candy">Arch Linux Wiki</a>.</p>
+
+<h3>Awesome doesn&rsquo;t show up on my login screen</h3>
+
+<p>There have been cases where Awesome wasn&rsquo;t correctly registered with the display manager,
+usually due to a missing <code>.desktop</code> file.</p>
+
+<p>To fix such issues, copy <code>awesome.desktop</code> from the root of <a href="https://github.com/awesomeWM/awesome/">the repository</a> to <code>/usr/share/xsessions/</code>.</p>
+
+<pre>
+curl https://raw.githubusercontent.com/awesomeWM/awesome/master/awesome.desktop | sudo tee /usr/share/xsessions/awesome.desktop
+</pre>
+
+
+<p>If you installed Awesome through a package manager, you might want to check if the package includes that file and, if not, notify the maintainer to add it as appropriate.</p>
+
+<p><a name="Configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<h3>How to change the default window management layout?</h3>
+
+<p>In the default configuration file one layout is set for all tags, it happens to
+be the <code>floating</code> layout. You can change that by editing your tag creation
+loop in the <a href="../sample files/rc.lua.html#">rc.lua</a>:</p>
+
+<pre>
+<span class="comment">-- Each screen has its own tag table.
+</span>awful.tag({ <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"4"</span>, <span class="string">"5"</span>, <span class="string">"6"</span>, <span class="string">"7"</span>, <span class="string">"8"</span>, <span class="string">"9"</span> }, s, awful.layout.layouts[<span class="number">1</span>])
+</pre>
+
+
+<p>Notice that all tags will use the 1st layout from your layouts table, which is
+defined right before tags are created. Just change the layout number in order to
+use another window management layout.</p>
+
+<h4>How to change the name and layout per tag?</h4>
+
+<p>You can modify your tag section, there are many possible implementations, here
+is a simple one:</p>
+
+<p>At the beginning of <a href="../sample files/rc.lua.html#">rc.lua</a>:</p>
+
+<pre>
+layouts = awful.layout.layouts
+tags = {
+  names  = { <span class="string">"www"</span>, <span class="string">"editor"</span>, <span class="string">"mail"</span>, <span class="string">"im"</span>, <span class="string">"rss"</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="string">"rss"</span>, <span class="string">"media"</span>},
+  layout = { layouts[<span class="number">2</span>], layouts[<span class="number">1</span>], layouts[<span class="number">1</span>], layouts[<span class="number">4</span>], layouts[<span class="number">1</span>],
+             layouts[<span class="number">6</span>], layouts[<span class="number">6</span>], layouts[<span class="number">5</span>], layouts[<span class="number">6</span>]
+}}
+</pre>
+
+
+<p>Then later to create tags:</p>
+
+<pre>
+tags[s] = awful.tag(tags.names, s, tags.layout)
+</pre>
+
+
+<h4>How to setup different tags and layouts per screen?</h4>
+
+<p>Another demonstration for your tag section:</p>
+
+<p>At the beginning of <a href="../sample files/rc.lua.html#">rc.lua</a>:</p>
+
+<pre>
+layouts = awful.layout.layouts
+tags = {
+  settings = {
+    { names  = { <span class="string">"www"</span>, <span class="string">"editor"</span>, <span class="string">"mail"</span>, <span class="string">"im"</span> },
+      layout = { layouts[<span class="number">2</span>], layouts[<span class="number">1</span>], layouts[<span class="number">1</span>], layouts[<span class="number">4</span>] }
+    },
+    { names  = { <span class="string">"rss"</span>,  <span class="number">6</span>, <span class="number">7</span>,  <span class="string">"media"</span> },
+      layout = { layouts[<span class="number">3</span>], layouts[<span class="number">2</span>], layouts[<span class="number">2</span>], layouts[<span class="number">5</span>] }
+}}}
+</pre>
+
+
+<p>Then later to create tags:</p>
+
+<pre>
+tags[s] = awful.tag(tags.settings[s.index].names, s, tags.settings[s.index].layout)
+</pre>
+
+
+<h4>How to show only non-empty tags?</h4>
+
+<p>You can use a filter when creating taglist.</p>
+
+<p>Possible filters:</p>
+
+<ul>
+<li><code>awful.widget.taglist.filter.all</code> - default, show all tags in taglist</li>
+<li><code>awful.widget.taglist.filter.noempty</code> - show only non-empty tags in taglist (like dynamic tags)</li>
+<li><code>awful.widget.taglist.filter.selected</code> - show only selected tags in taglist</li>
+</ul>
+
+
+<p>To show only non-empty tags on taglist:</p>
+
+<pre>
+mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.noempty, mytaglist.buttons)
+</pre>
+
+
+<h3>How to autostart applications?</h3>
+
+<p>The traditional way is to use the <code>~/.xinitrc</code> file.</p>
+
+<h3>How to lock the screen when I am away?</h3>
+
+<p>You can use any screen locking utility: <code>xlock</code>, <code>xscreensaver</code>, <code>slock</code>, <code>kscreenlocker</code>&hellip;</p>
+
+<p>Example key binding for your <code>globalkeys</code>:</p>
+
+<pre>
+awful.key({ modkey }, <span class="string">"F12"</span>, <span class="keyword">function</span> () awful.spawn{ <span class="string">"xlock"</span> } <span class="keyword">end</span>)
+</pre>
+
+
+<h3>How to execute a shell command?</h3>
+
+<p>If you want to execute a shell command or need to execute a command that uses
+redirection, pipes and so on, do not use the <a href="../libraries/awful.spawn.html#">awful.spawn</a> function but
+<a href="../libraries/awful.spawn.html#awful.spawn.with_shell">awful.spawn.with_shell</a>. Here is an example:</p>
+
+<pre>
+awful.key({ modkey }, <span class="string">"F10"</span>, <span class="keyword">function</span> () awful.spawn.with_shell(<span class="string">"cal -m | xmessage -timeout 10 -file -"</span>) <span class="keyword">end</span>)
+</pre>
+
+
+<p>On zsh, any changes to $PATH you do in <code>~/.zshrc</code> will not be picked up (because
+this is only run for interactive shells). Use <code>~/.zshenv</code> instead to make
+additions to the path you want to use in Awesome.</p>
+
+<h3>How to remove gaps between windows?</h3>
+
+<p>You can add <code>size_hints_honor = false</code> to the <code>properties</code> section in your
+<a href="../declarative_rules/ruled.client.html#awful.rules">ruled.client.rules</a> table in your <a href="../sample files/rc.lua.html#">rc.lua</a>. It will match and apply this rule
+to all clients.</p>
+
+<p>See <a href="http://www.mail-archive.com/awesome@naquadah.org/msg01767.html">the mailing list archive</a>
+for more info about what size hints are.</p>
+
+<p>This might cause flickering with some non-ICCCM conforming applications (e.g.
+Lilyterm) which try to override the size that the window manager assigned them.</p>
+
+<h3>How to add an application switcher?</h3>
+
+<p>You can use the Clients Menu as an application switcher. By default it will open
+if you right-click on your taskbar, but you may also bind it to a key
+combination. Here is an example, toggled by &ldquo;Alt + Esc&rdquo;, that you can add to
+your <code>globalkeys</code>:</p>
+
+<pre>
+awful.key({ <span class="string">"Mod1"</span> }, <span class="string">"Escape"</span>, <span class="keyword">function</span> ()
+    <span class="comment">-- If you want to always position the menu on the same place set coordinates
+</span>    awful.menu.menu_keys.down = { <span class="string">"Down"</span>, <span class="string">"Alt_L"</span> }
+    awful.menu.clients({theme = { width = <span class="number">250</span> }}, { keygrabber=<span class="keyword">true</span>, coords={x=<span class="number">525</span>, y=<span class="number">330</span>} })
+<span class="keyword">end</span>),
+</pre>
+
+
+<h3>How to control titlebars?</h3>
+
+<p>To disable titlebars on all clients remove the <code>titlebars_enabled=true</code> from the
+<a href="../declarative_rules/ruled.client.html#awful.rules">ruled.client.rules</a> table in your config. If you want a titlebar only on
+certain clients, you can use <a href="../declarative_rules/ruled.client.html#">ruled.client</a> to set this property only for certain
+clients.</p>
+
+<h3>How to toggle titlebar visibility?</h3>
+
+<p>You can use a <code>clientkeys</code> binding.:</p>
+
+<pre>
+awful.key({ modkey, <span class="string">"Shift"</span> }, <span class="string">"t"</span>, awful.titlebar.toggle),
+</pre>
+
+
+<h3>How to toggle wibox visibility?</h3>
+
+<p>Add the following key binding to your <code>globalkeys</code>:</p>
+
+<pre>
+awful.key({ modkey }, <span class="string">"b"</span>, <span class="keyword">function</span> ()
+    mouse.screen.mywibox.visible = <span class="keyword">not</span> mouse.screen.mywibox.visible
+<span class="keyword">end</span>),
+</pre>
+
+
+<h3>How to toggle clients floating state?</h3>
+
+<p>The default <a href="../sample files/rc.lua.html#">rc.lua</a> already has a key binding for this, it is &ldquo;Mod4 + Control +
+Space&rdquo;. You can easily change it to something easier like &ldquo;Mod4 + f&rdquo; or &ldquo;Mod4 +
+Shift + f&rdquo;.</p>
+
+<pre>
+awful.key({ modkey, <span class="string">"Shift"</span> }, <span class="string">"f"</span>,  awful.client.floating.toggle ),
+</pre>
+
+
+<h4>Why some floating clients can not be tiled?</h4>
+
+<p>If some of your applications (i.e. Firefox, Opera&hellip;) are floating but you can&rsquo;t
+tile them, and they behave weird (can not be tagged, are always on top&hellip;) do
+not panic. They are merely maximized from your last window manager, or from
+their last invocation. The default key binding to toggle maximized state is
+&ldquo;Mod4 + m&rdquo;.</p>
+
+<p>You can ensure no application ever starts maximized in the first rule of your
+<a href="../declarative_rules/ruled.client.html#awful.rules">ruled.client.rules</a> table, which applies to all clients, by adding:</p>
+
+<pre>
+<span class="comment">-- Search for this rule,
+</span>keys = clientkeys,
+
+<span class="comment">-- add the following two:
+</span>maximized_vertical   = <span class="keyword">false</span>,
+maximized_horizontal = <span class="keyword">false</span>,
+</pre>
+
+
+<h3>How to move and resize floaters with the keyboard?</h3>
+
+<p>You can use the <a href="../core_components/client.html#relative_move">client:relative_move</a> function. The following <code>clientkeys</code>
+example will move floaters with &ldquo;Mod4 + Arrow keys&rdquo; and resize them with &ldquo;Mod4 +
+PgUP/DN&rdquo; keys:</p>
+
+<pre>
+awful.key({ modkey }, <span class="string">"Next"</span>,  <span class="keyword">function</span> (c) c:relative_move( <span class="number">20</span>,  <span class="number">20</span>, -<span class="number">40</span>, -<span class="number">40</span>) <span class="keyword">end</span>),
+awful.key({ modkey }, <span class="string">"Prior"</span>, <span class="keyword">function</span> (c) c:relative_move(-<span class="number">20</span>, -<span class="number">20</span>,  <span class="number">40</span>,  <span class="number">40</span>) <span class="keyword">end</span>),
+awful.key({ modkey }, <span class="string">"Down"</span>,  <span class="keyword">function</span> (c) c:relative_move(  <span class="number">0</span>,  <span class="number">20</span>,   <span class="number">0</span>,   <span class="number">0</span>) <span class="keyword">end</span>),
+awful.key({ modkey }, <span class="string">"Up"</span>,    <span class="keyword">function</span> (c) c:relative_move(  <span class="number">0</span>, -<span class="number">20</span>,   <span class="number">0</span>,   <span class="number">0</span>) <span class="keyword">end</span>),
+awful.key({ modkey }, <span class="string">"Left"</span>,  <span class="keyword">function</span> (c) c:relative_move(-<span class="number">20</span>,   <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>) <span class="keyword">end</span>),
+awful.key({ modkey }, <span class="string">"Right"</span>, <span class="keyword">function</span> (c) c:relative_move( <span class="number">20</span>,   <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>) <span class="keyword">end</span>),
+</pre>
+
+
+<h4>How to resize tiled clients?</h4>
+
+<p>You can use the <code>awful.tag.incmwfact</code> function to resize master clients and
+<code>awful.client.incwfact</code> function to resize slave clients. The following
+<code>globalkeys</code> example demonstrates this:</p>
+
+<pre>
+awful.key({ modkey }, <span class="string">"l"</span>,          <span class="keyword">function</span> () awful.tag.incmwfact( <span class="number">0.05</span>) <span class="keyword">end</span>),
+awful.key({ modkey }, <span class="string">"h"</span>,          <span class="keyword">function</span> () awful.tag.incmwfact(-<span class="number">0.05</span>) <span class="keyword">end</span>),
+awful.key({ modkey, <span class="string">"Shift"</span> }, <span class="string">"l"</span>, <span class="keyword">function</span> () awful.client.incwfact(-<span class="number">0.05</span>) <span class="keyword">end</span>),
+awful.key({ modkey, <span class="string">"Shift"</span> }, <span class="string">"h"</span>, <span class="keyword">function</span> () awful.client.incwfact( <span class="number">0.05</span>) <span class="keyword">end</span>),
+</pre>
+
+
+<h3>How to change Awesome configuration while it&rsquo;s running?</h3>
+
+<p>You can modify <a href="../sample files/rc.lua.html#">rc.lua</a>, but you have to restart Awesome for changes to take
+effect. The default keybinding for restarting Awesome is &ldquo;Mod4 + Control + r&rdquo;.</p>
+
+<h3>How to find window&rsquo;s class and other identifiers?</h3>
+
+<p>You can use the <code>xprop</code> utility, you are interested in <code>WM_CLASS</code> and <code>WM_NAME</code>
+from its output:</p>
+
+<p>  $ xprop WM_CLASS WM_NAME</p>
+
+<p>When the cursor changes to &ldquo;+&rdquo; click on the client of interest. From the
+terminal output you can use the following to match clients in Awesome:</p>
+
+<pre>
+WM_CLASS(STRING) = <span class="string">"smplayer"</span>, <span class="string">"Smplayer"</span>
+                    |           |
+                    |           |<span class="comment">--- class
+</span>                    |
+                    |<span class="comment">--- instance
+</span>
+WM_NAME(STRING) = <span class="string">"SMPlayer"</span>
+                   |
+                   |<span class="comment">--- name</span>
+</pre>
+
+
+<p>You can use the above identifiers (instance, class and name) in your
+<a href="../declarative_rules/ruled.client.html#awful.rules">ruled.client.rules</a> table to do matching, tagging and other client manipulation.
+See the next FAQ answer for some examples.</p>
+
+<h3>How to start clients on specific tags and others as floating?</h3>
+
+<p>You can add matching rules to your <a href="../declarative_rules/ruled.client.html#awful.rules">ruled.client.rules</a> table. The default
+<a href="../sample files/rc.lua.html#">rc.lua</a> already has several examples, but some more can be found in the
+<a href="../declarative_rules/ruled.client.html#awful.rules">documentation</a>.</p>
+
+<h3>How to start clients as slave windows instead of master?</h3>
+
+<p>You can set windows to open as slave windows by setting rule to match all
+clients:</p>
+
+<pre>
+<span class="comment">-- Start windows as slave
+</span>{ rule = { }, properties = { }, callback = awful.client.setslave }
+</pre>
+
+
+<h3>How to use a keycode in a keybinding?</h3>
+
+<p>You can use the format <code>#XYZ</code> for keycodes in your bindings. The following
+example shows a mapped multimedia/extra key, that&rsquo;s why the modifier is not
+present (but it could be):</p>
+
+<pre>
+awful.key({}, <span class="string">"#160"</span>, <span class="keyword">function</span> () awful.spawn(<span class="string">"kscreenlocker --forcelock"</span>) <span class="keyword">end</span>),
+</pre>
+
+
+<h3>How to add a keyboard layout switcher?</h3>
+
+<p>The <code>wibox.widget.keyboardlayout</code> is a widget that shows the current keyboard
+layout and allows to change it by clicking on it.</p>
+
+<h3>How to make windows spawn under the mouse cursor?</h3>
+
+<p>In the default <a href="../declarative_rules/ruled.client.html#">ruled.client</a>-rule, the following placement is specified:</p>
+
+<pre>
+placement = awful.placement.no_overlap+awful.placement.no_offscreen
+</pre>
+
+
+<p>You can prepend <a href="../libraries/awful.placement.html#awful.placement.under_mouse">awful.placement.under_mouse</a> to this:</p>
+
+<pre>
+placement = awful.placement.under_mouse+awful.placement.no_overlap+awful.placement.no_offscreen
+</pre>
+
+
+<h3>How to switch to a specific layout in a keybinding?</h3>
+
+<p>You can call the <code>awful.layout.set()</code> function, here&rsquo;s an example:</p>
+
+<pre>
+awful.key({ modkey }, <span class="string">"q"</span>, <span class="keyword">function</span> () awful.layout.set(awful.layout.suit.tile) <span class="keyword">end</span>),
+</pre>
+
+
+<h3>Why are new clients urgent by default?</h3>
+
+<p>You can change this by redefining <code>awful.permissions.activate&copy;</code> in your rc.lua. If
+you don&rsquo;t want new clients to be urgent by default put this in your rc.lua:</p>
+
+<pre>
+client.disconnect_signal(<span class="string">"request::activate"</span>, awful.permissions.activate)
+<span class="keyword">function</span> awful.permissions.activate(c)
+    <span class="keyword">if</span> c:isvisible() <span class="keyword">then</span>
+        client.focus = c
+        c:raise()
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+client.connect_signal(<span class="string">"request::activate"</span>, awful.permissions.activate)
+</pre>
+
+
+<p><a name="Usage"></a></p>
+
+<h2>Usage</h2>
+
+<h3>How to use this thing?</h3>
+
+<p>Default binding to open a terminal is &ldquo;Mod4 + Enter&rdquo; (where Mod4 is usually the
+&ldquo;Windows&rdquo; key). You can also click on the desktop background with the right
+button, to open the Awesome menu.</p>
+
+<p>From there you can proceed to open <code>man awesome</code> which has a good guide,
+including the list of default keybindings.</p>
+
+<h3>Layouts</h3>
+
+<p>With the default config, you can cycle through window layouts by pressing
+&ldquo;mod4+space&rdquo; (&ldquo;mod4+shift+space&rdquo; to go back) or clicking the layout button in
+the upper right corner of the screen.</p>
+
+<h3>How to restart or quit Awesome?</h3>
+
+<p>You can use the keybinding &ldquo;Mod4+Ctrl+r&rdquo; or by selecting restart in the menu.
+You could call <a href="../core_components/awesome.html#restart">awesome.restart</a> either from the Lua prompt widget, or via
+<code>awesome-client</code>:</p>
+
+<pre>
+$ awesome-client <span class="string">'awesome.restart()'</span>
+</pre>
+
+
+<p>You can also send the <code>SIGHUP</code> signal to the Awesome process. Find the PID using
+<code>ps</code>, <code>pgrep</code> or use <code>pkill</code>:</p>
+
+<p>  $ pkill -HUP awesome</p>
+
+<p>You can quit Awesome by using &ldquo;Mod4+Shift+q&rdquo; keybinding or by selecting quit in
+the menu. You could call <a href="../core_components/awesome.html#quit">awesome.quit</a> either from the Lua prompt widget,
+or by passing it to <code>awesome-client</code>.</p>
+
+<pre>
+$ echo <span class="string">'awesome.quit()'</span> | awesome-client
+</pre>
+
+
+<p>You can also send the <code>SIGINT</code> signal to the Awesome process. Find the PID using <code>ps</code>, <code>pgrep</code> or use <code>pkill</code>:</p>
+
+<pre>
+$ pkill -INT awesome
+</pre>
+
+
+<h3>Why Awesome doesn&rsquo;t use my own brand new config?</h3>
+
+<p>If Awesome cannot find <code>$XDG_CONFIG_HOME/awesome/rc.lua</code>, or fails to load it,
+it falls back to using <code>/etc/xdg/awesome/rc.lua</code> (you haven&rsquo;t edited it, I hope,
+have you?). Even if <code>awesome &ndash;check</code> hasn&rsquo;t reported any error, it only means
+that your <a href="../sample files/rc.lua.html#">rc.lua</a> is syntactically correct, but absence of runtime errors is
+not guaranteed. Moreover, Awesome could apply half of your config then encounter
+an error and load stock one, and that could lead to bizarre result, like two
+sets of tags. See the next entry on how to find out where the problem lurks.</p>
+
+<h3>Where are logs, error messages or something?</h3>
+
+<p>When hacking your own configuration, something inevitably would go wrong.
+Awesome prints error messages to its <code>stderr</code> stream. When run with usual <code>$
+startx</code>, it&rsquo;d be printed right in tty. If you use something more complicated
+(some kind of DM, like kdm or gdm), stderr is usually redirected somewhere else.
+To see where, run the following command:</p>
+
+<pre>
+$ ls -l /proc/$(pidof awesome)/fd/<span class="number">2</span>
+</pre>
+
+
+<p>There&rsquo;s a handy way to run Awesome and redirect both its standard output and error streams to files:</p>
+
+<pre>
+exec /usr/bin/awesome &gt;&gt; ~/.cache/awesome/stdout <span class="number">2</span>&gt;&gt; ~/.cache/awesome/stderr
+</pre>
+
+
+<p>If you put it into <code>.xinitrc</code> (for <code>startx</code>) or <code>~/.xsession</code>, you&rsquo;ll be able to
+watch (with <code>tail -f</code>) everything right from Awesome.</p>
+
+<h3>Why does Mod4 &ldquo;swallow&rdquo; succeeding key presses?</h3>
+
+<p>On some systems xkb by default maps the left windows key to &ldquo;Multi_key&rdquo; (at
+least in <code>us</code> and <code>de</code> layouts). Multi_key is an xkb feature which may be used
+to access uncommon symbols by pressing Multi_key and then (consecutively) two
+&ldquo;normal&rdquo; keys. The solution is to remap your windows key to mod4 and remove the
+Multi_key mapping. This can be done by including &ldquo;altwin(left_meta_win)&rdquo; in the
+xkb keyboard description xkb_symbols line.</p>
+
+<pre>
+#!/bin/bash
+xkbcomp - $DISPLAY&lt;&lt;EOF
+xkb_keymap {
+xkb_keycodes  { include <span class="string">"evdev+aliases(qwertz)"</span>};
+xkb_types     { include <span class="string">"complete"</span>};
+xkb_compat    { include <span class="string">"complete"</span>};
+xkb_symbols   { include <span class="string">"pc+de(nodeadkeys)+inet(evdev)+group(alt_shift_toggle)+level3(ralt_switch)+altwin(left_meta_win)+capslock(escape)"</span>    };
+xkb_geometry  { include <span class="string">"pc(pc104)"</span>};
+};
+EOF
+</pre>
+
+
+<h3>I upgraded from Awesome 3 to Awesome 4 and multiscreen broke. Why is that?</h3>
+
+<p>Awesome 4.0+ support dynamic screen plugging and unplugging without restarting.</p>
+
+<p>This avoids losing your tags, layout and focus history. Olders <a href="../sample files/rc.lua.html#">rc.lua</a> were not
+designed to support such changes and assumed Awesome would restart. To add
+multi-screen support to existing configs, see how
+<code>awful.screen.connect_for_each_screen</code> is used in the new <a href="../sample files/rc.lua.html#">rc.lua</a> or rebuild
+your config on a newer revision of <a href="../sample files/rc.lua.html#">rc.lua</a>.</p>
+
+<h3>Can I have a client or the system tray on multiple screens at once?</h3>
+
+<p>No. This is an X11 limitation and there is no sane way to work around it.</p>
+
+<h3>Can a client be tagged on different screens at once?</h3>
+
+<p>While it is not impossible to partially implement support for this, many
+Awesome components frequently query the client&rsquo;s screen.
+Since a client can only be in one screen at once, this will cause side effects.
+So by default Awesome avoids, but does not prevent, having clients in multiple
+tags that are not on the same screen.</p>
+
+<h3>Can a tag be on multiple screens?</h3>
+
+<p>No. See the previous two questions. However, it is possible to swap tags across
+screens using <code>t:swap(t2)</code> (assuming <code>t</code> and <code>t2</code> are valid <a href="../core_components/tag.html#">tag</a> objects).</p>
+
+<p>This can be used to emulate a tag being on multiple screens. Note that this will
+break support for multi-tagged clients. For this reason it isn&rsquo;t implemented by
+default.</p>
+
+<p><a name="Development"></a></p>
+
+<h2>Development</h2>
+
+<h3>How to report bugs?</h3>
+
+<p>First, test the development version to check if your bug is still there. If the
+bug is an unexpected behavior, please explain what you expected instead. If the
+bug is a segmentation fault, please include a full backtrace (use gdb).</p>
+
+<p>In any case, please try to explain how to reproduce it.</p>
+
+<p>Please report any issues you may find on <a href="https://github.com/awesomeWM/awesome/issues">our
+bugtracker</a>.</p>
+
+<h3>Do you accept patches and enhancements?</h3>
+
+<p>Yes, we do.
+You can submit pull requests on the <a href="https://github.com/awesomeWM/awesome">GitHub repository</a>.
+Please read the <a href="https://github.com/awesomeWM/awesome/blob/master/docs/02-contributing.md">contributing guide</a>
+for any coding, documentation or patch guidelines.</p>
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

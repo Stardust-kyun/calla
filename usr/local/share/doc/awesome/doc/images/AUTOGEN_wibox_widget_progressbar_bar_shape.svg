@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../ldoc.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110pt" height="130pt" viewBox="0 0 110 130" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 5 5 L 54 5 L 54 23 L 5 23 Z M 5 5 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 5 35 L 54 35 L 54 53 L 5 53 Z M 5 35 "/>
+</clipPath>
+<clipPath id="clip3">
+  <path d="M 5 65 L 54 65 L 54 83 L 5 83 Z M 5 65 "/>
+</clipPath>
+<clipPath id="clip4">
+  <path d="M 5 95 L 54 95 L 54 113 L 5 113 Z M 5 95 "/>
+</clipPath>
+</defs>
+<g id="surface2">
+<path style="fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 98 0 L 98 18 L 0 18 Z M 0 0 " transform="matrix(1,0,0,1,6,6)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.666667%,0%,100%);fill-opacity:0.490196;" d="M 8.5 15 C 8.5 11.410156 11.410156 8.5 15 8.5 L 33.019531 8.5 C 36.609375 8.5 39.519531 11.410156 39.519531 15 C 39.519531 18.589844 36.609375 21.5 33.019531 21.5 L 15 21.5 C 11.410156 21.5 8.5 18.589844 8.5 15 Z M 8.5 15 "/>
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 6.5 C 0 2.910156 2.910156 0 6.5 0 L 24.519531 0 C 28.109375 0 31.019531 2.910156 31.019531 6.5 C 31.019531 10.089844 28.109375 13 24.519531 13 L 6.5 13 C 2.910156 13 0 10.089844 0 6.5 Z M 0 6.5 " transform="matrix(1,0,0,1,8.5,8.5)"/>
+</g>
+<path style="fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 98 0 L 98 18 L 0 18 Z M 0 0 " transform="matrix(1,0,0,1,6,36)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.666667%,0%,100%);fill-opacity:0.490196;" d="M 10.796875 38.5 L 37.222656 38.5 L 39.519531 40.796875 L 39.519531 49.203125 L 37.222656 51.5 L 10.796875 51.5 L 8.5 49.203125 L 8.5 40.796875 Z M 10.796875 38.5 "/>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 2.296875 0 L 28.722656 0 L 31.019531 2.296875 L 31.019531 10.703125 L 28.722656 13 L 2.296875 13 L 0 10.703125 L 0 2.296875 Z M 2.296875 0 " transform="matrix(1,0,0,1,8.5,38.5)"/>
+</g>
+<path style="fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 98 0 L 98 18 L 0 18 Z M 0 0 " transform="matrix(1,0,0,1,6,66)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.666667%,0%,100%);fill-opacity:0.490196;" d="M 15 68.5 L 33.019531 68.5 L 39.519531 75 L 33.019531 81.5 L 15 81.5 L 8.5 75 Z M 15 68.5 "/>
+<g clip-path="url(#clip3)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 6.5 0 L 24.519531 0 L 31.019531 6.5 L 24.519531 13 L 6.5 13 L 0 6.5 Z M 6.5 0 " transform="matrix(1,0,0,1,8.5,68.5)"/>
+</g>
+<path style="fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 98 0 L 98 18 L 0 18 Z M 0 0 " transform="matrix(1,0,0,1,6,96)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.666667%,0%,100%);fill-opacity:0.490196;" d="M 8.5 98.5 L 33.019531 98.5 L 39.519531 105 L 33.019531 111.5 L 8.5 111.5 L 15 105 Z M 8.5 98.5 "/>
+<g clip-path="url(#clip4)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 24.519531 0 L 31.019531 6.5 L 24.519531 13 L 0 13 L 6.5 6.5 Z M 0 0 " transform="matrix(1,0,0,1,8.5,98.5)"/>
+</g>
+</g>
+</svg>

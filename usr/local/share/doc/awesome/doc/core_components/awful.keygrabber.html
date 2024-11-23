@@ -1,0 +1,2754 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Coreclassmod awful.keygrabber - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Constructors">Constructors</a></li>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Object_properties">Object properties</a></li>
+<li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Signals">Signals</a></li>
+<li><a href="#Deprecated_functions">Deprecated functions</a></li>
+<li><a href="#Callback_functions_prototype">Callback functions prototype</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><strong>awful.keygrabber</strong></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>awful.keygrabber</code></h1>
+<p>A keyboard grabbing and transaction object.</p>
+<p> This module allows to grab all keyboard inputs until stopped. It is used
+ to gather input data (such as in <a href="../libraries/awful.prompt.html#">awful.prompt</a>), implement VI-like keybindings
+ or multi key transactions such as emulating the Alt+Tab behavior.</p>
+
+<p> Note that this module has been redesigned in Awesome 4.3 to be object oriented
+ and stateful. The use of the older global keygrabbing API is discouraged
+ going forward since it had problem with recursive keygrabbers and required
+ a lot of boiler plate code to get anything done.</p>
+
+<h2> Using keygrabber as transactions</h2>
+
+<p> The transactional keybindings are keybindings that start with a normal
+ keybindings, but only end when a (mod)key is released. In the classic
+ &ldquo;Alt+Tab&rdquo; transaction, first pressing &ldquo;Alt+Tab&rdquo; will display a popup listing
+ all windows (clients). This popup will only disappear when &ldquo;Alt&rdquo; is released.</p>
+
+<pre>
+awful.keygrabber {
+    keybindings = {
+        awful.key {
+            modifiers = {<span class="string">"Mod1"</span>},
+            key       = <span class="string">"Tab"</span>,
+            on_press  = awful.client.focus.history.select_previous
+        },
+        awful.key {
+            modifiers = {<span class="string">"Mod1"</span>, <span class="string">"Shift"</span>},
+            key       = <span class="string">"Tab"</span>,
+            on_press  = awful.client.focus.history.select_next
+        },
+    },
+    <span class="comment">-- Note that it is using the key name and not the modifier name.
+</span>    stop_key           = <span class="string">"Mod1"</span>,
+    stop_event         = <span class="string">"release"</span>,
+    start_callback     = awful.client.focus.history.disable_tracking,
+    stop_callback      = awful.client.focus.history.enable_tracking,
+    export_keybindings = <span class="keyword">true</span>,
+}
+</pre>
+
+
+<p> In that example, because <a href="../core_components/awful.keygrabber.html#export_keybindings">export_keybindings</a> is set to <code>true</code>, pressing
+ <code>alt+tab</code> or <code>alt+shift+tab</code> will start the transaction even if the
+ keygrabber is not (yet) running.</p>
+
+<h2> Using keygrabber for modal keybindings (VI like)</h2>
+
+<p> VI-like modal keybindings are triggered by a key, like <code>Escape</code>, followed by
+ either a number, an adjective (or noun) and closed by a verb. For example
+ <code>&lt;Escape&gt;+2+t+f</code> could mean &ldquo;focus (f) the second (2) tag (t)&rdquo;.
+ <code>&lt;Escape&gt;+2+h+t+f</code> would &ldquo;focus (f) two (2) tags (t) to the right (h)&rdquo;.</p>
+
+<p> Here is a basic implementation of such a system. Note that the action
+ functions themselves are not implemented to keep the example size and
+ complexity to a minimum. The implementation is just if/elseif of all action
+ and the code can be found in the normal <a href="../sample files/rc.lua.html#">rc.lua</a> keybindings section:</p>
+
+<pre>
+<span class="keyword">local</span> map, actions = {
+    verbs = {
+        m = <span class="string">"move"</span> , f = <span class="string">"focus"</span> , d = <span class="string">"delete"</span> , a = <span class="string">"append"</span>,
+        w = <span class="string">"swap"</span> , p = <span class="string">"print"</span> , n = <span class="string">"new"</span>    ,
+    },
+    adjectives = { h = <span class="string">"left"</span>  , j = <span class="string">"down"</span> , k = <span class="string">"up"</span>    , l = <span class="string">"right"</span> , },
+    nouns      = { c = <span class="string">"client"</span>, t = <span class="string">"tag"</span>  , s = <span class="string">"screen"</span>, y = <span class="string">"layout"</span>, },
+}, {}
+
+<span class="keyword">function</span> actions.client(action, adj) <span class="global">print</span>(<span class="string">"IN CLIENT!"</span>) <span class="keyword">end</span> <span class="comment">--luacheck: no unused args
+</span><span class="keyword">function</span> actions.tag   (action, adj) <span class="global">print</span>(<span class="string">"IN TAG!"</span>   ) <span class="keyword">end</span> <span class="comment">--luacheck: no unused args
+</span><span class="keyword">function</span> actions.screen(action, adj) <span class="global">print</span>(<span class="string">"IN SCREEN!"</span>) <span class="keyword">end</span> <span class="comment">--luacheck: no unused args
+</span><span class="keyword">function</span> actions.layout(action, adj) <span class="global">print</span>(<span class="string">"IN LAYOUT!"</span>) <span class="keyword">end</span> <span class="comment">--luacheck: no unused args
+</span>
+<span class="keyword">local</span> <span class="keyword">function</span> parse(_, stop_key, _, sequence)
+    <span class="keyword">local</span> parsed, count = { verbs = <span class="string">""</span>, adjectives = <span class="string">""</span>, nouns = <span class="string">""</span>, }, <span class="string">""</span>
+    sequence = sequence..stop_key
+
+    <span class="keyword">for</span> i=<span class="number">1</span>, #sequence <span class="keyword">do</span>
+        <span class="keyword">local</span> char = sequence:sub(i,i)
+        <span class="keyword">if</span> char &gt;= <span class="string">"0"</span> <span class="keyword">and</span> char &lt;= <span class="string">"9"</span> <span class="keyword">then</span>
+            count = count .. char
+        <span class="keyword">else</span>
+            <span class="keyword">for</span> kind <span class="keyword">in</span> <span class="global">pairs</span>(parsed) <span class="keyword">do</span>
+                parsed[kind] = map[kind][char] <span class="keyword">or</span> parsed[kind]
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="keyword">if</span> parsed.nouns == <span class="string">""</span> <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+    <span class="keyword">for</span> _=<span class="number">1</span>, count == <span class="string">""</span> <span class="keyword">and</span> <span class="number">1</span> <span class="keyword">or</span> <span class="global">tonumber</span>(count) <span class="keyword">do</span>
+        actions[parsed.nouns](parsed.verbs, parsed.adjectives)
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+awful.keygrabber {
+    stop_callback = parse,
+    stop_key   = gears.<span class="global">table</span>.keys(map.verbs),
+    root_keybindings = {
+        awful.key({<span class="string">"Mod4"</span>}, <span class="string">"v"</span>)
+    },
+}
+</pre>
+
+
+<h2> Using signals</h2>
+
+<p> When the keygrabber is running, it will emit signals on each event. The
+ format is &ldquo;key_name&rdquo;..&ldquo;::&rdquo;..&ldquo;pressed_or_released&rdquo;. For example, to attach
+ a callback to <code>Escape</code> being pressed, do:</p>
+
+<pre>
+mykeygrabber:connect_signal(<span class="string">"Escape::pressed"</span>, <span class="keyword">function</span>(self, modifiers, modset)
+    <span class="global">print</span>(<span class="string">"Escape called!"</span>)
+<span class="keyword">end</span>)
+</pre>
+
+
+<p> The <code>self</code> argument is the keygrabber instance. The <code>modifiers</code> is a list of
+ all the currently pressed modifiers and the <code>modset</code> is the same table, but
+ with the modifiers as keys instead of value. It allow to save time by
+ checking <code>if modset.Mod4 then &hellip; end</code> instead of looping into the <code>modifiers</code>
+ table or using <a href="../utility_libraries/gears.table.html#">gears.table</a>.</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2012 dodo,2017 Emmanuel Lepage Vallee</li>
+                <li>
+                    <strong>Originally authored by</strong>: dodo,Emmanuel Lepage Vallee &lt;elv1313@gmail.com&gt;<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Constructors">Constructors</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.keygrabber">awful.keygrabber <span class='function_named_args'><b>{</b>[args]<b>}</b></span></a>
+      </td>
+      <td class="summary">
+        A wrapper around the keygrabber to make it easier to add keybindings.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#connect_signal"><span class='function_modname'>awful.keygrabber.</span>connect_signal <span class='function_args'> <b>(</b>name, callback<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal for all keygrabbers at once.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#disconnect_signal"><span class='function_modname'>awful.keygrabber.</span>disconnect_signal <span class='function_args'> <b>(</b>name, callback<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Disconnect to a signal for all keygrabbers at once.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#emit_signal"><span class='function_modname'>awful.keygrabber.</span>emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emit a signal on the keygrabber module itself.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_properties">Object properties</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#timeout">timeout</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number <i>or</i> nil</span></td>
+      <td class="summary">
+        The keygrabber timeout.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#stop_key">stop_key</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string <i>or</i> table <i>or</i> nil</span></td>
+      <td class="summary">
+        The key on which the keygrabber listen to terminate itself.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#stop_event">stop_event</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The event on which the keygrabbing will be terminated.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#mask_event_callback">mask_event_callback</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Whether or not to execute the key press/release callbacks when keybindings are called.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#mask_modkeys">mask_modkeys</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Do not call the callbacks on modifier keys (like <code>Control</code> or <code>Mod4</code>) events.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#export_keybindings">export_keybindings</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Export all keygrabber keybindings as root (global) keybindings.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#root_keybindings">root_keybindings</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
+      <td class="summary">
+        The root (global) keybinding to start this keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#keybindings">keybindings</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
+      <td class="summary">
+        The keybindings associated with this keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#allowed_keys">allowed_keys</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table <i>or</i> nil</span></td>
+      <td class="summary">
+        If any key is pressed that is not in this list, the keygrabber is stopped.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#sequence">sequence</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The sequence of keys recorded since the start of the keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_methods">Object methods </a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#start">:start <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Start the keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stop">:stop <span class='function_args'> <b>(</b>stop_key, stop_mods<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Stop the keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_keybinding">:add_keybinding <span class='function_args'> <b>(</b>key<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a keybinding to this keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#remove_keybinding">:remove_keybinding <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Remove a keybinding from the keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#emit_signal">:emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emit a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#connect_signal">:connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#weak_connect_signal">:weak_connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal weakly.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#property::current_instance">property::current_instance</a>
+      </td>
+      <td class="summary">
+        The global signal used to track the <a href="../core_components/awful.keygrabber.html#current_instance">current_instance</a>.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#started">started</a>
+      </td>
+      <td class="summary">
+        When the keygrabber starts.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stopped">stopped</a>
+      </td>
+      <td class="summary">
+        When the keygrabber stops.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#keybinding::triggered">keybinding::triggered</a>
+      </td>
+      <td class="summary">
+        When an <a href="../input_handling/awful.key.html#">awful.key</a> is pressed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Deprecated_functions">Deprecated functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stop"><span class='function_modname'>awful.keygrabber.</span>stop <span class='function_args'> <b>(</b><span class="optional_param">g</span><b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Stop grabbing the keyboard for the provided callback.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Deprecated</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#run"><span class='function_modname'>awful.keygrabber.</span>run <span class='function_args'> <b>(</b>g<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        A lower level API to interact with the keygrabber directly.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Deprecated</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Callback_functions_prototype">Callback functions prototype</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#start_callback">start_callback <span class='function_args'> <b>(</b>keygrabber<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        A function called when a keygrabber starts.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stop_callback">stop_callback <span class='function_args'> <b>(</b>self, stop_key, stop_mods, sequence<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        The callback when the keygrabbing stops.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#timeout_callback">timeout_callback <span class='function_args'> <b>(</b><b>)</b></span></a>
+      </td>
+      <td class="summary">
+        The function called when the keygrabber stops because of a <a href="../core_components/awful.keygrabber.html#timeout">timeout</a>.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#keypressed_callback">keypressed_callback <span class='function_args'> <b>(</b>self, mod, key, event<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        The callback function to call with mod table, key and command as arguments
+ when a key was pressed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#keyreleased_callback">keyreleased_callback <span class='function_args'> <b>(</b>self, mod, key, event<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        The callback function to call with mod table, key and command as arguments
+ when a key was released.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_instance"><span class='function_modname'>awful.keygrabber.</span>current_instance</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>keygrabber</span></td>
+      <td class="summary">
+        The current (running) instance of this keygrabber.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#is_running"><span class='function_modname'>awful.keygrabber.</span>is_running</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        If a keygrabber is currently running.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.keygrabber" href="#awful.keygrabber">&#128279;</a>
+    <strong>awful.keygrabber <span class='function_named_args'><b>{</b>[args]<b>}</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A wrapper around the keygrabber to make it easier to add keybindings.</p>
+
+<p> This is similar to the <a href="../libraries/awful.prompt.html#">awful.prompt</a>, but without an actual widget. It can
+ be used to implement custom transactions such as alt+tab or keyboard menu
+ navigation.</p>
+
+<p> Note that the object returned can be used as a client or global keybinding
+ callback without modification. Make sure to set <a href="../core_components/awful.keygrabber.html#stop_key">stop_key</a> and <a href="../core_components/awful.keygrabber.html#stop_event">stop_event</a>
+ to proper values to avoid permanently locking the keyboard.
+
+    <h3>Parameters:</h3>
+        <div class="important_box">
+          <b>Note:</b> This constructors uses named parameters calling convention. It
+          means you call it with <code>{}</code> and omit the parantheses. For example,
+          calling this will all default argument would be <code>awful.keygrabber{}</code>.
+          This is a Lua shortcut syntax equivalent to <code>awful.keygrabber({})</code>.
+          <code>args</code> is only a placeholder name for the "lone table argument"
+          used in named parameters calls.
+        </div>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+        <tr>
+           <td><span class="parameter">args</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> </td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stop_event</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Release event (&ldquo;press&rdquo; or &ldquo;release&rdquo;)</td>
+           <td><span class="default_value"><code>"press"</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stop_key</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The key that has to be kept pressed.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">keybindings</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> All keybindings.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">timeout</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The maximum inactivity delay.</td>
+           <td><span class="default_value"><code>-1</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">mask_event_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Do not call <a href="../core_components/awful.keygrabber.html#keypressed_callback">keypressed_callback</a>
+  or <a href="../core_components/awful.keygrabber.html#keyreleased_callback">keyreleased_callback</a> when a hook is called.</td>
+           <td><span class="default_value"><code>true</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">start_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"></td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stop_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"></td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">timeout_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"></td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">keypressed_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"></td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">keyreleased_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"></td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">allowed_keys</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a> or <span class="type">nil</span></span></td>
+           <td class="see_also_description"> A table with all keys that
+  <strong>won&rsquo;t</strong> stop the keygrabber.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">root_keybindings</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The root (global) keybindings.</td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">export_keybindings</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Create root (global) keybindings.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">autostart</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Start the grabbing immediately</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">mask_modkeys</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Do not call the callbacks on
+  modifier keys (like <code>&quot;Control&quot;</code> or <code>&quot;Mod4&quot;</code>) events.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item184 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="connect_signal" href="#connect_signal">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>connect_signal <span class='function_args'> <b>(</b>name, callback<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Connect to a signal for all keygrabbers at once.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The signal name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item185 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="disconnect_signal" href="#disconnect_signal">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>disconnect_signal <span class='function_args'> <b>(</b>name, callback<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Disconnect to a signal for all keygrabbers at once.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The signal name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item186 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="emit_signal" href="#emit_signal">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emit a signal on the keygrabber module itself.</p>
+
+<p> Warning, usually don&rsquo;t use this directly, use
+ <code>my_keygrabber:emit_signal(name, &hellip;)</code>. This function works on the whole
+ keygrabber module, not one of its instance.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The signal name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Other arguments for the callbacks.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item187 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="timeout" href="#timeout">&#128279;</a>
+    <strong>timeout</strong>
+    <span class="proptype"><span class='summary_type'>number <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The keygrabber timeout.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: No timeout.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Unit
+         </i>
+        </td>
+        <td>: second</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/gears.timer.html#" title="In the gears.timer module.">gears.timer</a></td>
+         <td>Class to execute code at specific intervals. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#timeout_callback" title="In the awful.keygrabber module.">timeout_callback</a></td>
+         <td>The function called when the keygrabber stops because of a <a href="../core_components/awful.keygrabber.html#timeout">timeout</a>. </td>
+         <td>
+             <span class="chips">callback functions prototype</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">awful.keygrabber {
+    autostart      = <span class="keyword">true</span>,
+    timeout        = <span class="number">1</span>, <span class="comment">-- second
+</span>    timeout_callback  = <span class="keyword">function</span>()
+        <span class="global">print</span>(<span class="string">"The keygrabber has expired"</span>)
+    <span class="keyword">end</span>,
+}</pre>
+    </ul>
+
+
+    <span id=item188 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop_key" href="#stop_key">&#128279;</a>
+    <strong>stop_key</strong>
+    <span class="proptype"><span class='summary_type'>string <i>or</i> table <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The key on which the keygrabber listen to terminate itself.</p>
+
+<p> When this is set, the running keygrabber will quit when [one of] the stop
+ key event occurs.</p>
+
+<p> By default, the event is <code>press</code>. It is common for use case like the
+ <a href="../libraries/awful.prompt.html#">awful.prompt</a> where <code>return</code> (enter) will terminate the keygrabbing. Using
+ <code>release</code> as an event is more appropriate when the keygrabber is tied to a
+ modifier key. For example, an Alt+Tab implementation stops when <code>mod1</code> (Alt)
+ is released.</p>
+
+<p> It can also be a table containing many keys (as values).</p>
+
+<p> Please note that modkeys are not accepted as <a href="../core_components/awful.keygrabber.html#stop_key">stop_key</a>s. You have to use
+ their corresponding key names such as <code>Control_L</code>.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of key names, such as <code>&quot;Control&quot;</code> or <code>&quot;a&quot;</code>.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Unit
+         </i>
+        </td>
+        <td>: nil No stop key.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#stop_event" title="In the awful.keygrabber module.">stop_event</a></td>
+         <td>The event on which the keygrabbing will be terminated. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item189 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop_event" href="#stop_event">&#128279;</a>
+    <strong>stop_event</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The event on which the keygrabbing will be terminated.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"press"</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"press"</code>
+         </i>
+        </td>
+        <td>: When the keyboard key is first pressed.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"release"</code>
+         </i>
+        </td>
+        <td>: When the keyboard key is released.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#stop_key" title="In the awful.keygrabber module.">stop_key</a></td>
+         <td>The key on which the keygrabber listen to terminate itself. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item190 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="mask_event_callback" href="#mask_event_callback">&#128279;</a>
+    <strong>mask_event_callback</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Whether or not to execute the key press/release callbacks when keybindings are called.</p>
+
+<p> When this property is set to false, the <a href="../core_components/awful.keygrabber.html#keyreleased_callback">keyreleased_callback</a> and
+ <a href="../core_components/awful.keygrabber.html#keypressed_callback">keypressed_callback</a> callbacks will be executed even when the event was
+ consumed by a <code>keybinding</code>.</p>
+
+<p> By default, keybindings block those callbacks from being executed.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>true</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#keybindings" title="In the awful.keygrabber module.">keybindings</a></td>
+         <td>The keybindings associated with this keygrabber. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#keyreleased_callback" title="In the awful.keygrabber module.">keyreleased_callback</a></td>
+         <td>The callback function to call with mod table, key and command as arguments
+ when a key was released. </td>
+         <td>
+             <span class="chips">callback functions prototype</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#keypressed_callback" title="In the awful.keygrabber module.">keypressed_callback</a></td>
+         <td>The callback function to call with mod table, key and command as arguments
+ when a key was pressed. </td>
+         <td>
+             <span class="chips">callback functions prototype</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item191 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="mask_modkeys" href="#mask_modkeys">&#128279;</a>
+    <strong>mask_modkeys</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Do not call the callbacks on modifier keys (like <code>Control</code> or <code>Mod4</code>) events.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#mask_event_callback" title="In the awful.keygrabber module.">mask_event_callback</a></td>
+         <td>Whether or not to execute the key press/release callbacks when keybindings are called. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item192 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="export_keybindings" href="#export_keybindings">&#128279;</a>
+    <strong>export_keybindings</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Export all keygrabber keybindings as root (global) keybindings.</p>
+
+<p> When this is enabled, calling all of the keygrabber object <code>keybinding</code>s will
+ will create root <a href="../input_handling/awful.key.html#">awful.key</a> and will automatically starts the grabbing.</p>
+
+<p> Use this with caution. If many keygrabber or &ldquo;real&rdquo; root keybindings are set
+ on the same key combination, they are all executed and there is almost no
+ safe way to undo that. Make sure the <a href="../core_components/awful.keygrabber.html#awful.keygrabber">keygrabber</a> that use this option
+ have a single instance.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item193 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="root_keybindings" href="#root_keybindings">&#128279;</a>
+    <strong>root_keybindings</strong>
+    <span class="proptype"><span class='summary_type'>table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>The root (global) keybinding to start this keygrabber.</p>
+
+<p> Instead of adding an entry to <a href="../core_components/root.html#keys">root.keys</a> or <a href="../sample files/rc.lua.html#">rc.lua</a> <code>globalkeys</code> section,
+ this property can be used to take care of everything. This way, it becomes
+ easier to package modules using keygrabbers.</p>
+
+<p><strong>Usage example output</strong>:</p>
+
+<pre><code>Is now active!  nil
+A key was pressed:  a   with    0   modifier!
+A key was pressed:  i   with    1   modifier!
+Called again!
+</code></pre>
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>{}</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of <a href="input_handling/awful.key.html#">awful.key</a> objects.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#export_keybindings" title="In the awful.keygrabber module.">export_keybindings</a></td>
+         <td>Export all keygrabber keybindings as root (global) keybindings. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#keybindings" title="In the awful.keygrabber module.">keybindings</a></td>
+         <td>The keybindings associated with this keygrabber. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">awful.keygrabber {
+    mask_modkeys = <span class="keyword">true</span>,
+    root_keybindings = {
+        awful.key {
+            modifiers = {<span class="string">"Mod4"</span>},
+            key       = <span class="string">"i"</span>,
+            on_press  = <span class="keyword">function</span>(self)
+                <span class="global">print</span>(<span class="string">"Is now active!"</span>, self)
+            <span class="keyword">end</span>
+        },
+    },
+    keybindings = {
+        awful.key {
+            modifiers = {<span class="string">"Mod4"</span>, <span class="string">"Shift"</span>},
+            key       = <span class="string">"i"</span>,
+            on_press  = <span class="keyword">function</span>(self)
+                <span class="global">print</span>(<span class="string">"Called again!"</span>)
+                self:stop()
+            <span class="keyword">end</span>
+        },
+    },
+    keypressed_callback  = <span class="keyword">function</span>(_, modifiers, key)
+        <span class="global">print</span>(<span class="string">"A key was pressed:"</span>, key, <span class="string">"with"</span>, #modifiers, <span class="string">"modifier!"</span>)
+    <span class="keyword">end</span>,
+}
+
+<span class="comment">-- The following will **NOT** trigger the keygrabbing because it isn't exported
+</span><span class="comment">-- to the root (global) keys. Adding <a href="../core_components/awful.keygrabber.html#export_keybindings">export_keybindings</a> would solve that
+</span>root._execute_keybinding({<span class="string">"Mod4"</span>, <span class="string">"Shift"</span>}, <span class="string">"i"</span>)
+<span class="global">assert</span>(#keybinding_works == <span class="number">0</span>)
+
+<span class="comment">-- But this will start the keygrabber because it is part of the root_keybindings
+</span>root._execute_keybinding({<span class="string">"Mod4"</span>}, <span class="string">"i"</span>)
+
+<span class="comment">-- Note that that keygrabber is running, all callbacks should work:
+</span>root.fake_input(<span class="string">"key_press"</span>  , <span class="string">"a"</span>)
+root.fake_input(<span class="string">"key_release"</span>  , <span class="string">"a"</span>)
+
+<span class="comment">-- Calling the root keybindings now wont work because they are not part of
+</span><span class="comment">-- the keygrabber internal (own) keybindings, so <a href="../core_components/awful.keygrabber.html#keypressed_callback">keypressed_callback</a> will
+</span><span class="comment">-- be called.
+</span>root._execute_keybinding({<span class="string">"Mod4"</span>}, <span class="string">"i"</span>)
+
+<span class="comment">-- Now the keygrabber own keybindings will work
+</span>root._execute_keybinding({<span class="string">"Mod4"</span>, <span class="string">"Shift"</span>}, <span class="string">"i"</span>)</pre>
+    </ul>
+
+
+    <span id=item194 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="keybindings" href="#keybindings">&#128279;</a>
+    <strong>keybindings</strong>
+    <span class="proptype"><span class='summary_type'>table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The keybindings associated with this keygrabber.</p>
+
+<p> This property contains a table of <a href="../input_handling/awful.key.html#">awful.key</a> objects.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>{}</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of <a href="input_handling/awful.key.html#">awful.key</a> objects.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#export_keybindings" title="In the awful.keygrabber module.">export_keybindings</a></td>
+         <td>Export all keygrabber keybindings as root (global) keybindings. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#root_keybindings" title="In the awful.keygrabber module.">root_keybindings</a></td>
+         <td>The root (global) keybinding to start this keygrabber. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/awful.key.html#" title="In the awful.key module.">awful.key</a></td>
+         <td>Create easily new key objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item195 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="allowed_keys" href="#allowed_keys">&#128279;</a>
+    <strong>allowed_keys</strong>
+    <span class="proptype"><span class='summary_type'>table <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    If any key is pressed that is not in this list, the keygrabber is stopped.</p>
+
+<p> When defined, this property allows to define an implicit way to release the
+ keygrabber. It helps save some boilerplate code in the handler callbacks.</p>
+
+<p> It is useful when a transaction only handle a limited number of keys. If
+ a key unhandled by the transaction is triggered, the transaction is
+ canceled.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: All keys are allowed.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>table</span>
+         </i>
+        </td>
+        <td>: Only some keys are allowed.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of key names, such as <code>&quot;Control&quot;</code> or <code>&quot;a&quot;</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">awful.keygrabber {
+    autostart      = <span class="keyword">true</span>,
+    allowed_keys   = {<span class="string">"a"</span>, <span class="string">"w"</span>, <span class="string">"e"</span>, <span class="string">"s"</span>, <span class="string">"o"</span>, <span class="string">"m"</span>, <span class="string">"e"</span>},
+}</pre>
+    </ul>
+
+
+    <span id=item196 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="sequence" href="#sequence">&#128279;</a>
+    <strong>sequence</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The sequence of keys recorded since the start of the keygrabber.</p>
+
+<p> In this example, the <a href="../core_components/awful.keygrabber.html#stop_callback">stop_callback</a> is used to retrieve the final key
+ sequence.</p>
+
+<p> Please note that backspace will remove elements from the sequence and
+ named keys and modifiers are ignored.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>""</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">awful.keygrabber {
+    autostart      = <span class="keyword">true</span>,
+    stop_key       = <span class="string">"Return"</span>,
+    stop_callback  = <span class="keyword">function</span>(_, _, _, sequence)
+        naughty.notification {message=<span class="string">"The keys were:"</span>..sequence}
+    <span class="keyword">end</span>,
+}</pre>
+    </ul>
+
+
+    <span id=item197 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="start" href="#start">&#128279;</a>
+    <strong>:start <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+         &middot 2 signals
+    </span>
+    </dt>
+    <dd>
+    Start the keygrabber.</p>
+
+<p> Note that only a single keygrabber can be started at any one time. If another
+ keygrabber (or this one) is currently running. This method returns false.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the keygrabber was successfully started.
+    </ol>
+
+
+
+
+     <br />
+     <center id=button198>
+     <a class="show_more_button" onclick="show_extra('198')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item198 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><a href="../core_components/awful.keygrabber.html#started">started</a></span>  </li>
+
+          <li><span class="parameter"><a href="../core_components/awful.keygrabber.html#property::current_instance">property::current_instance</a></span>  </li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop" href="#stop">&#128279;</a>
+    <strong>:stop <span class='function_args'> <b>(</b>stop_key, stop_mods<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 2 signals
+    </span>
+    </dt>
+    <dd>
+    Stop the keygrabber.</p>
+
+<p> Also stops any <a href="../core_components/awful.keygrabber.html#timeout">timeout</a>.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">stop_key</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <span class="type">nil</span></span></td>
+           <td class="see_also_description"> Override the key passed to <a href="../core_components/awful.keygrabber.html#stop_callback">stop_callback</a> <strong>DEPRECATED</strong></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">stop_mods</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">tale</span> or <span class="type">nil</span></span></td>
+           <td class="see_also_description"> Override the modifiers passed to <a href="../core_components/awful.keygrabber.html#stop_callback">stop_callback</a> <strong>DEPRECATED</strong></td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button199>
+     <a class="show_more_button" onclick="show_extra('199')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item199 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><a href="../core_components/awful.keygrabber.html#stopped">stopped</a></span>  </li>
+
+          <li><span class="parameter"><a href="../core_components/awful.keygrabber.html#property::current_instance">property::current_instance</a></span>  </li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_keybinding" href="#add_keybinding">&#128279;</a>
+    <strong>:add_keybinding <span class='function_args'> <b>(</b>key<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a keybinding to this keygrabber.</p>
+
+<p> Those keybindings will automatically start the keygrabbing when hit.</p>
+
+<p> Please note that this method previously accepted a
+ <code>mods, keycode, callback, description</code> signature. This is deprecated. Store
+ those values in an <a href="../input_handling/awful.key.html#">awful.key</a> prior to passing it to this function. The
+ previous method signature made it impossible to alter the description and/or
+ enable/disable the keybinding.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">key</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.key</span></span></td>
+           <td class="see_also_description"> The key.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#remove_keybinding" title="In the awful.keygrabber module.">remove_keybinding</a></td>
+         <td>Remove a keybinding from the keygrabber. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item200 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="remove_keybinding" href="#remove_keybinding">&#128279;</a>
+    <strong>:remove_keybinding <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove a keybinding from the keygrabber.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        <code>true</code> if removed, <code>false</code> if not found.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#add_keybinding" title="In the awful.keygrabber module.">add_keybinding</a></td>
+         <td>Add a keybinding to this keygrabber. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item201 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="emit_signal" href="#emit_signal">&#128279;</a>
+    <strong>:emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Emit a signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Extra arguments for the callback functions. Each connected
+   function receives the object as first argument and then any extra
+   arguments that are given to emit_signal().</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item202 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="connect_signal" href="#connect_signal">&#128279;</a>
+    <strong>:connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Connect to a signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback to call when the signal is emitted.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item203 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="weak_connect_signal" href="#weak_connect_signal">&#128279;</a>
+    <strong>:weak_connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Connect to a signal weakly.</p>
+
+<p> This allows the callback function to be garbage collected and
+ automatically disconnects the signal when that happens.</p>
+
+<p> <strong>Warning:</strong>
+ Only use this function if you really, really, really know what you
+ are doing.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback to call when the signal is emitted.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item204 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="property::current_instance" href="#property::current_instance">&#128279;</a>
+    <strong>property::current_instance</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The global signal used to track the <a href="../core_components/awful.keygrabber.html#current_instance">current_instance</a>.
+
+
+
+
+
+
+
+    <span id=item205 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="started" href="#started">&#128279;</a>
+    <strong>started</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    When the keygrabber starts.
+
+
+
+
+
+
+
+    <span id=item206 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stopped" href="#stopped">&#128279;</a>
+    <strong>stopped</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    When the keygrabber stops.
+
+
+
+
+
+
+
+    <span id=item207 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="keybinding::triggered" href="#keybinding::triggered">&#128279;</a>
+    <strong>keybinding::triggered</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    When an <a href="../input_handling/awful.key.html#">awful.key</a> is pressed.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.keybinding</span></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">key</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.key</span></span></td>
+           <td class="see_also_description"> The keybinding.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">event</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Either <code>&quot;press&quot;</code> or <code>&quot;release&quot;</code>.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item208 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Deprecated_functions"></a>Deprecated functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="stop" href="#stop">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>stop <span class='function_args'> <b>(</b><span class="optional_param">g</span><b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Stop grabbing the keyboard for the provided callback.</p>
+
+<p> When no callback is given, the last grabber gets removed (last one added to
+ the stack).
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">g</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The key grabber that must be removed.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item209 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="run" href="#run">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>run <span class='function_args'> <b>(</b>g<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A lower level API to interact with the keygrabber directly.</p>
+
+<p> Grab keyboard input and read pressed keys, calling the least callback
+ function from the stack at each keypress, until the stack is empty.</p>
+
+<p> Calling run with the same callback again will bring the callback
+ to the top of the stack.</p>
+
+<p> The callback function receives three arguments:</p>
+
+<ul>
+<li>a table containing modifiers keys</li>
+<li>a string with the pressed key</li>
+<li>a string with either &ldquo;press&rdquo; or &ldquo;release&rdquo; to indicate the event type.</li>
+</ul>
+
+
+<p> Here is the content of the modifier table:</p>
+
+<p> <table class='widget_list' border=1>
+  <tr style='font-weight: bold;'>
+   <th align='center'>Modifier name </th>
+   <th align='center'>Key name</th>
+   <th align='center'>Alternate key name</th>
+  </tr>
+  <tr><td> Mod4</td><td align='center'> Super_L </td><td align='center'> Super_R </td></tr>
+  <tr><td> Control </td><td align='center'> Control_L </td><td align='center'> Control_R </td></tr>
+  <tr><td> Shift </td><td align='center'> Shift_L </td><td align='center'> Shift_R </td></tr>
+  <tr><td> Mod1</td><td align='center'> Alt_L </td><td align='center'> Alt_R </td></tr>
+ </table></p>
+
+<p> A callback can return <code>false</code> to pass the events to the next
+ keygrabber in the stack.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">g</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The key grabber callback that will get the key events until it
+  will be deleted or a new grabber is added.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the given callback <code>g</code>.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- The following function can be bound to a key, and be used to resize a
+</span><span class="comment">-- client using the keyboard.
+</span>
+<span class="keyword">function</span> resize(c)
+  <span class="keyword">local</span> grabber
+  grabber = awful.keygrabber.run(<span class="keyword">function</span>(mod, key, event)
+    <span class="keyword">if</span> event == <span class="string">"release"</span> <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+
+    <span class="keyword">if</span>     key == <span class="string">'Up'</span>    <span class="keyword">then</span> c:relative_move(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>)
+    <span class="keyword">elseif</span> key == <span class="string">'Down'</span>  <span class="keyword">then</span> c:relative_move(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">5</span>)
+    <span class="keyword">elseif</span> key == <span class="string">'Right'</span> <span class="keyword">then</span> c:relative_move(<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>)
+    <span class="keyword">elseif</span> key == <span class="string">'Left'</span>  <span class="keyword">then</span> c:relative_move(<span class="number">0</span>, <span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>)
+    <span class="keyword">else</span>   awful.keygrabber.stop(grabber)
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+
+    <span id=item210 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Callback_functions_prototype"></a>Callback functions prototype</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="start_callback" href="#start_callback">&#128279;</a>
+    <strong>start_callback <span class='function_args'> <b>(</b>keygrabber<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A function called when a keygrabber starts.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">keygrabber</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="../core_components/awful.keygrabber.html#awful.keygrabber">keygrabber</a></span></td>
+           <td class="see_also_description"> The keygrabber.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item211 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop_callback" href="#stop_callback">&#128279;</a>
+    <strong>stop_callback <span class='function_args'> <b>(</b>self, stop_key, stop_mods, sequence<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The callback when the keygrabbing stops.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current transaction object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">stop_key</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The key(s) that stop the keygrabbing (if any)</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">stop_mods</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The modifiers key (if any)</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">sequence</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The recorded key sequence.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#sequence" title="In the awful.keygrabber module.">sequence</a></td>
+         <td>The sequence of keys recorded since the start of the keygrabber. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#stop" title="In the awful.keygrabber module.">stop</a></td>
+         <td>Stop grabbing the keyboard for the provided callback. </td>
+         <td>
+             <span class="chips">deprecated functions</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> <span class="keyword">function</span> my_done_cb(self, stop_key, stop_mods, sequence)
+   <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+
+    <span id=item212 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="timeout_callback" href="#timeout_callback">&#128279;</a>
+    <strong>timeout_callback <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The function called when the keygrabber stops because of a <a href="../core_components/awful.keygrabber.html#timeout">timeout</a>.</p>
+
+<p> Note that the <a href="../core_components/awful.keygrabber.html#stop_callback">stop_callback</a> is also called when the keygrabbers timeout.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/awful.keygrabber.html#timeout" title="In the awful.keygrabber module.">timeout</a></td>
+         <td>The keygrabber timeout. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item213 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="keypressed_callback" href="#keypressed_callback">&#128279;</a>
+    <strong>keypressed_callback <span class='function_args'> <b>(</b>self, mod, key, event<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The callback function to call with mod table, key and command as arguments
+ when a key was pressed.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current transaction object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">mod</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current modifiers (like <code>&quot;Control&quot;</code> or <code>&quot;Shift&quot;</code>).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">key</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The key name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">event</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The event (&ldquo;press&rdquo; or &ldquo;release&rdquo;).</td>
+         </tr>
+        </table>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> <span class="keyword">function</span> my_keypressed_cb(self, mod, key, command)
+   <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+
+    <span id=item214 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="keyreleased_callback" href="#keyreleased_callback">&#128279;</a>
+    <strong>keyreleased_callback <span class='function_args'> <b>(</b>self, mod, key, event<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The callback function to call with mod table, key and command as arguments
+ when a key was released.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current transaction object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">mod</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current modifiers (like <code>&quot;Control&quot;</code> or <code>&quot;Shift&quot;</code>).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">key</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The key name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">event</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The event (&ldquo;press&rdquo; or &ldquo;release&rdquo;)</td>
+         </tr>
+        </table>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> <span class="keyword">function</span> my_keyreleased_cb(self, mod, key, command)
+   <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+
+    <span id=item215 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="current_instance" href="#current_instance">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>current_instance</strong>
+    <span class="proptype"><span class='summary_type'>keygrabber</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    The current (running) instance of this keygrabber.</p>
+
+<p> The keygrabber instance is created when the keygrabber starts. It is an object
+ mirroring this keygrabber object, but where extra properties can be added. It
+ is useful to keep some contextual data part of the current transaction without
+ polluting the original object of having extra boilerplate code.
+
+
+
+
+
+
+     <br />
+     <center id=button216>
+     <a class="show_more_button" onclick="show_extra('216')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item216 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><a href="../core_components/awful.keygrabber.html#property::current_instance">property::current_instance</a></span>  </li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="is_running" href="#is_running">&#128279;</a>
+    <strong><span class='function_modname'>awful.keygrabber.</span>is_running</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    If a keygrabber is currently running.
+
+
+
+
+
+
+
+    <span id=item217 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

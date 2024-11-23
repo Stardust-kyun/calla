@@ -1,0 +1,1218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Themelib gears.color - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><strong>gears.color</strong></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>gears.color</code></h1>
+<p>This module simplifies the creation of cairo pattern objects.</p>
+<p> In most places in awesome where a color is needed, the provided argument is
+ passed to <a href="../theme_related_libraries/gears.color.html#">gears.color</a>, which actually calls <a href="../theme_related_libraries/gears.color.html#create_pattern">create_pattern</a> and creates
+ a pattern from a given string or table.</p>
+
+<p> This function can create solid, linear, radial and png patterns.</p>
+
+<p> A simple example for a solid pattern is a hexadecimal color specification.
+ For example <code>#ff8000</code> creates a solid pattern with 100% red, 50% green and 0%
+ blue. Limited support for named colors (<code>red</code>) is also provided.</p>
+
+<p> In general, patterns are specified as strings formatted as
+ <code>&quot;type:arguments&quot;</code>. <code>&quot;arguments&quot;</code> is specific to the pattern being used. For
+ example, one can use:</p>
+
+<pre>
+<span class="string">"radial:50,50,10:55,55,30:0,#ff0000:0.5,#00ff00:1,#0000ff"</span>
+</pre>
+
+
+<p> The above will call <a href="../theme_related_libraries/gears.color.html#create_radial_pattern">create_radial_pattern</a> with the provided string, after
+ stripping the <code>radial:</code> prefix.</p>
+
+<p> Alternatively, patterns can be specified via tables. In this case, the
+ table&rsquo;s &lsquo;type&rsquo; member specifies the type. For example:</p>
+
+<pre>
+{
+  <span class="global">type</span> = <span class="string">"radial"</span>,
+  from = { <span class="number">50</span>, <span class="number">50</span>, <span class="number">10</span> },
+  to = { <span class="number">55</span>, <span class="number">55</span>, <span class="number">30</span> },
+  stops = { { <span class="number">0</span>, <span class="string">"#ff0000"</span> }, { <span class="number">0.5</span>, <span class="string">"#00ff00"</span> }, { <span class="number">1</span>, <span class="string">"#0000ff"</span> } }
+}
+</pre>
+
+
+<p> Any argument that cannot be understood is passed to <a href="../theme_related_libraries/gears.color.html#create_solid_pattern">create_solid_pattern</a>.</p>
+
+<p> Please note that you MUST NOT modify the returned pattern, for example by
+ calling :set_matrix() on it, because this function uses a cache and your
+ changes could thus have unintended side effects. Use <a href="../theme_related_libraries/gears.color.html#create_pattern_uncached">create_pattern_uncached</a>
+ if you need to modify the returned pattern.</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2010 Uli Schlachter</li>
+                <li>
+                    <strong>Originally authored by</strong>: Uli Schlachter<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#parse_color"><span class='function_modname'>gears.color.</span>parse_color <span class='function_args'> <b>(</b>col<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;(number, number, number, number, nil)</span></span>
+      </td>
+      <td class="summary">
+        Parse a HTML-color.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_solid_pattern"><span class='function_modname'>gears.color.</span>create_solid_pattern <span class='function_args'> <b>(</b>col<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Create a solid pattern
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_png_pattern"><span class='function_modname'>gears.color.</span>create_png_pattern <span class='function_args'> <b>(</b>file<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Create an image pattern from a png file
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_linear_pattern"><span class='function_modname'>gears.color.</span>create_linear_pattern <span class='function_args'> <b>(</b>arg<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Create a linear pattern object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_radial_pattern"><span class='function_modname'>gears.color.</span>create_radial_pattern <span class='function_args'> <b>(</b>arg<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Create a radial pattern object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_pattern_uncached"><span class='function_modname'>gears.color.</span>create_pattern_uncached <span class='function_args'> <b>(</b>col<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Create a pattern from a given string.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_pattern"><span class='function_modname'>gears.color.</span>create_pattern <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;gears.color</span></span>
+      </td>
+      <td class="summary">
+        Create a pattern from a given string, same as <a href="../theme_related_libraries/gears.color.html#">gears.color</a>.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#create_opaque_pattern"><span class='function_modname'>gears.color.</span>create_opaque_pattern <span class='function_args'> <b>(</b>col<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Check if a pattern is opaque.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#recolor_image"><span class='function_modname'>gears.color.</span>recolor_image <span class='function_args'> <b>(</b>image, new_color<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Fill non-transparent area of an image with a given color.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#change_opacity"><span class='function_modname'>gears.color.</span>change_opacity <span class='function_args'> <b>(</b>input, opacity<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;color</span></span>
+      </td>
+      <td class="summary">
+        Take an input color and set a different opacity.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#to_rgba_string"><span class='function_modname'>gears.color.</span>to_rgba_string <span class='function_args'> <b>(</b>color, <span class="optional_param">fallback</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+      </td>
+      <td class="summary">
+        Convert a color back to an hexadecimal color code.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#ensure_pango_color"><span class='function_modname'>gears.color.</span>ensure_pango_color <span class='function_args'> <b>(</b>check_color, fallback<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+      </td>
+      <td class="summary">
+        Get a valid color for Pango markup
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#color.types">color.types</a>
+      </td>
+      <td class="summary">
+        Mapping of all supported color types.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#color.transparent"><span class='function_modname'>gears.color.</span>color.transparent</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>N/A</span></td>
+      <td class="summary">
+        No color
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="parse_color" href="#parse_color">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>parse_color <span class='function_args'> <b>(</b>col<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;(number, number, number, number, nil)</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Parse a HTML-color.
+ This function can parse colors like <code>#rrggbb</code> and <code>#rrggbbaa</code> and also <code>red</code>.
+ Max 4 chars per channel.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">col</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The color to parse</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        between 0 and 1 for the &lsquo;red&rsquo; value (1st channel)</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        between 0 and 1 for the &lsquo;green&rsquo; value (2nd channel)</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        between 0 and 1 for the &lsquo;blue&rsquo; value (3rd channel)</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+         between 0 and 1 for the &lsquo;opacity&rsquo; value (4th channel)
+ if the incoming color code only has 3 values (only rgb, not opacity) the 4th
+ return value is 1.</li>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        if input is incorrect</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Both of the following will return 0, 0.4, 0.8, 1
+</span>gears.color.parse_color(<span class="string">"#0066ccff"</span>)
+gears.color.parse_color(<span class="string">"#0066cc"</span>)</pre>
+    </ul>
+
+
+    <span id=item1099 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_solid_pattern" href="#create_solid_pattern">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_solid_pattern <span class='function_args'> <b>(</b>col<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a solid pattern
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">col</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The color for the pattern</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A cairo pattern object
+    </ol>
+
+
+
+
+
+    <span id=item1100 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_png_pattern" href="#create_png_pattern">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_png_pattern <span class='function_args'> <b>(</b>file<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create an image pattern from a png file
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">file</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The filename of the file</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a cairo pattern object
+    </ol>
+
+
+
+
+
+    <span id=item1101 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_linear_pattern" href="#create_linear_pattern">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_linear_pattern <span class='function_args'> <b>(</b>arg<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a linear pattern object.
+ The pattern is created from a string. This string should have the following
+ form: <code>&quot;x0, y0:x1, y1:&lt;stops&gt;&quot;</code>
+ Alternatively, the pattern can be specified as a table:
+    { type = &ldquo;linear&rdquo;, from = { x0, y0 }, to = { x1, y1 },
+      stops = { <stops> } }
+ <code>x0,y0</code> and <code>x1,y1</code> are the start and stop point of the pattern.
+ For the explanation of <code>&lt;stops&gt;</code>, see <code>color.create_pattern</code>.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The argument describing the pattern.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a cairo pattern object
+    </ol>
+
+
+
+
+
+    <span id=item1102 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_radial_pattern" href="#create_radial_pattern">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_radial_pattern <span class='function_args'> <b>(</b>arg<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a radial pattern object.
+ The pattern is created from a string. This string should have the following
+ form: <code>&quot;x0, y0, r0:x1, y1, r1:&lt;stops&gt;&quot;</code>
+ Alternatively, the pattern can be specified as a table:
+    { type = &ldquo;radial&rdquo;, from = { x0, y0, r0 }, to = { x1, y1, r1 },
+      stops = { <stops> } }
+ <code>x0,y0</code> and <code>x1,y1</code> are the start and stop point of the pattern.
+ <code>r0</code> and <code>r1</code> are the radii of the start / stop circle.
+ For the explanation of <code>&lt;stops&gt;</code>, see <code>color.create_pattern</code>.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">arg</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The argument describing the pattern</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a cairo pattern object
+    </ol>
+
+
+
+
+
+    <span id=item1103 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_pattern_uncached" href="#create_pattern_uncached">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_pattern_uncached <span class='function_args'> <b>(</b>col<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a pattern from a given string.
+ For full documentation of this function, please refer to
+ <code>color.create_pattern</code>.  The difference between <code>color.create_pattern</code>
+ and this function is that this function does not insert the generated
+ objects into the pattern cache. Thus, you are allowed to modify the
+ returned object.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">col</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The string describing the pattern.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a cairo pattern object
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../theme_related_libraries/gears.color.html#create_pattern" title="In the gears.color module.">create_pattern</a></td>
+         <td>Create a pattern from a given string, same as <a href="../theme_related_libraries/gears.color.html#">gears.color</a>. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1104 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_pattern" href="#create_pattern">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_pattern <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;gears.color</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a pattern from a given string, same as <a href="../theme_related_libraries/gears.color.html#">gears.color</a>.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">gears.color</span></span>
+        A cairo pattern object.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../theme_related_libraries/gears.color.html#" title="In the gears.color module.">gears.color</a></td>
+         <td>This module simplifies the creation of cairo pattern objects. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1105 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="create_opaque_pattern" href="#create_opaque_pattern">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>create_opaque_pattern <span class='function_args'> <b>(</b>col<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Check if a pattern is opaque.
+ A pattern is transparent if the background on which it gets drawn (with
+ operator OVER) doesn&rsquo;t influence the visual result.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">col</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> An argument that <a href="../theme_related_libraries/gears.color.html#create_pattern">create_pattern</a> accepts.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The pattern if it is surely opaque, else nil
+    </ol>
+
+
+
+
+
+    <span id=item1106 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="recolor_image" href="#recolor_image">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>recolor_image <span class='function_args'> <b>(</b>image, new_color<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Fill non-transparent area of an image with a given color.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">image</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Image or path to it.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">new_color</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> New color.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Recolored image.
+    </ol>
+
+
+
+
+
+    <span id=item1107 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="change_opacity" href="#change_opacity">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>change_opacity <span class='function_args'> <b>(</b>input, opacity<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;color</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Take an input color and set a different opacity.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">input</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <span class="type">pattern</span></span></td>
+           <td class="see_also_description"> The input color.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">opacity</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> A floating point number between 0 and 1.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">color</span></span>
+        The new color if successful or <code>input</code> if invalid.
+    </ol>
+
+
+
+
+
+    <span id=item1108 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="to_rgba_string" href="#to_rgba_string">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>to_rgba_string <span class='function_args'> <b>(</b>color, <span class="optional_param">fallback</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Convert a color back to an hexadecimal color code.</p>
+
+<p> This takes an input color, pattern or gradient and attempt to convert it
+ to a color. If this fails, <code>fallback</code> is returned. This is useful when a
+ color needs to be concatenated into a Pango markup string.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">color</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">pattern</span>, <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <span class="type">gradient</span></span></td>
+           <td class="see_also_description"> Note that only solid colors can be
+  convedted to the <code>RGBA</code> format.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">fallback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">pattern</span>, <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <span class="type">gradient</span></span></td>
+           <td class="see_also_description"> The color to return
+  if <code>color</code> cannot be converted to a string.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        The color in <code>#rrggbbaa</code> format.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../theme_related_libraries/gears.color.html#ensure_pango_color" title="In the gears.color module.">gears.color.ensure_pango_color</a></td>
+         <td>Get a valid color for Pango markup </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1109 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="ensure_pango_color" href="#ensure_pango_color">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>ensure_pango_color <span class='function_args'> <b>(</b>check_color, fallback<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get a valid color for Pango markup
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">check_color</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The color to check.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">fallback</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The color to return if the first is invalid. (default: black)</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        color if it is valid, else fallback.
+    </ol>
+
+
+
+
+
+    <span id=item1110 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="color.types" href="#color.types">&#128279;</a>
+    <strong>color.types</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Mapping of all supported color types.  New entries can be added.
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">solid</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">png</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">linear</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">radial</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1111 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="color.transparent" href="#color.transparent">&#128279;</a>
+    <strong><span class='function_modname'>gears.color.</span>color.transparent</strong>
+    <span class="proptype"><span class='summary_type'>N/A</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    No color
+
+
+
+
+
+
+
+    <span id=item1112 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Module awful.spawn - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+</ul>
+
+
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><strong>awful.spawn</strong></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>awful.spawn</code></h1>
+<p>Spawn sub-processes and optionally get their output.</p>
+<p><p> This module provides methods to start programs and supports startup
+ notifications, which allows for callbacks and applying properties to the
+ program after it has been launched.  This requires currently that the
+ application supports them.</p>
+
+<h2> Frequently asked questions</h2>
+
+<p> <strong>Rules of thumb when a shell is needed</strong>:</p>
+
+<ul>
+<li>A shell is required when the commands contain <code>&amp;&amp;</code>, <code>;</code>, <code>||</code>, <code>&amp;</code> or
+any other unix shell language syntax</li>
+<li>When shell variables are defined as part of the command</li>
+<li>When the command is a shell alias</li>
+</ul>
+
+
+<p> Note that a shell is <strong>not</strong> a terminal emulator. A terminal emulator is
+ something like XTerm, Gnome-terminal or Konsole. A shell is something like
+ <code>bash</code>, <code>zsh</code>, <code>busybox sh</code> or <code>Debian ash</code>.</p>
+
+<p> If you wish to open a process in a terminal window, check that your terminal
+ emulator supports the common <a href="../libraries/awful.spawn.html#awful.spawn.once">-e</a> option. If it does, then something like
+ this should work:</p>
+
+<pre>
+awful.spawn(terminal..<span class="string">" -e my_command"</span>)
+</pre>
+
+
+<p> Note that some terminals, such as rxvt-unicode (urxvt) support full commands
+ using quotes, while other terminal emulators require to use quoting.</p>
+
+<p> <strong>Understanding clients versus PID versus commands versus class</strong>:</p>
+
+<p> A <em>process</em> has a <em>PID</em> (process identifier). It can have 0, 1 or many
+ <em>window</em>s.</p>
+
+<p> A <em>command</em> is what is used to start <em>process</em>(es). It has no direct relation
+ with <em>process</em>, <em>client</em> or <em>window</em>. When a command is executed, it will
+ usually start a <em>process</em> which keeps running until it exits. This however is
+ not always the case as some applications use scripts as command and others
+ use various single-instance mechanisms (usually client/server) and merge
+ with an existing process.</p>
+
+<p> A <em>client</em> corresponds to a <em>window</em>. It is owned by a process. It can have
+ both a parent and one or many children. A <em>client</em> has a <em>class</em>, an
+ <em>instance</em>, a <em>role</em>, and a <em>type</em>. See <a href="../core_components/client.html#class">client.class</a>, <a href="../core_components/client.html#instance">client.instance</a>,
+ <a href="../core_components/client.html#role">client.role</a> and <a href="../core_components/client.html#type">client.type</a> for more information about these properties.</p>
+
+<p> <strong>Understanding blocking versus asynchronous execution</strong>:</p>
+
+<p> Awesome is single threaded, it means only one thing is executed at any time.
+ But Awesome isn&rsquo;t doomed to be slow. It may not have multiple threads, but
+ it has something called coroutine and also has callbacks. This means things
+ that take time to execute can still do so in the background (using C threads
+ or external process + sockets). When they are done, they can notify the
+ Awesome thread. This works perfectly and avoid blocking Awesome.</p>
+
+<p> If you want to update the text of a <a href="../widgets/wibox.widget.textbox.html#">wibox.widget.textbox</a> with the output
+ of a shell command, you should use the <a href="../libraries/awful.spawn.html#awful.spawn.easy_async_with_shell">awful.spawn.easy_async_with_shell</a>
+ command. It is strongly recommended not to use <a href="https://www.lua.org/manual/5.2/manual.html#pdf-io.popen">io.popen</a> is explained in the
+ &ldquo;Getting a command&rsquo;s output&rdquo; section. Asynchronous execution is at first a
+ bit tricky to understand if you never used that before. The example below
+ should demonstrate how it works.</p>
+
+<p> If we do (but <em>really</em>, don&rsquo;t do that):</p>
+
+<pre>
+<span class="comment">-- **NEVER, EVER, DO THIS**: your computer will freeze
+</span><span class="global">os</span>.execute(<span class="string">"sleep 1; echo foo &gt; /tmp/foo.txt"</span>)
+mylabel.text = <span class="global">io</span>.popen(<span class="string">"cat /tmp/foo.txt"</span>):read(<span class="string">"*all"</span>)
+</pre>
+
+
+<p> The label will display <code>foo</code>. But If we do:</p>
+
+<pre>
+<span class="comment">-- Don't do this, it won't work.
+</span><span class="comment">-- Assumes /tmp/foo.txt does not exist
+</span>awful.spawn.with_shell(<span class="string">"sleep 1; echo foo &gt; /tmp/foo.txt"</span>)
+mylabel.text = <span class="global">io</span>.popen(<span class="string">"cat /tmp/foo.txt"</span>):read(<span class="string">"*all"</span>)
+</pre>
+
+
+<p> Then the label will be <strong>empty</strong>. <a href="../libraries/awful.spawn.html#">awful.spawn</a> and <a href="../libraries/awful.spawn.html#awful.spawn.with_shell">awful.spawn.with_shell</a>
+ will <strong>not</strong> block and thus the <a href="https://www.lua.org/manual/5.2/manual.html#pdf-io.popen">io.popen</a> will be executed before
+ <code>sleep 1</code> finishes. This is why we have async functions to execute shell
+ commands. There are many variants with difference characteristics and
+ complexity. <a href="../libraries/awful.spawn.html#awful.spawn.easy_async">awful.spawn.easy_async</a> is the most common as it is good enough
+ for the general &ldquo;I want to execute a command and do something with the
+ output when it finishes&rdquo;.</p>
+
+<pre>
+<span class="comment">-- This is the correct way
+</span><span class="keyword">local</span> command = <span class="string">"sleep 1; echo foo &gt; /tmp/foo.txt"</span>
+
+awful.spawn.easy_async_with_shell(command, <span class="keyword">function</span>()
+    awful.spawn.easy_async_with_shell(<span class="string">"cat /tmp/foo.txt"</span>, <span class="keyword">function</span>(out)
+        mylabel.text = out
+    <span class="keyword">end</span>)
+<span class="keyword">end</span>)
+</pre>
+
+
+<p> In this variant, Awesome will not block. Again, like other spawn, you
+ cannot add code outside of the callback function to use the result of the
+ command. The code will be executed before the command is finished so the
+ result won&rsquo;t yet be available.</p>
+
+<p> <strong>Getting a command&rsquo;s output</strong>:</p>
+
+<p> First, do <strong>not</strong> use <a href="https://www.lua.org/manual/5.2/manual.html#pdf-io.popen">io.popen</a> <strong>ever</strong>. It is synchronous. Synchronous
+ functions <strong>block everything</strong> until they are done. All visual applications
+ lock (as Awesome no longer responds), you will probably lose some keyboard
+ and mouse events and will have higher latency when playing games. This is
+ also true when reading files synchronously, but this is another topic.</p>
+
+<p> Awesome provides a few ways to get output from commands. One is to use the
+ <code>Gio</code> libraries directly. This is usually very complicated, but gives a lot
+ of control on the command execution.</p>
+
+<p> This modules provides <a href="../libraries/awful.spawn.html#awful.spawn.with_line_callback">with_line_callback</a> and <a href="../libraries/awful.spawn.html#awful.spawn.easy_async">easy_async</a> for convenience.
+ First, lets add this bash command to <a href="../sample files/rc.lua.html#">rc.lua</a>:</p>
+
+<pre>
+<span class="keyword">local</span> noisy = <span class="string">[[bash -c '
+  for I in $(seq 1 5); do
+    date
+    echo err &gt;&amp;2
+    sleep 2
+  done
+']]</span>
+</pre>
+
+
+<p> It prints a bunch of junk on the standard output (<em>stdout</em>) and error
+ (<em>stderr</em>) streams. This command would block Awesome for 10 seconds if it
+ were executed synchronously, but will not block it at all using the
+ asynchronous functions.</p>
+
+<p> <a href="../libraries/awful.spawn.html#awful.spawn.with_line_callback">with_line_callback</a> will execute the callbacks every time a new line is
+ printed by the command:</p>
+
+<pre>
+awful.spawn.with_line_callback(noisy, {
+    stdout = <span class="keyword">function</span>(line)
+        naughty.notification { message = <span class="string">"LINE:"</span>..line }
+    <span class="keyword">end</span>,
+    stderr = <span class="keyword">function</span>(line)
+        naughty.notification { message = <span class="string">"ERR:"</span>..line}
+    <span class="keyword">end</span>,
+})
+</pre>
+
+
+<p> If only the full output is needed, then <a href="../libraries/awful.spawn.html#awful.spawn.easy_async">easy_async</a> is the right choice:</p>
+
+<pre>
+awful.spawn.easy_async(noisy, <span class="keyword">function</span>(stdout, stderr, reason, exit_code)
+    naughty.notification { message = stdout }
+<span class="keyword">end</span>)
+</pre>
+
+
+<p> <strong>Default applications</strong>:</p>
+
+<p> If the intent is to open a file/document, then it is recommended to use the
+ following standard command. The default application will be selected
+ according to the <a href="https://specifications.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html">Shared MIME-info Database</a>
+ specification. The <code>xdg-utils</code> package provided by most distributions
+ includes the <code>xdg-open</code> command:</p>
+
+<pre>
+awful.spawn({<span class="string">"xdg-open"</span>, <span class="string">"/path/to/file"</span>})
+</pre>
+
+
+<p> Awesome <strong>does not</strong> manage, modify or otherwise influence the database
+ for default applications. For information about how to do this, consult the
+ <a href="https://wiki.archlinux.org/index.php/default_applications">ARCH Linux Wiki</a>.</p>
+
+<p> If you wish to change how the default applications behave, then consult the
+ <a href="https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html">Desktop Entry</a>
+ specification.</p>
+
+<h2> Spawning applications with specific properties</h2>
+
+<p> <strong>The startup notification protocol</strong>:</p>
+
+<p> The startup notification protocol is an optional specification implemented
+ by X11 applications to bridge the chain of knowledge between the moment a
+ program is launched to the moment its window (client) is shown. It can be
+ found <a href="https://www.freedesktop.org/wiki/Specifications/startup-notification-spec/">on the FreeDesktop.org website</a>.</p>
+
+<p> Awesome has support for the various events that are part of the protocol, but
+ the most useful is the identifier, usually identified by its <code>SNID</code> acronym in
+ the documentation. It isn&rsquo;t usually necessary to even know it exists, as it
+ is all done automatically. However, if more control is required, the
+ identifier can be specified by an environment variable called
+ <code>DESKTOP_STARTUP_ID</code>. For example, let us consider execution of the following
+ command:</p>
+
+<pre>
+DESKTOP_STARTUP_ID=<span class="string">"something_TIME$(date '+%s')"</span> my_command
+</pre>
+
+
+<p> This should (if the program correctly implements the protocol) result in
+ <code>c.startup_id</code> to at least match <code>something</code>.
+ This identifier can then be used in <a href="../declarative_rules/ruled.client.html#">ruled.client</a> to configure the client.</p>
+
+<p> Awesome can automatically set the <code>DESKTOP_STARTUP_ID</code> variable. This is used
+ by <a href="../libraries/awful.spawn.html#">awful.spawn</a> to specify additional rules for the startup. For example:</p>
+
+<pre>
+awful.spawn(<span class="string">"urxvt -e maxima -name CALCULATOR"</span>, {
+    floating  = <span class="keyword">true</span>,
+    tag       = mouse.screen.selected_tag,
+    placement = awful.placement.bottom_right,
+})
+</pre>
+
+
+<p> This can also be used from the command line:</p>
+
+<pre>
+awesome-client <span class="string">'awful=require("awful");
+  awful.spawn("urxvt -e maxima -name CALCULATOR", {
+    floating  = true,
+    tag       = mouse.screen.selected_tag,
+    placement = awful.placement.bottom_right,
+  })'</span>
+</pre>
+
+
+<p> This table contains the client properties that are valid when used the
+ <code>sn_rules</code> or <code>prop</code> function argument. They are the same as in <a href="../declarative_rules/ruled.client.html#">ruled.client</a>.</p>
+
+<table class='widget_list' border=1>
+ <tr>
+  <th align='center'>Name</th>
+  <th align='center'>Description</th>
+ </tr>
+   <tr><td><a href='../core_components/client.html#placement'>placement</a></td><td>The client default placement on the screen</td></tr>
+   <tr><td><a href='../core_components/client.html#honor_padding'>honor\_padding</a></td><td>When applying the placement, honor the screen padding</td></tr>
+   <tr><td><a href='../core_components/client.html#honor_workarea'>honor\_workarea</a></td><td>When applying the placement, honor the screen work area</td></tr>
+   <tr><td><a href='../core_components/client.html#tag'>tag</a></td><td>The client default tag</td></tr>
+   <tr><td><a href='../core_components/client.html#tags'>tags</a></td><td>The client default tags</td></tr>
+   <tr><td><a href='../core_components/client.html#new_tag'>new\_tag</a></td><td>Create a new tag for this client</td></tr>
+   <tr><td><a href='../core_components/client.html#switch_to_tags'>switch\_to\_tags</a></td><td>Unselect the current tags and select this client tags</td></tr>
+   <tr><td><a href='../core_components/client.html#focus'>focus</a></td><td>Define if the client should grab focus by default</td></tr>
+   <tr><td><a href='../core_components/client.html#titlebars_enabled'>titlebars\_enabled</a></td><td>Should this client have a titlebar by default</td></tr>
+   <tr><td><a href='../core_components/client.html#callback'>callback</a></td><td>A function to call when this client is ready</td></tr>
+   <tr><td><a href='../core_components/client.html#marked'>marked</a></td><td>If a client is marked or not</td></tr>
+   <tr><td><a href='../core_components/client.html#is_fixed'>is\_fixed</a></td><td>Return if a client has a fixed size or not</td></tr>
+   <tr><td><a href='../core_components/client.html#immobilized_horizontal'>immobilized\_horizontal</a></td><td>Is the client immobilized horizontally?</td></tr>
+   <tr><td><a href='../core_components/client.html#immobilized_vertical'>immobilized\_vertical</a></td><td>Is the client immobilized vertically?</td></tr>
+   <tr><td><a href='../core_components/client.html#floating'>floating</a></td><td>The client floating state</td></tr>
+   <tr><td><a href='../core_components/client.html#x'>x</a></td><td>The x coordinates</td></tr>
+   <tr><td><a href='../core_components/client.html#y'>y</a></td><td>The y coordinates</td></tr>
+   <tr><td><a href='../core_components/client.html#width'>width</a></td><td>The width of the client</td></tr>
+   <tr><td><a href='../core_components/client.html#height'>height</a></td><td>The height of the client</td></tr>
+   <tr><td><a href='../core_components/client.html#dockable'>dockable</a></td><td>If the client is dockable</td></tr>
+   <tr><td><a href='../core_components/client.html#requests_no_titlebar'>requests\_no\_titlebar</a></td><td>If the client requests not to be decorated with a titlebar</td></tr>
+   <tr><td><a href='../core_components/client.html#shape'>shape</a></td><td>Set the client shape</td></tr>
+   <tr><td><a href='../core_components/client.html#active'>active</a></td><td>Return true if the client is active (has focus)</td></tr>
+   <tr><td><a href='../core_components/client.html#window'>window</a></td><td>The X window id</td></tr>
+   <tr><td><a href='../core_components/client.html#name'>name</a></td><td>The client title</td></tr>
+   <tr><td><a href='../core_components/client.html#skip_taskbar'>skip\_taskbar</a></td><td>True if the client does not want to be in taskbar</td></tr>
+   <tr><td><a href='../core_components/client.html#type'>type</a></td><td>The window type</td></tr>
+   <tr><td><a href='../core_components/client.html#class'>class</a></td><td>The client class</td></tr>
+   <tr><td><a href='../core_components/client.html#instance'>instance</a></td><td>The client instance</td></tr>
+   <tr><td><a href='../core_components/client.html#pid'>pid</a></td><td>The client PID, if available</td></tr>
+   <tr><td><a href='../core_components/client.html#role'>role</a></td><td>The window role, if available</td></tr>
+   <tr><td><a href='../core_components/client.html#machine'>machine</a></td><td>The machine client is running on</td></tr>
+   <tr><td><a href='../core_components/client.html#icon_name'>icon\_name</a></td><td>The client name when iconified</td></tr>
+   <tr><td><a href='../core_components/client.html#icon'>icon</a></td><td>The client icon as a surface</td></tr>
+   <tr><td><a href='../core_components/client.html#icon_sizes'>icon\_sizes</a></td><td>The available sizes of client icons</td></tr>
+   <tr><td><a href='../core_components/client.html#screen'>screen</a></td><td>Client screen</td></tr>
+   <tr><td><a href='../core_components/client.html#hidden'>hidden</a></td><td>Define if the client must be hidden, i</td></tr>
+   <tr><td><a href='../core_components/client.html#minimized'>minimized</a></td><td>Define it the client must be iconify, i</td></tr>
+   <tr><td><a href='../core_components/client.html#size_hints_honor'>size\_hints\_honor</a></td><td>Honor size hints, e</td></tr>
+   <tr><td><a href='../core_components/client.html#border_width'>border\_width</a></td><td>The client border width</td></tr>
+   <tr><td><a href='../core_components/client.html#border_color'>border\_color</a></td><td>The client border color</td></tr>
+   <tr><td><a href='../core_components/client.html#urgent'>urgent</a></td><td>The client urgent state</td></tr>
+   <tr><td><a href='../core_components/client.html#content'>content</a></td><td>A cairo surface for the client window content</td></tr>
+   <tr><td><a href='../core_components/client.html#opacity'>opacity</a></td><td>The client opacity</td></tr>
+   <tr><td><a href='../core_components/client.html#ontop'>ontop</a></td><td>The client is on top of every other windows</td></tr>
+   <tr><td><a href='../core_components/client.html#above'>above</a></td><td>The client is above normal windows</td></tr>
+   <tr><td><a href='../core_components/client.html#below'>below</a></td><td>The client is below normal windows</td></tr>
+   <tr><td><a href='../core_components/client.html#fullscreen'>fullscreen</a></td><td>The client is fullscreen or not</td></tr>
+   <tr><td><a href='../core_components/client.html#maximized'>maximized</a></td><td>The client is maximized (horizontally and vertically) or not</td></tr>
+   <tr><td><a href='../core_components/client.html#maximized_horizontal'>maximized\_horizontal</a></td><td>The client is maximized horizontally or not</td></tr>
+   <tr><td><a href='../core_components/client.html#maximized_vertical'>maximized\_vertical</a></td><td>The client is maximized vertically or not</td></tr>
+   <tr><td><a href='../core_components/client.html#transient_for'>transient\_for</a></td><td>The client the window is transient for</td></tr>
+   <tr><td><a href='../core_components/client.html#group_window'>group\_window</a></td><td>Window identification unique to a group of windows</td></tr>
+   <tr><td><a href='../core_components/client.html#leader_window'>leader\_window</a></td><td>Identification unique to windows spawned by the same command</td></tr>
+   <tr><td><a href='../core_components/client.html#size_hints'>size\_hints</a></td><td>A table with size hints of the client</td></tr>
+   <tr><td><a href='../core_components/client.html#motif_wm_hints'>motif\_wm\_hints</a></td><td>The motif WM hints of the client</td></tr>
+   <tr><td><a href='../core_components/client.html#sticky'>sticky</a></td><td>Set the client sticky, i</td></tr>
+   <tr><td><a href='../core_components/client.html#modal'>modal</a></td><td>Indicate if the client is modal</td></tr>
+   <tr><td><a href='../core_components/client.html#focusable'>focusable</a></td><td>True if the client can receive the input focus</td></tr>
+   <tr><td><a href='../core_components/client.html#shape_bounding'>shape\_bounding</a></td><td>The client's bounding shape as set by awesome as a (native) cairo surface</td></tr>
+   <tr><td><a href='../core_components/client.html#shape_clip'>shape\_clip</a></td><td>The client's clip shape as set by awesome as a (native) cairo surface</td></tr>
+   <tr><td><a href='../core_components/client.html#shape_input'>shape\_input</a></td><td>The client's input shape as set by awesome as a (native) cairo surface</td></tr>
+   <tr><td><a href='../core_components/client.html#client_shape_bounding'>client\_shape\_bounding</a></td><td>The client's bounding shape as set by the program as a (native) cairo surface</td></tr>
+   <tr><td><a href='../core_components/client.html#client_shape_clip'>client\_shape\_clip</a></td><td>The client's clip shape as set by the program as a (native) cairo surface</td></tr>
+   <tr><td><a href='../core_components/client.html#startup_id'>startup\_id</a></td><td>The FreeDesktop StartId</td></tr>
+   <tr><td><a href='../core_components/client.html#valid'>valid</a></td><td>If the client that this object refers to is still managed by awesome</td></tr>
+   <tr><td><a href='../core_components/client.html#first_tag'>first\_tag</a></td><td>The first tag of the client</td></tr>
+   <tr><td><a href='../core_components/client.html#buttons'>buttons</a></td><td>Get or set mouse buttons bindings for a client</td></tr>
+   <tr><td><a href='../core_components/client.html#keys'>keys</a></td><td>Get or set keys bindings for a client</td></tr>
+ </table>
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2008 Julien Danjou,2014 Emmanuel Lepage Vallee</li>
+                <li>
+                    <strong>Originally authored by</strong>: Julien Danjou &lt;julien@danjou.info&gt;,Emmanuel Lepage Vallee &lt;elv1313@gmail.com&gt;<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn">awful.spawn <span class='function_args'> <b>(</b>cmd, <span class="optional_param">sn_rules</span>, <span class="optional_param">callback</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;(integer, nil <i>or</i> string) <i>or</i> string</span></span>
+      </td>
+      <td class="summary">
+        Spawn a program, and optionally apply properties and/or run a callback.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.with_shell"><span class='function_modname'>awful.spawn.</span>with_shell <span class='function_args'> <b>(</b>cmd<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;(integer, nil <i>or</i> string) <i>or</i> string</span></span>
+      </td>
+      <td class="summary">
+        Spawn a program using the shell.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.with_line_callback"><span class='function_modname'>awful.spawn.</span>with_line_callback <span class='function_args'> <b>(</b>cmd, callbacks<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;Integer <i>or</i> string</span></span>
+      </td>
+      <td class="summary">
+        Spawn a program and asynchronously capture its output line by line.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.easy_async"><span class='function_modname'>awful.spawn.</span>easy_async <span class='function_args'> <b>(</b>cmd, callback<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;Integer <i>or</i> string</span></span>
+      </td>
+      <td class="summary">
+        Asynchronously spawn a program and capture its output.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.easy_async_with_shell"><span class='function_modname'>awful.spawn.</span>easy_async_with_shell <span class='function_args'> <b>(</b>cmd, callback<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;Integer <i>or</i> string</span></span>
+      </td>
+      <td class="summary">
+        Call <a href="../libraries/awful.spawn.html#awful.spawn.easy_async">spawn.easy_async</a> with a shell.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.read_lines"><span class='function_modname'>awful.spawn.</span>read_lines <span class='function_args'> <b>(</b>input_stream, line_callback, <span class="optional_param">done_callback</span>, <span class="optional_param">close</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Read lines from a Gio input stream
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.once"><span class='function_modname'>awful.spawn.</span>once <span class='function_args'> <b>(</b>cmd, <span class="optional_param">rules</span>, <span class="optional_param">matcher</span>, <span class="optional_param">unique_id</span>, <span class="optional_param">callback</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Spawn a command if it has not been spawned before.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.single_instance"><span class='function_modname'>awful.spawn.</span>single_instance <span class='function_args'> <b>(</b>cmd, <span class="optional_param">rules</span>, <span class="optional_param">matcher</span>, <span class="optional_param">unique_id</span>, <span class="optional_param">callback</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Spawn a command if an instance is not already running.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.spawn.raise_or_spawn"><span class='function_modname'>awful.spawn.</span>raise_or_spawn <span class='function_args'> <b>(</b>cmd, rules, <span class="optional_param">matcher</span>, <span class="optional_param">unique_id</span>, <span class="optional_param">callback</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;client</span></span>
+      </td>
+      <td class="summary">
+        Raise a client if it exists or spawn a new one then raise it.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn" href="#awful.spawn">&#128279;</a>
+    <strong>awful.spawn <span class='function_args'> <b>(</b>cmd, <span class="optional_param">sn_rules</span>, <span class="optional_param">callback</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;(integer, nil <i>or</i> string) <i>or</i> string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Spawn a program, and optionally apply properties and/or run a callback.</p>
+
+<p> Applying properties or running a callback requires the program/client to
+ support startup notifications.</p>
+
+<p> See <a href="../declarative_rules/ruled.client.html#execute">ruled.client.execute</a> for more details about the format of <code>sn_rules</code>.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The command.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">sn_rules</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a> or <span class="type">boolean</span></span></td>
+           <td class="see_also_description"> A table of properties to be applied
+   after startup; <code>false</code> to disable startup notifications.</td>
+           <td><span class="default_value"><code>true</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A callback function to be run after startup.</td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        The forked PID.</li>
+        <li>
+           <span class="types">optional <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        The startup notification ID, if <code>sn</code> is not false, or
+   a <code>callback</code> is provided.</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        Error message.
+    </ol>
+
+
+
+
+
+    <span id=item396 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.with_shell" href="#awful.spawn.with_shell">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>with_shell <span class='function_args'> <b>(</b>cmd<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;(integer, nil <i>or</i> string) <i>or</i> string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Spawn a program using the shell.
+ This calls <code>cmd</code> with <code>$SHELL -c</code> (via <a href="../libraries/awful.util.html#shell">awful.util.shell</a>).
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        The forked PID.</li>
+        <li>
+           <span class="types">optional <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        The startup notification ID, if <code>sn</code> is not false, or
+   a <code>callback</code> is provided.</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        Error message.
+    </ol>
+
+
+
+
+
+    <span id=item397 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.with_line_callback" href="#awful.spawn.with_line_callback">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>with_line_callback <span class='function_args'> <b>(</b>cmd, callbacks<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;Integer <i>or</i> string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Spawn a program and asynchronously capture its output line by line.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">callbacks</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Table containing callbacks that should be invoked on
+   various conditions. </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stdout</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function that is called with each
+   line of output on stdout, e.g. <code>stdout(line)</code>.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stderr</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function that is called with each
+   line of output on stderr, e.g. <code>stderr(line)</code>.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">output_done</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function to call when no more
+   output is produced.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">exit</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function to call when the spawned
+   process exits. This function gets the exit reason and code as its
+   arguments.
+   The reason can be &ldquo;exit&rdquo; or &ldquo;signal&rdquo;.
+   For &ldquo;exit&rdquo;, the second argument is the exit code.
+   For &ldquo;signal&rdquo;, the second argument is the signal causing process
+   termination.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Integer</span></span>
+        the PID of the forked process.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        Error message.
+    </ol>
+
+
+
+
+
+    <span id=item398 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.easy_async" href="#awful.spawn.easy_async">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>easy_async <span class='function_args'> <b>(</b>cmd, callback<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;Integer <i>or</i> string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Asynchronously spawn a program and capture its output.
+ (wraps <a href="../libraries/awful.spawn.html#awful.spawn.with_line_callback">spawn.with_line_callback</a>).
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Function with the following arguments </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stdout</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Output on stdout.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stderr</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Output on stderr.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">exitreason</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Exit reason (&ldquo;exit&rdquo; or &ldquo;signal&rdquo;).</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">exitcode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Exit code (exit code or signal number,
+   depending on <code>exitreason</code>).</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Integer</span></span>
+        the PID of the forked process.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        Error message.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/awful.spawn.html#awful.spawn.with_line_callback" title="In the awful.spawn module.">spawn.with_line_callback</a></td>
+         <td>Spawn a program and asynchronously capture its output line by line. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item399 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.easy_async_with_shell" href="#awful.spawn.easy_async_with_shell">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>easy_async_with_shell <span class='function_args'> <b>(</b>cmd, callback<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;Integer <i>or</i> string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Call <a href="../libraries/awful.spawn.html#awful.spawn.easy_async">spawn.easy_async</a> with a shell.
+ This calls <code>cmd</code> with <code>$SHELL -c</code> (via <a href="../libraries/awful.util.html#shell">awful.util.shell</a>).
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Function with the following arguments </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stdout</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Output on stdout.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">stderr</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Output on stderr.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">exitreason</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Exit reason (&ldquo;exit&rdquo; or &ldquo;signal&rdquo;).</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">exitcode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Exit code (exit code or signal number,
+   depending on <code>exitreason</code>).</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Integer</span></span>
+        the PID of the forked process.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        Error message.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/awful.spawn.html#awful.spawn.with_line_callback" title="In the awful.spawn module.">spawn.with_line_callback</a></td>
+         <td>Spawn a program and asynchronously capture its output line by line. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item400 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.read_lines" href="#awful.spawn.read_lines">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>read_lines <span class='function_args'> <b>(</b>input_stream, line_callback, <span class="optional_param">done_callback</span>, <span class="optional_param">close</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Read lines from a Gio input stream
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">input_stream</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">Gio.InputStream</span></span></td>
+           <td class="see_also_description"> The input stream to read from.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">line_callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function that is called with each line
+   read, e.g. <code>line_callback(line_from_stream)</code>.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">done_callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Function that is called when the
+   operation finishes (e.g. due to end of file).</td>
+           <td><span class="not_applicable">Undefined</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">close</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Should the stream be closed after end-of-file?</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item401 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.once" href="#awful.spawn.once">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>once <span class='function_args'> <b>(</b>cmd, <span class="optional_param">rules</span>, <span class="optional_param">matcher</span>, <span class="optional_param">unique_id</span>, <span class="optional_param">callback</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Spawn a command if it has not been spawned before.</p>
+
+<p> This function tries its best to preserve the state across <code>awesome.restart()</code>.</p>
+
+<p> By default, when no <code>unique_id</code> is specified, this function will generate one by
+ hashing the command and its rules. If you have multiple instance of the same
+ command and rules, you need to specify an UID or only the first one will be
+ executed.</p>
+
+<p> The <a href="../libraries/awful.rules.html">rules</a> are standard <a href="../declarative_rules/ruled.client.html#">ruled.client</a>.</p>
+
+<p> This function depends on the startup notification protocol to be correctly
+ implemented by the command. See <a href="../core_components/client.html#startup_id">client.startup_id</a> for more information.
+ Note that this also won&rsquo;t work with shell or terminal commands.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The properties that need to be applied to the client.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">matcher</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A matching function to find the instance
+  among running clients.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">unique_id</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> A string to identify the client so it isn&rsquo;t executed
+  multiple time.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A callback function when the client is created.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../declarative_rules/ruled.client.html#" title="In the ruled.client module.">ruled.client</a></td>
+         <td>Apply properties to a new client based on pre-determined rules. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item402 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.single_instance" href="#awful.spawn.single_instance">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>single_instance <span class='function_args'> <b>(</b>cmd, <span class="optional_param">rules</span>, <span class="optional_param">matcher</span>, <span class="optional_param">unique_id</span>, <span class="optional_param">callback</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Spawn a command if an instance is not already running.</p>
+
+<p> This is like <a href="../libraries/awful.spawn.html#awful.spawn.once">awful.spawn.once</a>, but will spawn new instances if the previous
+ has finished.</p>
+
+<p> The <a href="../libraries/awful.rules.html">rules</a> are standard <a href="../declarative_rules/ruled.client.html#">ruled.client</a>.</p>
+
+<p> This function depends on the startup notification protocol to be correctly
+ implemented by the command. See <a href="../core_components/client.html#startup_id">client.startup_id</a> for more information.
+ Note that this also won&rsquo;t work with shell or terminal commands.</p>
+
+<p> Note that multiple instances can still be spawned if the command is called
+ faster than the client has time to start.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The properties that need to be applied to the client.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">matcher</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A matching function to find the instance
+  among running clients.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">unique_id</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> A string to identify the client so it isn&rsquo;t executed
+  multiple time.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A callback function when the client is created.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../declarative_rules/ruled.client.html#" title="In the ruled.client module.">ruled.client</a></td>
+         <td>Apply properties to a new client based on pre-determined rules. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item403 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.spawn.raise_or_spawn" href="#awful.spawn.raise_or_spawn">&#128279;</a>
+    <strong><span class='function_modname'>awful.spawn.</span>raise_or_spawn <span class='function_args'> <b>(</b>cmd, rules, <span class="optional_param">matcher</span>, <span class="optional_param">unique_id</span>, <span class="optional_param">callback</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;client</span></span>
+    <span class="baseclass" >
+         &middot 1 permission
+    </span>
+    </dt>
+    <dd>
+    Raise a client if it exists or spawn a new one then raise it.</p>
+
+<p> This function depends on the startup notification protocol to be correctly
+ implemented by the command. See <a href="../core_components/client.html#startup_id">client.startup_id</a> for more information.
+ Note that this also won&rsquo;t work with shell or terminal commands.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cmd</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The command.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The properties that need to be applied to the client.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">matcher</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A matching function to find the instance
+  among running clients.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">unique_id</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> A string to identify the client so it isn&rsquo;t executed
+  multiple time.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A callback function when the client is created.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">client</span></span>
+        The client if it already exists.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../declarative_rules/ruled.client.html#" title="In the ruled.client module.">ruled.client</a></td>
+         <td>Apply properties to a new client based on pre-determined rules. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button404>
+     <a class="show_more_button" onclick="show_extra('404')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item404 class="hide_extra">
+     <h3>Requested actions or permissions:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Class</th>
+           <th>Permission</th>
+           <th>Context</th>
+           <th>Default</th>
+           <th>Description</th>
+         </tr>
+          <tr><td>client</td><td>activate</td><td>spawn.raise_or_spawn</td><td>granted</td><td>Activate a client when <a href="../libraries/awful.spawn.html#awful.spawn.raise_or_spawn">awful.spawn.raise_or_spawn</a> is called and the client exists.</td></tr>
+
+     </table>
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

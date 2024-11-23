@@ -1,0 +1,2919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Inputmodule mouse - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Object_properties">Object properties</a></li>
+<li><a href="#Theme_variables">Theme variables</a></li>
+<li><a href="#Deprecated_functions">Deprecated functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+<li><a href="#lib_awful_mouse_client_Functions">lib.awful.mouse.client Functions</a></li>
+<li><a href="#lib_awful_mouse_resize_Functions">lib.awful.mouse.resize Functions</a></li>
+<li><a href="#lib_awful_mouse_snap_Functions">lib.awful.mouse.snap Functions</a></li>
+</ul>
+
+
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><strong>mouse</strong></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>mouse</code></h1>
+<p>Manipulate and inspect the mouse cursor.</p>
+<p> The mouse buttons are represented as index. The common ones are:</p>
+
+<p> <img src="../images/mouse.svg" alt="Client geometry" /></p>
+
+<p> It is possible to be notified of mouse events by connecting to various
+ <a href="../core_components/client.html#">client</a>, <code>widget</code>s and <a href="../popups_and_bars/wibox.html#">wibox</a> signals:</p>
+
+<ul>
+<li><code>mouse::enter</code></li>
+<li><code>mouse::leave</code></li>
+<li><code>mouse::press</code></li>
+<li><code>mouse::release</code></li>
+<li><code>mouse::move</code></li>
+</ul>
+
+
+<p> It is also possible to add generic mouse button callbacks for <a href="../core_components/client.html#">client</a>s,
+ <code>wiboxe</code>s and the <a href="../core_components/root.html#">root</a> window. Those are set in the default <a href="../sample files/rc.lua.html#">rc.lua</a> as such:</p>
+
+<p> <strong>root</strong>:</p>
+
+<pre>
+root.buttons(awful.util.<span class="global">table</span>.join(
+    awful.button({ }, <span class="number">3</span>, <span class="keyword">function</span> () mymainmenu:toggle() <span class="keyword">end</span>),
+    awful.button({ }, <span class="number">4</span>, awful.tag.viewnext),
+    awful.button({ }, <span class="number">5</span>, awful.tag.viewprev)
+))
+</pre>
+
+
+<p> <strong>client</strong>:</p>
+
+<pre>
+clientbuttons = awful.util.<span class="global">table</span>.join(
+    awful.button({ }, <span class="number">1</span>, <span class="keyword">function</span> (c) client.focus = c; c:raise() <span class="keyword">end</span>),
+    awful.button({ modkey }, <span class="number">1</span>, awful.mouse.client.move),
+    awful.button({ modkey }, <span class="number">3</span>, awful.mouse.client.resize)
+)
+</pre>
+
+
+<p> See also <a href="../core_components/mousegrabber.html#">mousegrabber</a></p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2008-2009 Julien Danjou</li>
+                <li>
+                    <strong>Originally authored by</strong>: Julien Danjou &lt;julien@danjou.info&gt;<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#object_under_pointer"><span class='function_modname'>mouse.</span>object_under_pointer <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;client <i>or</i> wibox <i>or</i> nil</span></span>
+      </td>
+      <td class="summary">
+        Get the client or any object which is under the pointer.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.wibox.move">awful.mouse.wibox.move <span class='function_args'> <b>(</b>w<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Move the wibox under the cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.append_global_mousebinding">awful.mouse.append_global_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add an <a href="../input_handling/awful.button.html#">awful.button</a> based mousebinding to the global set.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.append_global_mousebindings">awful.mouse.append_global_mousebindings <span class='function_args'> <b>(</b>buttons<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add multiple <a href="../input_handling/awful.button.html#">awful.button</a> based mousebindings to the global set.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.remove_global_mousebinding">awful.mouse.remove_global_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Remove a mousebinding from the global set.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.append_client_mousebinding">awful.mouse.append_client_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add an <a href="../input_handling/awful.button.html#">awful.button</a> to the default client buttons.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.append_client_mousebindings">awful.mouse.append_client_mousebindings <span class='function_args'> <b>(</b>buttons<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a <a href="../input_handling/awful.button.html#">awful.button</a>s to the default client buttons.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.remove_client_mousebinding">awful.mouse.remove_client_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Remove a mousebinding from the default client buttons.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#coords"><span class='function_modname'>mouse.</span>coords <span class='function_args'> <b>(</b><span class="optional_param">coords_table</span>, <span class="optional_param">silent</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+      </td>
+      <td class="summary">
+        Get or set the mouse coords.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_properties">Object properties</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#screen">screen</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>screen <i>or</i> nil</span></td>
+      <td class="summary">
+        The <a href="../core_components/screen.html#">screen</a> under the cursor
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_client">current_client</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>client <i>or</i> nil</span></td>
+      <td class="summary">
+        Get the client currently under the mouse cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_wibox">current_wibox</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>wibox <i>or</i> nil</span></td>
+      <td class="summary">
+        Get the wibox currently under the mouse cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_widgets">current_widgets</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>nil <i>or</i> table</span></td>
+      <td class="summary">
+        Get the widgets currently under the mouse cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_widget">current_widget</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>widget <i>or</i> nil</span></td>
+      <td class="summary">
+        Get the topmost widget currently under the mouse cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_widget_geometry">current_widget_geometry</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table <i>or</i> nil</span></td>
+      <td class="summary">
+        Get the current widget geometry.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#current_widget_geometries">current_widget_geometries</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table <i>or</i> nil</span></td>
+      <td class="summary">
+        Get the current widget geometries.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#is_left_mouse_button_pressed">is_left_mouse_button_pressed</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        True if the left mouse button is pressed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#is_right_mouse_button_pressed">is_right_mouse_button_pressed</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        True if the right mouse button is pressed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#is_middle_mouse_button_pressed">is_middle_mouse_button_pressed</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        True if the middle mouse button is pressed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Theme_variables">Theme variables</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.snap_bg">beautiful.snap_bg</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>color <i>or</i> string <i>or</i> gradient <i>or</i> pattern</span></td>
+      <td class="summary">
+        The snap outline background color.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.snap_border_width">beautiful.snap_border_width</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The snap outline width.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.snap_shape">beautiful.snap_shape</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>function</span></td>
+      <td class="summary">
+        The snap outline shape.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.snapper_gap">beautiful.snapper_gap</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        The gap between snapped clients.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.cursor_mouse_resize">beautiful.cursor_mouse_resize</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The resize cursor name.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#beautiful.cursor_mouse_move">beautiful.cursor_mouse_move</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The move cursor name.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Deprecated_functions">Deprecated functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.client_under_pointer">awful.mouse.client_under_pointer <span class='function_args'> <b>(</b><b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Get the client object under the pointer.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Deprecated</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#awful.mouse.snap.default_distance">awful.mouse.snap.default_distance</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The default distance before snapping clients together.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#awful.mouse.snap.aerosnap_distance">awful.mouse.snap.aerosnap_distance</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The default distance before activating screen edge snap.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#awful.mouse.snap.edge_enabled">awful.mouse.snap.edge_enabled</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Enable screen edges snapping.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#awful.mouse.snap.client_enabled">awful.mouse.snap.client_enabled</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Enable client to client snapping.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#awful.mouse.drag_to_tag.enabled">awful.mouse.drag_to_tag.enabled</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Enable changing tag when a client is dragged to the edge of the screen.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#lib_awful_mouse_client_Functions">lib.awful.mouse.client Functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.client.move">awful.mouse.client.move <span class='function_args'> <b>(</b>c, snap<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Move a client.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.client.dragtotag.border">awful.mouse.client.dragtotag.border <span class='function_args'> <b>(</b>c<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Move a client to a tag by dragging it onto the left / right side of the screen.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Deprecated</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.client.corner">awful.mouse.client.corner <span class='function_args'> <b>(</b><span class="optional_param">c</span>, corner<b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Get a client corner coordinates.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Deprecated</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.client.resize">awful.mouse.client.resize <span class='function_args'> <b>(</b>c, corner, <span class="optional_param">args</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+      </td>
+      <td class="summary">
+        Resize a client.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#lib_awful_mouse_resize_Functions">lib.awful.mouse.resize Functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.resize.set_mode">awful.mouse.resize.set_mode (m)</a>
+      </td>
+      <td class="summary">
+        Set the resize mode.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.resize.add_enter_callback">awful.mouse.resize.add_enter_callback (cb, <span class="optional_param">context</span>)</a>
+      </td>
+      <td class="summary">
+        Add an initialization callback.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.resize.add_move_callback">awful.mouse.resize.add_move_callback (cb, <span class="optional_param">context</span>)</a>
+      </td>
+      <td class="summary">
+        Add a &ldquo;move&rdquo; callback.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.resize.add_leave_callback">awful.mouse.resize.add_leave_callback (cb, <span class="optional_param">context</span>)</a>
+      </td>
+      <td class="summary">
+        Add a &ldquo;leave&rdquo; callback
+ This callback is executed just before the <a href="../core_components/mousegrabber.html#">mousegrabber</a> stop
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.resize">awful.mouse.resize (client, <span class="optional_param">context</span>, <span class="optional_param">args</span>)</a>
+      </td>
+      <td class="summary">
+        Resize the drawable.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#lib_awful_mouse_snap_Functions">lib.awful.mouse.snap Functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#awful.mouse.snap">awful.mouse.snap (<span class="optional_param">c</span>, snap, x, y, fixed_x, fixed_y)</a>
+      </td>
+      <td class="summary">
+        Snap a client to the closest client or screen edge.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="object_under_pointer" href="#object_under_pointer">&#128279;</a>
+    <strong><span class='function_modname'>mouse.</span>object_under_pointer <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;client <i>or</i> wibox <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the client or any object which is under the pointer.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">client</span>, <span class="type">wibox</span> or <span class="type">nil</span></span>
+        A client, wibox or nil.
+    </ol>
+
+
+
+
+
+    <span id=item1333 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.wibox.move" href="#awful.mouse.wibox.move">&#128279;</a>
+    <strong>awful.mouse.wibox.move <span class='function_args'> <b>(</b>w<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 1 permission
+    </span>
+    </dt>
+    <dd>
+    Move the wibox under the cursor.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">w</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">wibox</span></span></td>
+           <td class="see_also_description"> The wibox to move, or none to use that under the pointer</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button1334>
+     <a class="show_more_button" onclick="show_extra('1334')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1334 class="hide_extra">
+     <h3>Requested actions or permissions:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Class</th>
+           <th>Permission</th>
+           <th>Context</th>
+           <th>Default</th>
+           <th>Description</th>
+         </tr>
+          <tr><td>wibox</td><td>geometry</td><td>mouse.move</td><td>granted</td><td>Requests to move the wibox.</td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.append_global_mousebinding" href="#awful.mouse.append_global_mousebinding">&#128279;</a>
+    <strong>awful.mouse.append_global_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add an <a href="../input_handling/awful.button.html#">awful.button</a> based mousebinding to the global set.</p>
+
+<p> A <strong>global</strong> mousebinding is one which is always present, even when there is
+ no focused client. If your intent is too add a mousebinding which acts on
+ the focused client do <strong>not</strong> use this.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.button</span></span></td>
+           <td class="see_also_description"> The button object.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.button.html#" title="In the awful.button module.">awful.button</a></td>
+         <td>Create easily new buttons objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1335 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.append_global_mousebindings" href="#awful.mouse.append_global_mousebindings">&#128279;</a>
+    <strong>awful.mouse.append_global_mousebindings <span class='function_args'> <b>(</b>buttons<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add multiple <a href="../input_handling/awful.button.html#">awful.button</a> based mousebindings to the global set.</p>
+
+<p> A <strong>global</strong> mousebinding is one which is always present, even when there is
+ no focused client. If your intent is too add a mousebinding which acts on
+ the focused client do <strong>not</strong> use this
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">buttons</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> A table of <a href="../input_handling/awful.button.html#">awful.button</a> objects. Optionally, it can have
+  a <code>group</code> entry. If set, the <code>group</code> property will be set on all <code>awful.buttons</code>
+  objects.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.button.html#" title="In the awful.button module.">awful.button</a></td>
+         <td>Create easily new buttons objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1336 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.remove_global_mousebinding" href="#awful.mouse.remove_global_mousebinding">&#128279;</a>
+    <strong>awful.mouse.remove_global_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove a mousebinding from the global set.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.button</span></span></td>
+           <td class="see_also_description"> The button object.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.button.html#" title="In the awful.button module.">awful.button</a></td>
+         <td>Create easily new buttons objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1337 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.append_client_mousebinding" href="#awful.mouse.append_client_mousebinding">&#128279;</a>
+    <strong>awful.mouse.append_client_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    Add an <a href="../input_handling/awful.button.html#">awful.button</a> to the default client buttons.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.button</span></span></td>
+           <td class="see_also_description"> The button.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.button.html#" title="In the awful.button module.">awful.button</a></td>
+         <td>Create easily new buttons objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/awful.keyboard.html#append_client_keybinding" title="In the awful.keyboard module.">awful.keyboard.append_client_keybinding</a></td>
+         <td>Add an <a href="../input_handling/awful.key.html#">awful.key</a> to the default client keys. (awful.keyboard)</td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button1338>
+     <a class="show_more_button" onclick="show_extra('1338')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1338 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>client_mousebinding::added</code></span>  </li>
+           <ul>
+             <li><span class="parameter"><code>button</code></span> <span class="types"><a href="../input_handling/awful.button.html#">awful.button</a></span> The button.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.append_client_mousebindings" href="#awful.mouse.append_client_mousebindings">&#128279;</a>
+    <strong>awful.mouse.append_client_mousebindings <span class='function_args'> <b>(</b>buttons<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a <a href="../input_handling/awful.button.html#">awful.button</a>s to the default client buttons.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">buttons</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> A table containing <a href="../input_handling/awful.button.html#">awful.button</a> objects.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.button.html#" title="In the awful.button module.">awful.button</a></td>
+         <td>Create easily new buttons objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/awful.keyboard.html#append_client_keybinding" title="In the awful.keyboard module.">awful.keyboard.append_client_keybinding</a></td>
+         <td>Add an <a href="../input_handling/awful.key.html#">awful.key</a> to the default client keys. (awful.keyboard)</td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/mouse.html#awful.mouse.append_client_mousebinding" title="In the mouse module.">awful.mouse.append_client_mousebinding</a></td>
+         <td>Add an <a href="../input_handling/awful.button.html#">awful.button</a> to the default client buttons. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/awful.keyboard.html#append_client_keybindings" title="In the awful.keyboard module.">awful.keyboard.append_client_keybindings</a></td>
+         <td>Add a <a href="../input_handling/awful.key.html#">awful.key</a>s to the default client keys. (awful.keyboard)</td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1339 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.remove_client_mousebinding" href="#awful.mouse.remove_client_mousebinding">&#128279;</a>
+    <strong>awful.mouse.remove_client_mousebinding <span class='function_args'> <b>(</b>button<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove a mousebinding from the default client buttons.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.button</span></span></td>
+           <td class="see_also_description"> The button.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the button was removed and false if it wasn&rsquo;t found.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.keyboard.html#append_client_keybinding" title="In the awful.keyboard module.">awful.keyboard.append_client_keybinding</a></td>
+         <td>Add an <a href="../input_handling/awful.key.html#">awful.key</a> to the default client keys. (awful.keyboard)</td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1340 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="coords" href="#coords">&#128279;</a>
+    <strong><span class='function_modname'>mouse.</span>coords <span class='function_args'> <b>(</b><span class="optional_param">coords_table</span>, <span class="optional_param">silent</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>Get or set the mouse coords.</p>
+
+<object class="img-object" data="../images/AUTOGEN_awful_mouse_coords.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+<p><strong>Usage example output</strong>:</p>
+
+<pre><code>235
+</code></pre>
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+        <tr>
+           <td><span class="parameter">coords_table</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> None or a table with x and y keys as mouse
+  coordinates. </td>
+          <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">x</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The mouse horizontal position</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">y</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The mouse vertical position</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">silent</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Disable mouse::enter or mouse::leave events that
+  could be triggered by the pointer when moving.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+         The coords. It contains the <code>x</code>, <code>y</code> and <code>buttons</code> keys.
+  <code>buttons</code> contains the button number as key and a boolean as value (if it is
+  pressed).
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#is_left_mouse_button_pressed" title="In the mouse module.">is_left_mouse_button_pressed</a></td>
+         <td>True if the left mouse button is pressed. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/mouse.html#is_right_mouse_button_pressed" title="In the mouse module.">is_right_mouse_button_pressed</a></td>
+         <td>True if the right mouse button is pressed. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/mouse.html#is_middle_mouse_button_pressed" title="In the mouse module.">is_middle_mouse_button_pressed</a></td>
+         <td>True if the middle mouse button is pressed. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Get the position
+</span><span class="global">print</span>(mouse.coords().x)
+<span class="comment">-- Change the position
+</span>mouse.coords {
+    x = <span class="number">185</span>,
+    y = <span class="number">10</span>
+}</pre>
+    </ul>
+
+
+    <span id=item1341 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="screen" href="#screen">&#128279;</a>
+    <strong>screen</strong>
+    <span class="proptype"><span class='summary_type'>screen <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The <a href="../core_components/screen.html#">screen</a> under the cursor
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: It checks where the cursor is and match it to one of the
+  screen <code>geometry</code>.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: This will only happen if <a href="core_components/screen.html#">screen</a> is set to <code>off</code> in the modeline or command line options. It happens very early in the initialization before the screens are created. If you check the screen from a signal, then you should never have to worry about this. Another corner case where this <em>might</em> happen is if you use <code>fake_resize</code> to have a smaller area than the physical screen.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>screen</span>
+         </i>
+        </td>
+        <td>: A valid screen object such as retured by <code>awful.screen.focused()</code> or <a href="input_handling/mouse.html#screen">mouse.screen</a>.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>integer</span>
+         </i>
+        </td>
+        <td>: A screen global id. Avoid using this since they are unsorted.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>string</span>
+         </i>
+        </td>
+        <td>: The <code>&quot;primary&quot;</code> value is also valid.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1342 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="current_client" href="#current_client">&#128279;</a>
+    <strong>current_client</strong>
+    <span class="proptype"><span class='summary_type'>client <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the client currently under the mouse cursor.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: When the mouse cursor is not over a client.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1343 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="current_wibox" href="#current_wibox">&#128279;</a>
+    <strong>current_wibox</strong>
+    <span class="proptype"><span class='summary_type'>wibox <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the wibox currently under the mouse cursor.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: When the mouse cursor is not over a wibox.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1344 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="current_widgets" href="#current_widgets">&#128279;</a>
+    <strong>current_widgets</strong>
+    <span class="proptype"><span class='summary_type'>nil <i>or</i> table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the widgets currently under the mouse cursor.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: When the mouse cursor is not over any widget.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: table The list of <a href="libraries/wibox.widget.html#">wibox.widget</a>s. The first element is the biggest
+ container while the last is the topmost widget.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1345 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="current_widget" href="#current_widget">&#128279;</a>
+    <strong>current_widget</strong>
+    <span class="proptype"><span class='summary_type'>widget <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the topmost widget currently under the mouse cursor.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: When the mouse cursor is not over a widget.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#current_widget_geometry" title="In the mouse module.">current_widget_geometry</a></td>
+         <td>Get the current widget geometry. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1346 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="current_widget_geometry" href="#current_widget_geometry">&#128279;</a>
+    <strong>current_widget_geometry</strong>
+    <span class="proptype"><span class='summary_type'>table <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the current widget geometry.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: When there is no current widgets.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>table</span>:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:30px;">
+         <i>
+          x
+         </i>
+          <span class="inline_types"> (number)</span>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:30px;">
+         <i>
+          y
+         </i>
+          <span class="inline_types"> (number)</span>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:30px;">
+         <i>
+          width
+         </i>
+          <span class="inline_types"> (number)</span>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:30px;">
+         <i>
+          height
+         </i>
+          <span class="inline_types"> (number)</span>
+        </td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#current_widget" title="In the mouse module.">current_widget</a></td>
+         <td>Get the topmost widget currently under the mouse cursor. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1347 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="current_widget_geometries" href="#current_widget_geometries">&#128279;</a>
+    <strong>current_widget_geometries</strong>
+    <span class="proptype"><span class='summary_type'>table <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the current widget geometries.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: When there is no widgets.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>table</span>
+         </i>
+        </td>
+        <td>: A list of geometry tables.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>:  A list of geometry tables.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#current_widgets" title="In the mouse module.">current_widgets</a></td>
+         <td>Get the widgets currently under the mouse cursor. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1348 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="is_left_mouse_button_pressed" href="#is_left_mouse_button_pressed">&#128279;</a>
+    <strong>is_left_mouse_button_pressed</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    True if the left mouse button is pressed.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1349 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="is_right_mouse_button_pressed" href="#is_right_mouse_button_pressed">&#128279;</a>
+    <strong>is_right_mouse_button_pressed</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    True if the right mouse button is pressed.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1350 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="is_middle_mouse_button_pressed" href="#is_middle_mouse_button_pressed">&#128279;</a>
+    <strong>is_middle_mouse_button_pressed</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    True if the middle mouse button is pressed.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item1351 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Theme_variables"></a>Theme variables</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.snap_bg" href="#beautiful.snap_bg">&#128279;</a>
+    <strong>beautiful.snap_bg</strong>
+    <span class="proptype"><span class='summary_type'>color <i>or</i> string <i>or</i> gradient <i>or</i> pattern</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The snap outline background color.
+
+
+
+
+
+
+     <br />
+     <center id=button1352>
+     <a class="show_more_button" onclick="show_extra('1352')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1352 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../input_handling/mouse.html#awful.mouse.snap">awful.mouse.snap</a> Snap a client to the closest client or screen edge.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.snap_border_width" href="#beautiful.snap_border_width">&#128279;</a>
+    <strong>beautiful.snap_border_width</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The snap outline width.
+
+
+
+
+
+
+     <br />
+     <center id=button1353>
+     <a class="show_more_button" onclick="show_extra('1353')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1353 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../input_handling/mouse.html#awful.mouse.snap">awful.mouse.snap</a> Snap a client to the closest client or screen edge.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.snap_shape" href="#beautiful.snap_shape">&#128279;</a>
+    <strong>beautiful.snap_shape</strong>
+    <span class="proptype"><span class='summary_type'>function</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The snap outline shape.
+
+    <h3>Type constraints:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">shape</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A <a href="../theme_related_libraries/gears.shape.html#">gears.shape</a> compatible function</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button1354>
+     <a class="show_more_button" onclick="show_extra('1354')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1354 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../input_handling/mouse.html#awful.mouse.snap">awful.mouse.snap</a> Snap a client to the closest client or screen edge.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.snapper_gap" href="#beautiful.snapper_gap">&#128279;</a>
+    <strong>beautiful.snapper_gap</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The gap between snapped clients.
+
+
+
+
+
+
+     <br />
+     <center id=button1355>
+     <a class="show_more_button" onclick="show_extra('1355')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1355 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../input_handling/mouse.html#awful.mouse.snap">awful.mouse.snap</a> Snap a client to the closest client or screen edge.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.cursor_mouse_resize" href="#beautiful.cursor_mouse_resize">&#128279;</a>
+    <strong>beautiful.cursor_mouse_resize</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The resize cursor name.
+
+
+
+
+
+
+     <br />
+     <center id=button1356>
+     <a class="show_more_button" onclick="show_extra('1356')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1356 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../input_handling/mouse.html#awful.mouse.resize">awful.mouse.resize</a> Resize the drawable.</li>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="beautiful.cursor_mouse_move" href="#beautiful.cursor_mouse_move">&#128279;</a>
+    <strong>beautiful.cursor_mouse_move</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The move cursor name.
+
+
+
+
+
+
+     <br />
+     <center id=button1357>
+     <a class="show_more_button" onclick="show_extra('1357')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1357 class="hide_extra">
+     <h3>Used by:</h3>
+     <ul>
+          <li><a href="../input_handling/mouse.html#awful.mouse.resize">awful.mouse.resize</a> Resize the drawable.</li>
+
+     </ul>
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Deprecated_functions"></a>Deprecated functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.client_under_pointer" href="#awful.mouse.client_under_pointer">&#128279;</a>
+    <strong>awful.mouse.client_under_pointer <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the client object under the pointer.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">client</span> or <span class="type">nil</span></span>
+        The client object under the pointer, if one can be found.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#current_client" title="In the mouse module.">current_client</a></td>
+         <td>Get the client currently under the mouse cursor. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1358 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.snap.default_distance" href="#awful.mouse.snap.default_distance">&#128279;</a>
+    <strong>awful.mouse.snap.default_distance</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>The default distance before snapping clients together.</p>
+
+<object class="img-object" data="../images/AUTOGEN_screen_client_snap.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#awful.mouse.snap" title="In the mouse module.">awful.mouse.snap</a></td>
+         <td>Snap a client to the closest client or screen edge. </td>
+         <td>
+             <span class="chips">lib.awful.mouse.snap functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1359 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.snap.aerosnap_distance" href="#awful.mouse.snap.aerosnap_distance">&#128279;</a>
+    <strong>awful.mouse.snap.aerosnap_distance</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The default distance before activating screen edge snap.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#awful.mouse.snap" title="In the mouse module.">awful.mouse.snap</a></td>
+         <td>Snap a client to the closest client or screen edge. </td>
+         <td>
+             <span class="chips">lib.awful.mouse.snap functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item1360 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.snap.edge_enabled" href="#awful.mouse.snap.edge_enabled">&#128279;</a>
+    <strong>awful.mouse.snap.edge_enabled</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>Enable screen edges snapping.</p>
+
+<object class="img-object" data="../images/AUTOGEN_awful_placement_aero_snap.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+
+
+
+
+
+
+
+
+    <span id=item1361 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.snap.client_enabled" href="#awful.mouse.snap.client_enabled">&#128279;</a>
+    <strong>awful.mouse.snap.client_enabled</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Enable client to client snapping.
+
+
+
+
+
+
+
+    <span id=item1362 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.drag_to_tag.enabled" href="#awful.mouse.drag_to_tag.enabled">&#128279;</a>
+    <strong>awful.mouse.drag_to_tag.enabled</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Enable changing tag when a client is dragged to the edge of the screen.
+
+
+
+
+
+
+
+    <span id=item1363 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="lib_awful_mouse_client_Functions"></a>lib.awful.mouse.client Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.client.move" href="#awful.mouse.client.move">&#128279;</a>
+    <strong>awful.mouse.client.move <span class='function_args'> <b>(</b>c, snap<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+         &middot 1 permission
+    </span>
+    </dt>
+    <dd>
+    Move a client.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">client</span></span></td>
+           <td class="see_also_description"> The client to move, or the focused one if nil.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">snap</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The pixel to snap clients.</td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button1364>
+     <a class="show_more_button" onclick="show_extra('1364')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1364 class="hide_extra">
+     <h3>Requested actions or permissions:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Class</th>
+           <th>Permission</th>
+           <th>Context</th>
+           <th>Default</th>
+           <th>Description</th>
+         </tr>
+          <tr><td>client</td><td>geometry</td><td>mouse.move</td><td>granted</td><td>When <a href="../input_handling/mouse.html#awful.mouse.client.move">awful.mouse.client.move</a> is called.</td></tr>
+
+     </table>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.client.dragtotag.border" href="#awful.mouse.client.dragtotag.border">&#128279;</a>
+    <strong>awful.mouse.client.dragtotag.border <span class='function_args'> <b>(</b>c<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Move a client to a tag by dragging it onto the left / right side of the screen.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The client to move</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1365 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.client.corner" href="#awful.mouse.client.corner">&#128279;</a>
+    <strong>awful.mouse.client.corner <span class='function_args'> <b>(</b><span class="optional_param">c</span>, corner<b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get a client corner coordinates.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">client</span></span></td>
+           <td class="see_also_description"> The client to get corner from, focused one by default.</td>
+           <td><span class="default_value"><code>client.focus</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">corner</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The corner to use: <code>auto</code>, <code>top_left</code>, <code>top_right</code>, <code>bottom_left</code>,
+ <code>bottom_right</code>, <code>left</code>, <code>right</code>, <code>top</code> or <code>bottom</code>. Default is <code>auto</code>. <code>auto</code> finds the
+ nearest corner.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        The corner name</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        x The horizontal position</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        y The vertical position</li>
+    </ol>
+
+
+
+
+
+    <span id=item1366 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.client.resize" href="#awful.mouse.client.resize">&#128279;</a>
+    <strong>awful.mouse.client.resize <span class='function_args'> <b>(</b>c, corner, <span class="optional_param">args</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+    <span class="baseclass" >
+         &middot 1 permission
+    </span>
+    </dt>
+    <dd>
+    Resize a client.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The client to resize, or the focused one by default.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">corner</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The corner to grab on resize. Auto detected by default.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">args</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> A set of <a href="../libraries/awful.placement.html#">awful.placement</a> arguments</td>
+           <td><span class="default_value"><code>{}</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+        The corner (or side) name
+    </ol>
+
+
+
+
+     <br />
+     <center id=button1367>
+     <a class="show_more_button" onclick="show_extra('1367')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1367 class="hide_extra">
+     <h3>Requested actions or permissions:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Class</th>
+           <th>Permission</th>
+           <th>Context</th>
+           <th>Default</th>
+           <th>Description</th>
+         </tr>
+          <tr><td>client</td><td>geometry</td><td>mouse.resize</td><td>granted</td><td>When <a href="../input_handling/mouse.html#awful.mouse.client.resize">awful.mouse.client.resize</a> is called.</td></tr>
+
+     </table>
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="lib_awful_mouse_resize_Functions"></a>lib.awful.mouse.resize Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.resize.set_mode" href="#awful.mouse.resize.set_mode">&#128279;</a>
+    <strong>awful.mouse.resize.set_mode (m)</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the resize mode.
+ The available modes are:</p>
+
+<ul>
+<li><strong>live</strong>: Resize the layout everytime the mouse moves.</li>
+<li><strong>after</strong>: Resize the layout only when the mouse is released.</li>
+</ul>
+
+
+<p> Some clients, such as XTerm, may lose information if resized too often.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">m</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The mode</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1368 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.resize.add_enter_callback" href="#awful.mouse.resize.add_enter_callback">&#128279;</a>
+    <strong>awful.mouse.resize.add_enter_callback (cb, <span class="optional_param">context</span>)</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add an initialization callback.
+ This callback will be executed before the mouse grabbing starts.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cb</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback (or nil)</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">context</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The callback context</td>
+           <td><span class="default_value"><code>"other"</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1369 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.resize.add_move_callback" href="#awful.mouse.resize.add_move_callback">&#128279;</a>
+    <strong>awful.mouse.resize.add_move_callback (cb, <span class="optional_param">context</span>)</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a &ldquo;move&rdquo; callback.
+ This callback is executed in &ldquo;after&rdquo; mode (see <a href="../input_handling/mouse.html#awful.mouse.resize.set_mode">set_mode</a>) instead of
+ applying the operation.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cb</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback (or nil)</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">context</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The callback context</td>
+           <td><span class="default_value"><code>"other"</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1370 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.resize.add_leave_callback" href="#awful.mouse.resize.add_leave_callback">&#128279;</a>
+    <strong>awful.mouse.resize.add_leave_callback (cb, <span class="optional_param">context</span>)</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a &ldquo;leave&rdquo; callback
+ This callback is executed just before the <a href="../core_components/mousegrabber.html#">mousegrabber</a> stop
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">cb</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback (or nil)</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">context</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The callback context</td>
+           <td><span class="default_value"><code>"other"</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1371 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.resize" href="#awful.mouse.resize">&#128279;</a>
+    <strong>awful.mouse.resize (client, <span class="optional_param">context</span>, <span class="optional_param">args</span>)</strong>
+    <span class="baseclass" >
+         &middot 2 theme variables
+         &middot 1 permission
+    </span>
+    </dt>
+    <dd>
+    <p>Resize the drawable.</p>
+
+<p> Valid <code>args</code> are:</p>
+
+<ul>
+<li><em>enter_callback</em>: A function called before the <a href="../core_components/mousegrabber.html#">mousegrabber</a> starts.</li>
+<li><em>move_callback</em>: A function called when the mouse moves.</li>
+<li><em>leave_callback</em>: A function called before the <a href="../core_components/mousegrabber.html#">mousegrabber</a> is released.</li>
+<li><em>mode</em>: The resize mode.</li>
+</ul>
+
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">client</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">client</span></span></td>
+           <td class="see_also_description"> A client.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">context</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The resizing context.</td>
+           <td><span class="default_value"><code>mouse.resize</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">args</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> A set of <a href="../libraries/awful.placement.html#">awful.placement</a> arguments.</td>
+           <td><span class="default_value"><code>{}</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+     <br />
+     <center id=button1372>
+     <a class="show_more_button" onclick="show_extra('1372')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1372 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../input_handling/mouse.html#beautiful.cursor_mouse_move">beautiful.cursor_mouse_move</a></td><td></td></tr>
+
+          <tr><td><a href="../input_handling/mouse.html#beautiful.cursor_mouse_resize">beautiful.cursor_mouse_resize</a></td><td></td></tr>
+
+     </table>
+     <h3>Requested actions or permissions:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Class</th>
+           <th>Permission</th>
+           <th>Context</th>
+           <th>Default</th>
+           <th>Description</th>
+         </tr>
+          <tr><td>wibox</td><td>geometry</td><td>mouse.resize</td><td>granted</td><td>Requests to resize the wibox.</td></tr>
+
+     </table>
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="lib_awful_mouse_snap_Functions"></a>lib.awful.mouse.snap Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="awful.mouse.snap" href="#awful.mouse.snap">&#128279;</a>
+    <strong>awful.mouse.snap (<span class="optional_param">c</span>, snap, x, y, fixed_x, fixed_y)</strong>
+    <span class="baseclass" >
+         &middot 4 theme variables
+    </span>
+    </dt>
+    <dd>
+    Snap a client to the closest client or screen edge.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">client</span></span></td>
+           <td class="see_also_description"> The client to snap.</td>
+           <td><span class="default_value"><code>client.focus</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">snap</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The pixel to snap clients.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">x</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The client x coordinate.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">y</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The client y coordinate.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">fixed_x</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> True if the client isn&rsquo;t allowed to move in the x direction.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">fixed_y</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> True if the client isn&rsquo;t allowed to move in the y direction.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+        The new geometry.
+    </ol>
+
+
+
+
+     <br />
+     <center id=button1373>
+     <a class="show_more_button" onclick="show_extra('1373')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item1373 class="hide_extra">
+     <h3>Consumed theme variables:</h3>
+     <table class='widget_list' border=1>
+         <tr style='font-weight: bold;'>
+           <th>Theme variable</th>
+           <th>Usage</th>
+         </tr>
+          <tr><td><a href="../input_handling/mouse.html#beautiful.snap_bg">beautiful.snap_bg</a></td><td></td></tr>
+
+          <tr><td><a href="../input_handling/mouse.html#beautiful.snap_border_width">beautiful.snap_border_width</a></td><td></td></tr>
+
+          <tr><td><a href="../input_handling/mouse.html#beautiful.snap_shape">beautiful.snap_shape</a></td><td></td></tr>
+
+          <tr><td><a href="../input_handling/mouse.html#beautiful.snapper_gap">beautiful.snapper_gap</a></td><td></td></tr>
+
+     </table>
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../ldoc.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102pt" height="30pt" viewBox="0 0 102 30" version="1.1">
+<g id="surface2">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:0.490196;stroke-miterlimit:10;" d="M 0 0 L 19 0 L 19 19 L 0 19 Z M 0 0 " transform="matrix(1,0,0,1,0.5,0.5)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 2.5 2.5 L 17.5 2.5 L 17.5 17.5 L 2.5 17.5 Z M 2.5 2.5 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:0.490196;stroke-miterlimit:10;" d="M 0 0 L 19 0 L 19 19 L 0 19 Z M 0 0 " transform="matrix(1,0,0,1,24.5,0.5)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 41.5 10 C 41.5 14.140625 38.140625 17.5 34 17.5 C 29.859375 17.5 26.5 14.140625 26.5 10 C 26.5 5.859375 29.859375 2.5 34 2.5 C 38.140625 2.5 41.5 5.859375 41.5 10 Z M 41.5 10 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:0.490196;stroke-miterlimit:10;" d="M 0 0 L 19 0 L 19 19 L 0 19 Z M 0 0 " transform="matrix(1,0,0,1,48.5,0.5)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 58 2.5 L 65.5 10 L 58 17.5 L 50.5 10 Z M 58 2.5 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(38.039216%,50.588235%,100%);stroke-opacity:0.490196;stroke-miterlimit:10;" d="M 0 0 L 19 0 L 19 19 L 0 19 Z M 0 0 " transform="matrix(1,0,0,1,72.5,0.5)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 77.152344 2.5 L 86.847656 2.5 L 89.5 5.152344 L 89.5 14.847656 L 86.847656 17.5 L 77.152344 17.5 L 74.5 14.847656 L 74.5 5.152344 Z M 77.152344 2.5 "/>
+</g>
+</svg>

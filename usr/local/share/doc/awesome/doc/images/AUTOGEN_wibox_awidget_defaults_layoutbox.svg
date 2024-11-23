@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../ldoc.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34pt" height="34pt" viewBox="0 0 34 34" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 0 L 24 0 L 24 24 L 0 24 Z M 0 0 "/>
+</clipPath>
+<image id="image6" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAB5QTFRFAAAA5eXl5+fn5+fn5+fn5ubm5ubm5ubm5ubm5ubmzA0QcQAAAAl0Uk5TAB1JSku24uPkhOJcZQAAAFlJREFUSMdjYBgUwGMmFlCMpKASm4JpSApmYgWjCkYVjCqgjQJ4DsWjYBohBTPppQBXAQJXYI5NQRKSAlyAYgWMhBSIYiggEGWjCoaUgkr8VRvWtJk0OCpuAMp4s0KPf27LAAAAAElFTkSuQmCC"/>
+</defs>
+<g id="surface3">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<use xlink:href="#image6" transform="matrix(0.375,0,0,0.375,0,0)"/>
+</g>
+</g>
+</svg>

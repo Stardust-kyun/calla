@@ -1,0 +1,3918 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Widgetmod wibox.widget.imagebox - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Constructors">Constructors</a></li>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Object_properties">Object properties</a></li>
+<li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Signals">Signals</a></li>
+</ul>
+
+
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><strong>wibox.widget.imagebox</strong></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><a href="../documentation/06-appearance.md.html">Change Awesome appearance</a></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>wibox.widget.imagebox</code></h1>
+<p>A widget to display an image.</p>
+<p><p> The <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a> is part of the Awesome WM&rsquo;s widget system
+ (see <a href="../documentation/03-declarative-layout.md.html#">03-declarative-layout.md</a>).</p>
+
+<p> This widget displays an image. The image can be a file,
+ a cairo image surface, or an rsvg handle object (see the
+ <a href="#image">image property</a>).</p>
+
+<h2> Examples using a <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a>:</h2>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_defaults_imagebox.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+
+
+<pre>
+<span class="keyword">local</span> my_imagebox = wibox.widget.imagebox(beautiful.awesome_icon, <span class="keyword">false</span>)
+</pre>
+
+
+<p> Alternatively, you can declare the <a href="../widgets/wibox.widget.imagebox.html#wibox.widget.imagebox">imagebox</a> widget using the
+ declarative pattern (both variants are strictly equivalent):</p>
+
+<pre>
+<span class="keyword">local</span> my_imagebox = wibox.widget {
+    image  = beautiful.awesome_icon,
+    resize = <span class="keyword">false</span>,
+    widget = wibox.widget.imagebox
+}
+</pre>
+</p>
+    <div class="extra-header">
+  <div class="extra-header__section">
+    <h3>Class Hierarchy</h3>
+    <div class="inheritance">
+    <ul class="inheritance__level inheritance__level--root">
+        <li class="inheritance__level__node inheritance__level__node--root">
+            <a href="../utility_libraries/gears.object.html">gears.object</a>
+        </li>
+        <li>
+    <ul class="inheritance__level ">
+        <li class="inheritance__level__node ">
+            <a href="../classes/wibox.widget.base.html">wibox.widget.base</a>
+        </li>
+        <li>
+    <ul class="inheritance__level ">
+        <li class="inheritance__level__node ">
+            <strong>wibox.widget.imagebox</strong>
+        </li>
+    </ul>
+        </li>
+    </ul>
+        </li>
+    </ul>
+    </div>
+  </div>
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2010 Uli Schlachter</li>
+                <li>
+                    <strong>Originally authored by</strong>: Uli Schlachter<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/awesomeWM/awesome/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Constructors">Constructors</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#wibox.widget.imagebox">wibox.widget.imagebox <span class='function_args'> <b>(</b><span class="optional_param">image</span>, <span class="optional_param">resize_allowed</span>, <span class="optional_param">clip_shape</span><b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Returns a new <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a> instance.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#imagebox._get_stylesheet">imagebox._get_stylesheet (self, content_or_path)</a>
+      </td>
+      <td class="summary">
+        Support both CSS data and filepath for the stylsheet.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_properties">Object properties</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#image">image</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>image <i>or</i> nil</span></td>
+      <td class="summary">
+        The image rendered by the <a href="../widgets/wibox.widget.imagebox.html#wibox.widget.imagebox">imagebox</a>.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#source_width">source_width</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        Return the source image width.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#source_height">source_height</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        Return the source image height.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#clip_shape">clip_shape</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>shape</span></td>
+      <td class="summary">
+        Set a clip shape for this imagebox.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#resize">resize</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Should the image be resized to fit into the available space?
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#upscale">upscale</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Allow the image to be upscaled (made bigger).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#downscale">downscale</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Allow the image to be downscaled (made smaller).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#stylesheet">stylesheet</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Set the SVG CSS stylesheet.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#dpi">dpi</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number <i>or</i> table</span></td>
+      <td class="summary">
+        Set the SVG DPI (dot per inch).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#auto_dpi">auto_dpi</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Use the object DPI when rendering the SVG.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#horizontal_fit_policy">horizontal_fit_policy</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Set the horizontal fit policy.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#vertical_fit_policy">vertical_fit_policy</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Set the vertical fit policy.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#valign">valign</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The vertical alignment.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#halign">halign</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The horizontal alignment.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#max_scaling_factor">max_scaling_factor</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        The maximum scaling factor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#scaling_quality">scaling_quality</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Set the scaling aligorithm.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#children">children</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
+      <td class="summary">
+        Get or set the children elements.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#all_children">all_children</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
+      <td class="summary">
+        Get all direct and indirect children widgets.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#forced_height">forced_height</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number <i>or</i> nil</span></td>
+      <td class="summary">
+        Force a widget height.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#forced_width">forced_width</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number <i>or</i> nil</span></td>
+      <td class="summary">
+        Force a widget width.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#opacity">opacity</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        The widget opacity (transparency).
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#visible">visible</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        The widget visibility.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#buttons">buttons</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
+      <td class="summary">
+        The widget buttons.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_methods">Object methods </a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#wibox.widget.base:add_button">:add_button <span class='function_args'> <b>(</b>button<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a new <a href="../input_handling/awful.button.html#">awful.button</a> to this widget.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#wibox.widget.base:emit_signal_recursive">:emit_signal_recursive <span class='function_args'> <b>(</b>signal_name, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emit a signal and ensure all parent widgets in the hierarchies also
+ forward the signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#wibox.widget.base:index">:index <span class='function_args'> <b>(</b>widget, <span class="optional_param">recursive</span>, <span class="optional_param">...</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;(number, widget, table)</span></span>
+      </td>
+      <td class="summary">
+        Get the index of a widget.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#connect_signal">:connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#weak_connect_signal">:weak_connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Connect to a signal weakly.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#disconnect_signal">:disconnect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Disconnect from a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#emit_signal">:emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emit a signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from gears.object</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#widget::layout_changed">widget::layout_changed</a>
+      </td>
+      <td class="summary">
+        When the layout (size) change.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#widget::redraw_needed">widget::redraw_needed</a>
+      </td>
+      <td class="summary">
+        When the widget content changed.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#button::press">button::press</a>
+      </td>
+      <td class="summary">
+        When a mouse button is pressed over the widget.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#button::release">button::release</a>
+      </td>
+      <td class="summary">
+        When a mouse button is released over the widget.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#mouse::enter">mouse::enter</a>
+      </td>
+      <td class="summary">
+        When the mouse enter a widget.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#mouse::leave">mouse::leave</a>
+      </td>
+      <td class="summary">
+        When the mouse leave a widget.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Inherited from wibox.widget.base</span>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="wibox.widget.imagebox" href="#wibox.widget.imagebox">&#128279;</a>
+    <strong>wibox.widget.imagebox <span class='function_args'> <b>(</b><span class="optional_param">image</span>, <span class="optional_param">resize_allowed</span>, <span class="optional_param">clip_shape</span><b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Returns a new <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a> instance.</p>
+
+<p> This is the constructor of <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a>. It creates a new
+ instance of imagebox widget.</p>
+
+<p> Alternatively, the declarative layout syntax can handle
+ <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a> instanciation.</p>
+
+<p> The image can be a file, a cairo image surface, or an rsvg handle object
+ (see the <a href="#image">image property</a>).</p>
+
+<p> Any additional arguments will be passed to the clip shape function.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">image</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="../widgets/wibox.widget.imagebox.html#image">image</a></span></td>
+           <td class="see_also_description"> The image to display (may be <code>nil</code>).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">resize_allowed</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> If <code>false</code>, the image will be
+   clipped, else it will be resized to fit into the available space.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">clip_shape</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> A <a href="../theme_related_libraries/gears.shape.html#">gears.shape</a> compatible function.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../widgets/wibox.widget.imagebox.html#wibox.widget.imagebox">wibox.widget.imagebox</a></span>
+        A new <a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a> widget instance.
+    </ol>
+
+
+
+
+
+    <span id=item2218 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="imagebox._get_stylesheet" href="#imagebox._get_stylesheet">&#128279;</a>
+    <strong>imagebox._get_stylesheet (self, content_or_path)</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Support both CSS data and filepath for the stylsheet.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">content_or_path</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item2219 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="image" href="#image">&#128279;</a>
+    <strong>image</strong>
+    <span class="proptype"><span class='summary_type'>image <i>or</i> nil</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    The image rendered by the <a href="../widgets/wibox.widget.imagebox.html#wibox.widget.imagebox">imagebox</a>.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>string</span>
+         </i>
+        </td>
+        <td>: Interpreted as a path to an image file.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>string</span>
+         </i>
+        </td>
+        <td>: A valid SVG content.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>cairo</span>
+         </i>
+        </td>
+        <td>: A cairo image surface: Directly used as-is.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>librsvg</span>
+         </i>
+        </td>
+        <td>: A librsvg handle object: Directly used as-is.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: Unset the image.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+     <br />
+     <center id=button2220>
+     <a class="show_more_button" onclick="show_extra('2220')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2220 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::image</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#image">image</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="source_width" href="#source_width">&#128279;</a>
+    <strong>source_width</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Return the source image width.</p>
+
+<p> For SVG images, this may be affected by the DPI and might not
+ reflect the size the images will be rendered at. For PNG or
+ JPG images, this will return the file resolution.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: This depends on the source image.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#image" title="In the wibox.widget.imagebox module.">image</a></td>
+         <td>The image rendered by the <a href="../widgets/wibox.widget.imagebox.html#wibox.widget.imagebox">imagebox</a>. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#source_height" title="In the wibox.widget.imagebox module.">source_height</a></td>
+         <td>Return the source image height. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2221 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="source_height" href="#source_height">&#128279;</a>
+    <strong>source_height</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Return the source image height.</p>
+
+<p> For SVG images, this may be affected by the DPI and might not
+ reflect the size the images will be rendered at. For PNG or
+ JPG images, this will return the file resolution.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: This depends on the source image.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#image" title="In the wibox.widget.imagebox module.">image</a></td>
+         <td>The image rendered by the <a href="../widgets/wibox.widget.imagebox.html#wibox.widget.imagebox">imagebox</a>. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#source_width" title="In the wibox.widget.imagebox module.">source_width</a></td>
+         <td>Return the source image width. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2222 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="clip_shape" href="#clip_shape">&#128279;</a>
+    <strong>clip_shape</strong>
+    <span class="proptype"><span class='summary_type'>shape</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Set a clip shape for this imagebox.</p>
+
+<p> A clip shape defines an area and dimension to which the content should be
+ trimmed.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_clip_shape.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>gears.shape.rectangle</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>gears.shape</span>
+         </i>
+        </td>
+        <td>: Like <a href="theme_related_libraries/gears.shape.html#circle">gears.shape.circle</a></td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>function</span>:
+         </i>
+        </td>
+        <td>: This can be used for custom shapes or to set parameters of existing shapes.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:30px;">
+         <i>
+          Function prototype:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:45px;">
+         <i>
+          Parameters:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:60px;">
+         <i>
+          cr
+         </i>
+          <span class="inline_types"> (cairo.context)</span>
+        </td>
+        <td>: A <a href="https://cairographics.org/manual/cairo-cairo-t.html">Cairo context</a></td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:60px;">
+         <i>
+          width
+         </i>
+          <span class="inline_types"> (number)</span>
+        </td>
+        <td>: The area width.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:60px;">
+         <i>
+          height
+         </i>
+          <span class="inline_types"> (number)</span>
+        </td>
+        <td>: The area height.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:45px;">
+         <i>
+          Return
+         </i>
+        </td>
+        <td>: The function returns nothing.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>:  A <a href="theme_related_libraries/gears.shape.html#">gears.shape</a> compatible shape function.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../theme_related_libraries/gears.shape.html#" title="In the gears.shape module.">gears.shape</a></td>
+         <td>Module dedicated to gather common shape painters. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> _, resize <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="keyword">true</span>, <span class="keyword">false</span>} <span class="keyword">do</span>
+    <span class="keyword">for</span> idx, shape <span class="keyword">in</span> <span class="global">ipairs</span> {gears.shape.circle, gears.shape.squircle, gears.shape.rounded_rect} <span class="keyword">do</span>
+        <span class="keyword">local</span> w = wibox.widget {
+            {
+                {
+                    image         = beautiful.awesome_icon,
+                    forced_height = <span class="number">32</span>,
+                    forced_width  = <span class="number">32</span>,
+                    clip_shape    = shape,
+                    resize        = resize,
+                    widget        = wibox.widget.imagebox
+                },
+                widget = wibox.container.place
+            },
+            widget = wibox.container.background
+        }
+    <span class="keyword">end</span>
+<span class="keyword">end</span></pre>
+    </ul>
+
+     <br />
+     <center id=button2223>
+     <a class="show_more_button" onclick="show_extra('2223')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2223 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::clip_shape</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#clip_shape">clip_shape</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#clip_shape">clip_shape</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="resize" href="#resize">&#128279;</a>
+    <strong>resize</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Should the image be resized to fit into the available space?</p>
+
+<p> Note that <a href="../widgets/wibox.widget.imagebox.html#upscale">upscale</a> and <a href="../widgets/wibox.widget.imagebox.html#downscale">downscale</a> can affect the value of <a href="../widgets/wibox.widget.imagebox.html#resize">resize</a>.
+ If conflicting values are passed to the constructor, then the result
+ is undefined.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_resize.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>true</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+     <br />
+     <center id=button2224>
+     <a class="show_more_button" onclick="show_extra('2224')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2224 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::resize</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#resize">resize</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#resize">resize</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="upscale" href="#upscale">&#128279;</a>
+    <strong>upscale</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>Allow the image to be upscaled (made bigger).</p>
+
+<p> Note that <a href="../widgets/wibox.widget.imagebox.html#upscale">upscale</a> and <a href="../widgets/wibox.widget.imagebox.html#downscale">downscale</a> can affect the value of <a href="../widgets/wibox.widget.imagebox.html#resize">resize</a>.
+ If conflicting values are passed to the constructor, then the result
+ is undefined.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_upscale.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>self.resize</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#downscale" title="In the wibox.widget.imagebox module.">downscale</a></td>
+         <td>Allow the image to be downscaled (made smaller). </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#resize" title="In the wibox.widget.imagebox module.">resize</a></td>
+         <td>Should the image be resized to fit into the available space? </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2225 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="downscale" href="#downscale">&#128279;</a>
+    <strong>downscale</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    <p>Allow the image to be downscaled (made smaller).</p>
+
+<p> Note that <a href="../widgets/wibox.widget.imagebox.html#upscale">upscale</a> and <a href="../widgets/wibox.widget.imagebox.html#downscale">downscale</a> can affect the value of <a href="../widgets/wibox.widget.imagebox.html#resize">resize</a>.
+ If conflicting values are passed to the constructor, then the result
+ is undefined.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_downscale.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>self.resize</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#upscale" title="In the wibox.widget.imagebox module.">upscale</a></td>
+         <td>Allow the image to be upscaled (made bigger). </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#resize" title="In the wibox.widget.imagebox module.">resize</a></td>
+         <td>Should the image be resized to fit into the available space? </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2226 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stylesheet" href="#stylesheet">&#128279;</a>
+    <strong>stylesheet</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Set the SVG CSS stylesheet.</p>
+
+<p> If the image is an SVG (vector graphics), this property allows to set
+ a CSS stylesheet. It can be used to set colors and much more.</p>
+
+<p> The value can be either CSS data or a file path.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_stylesheet.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>""</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> image = <span class="string">'&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;'</span>..
+    <span class="string">'&lt;svg width="190" height="60"&gt;'</span>..
+        <span class="string">'&lt;rect x="10"  y="10" width="50" height="50" /&gt;'</span>..
+        <span class="string">'&lt;rect x="70"  y="10" width="50" height="50" class="my_class" /&gt;'</span>..
+        <span class="string">'&lt;rect x="130" y="10" width="50" height="50" id="my_id" /&gt;'</span>..
+    <span class="string">'&lt;/svg&gt;'</span>
+
+<span class="keyword">local</span> stylesheet = <span class="string">""</span> ..
+     <span class="string">"rect { fill: #ffff00; } "</span>..
+     <span class="string">".my_class { fill: #00ff00; } "</span>..
+     <span class="string">"#my_id { fill: #0000ff; }"</span>
+
+<span class="keyword">local</span> w = wibox.widget {
+    stylesheet = stylesheet,
+    image      = image,
+    widget     = wibox.widget.imagebox
+}</pre>
+    </ul>
+
+     <br />
+     <center id=button2227>
+     <a class="show_more_button" onclick="show_extra('2227')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2227 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::stylesheet</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#stylesheet">stylesheet</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#stylesheet">stylesheet</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="dpi" href="#dpi">&#128279;</a>
+    <strong>dpi</strong>
+    <span class="proptype"><span class='summary_type'>number <i>or</i> table</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Set the SVG DPI (dot per inch).</p>
+
+<p> Force a specific DPI when rendering the <code>.svg</code>. For other file formats,
+ this does nothing.</p>
+
+<p> It can either be a number of a table containing the <code>x</code> and <code>y</code> keys.</p>
+
+<p> Please note that DPI and <a href="../widgets/wibox.widget.imagebox.html#resize">resize</a> can &ldquo;fight&rdquo; each other and end up
+ making the image smaller instead of bigger.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_dpi.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>96</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#auto_dpi" title="In the wibox.widget.imagebox module.">auto_dpi</a></td>
+         <td>Use the object DPI when rendering the SVG. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> image = <span class="string">'&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;'</span>..
+    <span class="string">'&lt;svg width="2in" height="1in"&gt;'</span>..
+        <span class="string">'&lt;rect height="0.1in" width="0.1in" style="fill:red;" /&gt;'</span>..
+        <span class="string">'&lt;text x="10" y="32" width="150" style="font-size: 0.1in;"&gt;Hello world!&lt;/text&gt;'</span>..
+    <span class="string">'&lt;/svg&gt;'</span>
+
+ <span class="keyword">for</span> _, dpi <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>} <span class="keyword">do</span>
+     <span class="keyword">local</span> w = wibox.widget {
+        image         = image,
+        dpi           = dpi,
+        resize        = <span class="keyword">false</span>,
+        forced_height = <span class="number">70</span>,
+        forced_width  = <span class="number">150</span>,
+        widget        = wibox.widget.imagebox
+    }
+ <span class="keyword">end</span></pre>
+    </ul>
+
+     <br />
+     <center id=button2228>
+     <a class="show_more_button" onclick="show_extra('2228')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2228 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::dpi</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#dpi">dpi</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#dpi">dpi</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="auto_dpi" href="#auto_dpi">&#128279;</a>
+    <strong>auto_dpi</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    Use the object DPI when rendering the SVG.</p>
+
+<p> By default, the SVG are interpreted as-is. When this property is set,
+ the screen DPI will be passed to the SVG renderer. Depending on which
+ tool was used to create the <code>.svg</code>, this may do nothing at all. However,
+ for example, if the <code>.svg</code> uses <code>&lt;text&gt;</code> elements and doesn&rsquo;t have an
+ hardcoded stylesheet, the result will differ.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#dpi" title="In the wibox.widget.imagebox module.">dpi</a></td>
+         <td>Set the SVG DPI (dot per inch). </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button2229>
+     <a class="show_more_button" onclick="show_extra('2229')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2229 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::auto_dpi</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#auto_dpi">auto_dpi</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#auto_dpi">auto_dpi</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="horizontal_fit_policy" href="#horizontal_fit_policy">&#128279;</a>
+    <strong>horizontal_fit_policy</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Set the horizontal fit policy.</p>
+
+<p> Note that <code>repeat</code>, <code>reflect</code> and <code>pad</code> cannot be mixed across
+ the vertical and horizontal axis.</p>
+
+<p> Here is the result for a 22x32 image:</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_horizontal_fit_policy.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"auto"</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"auto"</code>
+         </i>
+        </td>
+        <td>: Honor the <code>resize</code> variable and preserve the aspect ratio.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"none"</code>
+         </i>
+        </td>
+        <td>: Do not resize at all.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"fit"</code>
+         </i>
+        </td>
+        <td>: Resize to the widget width.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"repeat"</code>
+         </i>
+        </td>
+        <td>: Repeat the image side by side.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"reflect"</code>
+         </i>
+        </td>
+        <td>: Like <code>repeat</code>, but alternate the reflection.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"pad"</code>
+         </i>
+        </td>
+        <td>: Take the last column of pixels and repeat them.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#vertical_fit_policy" title="In the wibox.widget.imagebox module.">vertical_fit_policy</a></td>
+         <td>Set the vertical fit policy. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#resize" title="In the wibox.widget.imagebox module.">resize</a></td>
+         <td>Should the image be resized to fit into the available space? </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button2230>
+     <a class="show_more_button" onclick="show_extra('2230')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2230 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::horizontal_fit_policy</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#horizontal_fit_policy">horizontal_fit_policy</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#horizontal_fit_policy">horizontal_fit_policy</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="vertical_fit_policy" href="#vertical_fit_policy">&#128279;</a>
+    <strong>vertical_fit_policy</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Set the vertical fit policy.</p>
+
+<p> Valid values are:</p>
+
+<p> Note that <code>repeat</code>, <code>reflect</code> and <code>pad</code> cannot be mixed across
+ the vertical and horizontal axis.</p>
+
+<p> Here is the result for a 32x22 image:</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_vertical_fit_policy.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"auto"</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"auto"</code>
+         </i>
+        </td>
+        <td>: Honor the <code>resize</code> variable and preserve the aspect ratio.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"none"</code>
+         </i>
+        </td>
+        <td>: Do not resize at all.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"fit"</code>
+         </i>
+        </td>
+        <td>: Resize to the widget height.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"fit"</code>
+         </i>
+        </td>
+        <td>: Resize to the widget width.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"repeat"</code>
+         </i>
+        </td>
+        <td>: Repeat the image side by side.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"reflect"</code>
+         </i>
+        </td>
+        <td>: Like <code>repeat</code>, but alternate the reflection.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"pad"</code>
+         </i>
+        </td>
+        <td>: Take the last column of pixels and repeat them.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#horizontal_fit_policy" title="In the wibox.widget.imagebox module.">horizontal_fit_policy</a></td>
+         <td>Set the horizontal fit policy. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#resize" title="In the wibox.widget.imagebox module.">resize</a></td>
+         <td>Should the image be resized to fit into the available space? </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button2231>
+     <a class="show_more_button" onclick="show_extra('2231')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2231 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::vertical_fit_policy</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#vertical_fit_policy">vertical_fit_policy</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#vertical_fit_policy">vertical_fit_policy</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="valign" href="#valign">&#128279;</a>
+    <strong>valign</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>The vertical alignment.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_valign.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"center"</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"top"</code>
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"center"</code>
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"bottom"</code>
+         </i>
+        </td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widget_containers/wibox.container.place.html#" title="In the wibox.container.place module.">wibox.container.place</a></td>
+         <td>A container used to place smaller widgets into larger space. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#halign" title="In the wibox.widget.imagebox module.">halign</a></td>
+         <td>The horizontal alignment. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> _, resize <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="keyword">true</span>, <span class="keyword">false</span>} <span class="keyword">do</span>
+    <span class="keyword">for</span> _, valign <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="string">"top"</span>, <span class="string">"center"</span>, <span class="string">"bottom"</span>} <span class="keyword">do</span>
+        <span class="keyword">local</span> w = wibox.widget {
+            {
+                {
+                    image         = beautiful.awesome_icon,
+                    forced_height = <span class="number">32</span>,
+                    forced_width  = <span class="number">32</span>,
+                    valign        = valign,
+                    resize        = resize,
+                    widget        = wibox.widget.imagebox
+                },
+                bg     = beautiful.bg_normal,
+                widget = wibox.container.background
+            },
+            widget = wibox.container.place
+        }
+    <span class="keyword">end</span>
+<span class="keyword">end</span></pre>
+    </ul>
+
+     <br />
+     <center id=button2232>
+     <a class="show_more_button" onclick="show_extra('2232')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2232 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::valign</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#valign">valign</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#valign">valign</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="halign" href="#halign">&#128279;</a>
+    <strong>halign</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>The horizontal alignment.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_halign.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"center"</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"left"</code>
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"center"</code>
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"right"</code>
+         </i>
+        </td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widget_containers/wibox.container.place.html#" title="In the wibox.container.place module.">wibox.container.place</a></td>
+         <td>A container used to place smaller widgets into larger space. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#valign" title="In the wibox.widget.imagebox module.">valign</a></td>
+         <td>The vertical alignment. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> _, resize <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="keyword">true</span>, <span class="keyword">false</span>} <span class="keyword">do</span>
+    <span class="keyword">for</span> _, halign <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="string">"left"</span>, <span class="string">"center"</span>, <span class="string">"right"</span>} <span class="keyword">do</span>
+        <span class="keyword">local</span> w = wibox.widget {
+            {
+                {
+                    image         = beautiful.awesome_icon,
+                    forced_height = <span class="number">32</span>,
+                    forced_width  = <span class="number">32</span>,
+                    halign        = halign,
+                    resize        = resize,
+                    widget        = wibox.widget.imagebox
+                },
+                bg     = beautiful.bg_normal,
+                widget = wibox.container.background
+            },
+            widget = wibox.container.place
+        }
+    <span class="keyword">end</span>
+<span class="keyword">end</span></pre>
+    </ul>
+
+     <br />
+     <center id=button2233>
+     <a class="show_more_button" onclick="show_extra('2233')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2233 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::halign</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#halign">halign</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#halign">halign</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="max_scaling_factor" href="#max_scaling_factor">&#128279;</a>
+    <strong>max_scaling_factor</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>The maximum scaling factor.</p>
+
+<p> If an image is scaled too much, it gets very blurry. This
+ property allows to limit the scaling.
+ Use the properties <a href="../widgets/wibox.widget.imagebox.html#valign">valign</a> and <a href="../widgets/wibox.widget.imagebox.html#halign">halign</a> to control how the image will be
+ aligned.</p>
+
+<p> In the example below, the original size is 22x22</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_max_scaling_factor.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>:  Use <code>0</code> for &ldquo;no limit&rdquo;.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#valign" title="In the wibox.widget.imagebox module.">valign</a></td>
+         <td>The vertical alignment. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#halign" title="In the wibox.widget.imagebox module.">halign</a></td>
+         <td>The horizontal alignment. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#scaling_quality" title="In the wibox.widget.imagebox module.">scaling_quality</a></td>
+         <td>Set the scaling aligorithm. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+     <br />
+     <center id=button2234>
+     <a class="show_more_button" onclick="show_extra('2234')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2234 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::max_scaling_factor</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#max_scaling_factor">max_scaling_factor</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#max_scaling_factor">max_scaling_factor</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="scaling_quality" href="#scaling_quality">&#128279;</a>
+    <strong>scaling_quality</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot 1 signal
+    </span>
+    </dt>
+    <dd>
+    <p>Set the scaling aligorithm.</p>
+
+<p> Depending on how the image is used, what is the &ldquo;correct&rdquo; way to
+ scale can change. For example, upscaling a pixel art image should
+ not make it blurry. However, scaling up a photo should not make it
+ blocky.</p>
+
+<table class='widget_list' border=1>
+ <tr style='font-weight: bold;'>
+  <th align='center'>Value</th>
+  <th align='center'>Description</th>
+ </tr>
+ <tr><td>fast</td><td>A high-performance filter</td></tr>
+ <tr><td>good</td><td>A reasonable-performance filter</td></tr>
+ <tr><td>best</td><td>The highest-quality available</td></tr>
+ <tr><td>nearest</td><td>Nearest-neighbor filtering (blocky)</td></tr>
+ <tr><td>bilinear</td><td>Linear interpolation in two dimensions</td></tr>
+</table>
+
+
+<p> The image used in the example below has a resolution of 32x22 and is
+ intentionally blocky to highlight the difference.
+ It is zoomed by a factor of 3.</p>
+
+<object class="img-object" data="../images/AUTOGEN_wibox_widget_imagebox_scaling_quality.svg" alt="Usage example" type="image/svg+xml"></object>
+
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"good"</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"fast"</code>
+         </i>
+        </td>
+        <td>: A high-performance filter.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"good"</code>
+         </i>
+        </td>
+        <td>: A reasonable-performance filter.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"best"</code>
+         </i>
+        </td>
+        <td>: The highest-quality available.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"nearest"</code>
+         </i>
+        </td>
+        <td>: Nearest-neighbor filtering (blocky).</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <code>"bilinear"</code>
+         </i>
+        </td>
+        <td>: Linear interpolation in two dimensions.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#resize" title="In the wibox.widget.imagebox module.">resize</a></td>
+         <td>Should the image be resized to fit into the available space? </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#horizontal_fit_policy" title="In the wibox.widget.imagebox module.">horizontal_fit_policy</a></td>
+         <td>Set the horizontal fit policy. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#vertical_fit_policy" title="In the wibox.widget.imagebox module.">vertical_fit_policy</a></td>
+         <td>Set the vertical fit policy. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../widgets/wibox.widget.imagebox.html#max_scaling_factor" title="In the wibox.widget.imagebox module.">max_scaling_factor</a></td>
+         <td>The maximum scaling factor. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> _, quality <span class="keyword">in</span> <span class="global">ipairs</span> {<span class="string">"fast"</span>, <span class="string">"good"</span>, <span class="string">"best"</span>, <span class="string">"nearest"</span>, <span class="string">"bilinear"</span>} <span class="keyword">do</span>
+   <span class="keyword">local</span> w = wibox.widget {
+       {
+           {
+               image           = img,
+               forced_height   = <span class="number">64</span>,
+               forced_width    = <span class="number">96</span>,
+               scaling_quality = quality,
+               widget          = wibox.widget.imagebox
+           },
+           widget = wibox.container.place
+       },
+       widget = wibox.container.background
+   }
+<span class="keyword">end</span></pre>
+    </ul>
+
+     <br />
+     <center id=button2235>
+     <a class="show_more_button" onclick="show_extra('2235')">
+      Click to display more
+     </a>
+     </center>
+
+    <span id=item2235 class="hide_extra">
+     <h3>Emit signals:</h3>
+     <ul>
+          <li><span class="parameter"><code>property::scaling_quality</code></span>  When the <a href="../widgets/wibox.widget.imagebox.html#scaling_quality">scaling_quality</a> value changes.</li>
+           <ul>
+             <li><span class="parameter"><code>self</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#">wibox.widget.imagebox</a></span> The object which changed (useful when connecting many object to the same callback).</li>
+             <li><span class="parameter"><code>new_value</code></span> <span class="types"><a href="../widgets/wibox.widget.imagebox.html#scaling_quality">scaling_quality</a></span> The new value affected to the property.</li>
+           </ul>
+
+     </ul>
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="children" href="#children">&#128279;</a>
+    <strong>children</strong>
+    <span class="proptype"><span class='summary_type'>table</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    Get or set the children elements.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>{}</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of <a href="libraries/wibox.widget.html#">wibox.widget</a>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#wibox.widget.base.all_children" title="In the wibox.widget.base module.">all_children</a></td>
+         <td> </td>
+         <td>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2117 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="all_children" href="#all_children">&#128279;</a>
+    <strong>all_children</strong>
+    <span class="proptype"><span class='summary_type'>table</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    Get all direct and indirect children widgets.
+ This will scan all containers recursively to find widgets
+ Warning: This method it prone to stack overflow if there is a loop in the
+ widgets hierarchy. A hierarchy loop is when a widget, or any of its
+ children, contain (directly or indirectly) itself.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>{}</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of <a href="libraries/wibox.widget.html#">wibox.widget</a>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#wibox.widget.base.children" title="In the wibox.widget.base module.">children</a></td>
+         <td> </td>
+         <td>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2118 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="forced_height" href="#forced_height">&#128279;</a>
+    <strong>forced_height</strong>
+    <span class="proptype"><span class='summary_type'>number <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    Force a widget height.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: Let the layout decide the height. Usually using the widget native height.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>number</span>
+         </i>
+        </td>
+        <td>: Enforce a number of pixels.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Unit
+         </i>
+        </td>
+        <td>: pixel</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#wibox.widget.base.forced_width" title="In the wibox.widget.base module.">forced_width</a></td>
+         <td> </td>
+         <td>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2119 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="forced_width" href="#forced_width">&#128279;</a>
+    <strong>forced_width</strong>
+    <span class="proptype"><span class='summary_type'>number <i>or</i> nil</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    Force a widget width.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>nil</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Type description:
+         </i>
+        </td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>nil</span>
+         </i>
+        </td>
+        <td>: Let the layout decide the width. Usually using the widget native width.</td>
+       <tr/>
+       <tr class="see_also_sublist">
+        <td style="padding-left:15px;">
+         <i>
+          <span class='summary_type'>number</span>
+         </i>
+        </td>
+        <td>: Enforce a number of pixels.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Unit
+         </i>
+        </td>
+        <td>: pixel</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#wibox.widget.base.forced_height" title="In the wibox.widget.base module.">forced_height</a></td>
+         <td> </td>
+         <td>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2120 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="opacity" href="#opacity">&#128279;</a>
+    <strong>opacity</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    The widget opacity (transparency).
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>1.0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Unit
+         </i>
+        </td>
+        <td>: A gradient between transparent (<code>0.0</code>) and opaque (<code>1.0</code>).</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0.0</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: 1.0</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#wibox.widget.base.visible" title="In the wibox.widget.base module.">visible</a></td>
+         <td> </td>
+         <td>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2121 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="visible" href="#visible">&#128279;</a>
+    <strong>visible</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    The widget visibility.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>true</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#wibox.widget.base.opacity" title="In the wibox.widget.base module.">opacity</a></td>
+         <td> </td>
+         <td>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2122 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="buttons" href="#buttons">&#128279;</a>
+    <strong>buttons</strong>
+    <span class="proptype"><span class='summary_type'>table</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    The widget buttons.</p>
+
+<p> The table contains a list of <a href="../input_handling/awful.button.html#">awful.button</a> objects.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>{}</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Table content
+         </i>
+        </td>
+        <td>: A list of <a href="input_handling/awful.button.html#">awful.button</a>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/awful.button.html#" title="In the awful.button module.">awful.button</a></td>
+         <td>Create easily new buttons objects ignoring certain modifiers. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2123 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="wibox.widget.base:add_button" href="#wibox.widget.base:add_button">&#128279;</a>
+    <strong>:add_button <span class='function_args'> <b>(</b>button<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    Add a new <a href="../input_handling/awful.button.html#">awful.button</a> to this widget.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">awful.button</span></span></td>
+           <td class="see_also_description"> The button to add.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item2125 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="wibox.widget.base:emit_signal_recursive" href="#wibox.widget.base:emit_signal_recursive">&#128279;</a>
+    <strong>:emit_signal_recursive <span class='function_args'> <b>(</b>signal_name, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    <p>Emit a signal and ensure all parent widgets in the hierarchies also
+ forward the signal.</p>
+
+<p> This is useful to track signals when there is a dynamic set of containers
+   and layouts wrapping the widget.</p>
+
+<p> Note that this function has some flaws:</p>
+
+<ol>
+<li>The signal is only forwarded once the widget tree has been built. This
+happens after all currently scheduled functions have been executed.
+Therefore, it will not start to work right away.</li>
+<li>In case the widget is present multiple times in a single widget tree,
+this function will also forward the signal multiple times (once per upward
+tree path).</li>
+<li>If the widget is removed from the widget tree, the signal is still
+forwarded for some time, similar to the first case.</li>
+</ol>
+
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">signal_name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Other arguments</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item2136 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="wibox.widget.base:index" href="#wibox.widget.base:index">&#128279;</a>
+    <strong>:index <span class='function_args'> <b>(</b>widget, <span class="optional_param">recursive</span>, <span class="optional_param">...</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;(number, widget, table)</span></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    Get the index of a widget.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">widget</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">widget</span></span></td>
+           <td class="see_also_description"> The widget to look for.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">recursive</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Recursively check accross the sub-widgets
+   hierarchy.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">widget</span></span></td>
+           <td class="see_also_description"> Additional widgets to add at the end of the
+   sub-widgets hierarchy &ldquo;path&rdquo;.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        The widget index.</li>
+        <li>
+           <span class="types"><span class="type">widget</span></span>
+        The parent widget.</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+        The hierarchy path between &ldquo;self&rdquo; and &ldquo;widget&rdquo;.</li>
+    </ol>
+
+
+
+
+
+    <span id=item2137 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="connect_signal" href="#connect_signal">&#128279;</a>
+    <strong>:connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    <p>Connect to a signal.</p>
+
+<p><strong>Usage example output</strong>:</p>
+
+<pre><code>In slot [obj]   nil nil nil
+In slot [obj]   foo bar 42
+</code></pre>
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback to call when the signal is emitted.</td>
+         </tr>
+        </table>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> o = gears.object{}
+<span class="comment">-- Function can be attached to signals
+</span><span class="keyword">local</span> <span class="keyword">function</span> slot(obj, a, b, c)
+    <span class="global">print</span>(<span class="string">"In slot"</span>, obj, a, b, c)
+<span class="keyword">end</span>
+o:connect_signal(<span class="string">"my_signal"</span>, slot)
+<span class="comment">-- Emitting can be done without arguments. In that case, the object will be
+</span><span class="comment">-- implicitly added as an argument.
+</span>o:emit_signal <span class="string">"my_signal"</span>
+<span class="comment">-- It is also possible to add as many random arguments are required.
+</span>o:emit_signal(<span class="string">"my_signal"</span>, <span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="number">42</span>)
+<span class="comment">-- Finally, to allow the object to be garbage collected (the memory freed), it
+</span><span class="comment">-- is necessary to disconnect the signal or use <code>weak_connect_signal</code>
+</span>o:disconnect_signal(<span class="string">"my_signal"</span>, slot)
+<span class="comment">-- This time, the <code>slot</code> wont be called as it is no longer connected.
+</span>o:emit_signal <span class="string">"my_signal"</span></pre>
+    </ul>
+
+
+    <span id=item1203 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="weak_connect_signal" href="#weak_connect_signal">&#128279;</a>
+    <strong>:weak_connect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Connect to a signal weakly.</p>
+
+<p> This allows the callback function to be garbage collected and
+ automatically disconnects the signal when that happens.
+ <strong>Warning:</strong>
+ Only use this function if you really, really, really know what you
+ are doing.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback to call when the signal is emitted.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1204 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="disconnect_signal" href="#disconnect_signal">&#128279;</a>
+    <strong>:disconnect_signal <span class='function_args'> <b>(</b>name, func<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Disconnect from a signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback that should be disconnected.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1205 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="emit_signal" href="#emit_signal">&#128279;</a>
+    <strong>:emit_signal <span class='function_args'> <b>(</b>name, ...<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from gears.object
+    </span>
+    </dt>
+    <dd>
+    Emit a signal.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The name of the signal</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Extra arguments for the callback functions. Each connected
+   function receives the object as first argument and then any extra
+   arguments that are given to emit_signal()</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item1206 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="widget::layout_changed" href="#widget::layout_changed">&#128279;</a>
+    <strong>widget::layout_changed</strong>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    When the layout (size) change.
+ This signal is emitted when the previous results of <code>:layout()</code> and <code>:fit()</code>
+ are no longer valid.  Unless this signal is emitted, <code>:layout()</code> and <code>:fit()</code>
+ must return the same result when called with the same arguments.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#widget::redraw_needed" title="In the wibox.widget.base module.">widget::redraw_needed</a></td>
+         <td>When the widget content changed. </td>
+         <td>
+             <span class="chips">signals</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2139 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="widget::redraw_needed" href="#widget::redraw_needed">&#128279;</a>
+    <strong>widget::redraw_needed</strong>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    When the widget content changed.
+ This signal is emitted when the content of the widget changes. The widget will
+ be redrawn, it is not re-layouted. Put differently, it is assumed that
+ <code>:layout()</code> and <code>:fit()</code> would still return the same results as before.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../classes/wibox.widget.base.html#widget::layout_changed" title="In the wibox.widget.base module.">widget::layout_changed</a></td>
+         <td>When the layout (size) change. </td>
+         <td>
+             <span class="chips">signals</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2140 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="button::press" href="#button::press">&#128279;</a>
+    <strong>button::press</strong>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    When a mouse button is pressed over the widget.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current object instance itself.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">lx</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The horizontal position relative to the (0,0) position in
+ the widget.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">ly</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The vertical position relative to the (0,0) position in the
+ widget.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The button number.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">mods</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The modifiers (mod4, mod1 (alt), Control, Shift)</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">find_widgets_result</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> The entry from the result of
+ <a href="../popups_and_bars/wibox.html#find_widgets">wibox:find_widgets</a> for the position that the mouse hit. </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">drawable</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">wibox.drawable</span></span></td>
+           <td class="see_also_description"> The drawable containing
+ the widget.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">widget</span></span></td>
+           <td class="see_also_description"> The widget being displayed.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">hierarchy</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="../classes/wibox.hierarchy.html#">wibox.hierarchy</a></span></td>
+           <td class="see_also_description"> The hierarchy
+ managing the widget&rsquo;s geometry.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">x</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the X position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">y</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the Y position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the width that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the height that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact width of the widget
+ in its local coordinate system.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact height of the widget
+ in its local coordinate system.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#" title="In the mouse module.">mouse</a></td>
+         <td>Manipulate and inspect the mouse cursor. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2141 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="button::release" href="#button::release">&#128279;</a>
+    <strong>button::release</strong>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    When a mouse button is released over the widget.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current object instance itself.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">lx</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The horizontal position relative to the (0,0) position in
+ the widget.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">ly</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The vertical position relative to the (0,0) position in the
+ widget.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">button</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The button number.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">mods</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The modifiers (mod4, mod1 (alt), Control, Shift)</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">find_widgets_result</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> The entry from the result of
+ <a href="../popups_and_bars/wibox.html#find_widgets">wibox:find_widgets</a> for the position that the mouse hit. </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">drawable</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">wibox.drawable</span></span></td>
+           <td class="see_also_description"> The drawable containing
+ the widget.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">widget</span></span></td>
+           <td class="see_also_description"> The widget being displayed.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">hierarchy</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="../classes/wibox.hierarchy.html#">wibox.hierarchy</a></span></td>
+           <td class="see_also_description"> The hierarchy
+ managing the widget&rsquo;s geometry.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">x</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the X position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">y</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the Y position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the width that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the height that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact width of the widget
+ in its local coordinate system.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact height of the widget
+ in its local coordinate system.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#" title="In the mouse module.">mouse</a></td>
+         <td>Manipulate and inspect the mouse cursor. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2142 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="mouse::enter" href="#mouse::enter">&#128279;</a>
+    <strong>mouse::enter</strong>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    When the mouse enter a widget.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current object instance itself.</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">find_widgets_result</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> The entry from the result of
+ <a href="../popups_and_bars/wibox.html#find_widgets">wibox:find_widgets</a> for the position that the mouse hit. </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">drawable</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">wibox.drawable</span></span></td>
+           <td class="see_also_description"> The drawable containing
+ the widget.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">widget</span></span></td>
+           <td class="see_also_description"> The widget being displayed.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">hierarchy</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="../classes/wibox.hierarchy.html#">wibox.hierarchy</a></span></td>
+           <td class="see_also_description"> The hierarchy
+ managing the widget&rsquo;s geometry.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">x</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the X position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">y</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the Y position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the width that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the height that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact width of the widget
+ in its local coordinate system.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact height of the widget
+ in its local coordinate system.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#" title="In the mouse module.">mouse</a></td>
+         <td>Manipulate and inspect the mouse cursor. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2143 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="mouse::leave" href="#mouse::leave">&#128279;</a>
+    <strong>mouse::leave</strong>
+    <span class="baseclass" >
+    &middot;&nbsp;Inherited from wibox.widget.base
+    </span>
+    </dt>
+    <dd>
+    When the mouse leave a widget.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a></span></td>
+           <td class="see_also_description"> The current object instance itself.</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">find_widgets_result</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> The entry from the result of
+ <a href="../popups_and_bars/wibox.html#find_widgets">wibox:find_widgets</a> for the position that the mouse hit. </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">drawable</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">wibox.drawable</span></span></td>
+           <td class="see_also_description"> The drawable containing
+ the widget.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">widget</span></span></td>
+           <td class="see_also_description"> The widget being displayed.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">hierarchy</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="../classes/wibox.hierarchy.html#">wibox.hierarchy</a></span></td>
+           <td class="see_also_description"> The hierarchy
+ managing the widget&rsquo;s geometry.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">x</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the X position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">y</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the Y position that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the width that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> An approximation of the height that
+ the widget is visible at on the surface.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact width of the widget
+ in its local coordinate system.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">widget_height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The exact height of the widget
+ in its local coordinate system.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/mouse.html#" title="In the mouse module.">mouse</a></td>
+         <td>Manipulate and inspect the mouse cursor. </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item2144 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

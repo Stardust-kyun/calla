@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# Use bash's pipefail option to get errors during failure in a command
+# pipeline.  This is useful to get notified about an error from dbus-send
+# when used with "|tail".
+set -o pipefail
+
+if [ -t 0 ]  # is a tty.
+then
+    # rlwrap provides readline functionality for "read", which is more enhanced
+    # than bash's "read" itself.
+    # It can be disabled/overridden using 'AWESOME_RLWRAP= awesome-client'.
+    if [ -z "${AWESOME_RLWRAP+x}" ]; then
+        AWESOME_RLWRAP="$(command -v rlwrap 2>/dev/null)"
+    fi
+    if [ -n "$AWESOME_RLWRAP" ]
+    then
+        if [ "$A_RERUN" = "" ]
+        then
+            A_RERUN="no" exec "$AWESOME_RLWRAP" "$0" "$@"
+        fi
+        READ_ARGS=""
+    else
+        # No rlwrap: use bash's readline.
+        READ_ARGS="-e"
+    fi
+fi
+
+DBUS_SEND=dbus-send
+
+command -v ${DBUS_SEND} > /dev/null
+if test $? = 1
+then
+    echo "E: Unable to find" ${DBUS_SEND}
+    exit 1
+fi
+
+DBUS_PATH=/
+DBUS_DEST=org.awesomewm.awful
+DBUS_METHOD=${DBUS_DEST}.Remote.Eval
+
+FATAL_ERRORS=1
+a_dbus_send()
+{
+    $DBUS_SEND --dest=$DBUS_DEST --type=method_call --print-reply \
+        $DBUS_PATH $DBUS_METHOD string:"$1" | tail -n +2
+    ret=$?
+    if [ "$ret" != 0 ] && [ "$FATAL_ERRORS" != 0 ]; then
+        echo "E: $DBUS_SEND failed." >&2
+        exit $ret
+    fi
+}
+
+print_help()
+{
+    echo "Usage: awesome-client [-h|--help] [command [command...]]
+awesome window manager remote execution
+
+awesome-client is a remote command line interface to awesome.
+It communicates with awesome via D-Bus, allowing remote execution of Lua code.
+
+Run without a command to enter REPL (read-eval-print-loop) mode.
+For examples see \`man awesome-client\`."
+}
+
+if [ $# -ne 0 ]
+then
+    # check for command-line arguments
+    ARGS=()
+    for arg in "$@"; do
+        if [ "$arg" = "-h" ] || [ "$arg" = "--help" ]; then
+            print_help
+            exit 0
+        else
+            ARGS+=("$arg")
+        fi
+    done
+    # run arguments
+    for arg in "${ARGS[@]}"; do
+        a_dbus_send "$arg"
+    done
+elif [ -t 0 ]
+then
+    FATAL_ERRORS=0
+    while read $READ_ARGS -p "awesome# " -r line
+    do
+        if [ "$line" = "" ]; then
+            continue
+        fi
+        a_dbus_send "$line"
+    done
+else
+    a_dbus_send "$(cat)"
+fi
+
+# vim: filetype=sh:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

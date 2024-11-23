@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../ldoc.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="410pt" height="58pt" viewBox="0 0 410 58" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 5 10 L 43 10 L 43 43 L 5 43 Z M 5 10 "/>
+</clipPath>
+<image id="image11" width="22" height="22" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAABmJLR0QA/wD/AP+gvaeTAAAAQUlEQVQ4jWM0NzdnoAwwUah/1AhqG8H4//9/4lVbWFhgMWI0XQw/I1hwSZw4cQKrOGbSwGkE1lSE1dzBERbDxggAF2YLHQjOKHUAAAAASUVORK5CYII="/>
+<clipPath id="clip2">
+  <path d="M 54 10 L 92 10 L 92 43 L 54 43 Z M 54 10 "/>
+</clipPath>
+<clipPath id="clip3">
+  <path d="M 103 10 L 141 10 L 141 43 L 103 43 Z M 103 10 "/>
+</clipPath>
+</defs>
+<g id="surface8">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 0 0 L 48 0 L 48 5 L 0 5 Z M 0 0 "/>
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<use xlink:href="#image11" transform="matrix(2.0625,0,0,2.0625,5,10)"/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(46.666667%,46.666667%,46.666667%);fill-opacity:1;" d="M 48 12 L 49 12 L 49 36 L 48 36 Z M 48 12 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;" d="M 49 0 L 97 0 L 97 5 L 49 5 Z M 49 0 "/>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<use xlink:href="#image11" transform="matrix(2.0625,0,0,2.0625,54,10)"/>
+</g>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(46.666667%,46.666667%,46.666667%);fill-opacity:1;" d="M 97 12 L 98 12 L 98 36 L 97 36 Z M 97 12 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.666667%,0%,100%);fill-opacity:0.490196;" d="M 98 0 L 146 0 L 146 5 L 98 5 Z M 98 0 "/>
+<g clip-path="url(#clip3)" clip-rule="nonzero">
+<use xlink:href="#image11" transform="matrix(2.0625,0,0,2.0625,103,10)"/>
+</g>
+</g>
+</svg>

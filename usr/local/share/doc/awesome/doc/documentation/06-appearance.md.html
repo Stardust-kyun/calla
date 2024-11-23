@@ -1,0 +1,1368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Topic 06-appearance.md - awesome API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>awesome</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#The_beautiful_themes">The beautiful themes </a></li>
+<li><a href="#Sample_theme_file">Sample theme file </a></li>
+</ul>
+
+
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-authors.md.html">Authors</a></li>
+  <li><a href="../documentation/01-readme.md.html">Readme</a></li>
+  <li><a href="../documentation/02-contributing.md.html">Contributing</a></li>
+  <li><a href="../documentation/03-declarative-layout.md.html">The Widget system</a></li>
+  <li><a href="../documentation/04-new-widgets.md.html">Creating new widget</a></li>
+  <li><a href="../documentation/05-awesomerc.md.html">Default configuration file documentation</a></li>
+  <li><strong>Change Awesome appearance</strong></li>
+  <li><a href="../documentation/07-my-first-awesome.md.html">My first Awesome</a></li>
+  <li><a href="../documentation/08-client-layout-system.md.html">The AwesomeWM client layout system</a></li>
+  <li><a href="../documentation/09-options.md.html">Startup options</a></li>
+  <li><a href="../documentation/10-building-and-testing.md.html">Building and Testing</a></li>
+  <li><a href="../documentation/16-using-cairo.md.html">Using Cairo and LGI</a></li>
+  <li><a href="../documentation/17-porting-tips.md.html">Tips for upgrading your configuration</a></li>
+  <li><a href="../documentation/89-NEWS.md.html">NEWS</a></li>
+  <li><a href="../documentation/90-FAQ.md.html">FAQ</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/awesome.html">awesome</a></li>
+  <li><a href="../core_components/awful.keygrabber.html">awful.keygrabber</a></li>
+  <li><a href="../core_components/client.html">client<span class='listplusign'> and awful.client</span></a></li>
+  <li><a href="../core_components/drawable.html">drawable</a></li>
+  <li><a href="../core_components/gears.timer.html">gears.timer</a></li>
+  <li><a href="../core_components/mousegrabber.html">mousegrabber</a></li>
+  <li><a href="../core_components/naughty.action.html">naughty.action</a></li>
+  <li><a href="../core_components/naughty.notification.html">naughty.notification</a></li>
+  <li><a href="../core_components/root.html">root</a></li>
+  <li><a href="../core_components/screen.html">screen<span class='listplusign'> and awful.screen</span></a></li>
+  <li><a href="../core_components/tag.html">tag<span class='listplusign'> and awful.tag</span></a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/awful.button.html">awful.button</a></li>
+  <li><a href="../input_handling/awful.key.html">awful.key</a></li>
+  <li><a href="../input_handling/awful.keyboard.html">awful.keyboard</a></li>
+  <li><a href="../input_handling/mouse.html">mouse</a></li>
+</ul>
+<h2>Declarative rules</h2>
+<ul class="nowrap">
+  <li><a href="../declarative_rules/ruled.client.html">ruled.client</a></li>
+  <li><a href="../declarative_rules/ruled.notifications.html">ruled.notifications</a></li>
+</ul>
+<h2>Widgets</h2>
+<ul class="nowrap">
+  <li><a href="../widgets/awful.widget.button.html">awful.widget.button</a></li>
+  <li><a href="../widgets/awful.widget.clienticon.html">awful.widget.clienticon</a></li>
+  <li><a href="../widgets/awful.widget.keyboardlayout.html">awful.widget.keyboardlayout</a></li>
+  <li><a href="../widgets/awful.widget.launcher.html">awful.widget.launcher</a></li>
+  <li><a href="../widgets/awful.widget.layoutbox.html">awful.widget.layoutbox</a></li>
+  <li><a href="../widgets/awful.widget.layoutlist.html">awful.widget.layoutlist</a></li>
+  <li><a href="../widgets/awful.widget.prompt.html">awful.widget.prompt</a></li>
+  <li><a href="../widgets/awful.widget.taglist.html">awful.widget.taglist</a></li>
+  <li><a href="../widgets/awful.widget.tasklist.html">awful.widget.tasklist</a></li>
+  <li><a href="../widgets/awful.widget.watch.html">awful.widget.watch</a></li>
+  <li><a href="../widgets/naughty.list.actions.html">naughty.list.actions</a></li>
+  <li><a href="../widgets/naughty.list.notifications.html">naughty.list.notifications</a></li>
+  <li><a href="../widgets/naughty.widget.icon.html">naughty.widget.icon</a></li>
+  <li><a href="../widgets/naughty.widget.message.html">naughty.widget.message</a></li>
+  <li><a href="../widgets/naughty.widget.title.html">naughty.widget.title</a></li>
+  <li><a href="../widgets/wibox.widget.calendar.html">wibox.widget.calendar</a></li>
+  <li><a href="../widgets/wibox.widget.checkbox.html">wibox.widget.checkbox</a></li>
+  <li><a href="../widgets/wibox.widget.graph.html">wibox.widget.graph</a></li>
+  <li><a href="../widgets/wibox.widget.imagebox.html">wibox.widget.imagebox</a></li>
+  <li><a href="../widgets/wibox.widget.piechart.html">wibox.widget.piechart</a></li>
+  <li><a href="../widgets/wibox.widget.progressbar.html">wibox.widget.progressbar</a></li>
+  <li><a href="../widgets/wibox.widget.separator.html">wibox.widget.separator</a></li>
+  <li><a href="../widgets/wibox.widget.slider.html">wibox.widget.slider</a></li>
+  <li><a href="../widgets/wibox.widget.systray.html">wibox.widget.systray</a></li>
+  <li><a href="../widgets/wibox.widget.textbox.html">wibox.widget.textbox</a></li>
+  <li><a href="../widgets/wibox.widget.textclock.html">wibox.widget.textclock</a></li>
+</ul>
+<h2>Widget containers</h2>
+<ul class="nowrap">
+  <li><a href="../widget_containers/awful.widget.only_on_screen.html">awful.widget.only_on_screen</a></li>
+  <li><a href="../widget_containers/naughty.widget.background.html">naughty.widget.background</a></li>
+  <li><a href="../widget_containers/wibox.container.arcchart.html">wibox.container.arcchart</a></li>
+  <li><a href="../widget_containers/wibox.container.background.html">wibox.container.background</a></li>
+  <li><a href="../widget_containers/wibox.container.border.html">wibox.container.border</a></li>
+  <li><a href="../widget_containers/wibox.container.constraint.html">wibox.container.constraint</a></li>
+  <li><a href="../widget_containers/wibox.container.margin.html">wibox.container.margin</a></li>
+  <li><a href="../widget_containers/wibox.container.mirror.html">wibox.container.mirror</a></li>
+  <li><a href="../widget_containers/wibox.container.place.html">wibox.container.place</a></li>
+  <li><a href="../widget_containers/wibox.container.radialprogressbar.html">wibox.container.radialprogressbar</a></li>
+  <li><a href="../widget_containers/wibox.container.rotate.html">wibox.container.rotate</a></li>
+  <li><a href="../widget_containers/wibox.container.scroll.html">wibox.container.scroll</a></li>
+  <li><a href="../widget_containers/wibox.container.tile.html">wibox.container.tile</a></li>
+</ul>
+<h2>Widget layouts</h2>
+<ul class="nowrap">
+  <li><a href="../widget_layouts/wibox.layout.align.html">wibox.layout.align</a></li>
+  <li><a href="../widget_layouts/wibox.layout.fixed.html">wibox.layout.fixed</a></li>
+  <li><a href="../widget_layouts/wibox.layout.flex.html">wibox.layout.flex</a></li>
+  <li><a href="../widget_layouts/wibox.layout.grid.html">wibox.layout.grid</a></li>
+  <li><a href="../widget_layouts/wibox.layout.manual.html">wibox.layout.manual</a></li>
+  <li><a href="../widget_layouts/wibox.layout.ratio.html">wibox.layout.ratio</a></li>
+  <li><a href="../widget_layouts/wibox.layout.stack.html">wibox.layout.stack</a></li>
+</ul>
+<h2>Popups and bars</h2>
+<ul class="nowrap">
+  <li><a href="../popups_and_bars/awful.hotkeys_popup.widget.html">awful.hotkeys_popup.widget</a></li>
+  <li><a href="../popups_and_bars/awful.menu.html">awful.menu</a></li>
+  <li><a href="../popups_and_bars/awful.popup.html">awful.popup</a></li>
+  <li><a href="../popups_and_bars/awful.titlebar.html">awful.titlebar</a></li>
+  <li><a href="../popups_and_bars/awful.tooltip.html">awful.tooltip</a></li>
+  <li><a href="../popups_and_bars/awful.wallpaper.html">awful.wallpaper</a></li>
+  <li><a href="../popups_and_bars/awful.wibar.html">awful.wibar</a></li>
+  <li><a href="../popups_and_bars/awful.widget.calendar_popup.html">awful.widget.calendar_popup</a></li>
+  <li><a href="../popups_and_bars/menubar.html">menubar</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.box.html">naughty.layout.box</a></li>
+  <li><a href="../popups_and_bars/naughty.layout.legacy.html">naughty.layout.legacy</a></li>
+  <li><a href="../popups_and_bars/wibox.html">wibox</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+  <li><a href="../utility_libraries/gears.wallpaper.html">gears.wallpaper</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/beautiful.html">beautiful</a></li>
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/awful.completion.html">awful.completion</a></li>
+  <li><a href="../libraries/awful.hotkeys_popup.html">awful.hotkeys_popup</a></li>
+  <li><a href="../libraries/awful.layout.html">awful.layout</a></li>
+  <li><a href="../libraries/awful.permissions.html">awful.permissions</a></li>
+  <li><a href="../libraries/awful.placement.html">awful.placement</a></li>
+  <li><a href="../libraries/awful.prompt.html">awful.prompt</a></li>
+  <li><a href="../libraries/awful.rules.html">awful.rules</a></li>
+  <li><a href="../libraries/awful.spawn.html">awful.spawn</a></li>
+  <li><a href="../libraries/awful.util.html">awful.util</a></li>
+  <li><a href="../libraries/dbus.html">dbus</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/menubar.menu_gen.html">menubar.menu_gen</a></li>
+  <li><a href="../libraries/menubar.utils.html">menubar.utils</a></li>
+  <li><a href="../libraries/naughty.html">naughty</a></li>
+  <li><a href="../libraries/selection.html">selection</a></li>
+  <li><a href="../libraries/wibox.widget.html">wibox.widget</a></li>
+</ul>
+<h2>Sample files</h2>
+<ul class="nowrap">
+  <li><a href="../sample files/rc.lua.html">rc.lua</a></li>
+  <li><a href="../sample files/theme.lua.html">theme.lua</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/awful.screenshot.html">awful.screenshot</a></li>
+  <li><a href="../classes/awful.widget.common.html">awful.widget.common</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../classes/menubar.icon_theme.html">menubar.icon_theme</a></li>
+  <li><a href="../classes/menubar.index_theme.html">menubar.index_theme</a></li>
+  <li><a href="../classes/wibox.hierarchy.html">wibox.hierarchy</a></li>
+  <li><a href="../classes/wibox.widget.base.html">wibox.widget.base</a></li>
+  <li><a href="../classes/xproperties.html">xproperties</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h1>Change Awesome appearance</h1>
+
+<p><a name="The_beautiful_themes"></a></p>
+
+<h2>The beautiful themes</h2>
+
+<p>Beautiful is where Awesome theme variables are stored.</p>
+
+<p><br /><br />
+&ndash;<table class='widget_list' border=1>
+<tr>
+ <th align='center'>Name</th>
+ <th align='center'>Description</th>
+</tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_bg'>hotkeys_bg</a></td><td>Hotkeys widget background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_fg'>hotkeys_fg</a></td><td>Hotkeys widget foreground color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_border_width'>hotkeys_border_width</a></td><td>Hotkeys widget border width</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_border_color'>hotkeys_border_color</a></td><td>Hotkeys widget border color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_shape'>hotkeys_shape</a></td><td>Hotkeys widget shape</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_modifiers_fg'>hotkeys_modifiers_fg</a></td><td>Foreground color used for hotkey modifiers (Ctrl, Alt, Super, etc)</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_label_bg'>hotkeys_label_bg</a></td><td>Background color used for miscellaneous labels of hotkeys widget</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_label_fg'>hotkeys_label_fg</a></td><td>Foreground color used for hotkey groups and other labels</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_font'>hotkeys_font</a></td><td>Main hotkeys widget font</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_description_font'>hotkeys_description_font</a></td><td>Font used for hotkeys' descriptions</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.hotkeys_popup.widget.html#beautiful.hotkeys_group_margin'>hotkeys_group_margin</a></td><td>Margin between hotkeys groups</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.corner.html#beautiful.layout_cornernw'>layout_cornernw</a></td><td>The cornernw layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.corner.html#beautiful.layout_cornerne'>layout_cornerne</a></td><td>The cornerne layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.corner.html#beautiful.layout_cornersw'>layout_cornersw</a></td><td>The cornersw layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.corner.html#beautiful.layout_cornerse'>layout_cornerse</a></td><td>The cornerse layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.fair.html#beautiful.layout_fairh'>layout_fairh</a></td><td>The fairh layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.fair.html#beautiful.layout_fairv'>layout_fairv</a></td><td>The fairv layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.floating.html#beautiful.layout_floating'>layout_floating</a></td><td>The floating layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.magnifier.html#beautiful.layout_magnifier'>layout_magnifier</a></td><td>The magnifier layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.max.html#beautiful.layout_max'>layout_max</a></td><td>The max layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.max.html#beautiful.layout_fullscreen'>layout_fullscreen</a></td><td>The fullscreen layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.spiral.html#beautiful.layout_spiral'>layout_spiral</a></td><td>The spiral layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.spiral.html#beautiful.layout_dwindle'>layout_dwindle</a></td><td>The dwindle layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.tile.html#beautiful.layout_tile'>layout_tile</a></td><td>The tile layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.tile.html#beautiful.layout_tiletop'>layout_tiletop</a></td><td>The tile top layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.tile.html#beautiful.layout_tilebottom'>layout_tilebottom</a></td><td>The tile bottom layout layoutbox icon</td></tr>
+  <tr><td><a href='../libraries/awful.layout.suit.tile.html#beautiful.layout_tileleft'>layout_tileleft</a></td><td>The tile left layout layoutbox icon</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_submenu_icon'>menu_submenu_icon</a></td><td>The icon used for sub-menus</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_font'>menu_font</a></td><td>The menu text font</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_height'>menu_height</a></td><td>The item height</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_width'>menu_width</a></td><td>The default menu width</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_border_color'>menu_border_color</a></td><td>The menu item border color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_border_width'>menu_border_width</a></td><td>The menu item border width</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_fg_focus'>menu_fg_focus</a></td><td>The default focused item foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_bg_focus'>menu_bg_focus</a></td><td>The default focused item background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_fg_normal'>menu_fg_normal</a></td><td>The default foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_bg_normal'>menu_bg_normal</a></td><td>The default background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.menu.html#beautiful.menu_submenu'>menu_submenu</a></td><td>The default sub-menu indicator if no <code>menu_submenu_icon</code> is provided</td></tr>
+  <tr><td><a href='../libraries/awful.mouse.html#beautiful.snap_bg'>snap_bg</a></td><td>The snap outline background color</td></tr>
+  <tr><td><a href='../libraries/awful.mouse.html#beautiful.snap_border_width'>snap_border_width</a></td><td>The snap outline width</td></tr>
+  <tr><td><a href='../libraries/awful.mouse.html#beautiful.snap_shape'>snap_shape</a></td><td>The snap outline shape</td></tr>
+  <tr><td><a href='../libraries/awful.mouse.html#beautiful.snapper_gap'>snapper_gap</a></td><td>The gap between snapped clients</td></tr>
+  <tr><td><a href='../libraries/awful.mouse.html#beautiful.cursor_mouse_resize'>cursor_mouse_resize</a></td><td>The resize cursor name</td></tr>
+  <tr><td><a href='../libraries/awful.mouse.html#beautiful.cursor_mouse_move'>cursor_mouse_move</a></td><td>The move cursor name</td></tr>
+  <tr><td><a href='../libraries/awful.permissions.html#beautiful.maximized_honor_padding'>maximized_honor_padding</a></td><td>Honor the screen padding when maximizing</td></tr>
+  <tr><td><a href='../libraries/awful.permissions.html#beautiful.fullscreen_hide_border'>fullscreen_hide_border</a></td><td>Hide the border on fullscreen clients</td></tr>
+  <tr><td><a href='../libraries/awful.permissions.html#beautiful.maximized_hide_border'>maximized_hide_border</a></td><td>Hide the border on maximized clients</td></tr>
+  <tr><td><a href='../libraries/awful.prompt.html#beautiful.prompt_fg_cursor'>prompt_fg_cursor</a></td><td>The prompt cursor foreground color</td></tr>
+  <tr><td><a href='../libraries/awful.prompt.html#beautiful.prompt_bg_cursor'>prompt_bg_cursor</a></td><td>The prompt cursor background color</td></tr>
+  <tr><td><a href='../libraries/awful.prompt.html#beautiful.prompt_font'>prompt_font</a></td><td>The prompt text font</td></tr>
+  <tr><td><a href='../classes/awful.screenshot.html#beautiful.screenshot_frame_color'>screenshot_frame_color</a></td><td>The screenshot interactive frame color</td></tr>
+  <tr><td><a href='../classes/awful.screenshot.html#beautiful.screenshot_frame_shape'>screenshot_frame_shape</a></td><td>The screenshot interactive frame shape</td></tr>
+  <tr><td><a href='../libraries/awful.startup_notification.html#beautiful.enable_spawn_cursor'>enable_spawn_cursor</a></td><td>Show busy mouse cursor during spawn</td></tr>
+  <tr><td><a href='../libraries/awful.tag.html#beautiful.master_width_factor'>master_width_factor</a></td><td>The default master width factor</td></tr>
+  <tr><td><a href='../libraries/awful.tag.html#beautiful.useless_gap'>useless_gap</a></td><td>The default gap</td></tr>
+  <tr><td><a href='../libraries/awful.tag.html#beautiful.gap_single_client'>gap_single_client</a></td><td>Enable gaps for a single client</td></tr>
+  <tr><td><a href='../libraries/awful.tag.html#beautiful.master_fill_policy'>master_fill_policy</a></td><td>The default fill policy</td></tr>
+  <tr><td><a href='../libraries/awful.tag.html#beautiful.master_count'>master_count</a></td><td>The default number of master windows</td></tr>
+  <tr><td><a href='../libraries/awful.tag.html#beautiful.column_count'>column_count</a></td><td>The default number of columns</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_fg_normal'>titlebar_fg_normal</a></td><td>The titlebar foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bg_normal'>titlebar_bg_normal</a></td><td>The titlebar background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bgimage_normal'>titlebar_bgimage_normal</a></td><td>The titlebar background image image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_fg'>titlebar_fg</a></td><td>The titlebar foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bg'>titlebar_bg</a></td><td>The titlebar background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bgimage'>titlebar_bgimage</a></td><td>The titlebar background image image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_fg_focus'>titlebar_fg_focus</a></td><td>The focused titlebar foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bg_focus'>titlebar_bg_focus</a></td><td>The focused titlebar background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bgimage_focus'>titlebar_bgimage_focus</a></td><td>The focused titlebar background image image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_fg_urgent'>titlebar_fg_urgent</a></td><td>The urgent titlebar foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bg_urgent'>titlebar_bg_urgent</a></td><td>The urgent titlebar background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_bgimage_urgent'>titlebar_bgimage_urgent</a></td><td>The urgent titlebar background image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal'>titlebar_floating_button_normal</a></td><td>The normal non-floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal'>titlebar_maximized_button_normal</a></td><td>The normal non-maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_minimize_button_normal'>titlebar_minimize_button_normal</a></td><td>The normal minimize button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_minimize_button_normal_hover'>titlebar_minimize_button_normal_hover</a></td><td>The hovered minimize button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_minimize_button_normal_press'>titlebar_minimize_button_normal_press</a></td><td>The pressed minimize button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_close_button_normal'>titlebar_close_button_normal</a></td><td>The normal close button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_close_button_normal_hover'>titlebar_close_button_normal_hover</a></td><td>The hovered close button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_close_button_normal_press'>titlebar_close_button_normal_press</a></td><td>The pressed close button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal'>titlebar_ontop_button_normal</a></td><td>The normal non-ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal'>titlebar_sticky_button_normal</a></td><td>The normal non-sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus'>titlebar_floating_button_focus</a></td><td>The focused client non-floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus'>titlebar_maximized_button_focus</a></td><td>The focused client non-maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_minimize_button_focus'>titlebar_minimize_button_focus</a></td><td>The focused client minimize button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_minimize_button_focus_hover'>titlebar_minimize_button_focus_hover</a></td><td>The hovered+focused client minimize button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_minimize_button_focus_press'>titlebar_minimize_button_focus_press</a></td><td>The pressed+focused minimize button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_close_button_focus'>titlebar_close_button_focus</a></td><td>The focused client close button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_close_button_focus_hover'>titlebar_close_button_focus_hover</a></td><td>The hovered+focused close button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_close_button_focus_press'>titlebar_close_button_focus_press</a></td><td>The pressed+focused close button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus'>titlebar_ontop_button_focus</a></td><td>The focused client non-ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus'>titlebar_sticky_button_focus</a></td><td>The focused client sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal_active'>titlebar_floating_button_normal_active</a></td><td>The normal floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal_active_hover'>titlebar_floating_button_normal_active_hover</a></td><td>The hovered floating client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal_active_press'>titlebar_floating_button_normal_active_press</a></td><td>The pressed floating client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal_active'>titlebar_maximized_button_normal_active</a></td><td>The maximized client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal_active_hover'>titlebar_maximized_button_normal_active_hover</a></td><td>The hozered+maximized client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal_active_press'>titlebar_maximized_button_normal_active_press</a></td><td>The pressed+maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal_active'>titlebar_ontop_button_normal_active</a></td><td>The ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal_active_hover'>titlebar_ontop_button_normal_active_hover</a></td><td>The hovered+ontop client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal_active_press'>titlebar_ontop_button_normal_active_press</a></td><td>The pressed+ontop client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal_active'>titlebar_sticky_button_normal_active</a></td><td>The sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal_active_hover'>titlebar_sticky_button_normal_active_hover</a></td><td>The hovered+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal_active_press'>titlebar_sticky_button_normal_active_press</a></td><td>The pressed+sticky client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus_active'>titlebar_floating_button_focus_active</a></td><td>The floating+focused client button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus_active_hover'>titlebar_floating_button_focus_active_hover</a></td><td>The hovered+floating+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus_active_press'>titlebar_floating_button_focus_active_press</a></td><td>The pressed+floating+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus_active'>titlebar_maximized_button_focus_active</a></td><td>The maximized+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus_active_hover'>titlebar_maximized_button_focus_active_hover</a></td><td>The hovered+maximized+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus_active_press'>titlebar_maximized_button_focus_active_press</a></td><td>The pressed+maximized+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus_active'>titlebar_ontop_button_focus_active</a></td><td>The ontop+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus_active_hover'>titlebar_ontop_button_focus_active_hover</a></td><td>The hovered+ontop+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus_active_press'>titlebar_ontop_button_focus_active_press</a></td><td>The pressed+ontop+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus_active'>titlebar_sticky_button_focus_active</a></td><td>The sticky+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus_active_hover'>titlebar_sticky_button_focus_active_hover</a></td><td>The hovered+sticky+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus_active_press'>titlebar_sticky_button_focus_active_press</a></td><td>The pressed+sticky+focused button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal_inactive'>titlebar_floating_button_normal_inactive</a></td><td>The inactive+floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal_inactive_hover'>titlebar_floating_button_normal_inactive_hover</a></td><td>The hovered+inactive+floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_normal_inactive_press'>titlebar_floating_button_normal_inactive_press</a></td><td>The pressed+inactive+floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal_inactive'>titlebar_maximized_button_normal_inactive</a></td><td>The inactive+maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal_inactive_hover'>titlebar_maximized_button_normal_inactive_hover</a></td><td>The hovered+inactive+maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_normal_inactive_press'>titlebar_maximized_button_normal_inactive_press</a></td><td>The pressed+maximized+inactive button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal_inactive'>titlebar_ontop_button_normal_inactive</a></td><td>The inactive+ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal_inactive_hover'>titlebar_ontop_button_normal_inactive_hover</a></td><td>The hovered+inactive+ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_normal_inactive_press'>titlebar_ontop_button_normal_inactive_press</a></td><td>The pressed+inactive+ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal_inactive'>titlebar_sticky_button_normal_inactive</a></td><td>The inactive+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal_inactive_hover'>titlebar_sticky_button_normal_inactive_hover</a></td><td>The hovered+inactive+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_normal_inactive_press'>titlebar_sticky_button_normal_inactive_press</a></td><td>The pressed+inactive+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus_inactive'>titlebar_floating_button_focus_inactive</a></td><td>The inactive+focused+floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus_inactive_hover'>titlebar_floating_button_focus_inactive_hover</a></td><td>The hovered+inactive+focused+floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_floating_button_focus_inactive_press'>titlebar_floating_button_focus_inactive_press</a></td><td>The pressed+inactive+focused+floating button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus_inactive'>titlebar_maximized_button_focus_inactive</a></td><td>The inactive+focused+maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus_inactive_hover'>titlebar_maximized_button_focus_inactive_hover</a></td><td>The hovered+inactive+focused+maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_maximized_button_focus_inactive_press'>titlebar_maximized_button_focus_inactive_press</a></td><td>The pressed+inactive+focused+maximized button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus_inactive'>titlebar_ontop_button_focus_inactive</a></td><td>The inactive+focused+ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus_inactive_hover'>titlebar_ontop_button_focus_inactive_hover</a></td><td>The hovered+inactive+focused+ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_ontop_button_focus_inactive_press'>titlebar_ontop_button_focus_inactive_press</a></td><td>The pressed+inactive+focused+ontop button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus_inactive'>titlebar_sticky_button_focus_inactive</a></td><td>The inactive+focused+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus_inactive_hover'>titlebar_sticky_button_focus_inactive_hover</a></td><td>The hovered+inactive+focused+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_sticky_button_focus_inactive_press'>titlebar_sticky_button_focus_inactive_press</a></td><td>The pressed+inactive+focused+sticky button image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_close'>titlebar_tooltip_messages_close</a></td><td>The message in the close button tooltip</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_minimize'>titlebar_tooltip_messages_minimize</a></td><td>The message in the minimize button tooltip</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_maximized_active'>titlebar_tooltip_messages_maximized_active</a></td><td>The message in the maximize button tooltip when the client is maximized</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_maximized_inactive'>titlebar_tooltip_messages_maximized_inactive</a></td><td>The message in the maximize button tooltip when the client is unmaximized</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_floating_active'>titlebar_tooltip_messages_floating_active</a></td><td>The message in the floating button tooltip when then client is floating</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_floating_inactive'>titlebar_tooltip_messages_floating_inactive</a></td><td>The message in the floating button tooltip when then client isn&rsquo;t floating</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_ontop_active'>titlebar_tooltip_messages_ontop_active</a></td><td>The message in the onTop button tooltip when the client is onTop</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_ontop_inactive'>titlebar_tooltip_messages_ontop_inactive</a></td><td>The message in the onTop button tooltip when client isn&rsquo;t onTop</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_sticky_active'>titlebar_tooltip_messages_sticky_active</a></td><td>The message in the sticky button tooltip when the client is sticky</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_messages_sticky_inactive'>titlebar_tooltip_messages_sticky_inactive</a></td><td>The message in the sticky button tooltip when the client isn&rsquo;t sticky</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_delay_show'>titlebar_tooltip_delay_show</a></td><td>The delay in second before the titlebar buttons tooltip is shown</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_margins_leftright'>titlebar_tooltip_margins_leftright</a></td><td>The inner left and right margins for tooltip messages</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_margins_topbottom'>titlebar_tooltip_margins_topbottom</a></td><td>The inner top and bottom margins for the tooltip messages</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_timeout'>titlebar_tooltip_timeout</a></td><td>The time in second before invoking the <code>timer_function</code> callback</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.titlebar.html#beautiful.titlebar_tooltip_align'>titlebar_tooltip_align</a></td><td>The text horizontal alignment in tooltips</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_border_color'>tooltip_border_color</a></td><td>The tooltip border color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_bg'>tooltip_bg</a></td><td>The tooltip background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_fg'>tooltip_fg</a></td><td>The tooltip foregound (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_font'>tooltip_font</a></td><td>The tooltip font</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_border_width'>tooltip_border_width</a></td><td>The tooltip border width</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_opacity'>tooltip_opacity</a></td><td>The tooltip opacity</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_gaps'>tooltip_gaps</a></td><td>The tooltip margins</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_shape'>tooltip_shape</a></td><td>The default tooltip shape</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.tooltip.html#beautiful.tooltip_align'>tooltip_align</a></td><td>The default tooltip alignment</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wallpaper.html#beautiful.wallpaper_bg'>wallpaper_bg</a></td><td>The default wallpaper background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wallpaper.html#beautiful.wallpaper_fg'>wallpaper_fg</a></td><td>The default wallpaper foreground color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_stretch'>wibar_stretch</a></td><td>If the wibar needs to be stretched to fill the screen</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_favor_vertical'>wibar_favor_vertical</a></td><td>If there is both vertical and horizontal wibar, give more space to vertical ones</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_border_width'>wibar_border_width</a></td><td>The wibar border width</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_border_color'>wibar_border_color</a></td><td>The wibar border color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_ontop'>wibar_ontop</a></td><td>If the wibar is to be on top of other windows</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_cursor'>wibar_cursor</a></td><td>The wibar&rsquo;s mouse cursor</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_opacity'>wibar_opacity</a></td><td>The wibar opacity, between 0 and 1</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_type'>wibar_type</a></td><td>The window type (desktop, normal, dock, …)</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_width'>wibar_width</a></td><td>The wibar&rsquo;s width</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_height'>wibar_height</a></td><td>The wibar&rsquo;s height</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_bg'>wibar_bg</a></td><td>The wibar&rsquo;s background color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_bgimage'>wibar_bgimage</a></td><td>The wibar&rsquo;s background image</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_fg'>wibar_fg</a></td><td>The wibar&rsquo;s foreground (text) color</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_shape'>wibar_shape</a></td><td>The wibar&rsquo;s shape</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_margins'>wibar_margins</a></td><td>The wibar&rsquo;s margins</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.wibar.html#beautiful.wibar_align'>wibar_align</a></td><td>The wibar&rsquo;s alignments</td></tr>
+  <tr><td><a href='../popups_and_bars/awful.widget.calendar_popup.html#beautiful.calendar_style'>calendar_style</a></td><td>The generic calendar style table</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_fg_normal'>layoutlist_fg_normal</a></td><td>The default foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_bg_normal'>layoutlist_bg_normal</a></td><td>The default background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_fg_selected'>layoutlist_fg_selected</a></td><td>The selected layout foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_bg_selected'>layoutlist_bg_selected</a></td><td>The selected layout background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_disable_icon'>layoutlist_disable_icon</a></td><td>Disable the layout icons (only show the name label)</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_disable_name'>layoutlist_disable_name</a></td><td>Disable the layout name label (only show the icon)</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_font'>layoutlist_font</a></td><td>The layoutlist font</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_align'>layoutlist_align</a></td><td>The selected layout alignment</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_font_selected'>layoutlist_font_selected</a></td><td>The selected layout title font</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_spacing'>layoutlist_spacing</a></td><td>The space between the layouts</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_shape'>layoutlist_shape</a></td><td>The default layoutlist elements shape</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_shape_border_width'>layoutlist_shape_border_width</a></td><td>The default layoutlist elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_shape_border_color'>layoutlist_shape_border_color</a></td><td>The default layoutlist elements border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_shape_selected'>layoutlist_shape_selected</a></td><td>The selected layout shape</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_shape_border_width_selected'>layoutlist_shape_border_width_selected</a></td><td>The selected layout border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.layoutlist.html#beautiful.layoutlist_shape_border_color_selected'>layoutlist_shape_border_color_selected</a></td><td>The selected layout border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.prompt.html#beautiful.prompt_fg'>prompt_fg</a></td><td>The prompt foreground color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.prompt.html#beautiful.prompt_bg'>prompt_bg</a></td><td>The prompt background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_fg_focus'>taglist_fg_focus</a></td><td>The tag list main foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_bg_focus'>taglist_bg_focus</a></td><td>The tag list main background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_fg_urgent'>taglist_fg_urgent</a></td><td>The tag list urgent elements foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_bg_urgent'>taglist_bg_urgent</a></td><td>The tag list urgent elements background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_bg_occupied'>taglist_bg_occupied</a></td><td>The tag list occupied elements background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_fg_occupied'>taglist_fg_occupied</a></td><td>The tag list occupied elements foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_bg_empty'>taglist_bg_empty</a></td><td>The tag list empty elements background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_fg_empty'>taglist_fg_empty</a></td><td>The tag list empty elements foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_bg_volatile'>taglist_bg_volatile</a></td><td>The tag list volatile elements background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_fg_volatile'>taglist_fg_volatile</a></td><td>The tag list volatile elements foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_squares_sel'>taglist_squares_sel</a></td><td>The selected elements background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_squares_unsel'>taglist_squares_unsel</a></td><td>The unselected elements background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_squares_sel_empty'>taglist_squares_sel_empty</a></td><td>The selected empty elements background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_squares_unsel_empty'>taglist_squares_unsel_empty</a></td><td>The unselected empty elements background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_squares_resize'>taglist_squares_resize</a></td><td>If the background images can be resized</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_disable_icon'>taglist_disable_icon</a></td><td>Do not display the tag icons, even if they are set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_font'>taglist_font</a></td><td>The taglist font</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_spacing'>taglist_spacing</a></td><td>The space between the taglist elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape'>taglist_shape</a></td><td>The main shape used for the elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_width'>taglist_shape_border_width</a></td><td>The shape elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_color'>taglist_shape_border_color</a></td><td>The elements shape border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_empty'>taglist_shape_empty</a></td><td>The shape used for the empty elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_width_empty'>taglist_shape_border_width_empty</a></td><td>The shape used for the empty elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_color_empty'>taglist_shape_border_color_empty</a></td><td>The empty elements shape border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_focus'>taglist_shape_focus</a></td><td>The shape used for the selected elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_width_focus'>taglist_shape_border_width_focus</a></td><td>The shape used for the selected elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_color_focus'>taglist_shape_border_color_focus</a></td><td>The selected elements shape border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_urgent'>taglist_shape_urgent</a></td><td>The shape used for the urgent elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_width_urgent'>taglist_shape_border_width_urgent</a></td><td>The shape used for the urgent elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_color_urgent'>taglist_shape_border_color_urgent</a></td><td>The urgents elements shape border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_volatile'>taglist_shape_volatile</a></td><td>The shape used for the volatile elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_width_volatile'>taglist_shape_border_width_volatile</a></td><td>The shape used for the volatile elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.taglist.html#beautiful.taglist_shape_border_color_volatile'>taglist_shape_border_color_volatile</a></td><td>The volatile elements shape border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_fg_normal'>tasklist_fg_normal</a></td><td>The default foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_normal'>tasklist_bg_normal</a></td><td>The default background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_fg_focus'>tasklist_fg_focus</a></td><td>The focused client foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_focus'>tasklist_bg_focus</a></td><td>The focused client background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_fg_urgent'>tasklist_fg_urgent</a></td><td>The urgent clients foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_urgent'>tasklist_bg_urgent</a></td><td>The urgent clients background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_fg_minimize'>tasklist_fg_minimize</a></td><td>The minimized clients foreground (text) color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_minimize'>tasklist_bg_minimize</a></td><td>The minimized clients background color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_image_normal'>tasklist_bg_image_normal</a></td><td>The elements default background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_image_focus'>tasklist_bg_image_focus</a></td><td>The focused client background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_image_urgent'>tasklist_bg_image_urgent</a></td><td>The urgent clients background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_bg_image_minimize'>tasklist_bg_image_minimize</a></td><td>The minimized clients background image</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_disable_icon'>tasklist_disable_icon</a></td><td>Disable the tasklist client icons</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_disable_task_name'>tasklist_disable_task_name</a></td><td>Disable the tasklist client titles</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_plain_task_name'>tasklist_plain_task_name</a></td><td>Disable the extra tasklist client property notification icons</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_sticky'>tasklist_sticky</a></td><td>Extra tasklist client property notification icon for clients with the sticky property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_ontop'>tasklist_ontop</a></td><td>Extra tasklist client property notification icon for clients with the ontop property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_above'>tasklist_above</a></td><td>Extra tasklist client property notification icon for clients with the above property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_below'>tasklist_below</a></td><td>Extra tasklist client property notification icon for clients with the below property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_floating'>tasklist_floating</a></td><td>Extra tasklist client property notification icon for clients with the floating property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_maximized'>tasklist_maximized</a></td><td>Extra tasklist client property notification icon for clients with the maximized property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_maximized_horizontal'>tasklist_maximized_horizontal</a></td><td>Extra tasklist client property notification icon for clients with the maximized_horizontal property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_maximized_vertical'>tasklist_maximized_vertical</a></td><td>Extra tasklist client property notification icon for clients with the maximized_vertical property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_minimized'>tasklist_minimized</a></td><td>Extra tasklist client property notification icon for clients with the minimized property set</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_align'>tasklist_align</a></td><td>The focused client alignment</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_font'>tasklist_font</a></td><td>The tasklist font</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_font_focus'>tasklist_font_focus</a></td><td>The focused client title alignment</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_font_minimized'>tasklist_font_minimized</a></td><td>The minimized clients font</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_font_urgent'>tasklist_font_urgent</a></td><td>The urgent clients font</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_spacing'>tasklist_spacing</a></td><td>The space between the tasklist elements</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape'>tasklist_shape</a></td><td>The default tasklist elements shape</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_width'>tasklist_shape_border_width</a></td><td>The default tasklist elements border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_color'>tasklist_shape_border_color</a></td><td>The default tasklist elements border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_focus'>tasklist_shape_focus</a></td><td>The focused client shape</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_width_focus'>tasklist_shape_border_width_focus</a></td><td>The focused client border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_color_focus'>tasklist_shape_border_color_focus</a></td><td>The focused client border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_minimized'>tasklist_shape_minimized</a></td><td>The minimized clients shape</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_width_minimized'>tasklist_shape_border_width_minimized</a></td><td>The minimized clients border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_color_minimized'>tasklist_shape_border_color_minimized</a></td><td>The minimized clients border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_urgent'>tasklist_shape_urgent</a></td><td>The urgent clients shape</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_width_urgent'>tasklist_shape_border_width_urgent</a></td><td>The urgent clients border width</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_shape_border_color_urgent'>tasklist_shape_border_color_urgent</a></td><td>The urgent clients border color</td></tr>
+  <tr><td><a href='../widgets/awful.widget.tasklist.html#beautiful.tasklist_icon_size'>tasklist_icon_size</a></td><td>The icon size</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.font'>font</a></td><td>The default font</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.bg_normal'>bg_normal</a></td><td>The default background color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.bg_focus'>bg_focus</a></td><td>The default focused element background color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.bg_urgent'>bg_urgent</a></td><td>The default urgent element background color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.bg_minimize'>bg_minimize</a></td><td>The default minimized element background color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.fg_normal'>fg_normal</a></td><td>The default focused element foreground (text) color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.fg_focus'>fg_focus</a></td><td>The default focused element foreground (text) color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.fg_urgent'>fg_urgent</a></td><td>The default urgent element foreground (text) color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.fg_minimize'>fg_minimize</a></td><td>The default minimized element foreground (text) color</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.wallpaper'>wallpaper</a></td><td>The wallpaper path</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.icon_theme'>icon_theme</a></td><td>The icon theme name</td></tr>
+  <tr><td><a href='../theme_related_libraries/beautiful.html#beautiful.awesome_icon'>awesome_icon</a></td><td>The Awesome icon path</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_fg_normal'>menubar_fg_normal</a></td><td>Menubar normal text color</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_bg_normal'>menubar_bg_normal</a></td><td>Menubar normal background color</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_border_width'>menubar_border_width</a></td><td>Menubar border width</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_border_color'>menubar_border_color</a></td><td>Menubar border color</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_fg_focus'>menubar_fg_focus</a></td><td>Menubar selected item text color</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_bg_focus'>menubar_bg_focus</a></td><td>Menubar selected item background color</td></tr>
+  <tr><td><a href='../popups_and_bars/menubar.html#beautiful.menubar_font'>menubar_font</a></td><td>Menubar font</td></tr>
+  <tr><td><a href='../popups_and_bars/naughty.layout.box.html#beautiful.notification_max_width'>notification_max_width</a></td><td>The maximum notification width</td></tr>
+  <tr><td><a href='../popups_and_bars/naughty.layout.box.html#beautiful.notification_position'>notification_position</a></td><td>The maximum notification position</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_underline_normal'>notification_action_underline_normal</a></td><td>Whether or not to underline the action name</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_underline_selected'>notification_action_underline_selected</a></td><td>Whether or not to underline the selected action name</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_icon_only'>notification_action_icon_only</a></td><td>Whether or not the action label should be shown</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_label_only'>notification_action_label_only</a></td><td>Whether or not the action icon should be shown</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_shape_normal'>notification_action_shape_normal</a></td><td>The shape used for a normal action</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_shape_selected'>notification_action_shape_selected</a></td><td>The shape used for a selected action</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_shape_border_color_normal'>notification_action_shape_border_color_normal</a></td><td>The shape border color for normal actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_shape_border_color_selected'>notification_action_shape_border_color_selected</a></td><td>The shape border color for selected actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_shape_border_width_normal'>notification_action_shape_border_width_normal</a></td><td>The shape border width for normal actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_shape_border_width_selected'>notification_action_shape_border_width_selected</a></td><td>The shape border width for selected actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_icon_size_normal'>notification_action_icon_size_normal</a></td><td>The action icon size</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_icon_size_selected'>notification_action_icon_size_selected</a></td><td>The selected action icon size</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_bg_normal'>notification_action_bg_normal</a></td><td>The background color for normal actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_bg_selected'>notification_action_bg_selected</a></td><td>The background color for selected actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_fg_normal'>notification_action_fg_normal</a></td><td>The foreground color for normal actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_fg_selected'>notification_action_fg_selected</a></td><td>The foreground color for selected actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_bgimage_normal'>notification_action_bgimage_normal</a></td><td>The background image for normal actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.actions.html#beautiful.notification_action_bgimage_selected'>notification_action_bgimage_selected</a></td><td>The background image for selected actions</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_shape_normal'>notification_shape_normal</a></td><td>The shape used for a normal notification</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_shape_selected'>notification_shape_selected</a></td><td>The shape used for a selected notification</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_shape_border_color_normal'>notification_shape_border_color_normal</a></td><td>The shape border color for normal notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_shape_border_color_selected'>notification_shape_border_color_selected</a></td><td>The shape border color for selected notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_shape_border_width_normal'>notification_shape_border_width_normal</a></td><td>The shape border width for normal notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_shape_border_width_selected'>notification_shape_border_width_selected</a></td><td>The shape border width for selected notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_icon_size_normal'>notification_icon_size_normal</a></td><td>The notification icon size</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_icon_size_selected'>notification_icon_size_selected</a></td><td>The selected notification icon size</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_bg_normal'>notification_bg_normal</a></td><td>The background color for normal notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_bg_selected'>notification_bg_selected</a></td><td>The background color for selected notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_fg_normal'>notification_fg_normal</a></td><td>The foreground color for normal notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_fg_selected'>notification_fg_selected</a></td><td>The foreground color for selected notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_bgimage_normal'>notification_bgimage_normal</a></td><td>The background image for normal notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.list.notifications.html#beautiful.notification_bgimage_selected'>notification_bgimage_selected</a></td><td>The background image for selected notifications</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_font'>notification_font</a></td><td>Notifications font</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_bg'>notification_bg</a></td><td>Notifications background color</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_fg'>notification_fg</a></td><td>Notifications foreground color</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_border_width'>notification_border_width</a></td><td>Notifications border width</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_border_color'>notification_border_color</a></td><td>Notifications border color</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_shape'>notification_shape</a></td><td>Notifications shape</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_opacity'>notification_opacity</a></td><td>Notifications opacity</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_margin'>notification_margin</a></td><td>The margins inside of the notification widget (or popup)</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_width'>notification_width</a></td><td>Notifications width</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_height'>notification_height</a></td><td>Notifications height</td></tr>
+  <tr><td><a href='../core_components/naughty.notification.html#beautiful.notification_spacing'>notification_spacing</a></td><td>The spacing between the notifications</td></tr>
+  <tr><td><a href='../widgets/naughty.widget.icon.html#beautiful.notification_icon_resize_strategy'>notification_icon_resize_strategy</a></td><td>The default way to resize the icon</td></tr>
+  <tr><td><a href='../widgets/naughty.widget.icon.html#beautiful.notification_icon_size'>notification_icon_size</a></td><td>The default notification icon size</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_border_color'>arcchart_border_color</a></td><td>The progressbar border background color</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_color'>arcchart_color</a></td><td>The progressbar foreground color</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_border_width'>arcchart_border_width</a></td><td>The progressbar border width</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_paddings'>arcchart_paddings</a></td><td>The padding between the outline and the progressbar</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_thickness'>arcchart_thickness</a></td><td>The arc thickness</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_rounded_edge'>arcchart_rounded_edge</a></td><td>If the chart has rounded edges</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_bg'>arcchart_bg</a></td><td>The radial background</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.arcchart.html#beautiful.arcchart_start_angle'>arcchart_start_angle</a></td><td>The (radiant) angle where the first value start</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.radialprogressbar.html#beautiful.radialprogressbar_border_color'>radialprogressbar_border_color</a></td><td>The progressbar border background color</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.radialprogressbar.html#beautiful.radialprogressbar_color'>radialprogressbar_color</a></td><td>The progressbar foreground color</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.radialprogressbar.html#beautiful.radialprogressbar_border_width'>radialprogressbar_border_width</a></td><td>The progressbar border width</td></tr>
+  <tr><td><a href='../widget_containers/wibox.container.radialprogressbar.html#beautiful.radialprogressbar_paddings'>radialprogressbar_paddings</a></td><td>The padding between the outline and the progressbar</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.calendar_font'>calendar_font</a></td><td>The calendar font</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.calendar_spacing'>calendar_spacing</a></td><td>The calendar spacing</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.calendar_week_numbers'>calendar_week_numbers</a></td><td>Display the calendar week numbers</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.calendar_start_sunday'>calendar_start_sunday</a></td><td>Start the week on Sunday</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.calendar_long_weekdays'>calendar_long_weekdays</a></td><td>Format the weekdays with three characters instead of two</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.flex_height'>flex_height</a></td><td>Allow cells to have flexible height</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.calendar.html#beautiful.calendar_empty_color'>calendar_empty_color</a></td><td>Set the color for the empty space where there are no date widgets</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_border_width'>checkbox_border_width</a></td><td>The outer (unchecked area) border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_bg'>checkbox_bg</a></td><td>The outer (unchecked area) background color, pattern or gradient</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_border_color'>checkbox_border_color</a></td><td>The outer (unchecked area) border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_check_border_color'>checkbox_check_border_color</a></td><td>The checked part border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_check_border_width'>checkbox_check_border_width</a></td><td>The checked part border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_check_color'>checkbox_check_color</a></td><td>The checked part filling color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_shape'>checkbox_shape</a></td><td>The outer (unchecked area) shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_check_shape'>checkbox_check_shape</a></td><td>The checked part shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_paddings'>checkbox_paddings</a></td><td>The padding between the outline and the progressbar</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.checkbox.html#beautiful.checkbox_color'>checkbox_color</a></td><td>The checkbox color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.graph.html#beautiful.graph_fg'>graph_fg</a></td><td>The graph foreground color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.graph.html#beautiful.graph_bg'>graph_bg</a></td><td>The graph background color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.graph.html#beautiful.graph_border_color'>graph_border_color</a></td><td>The graph border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.piechart.html#beautiful.piechart_border_color'>piechart_border_color</a></td><td>The border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.piechart.html#beautiful.piechart_border_width'>piechart_border_width</a></td><td>The pie elements border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.piechart.html#beautiful.piechart_colors'>piechart_colors</a></td><td>The pie chart colors</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_bg'>progressbar_bg</a></td><td>The progressbar background color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_fg'>progressbar_fg</a></td><td>The progressbar foreground color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_shape'>progressbar_shape</a></td><td>The progressbar shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_border_color'>progressbar_border_color</a></td><td>The progressbar border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_border_width'>progressbar_border_width</a></td><td>The progressbar outer border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_bar_shape'>progressbar_bar_shape</a></td><td>The progressbar inner shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_bar_border_width'>progressbar_bar_border_width</a></td><td>The progressbar bar border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_bar_border_color'>progressbar_bar_border_color</a></td><td>The progressbar bar border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_margins'>progressbar_margins</a></td><td>The progressbar margins</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.progressbar.html#beautiful.progressbar_paddings'>progressbar_paddings</a></td><td>The progressbar padding</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.separator.html#beautiful.separator_thickness'>separator_thickness</a></td><td>The separator thickness</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.separator.html#beautiful.separator_border_color'>separator_border_color</a></td><td>The separator border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.separator.html#beautiful.separator_border_width'>separator_border_width</a></td><td>The separator border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.separator.html#beautiful.separator_span_ratio'>separator_span_ratio</a></td><td>The relative percentage covered by the bar</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.separator.html#beautiful.separator_color'>separator_color</a></td><td>The separator&rsquo;s color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.separator.html#beautiful.separator_shape'>separator_shape</a></td><td>The separator&rsquo;s shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_border_width'>slider_bar_border_width</a></td><td>The bar (background) border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_border_color'>slider_bar_border_color</a></td><td>The bar (background) border color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_border_color'>slider_handle_border_color</a></td><td>The handle border_color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_border_width'>slider_handle_border_width</a></td><td>The handle border width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_width'>slider_handle_width</a></td><td>The handle width</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_color'>slider_handle_color</a></td><td>The handle color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_shape'>slider_handle_shape</a></td><td>The handle shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_cursor'>slider_handle_cursor</a></td><td>The cursor icon while grabbing the handle</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_shape'>slider_bar_shape</a></td><td>The bar (background) shape</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_height'>slider_bar_height</a></td><td>The bar (background) height</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_margins'>slider_bar_margins</a></td><td>The bar (background) margins</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_handle_margins'>slider_handle_margins</a></td><td>The slider handle margins</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_color'>slider_bar_color</a></td><td>The bar (background) color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.slider.html#beautiful.slider_bar_active_color'>slider_bar_active_color</a></td><td>The bar (active) color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.systray.html#beautiful.bg_systray'>bg_systray</a></td><td>The systray background color</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.systray.html#beautiful.systray_max_rows'>systray_max_rows</a></td><td>The maximum number of rows for systray icons</td></tr>
+  <tr><td><a href='../widgets/wibox.widget.systray.html#beautiful.systray_icon_spacing'>systray_icon_spacing</a></td><td>The systray icon spacing</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_marked'>border_color_marked</a></td><td>The border color when the client is marked</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_floating'>border_color_floating</a></td><td>The fallback border color when the client is floating</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_maximized'>border_color_maximized</a></td><td>The fallback border color when the client is maximized</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_fullscreen'>border_color_fullscreen</a></td><td>The fallback border color when the client is fullscreen</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_active'>border_color_active</a></td><td>The border color when the client is active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_normal'>border_color_normal</a></td><td>The border color when the client is not active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_urgent'>border_color_urgent</a></td><td>The border color when the client has the urgent property set</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_new'>border_color_new</a></td><td>The border color when the client is not active and new</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_floating_active'>border_color_floating_active</a></td><td>The border color when the (floating) client is active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_floating_normal'>border_color_floating_normal</a></td><td>The border color when the (floating) client is not active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_floating_urgent'>border_color_floating_urgent</a></td><td>The border color when the (floating) client has the urgent property set</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_floating_new'>border_color_floating_new</a></td><td>The border color when the (floating) client is not active and new</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_maximized_active'>border_color_maximized_active</a></td><td>The border color when the (maximized) client is active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_maximized_normal'>border_color_maximized_normal</a></td><td>The border color when the (maximized) client is not active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_maximized_urgent'>border_color_maximized_urgent</a></td><td>The border color when the (maximized) client has the urgent property set</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_maximized_new'>border_color_maximized_new</a></td><td>The border color when the (maximized) client is not active and new</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_fullscreen_active'>border_color_fullscreen_active</a></td><td>The border color when the (fullscreen) client is active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_fullscreen_normal'>border_color_fullscreen_normal</a></td><td>The border color when the (fullscreen) client is not active</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_fullscreen_urgent'>border_color_fullscreen_urgent</a></td><td>The border color when the (fullscreen) client has the urgent property set</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_color_fullscreen_new'>border_color_fullscreen_new</a></td><td>The border color when the (fullscreen) client is not active and new</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width'>border_width</a></td><td>The fallback border width when nothing else is set</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_floating'>border_width_floating</a></td><td>The fallback border width when the client is floating</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_maximized'>border_width_maximized</a></td><td>The fallback border width when the client is maximized</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_normal'>border_width_normal</a></td><td>The client border width for the normal clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_active'>border_width_active</a></td><td>The client border width for the active client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_urgent'>border_width_urgent</a></td><td>The client border width for the urgent clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_new'>border_width_new</a></td><td>The client border width for the new clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_floating_normal'>border_width_floating_normal</a></td><td>The client border width for the normal floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_floating_active'>border_width_floating_active</a></td><td>The client border width for the active floating client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_floating_urgent'>border_width_floating_urgent</a></td><td>The client border width for the urgent floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_floating_new'>border_width_floating_new</a></td><td>The client border width for the new floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_maximized_normal'>border_width_maximized_normal</a></td><td>The client border width for the normal maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_maximized_active'>border_width_maximized_active</a></td><td>The client border width for the active maximized client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_maximized_urgent'>border_width_maximized_urgent</a></td><td>The client border width for the urgent maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_maximized_new'>border_width_maximized_new</a></td><td>The client border width for the new maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_fullscreen_normal'>border_width_fullscreen_normal</a></td><td>The client border width for the normal fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_fullscreen_active'>border_width_fullscreen_active</a></td><td>The client border width for the active fullscreen client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_fullscreen_urgent'>border_width_fullscreen_urgent</a></td><td>The client border width for the urgent fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_fullscreen_new'>border_width_fullscreen_new</a></td><td>The client border width for the new fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.border_width_fullscreen'>border_width_fullscreen</a></td><td>The client border width for the fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_normal'>opacity_normal</a></td><td>The client opacity for the normal clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_active'>opacity_active</a></td><td>The client opacity for the active client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_urgent'>opacity_urgent</a></td><td>The client opacity for the urgent clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_new'>opacity_new</a></td><td>The client opacity for the new clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_floating_normal'>opacity_floating_normal</a></td><td>The client opacity for the normal floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_floating_active'>opacity_floating_active</a></td><td>The client opacity for the active floating client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_floating_urgent'>opacity_floating_urgent</a></td><td>The client opacity for the urgent floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_floating_new'>opacity_floating_new</a></td><td>The client opacity for the new floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_floating'>opacity_floating</a></td><td>The client opacity for the floating clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_maximized_normal'>opacity_maximized_normal</a></td><td>The client opacity for the normal maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_maximized_active'>opacity_maximized_active</a></td><td>The client opacity for the active maximized client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_maximized_urgent'>opacity_maximized_urgent</a></td><td>The client opacity for the urgent maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_maximized_new'>opacity_maximized_new</a></td><td>The client opacity for the new maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_maximized'>opacity_maximized</a></td><td>The client opacity for the maximized clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_fullscreen_normal'>opacity_fullscreen_normal</a></td><td>The client opacity for the normal fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_fullscreen_active'>opacity_fullscreen_active</a></td><td>The client opacity for the active fullscreen client</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_fullscreen_urgent'>opacity_fullscreen_urgent</a></td><td>The client opacity for the urgent fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_fullscreen_new'>opacity_fullscreen_new</a></td><td>The client opacity for the new fullscreen clients</td></tr>
+  <tr><td><a href='../core_components/client.html#beautiful.opacity_fullscreen'>opacity_fullscreen</a></td><td>The client opacity for the fullscreen clients</td></tr>
+</table></p>
+
+<p><a name="Sample_theme_file"></a></p>
+
+<h2>Sample theme file</h2>
+
+<pre>
+<span class="keyword">local</span> theme = {}
+
+<span class="comment">-- Default variables
+</span><span class="comment">-- theme.useless_gap = nil
+</span><span class="comment">-- theme.font = nil
+</span><span class="comment">-- theme.bg_normal = nil
+</span><span class="comment">-- theme.bg_focus = nil
+</span><span class="comment">-- theme.bg_urgent = nil
+</span><span class="comment">-- theme.bg_minimize = nil
+</span><span class="comment">-- theme.fg_normal = nil
+</span><span class="comment">-- theme.fg_focus = nil
+</span><span class="comment">-- theme.fg_urgent = nil
+</span><span class="comment">-- theme.fg_minimize = nil
+</span><span class="comment">-- theme.wallpaper = nil
+</span><span class="comment">-- theme.bg_systray = nil
+</span><span class="comment">-- theme.border_color_marked = nil
+</span><span class="comment">-- theme.border_color_floating = nil
+</span><span class="comment">-- theme.border_color_maximized = nil
+</span><span class="comment">-- theme.border_color_fullscreen = nil
+</span><span class="comment">-- theme.border_color_active = nil
+</span><span class="comment">-- theme.border_color_normal = nil
+</span><span class="comment">-- theme.border_color_urgent = nil
+</span><span class="comment">-- theme.border_color_new = nil
+</span><span class="comment">-- theme.border_color_floating_active = nil
+</span><span class="comment">-- theme.border_color_floating_normal = nil
+</span><span class="comment">-- theme.border_color_floating_urgent = nil
+</span><span class="comment">-- theme.border_color_floating_new = nil
+</span><span class="comment">-- theme.border_color_maximized_active = nil
+</span><span class="comment">-- theme.border_color_maximized_normal = nil
+</span><span class="comment">-- theme.border_color_maximized_urgent = nil
+</span><span class="comment">-- theme.border_color_maximized_new = nil
+</span><span class="comment">-- theme.border_color_fullscreen_active = nil
+</span><span class="comment">-- theme.border_color_fullscreen_normal = nil
+</span><span class="comment">-- theme.border_color_fullscreen_urgent = nil
+</span><span class="comment">-- theme.border_color_fullscreen_new = nil
+</span><span class="comment">-- theme.border_width = nil
+</span><span class="comment">-- theme.border_width_floating = nil
+</span><span class="comment">-- theme.border_width_maximized = nil
+</span><span class="comment">-- theme.border_width_normal = nil
+</span><span class="comment">-- theme.border_width_active = nil
+</span><span class="comment">-- theme.border_width_urgent = nil
+</span><span class="comment">-- theme.border_width_new = nil
+</span><span class="comment">-- theme.border_width_floating_normal = nil
+</span><span class="comment">-- theme.border_width_floating_active = nil
+</span><span class="comment">-- theme.border_width_floating_urgent = nil
+</span><span class="comment">-- theme.border_width_floating_new = nil
+</span><span class="comment">-- theme.border_width_maximized_normal = nil
+</span><span class="comment">-- theme.border_width_maximized_active = nil
+</span><span class="comment">-- theme.border_width_maximized_urgent = nil
+</span><span class="comment">-- theme.border_width_maximized_new = nil
+</span><span class="comment">-- theme.border_width_fullscreen_normal = nil
+</span><span class="comment">-- theme.border_width_fullscreen_active = nil
+</span><span class="comment">-- theme.border_width_fullscreen_urgent = nil
+</span><span class="comment">-- theme.border_width_fullscreen_new = nil
+</span><span class="comment">-- theme.border_width_fullscreen = nil
+</span>
+<span class="comment">-- arcchart
+</span><span class="comment">-- theme.arcchart_border_color = nil
+</span><span class="comment">-- theme.arcchart_color = nil
+</span><span class="comment">-- theme.arcchart_border_width = nil
+</span><span class="comment">-- theme.arcchart_paddings = nil
+</span><span class="comment">-- theme.arcchart_thickness = nil
+</span><span class="comment">-- theme.arcchart_rounded_edge = nil
+</span><span class="comment">-- theme.arcchart_bg = nil
+</span><span class="comment">-- theme.arcchart_start_angle = nil
+</span>
+<span class="comment">-- awesome
+</span><span class="comment">-- theme.awesome_icon = nil
+</span>
+<span class="comment">-- calendar
+</span><span class="comment">-- theme.calendar_style = nil
+</span><span class="comment">-- theme.calendar_font = nil
+</span><span class="comment">-- theme.calendar_spacing = nil
+</span><span class="comment">-- theme.calendar_week_numbers = nil
+</span><span class="comment">-- theme.calendar_start_sunday = nil
+</span><span class="comment">-- theme.calendar_long_weekdays = nil
+</span><span class="comment">-- theme.calendar_empty_color = nil
+</span>
+<span class="comment">-- checkbox
+</span><span class="comment">-- theme.checkbox_border_width = nil
+</span><span class="comment">-- theme.checkbox_bg = nil
+</span><span class="comment">-- theme.checkbox_border_color = nil
+</span><span class="comment">-- theme.checkbox_check_border_color = nil
+</span><span class="comment">-- theme.checkbox_check_border_width = nil
+</span><span class="comment">-- theme.checkbox_check_color = nil
+</span><span class="comment">-- theme.checkbox_shape = nil
+</span><span class="comment">-- theme.checkbox_check_shape = nil
+</span><span class="comment">-- theme.checkbox_paddings = nil
+</span><span class="comment">-- theme.checkbox_color = nil
+</span>
+<span class="comment">-- column
+</span><span class="comment">-- theme.column_count = nil
+</span>
+<span class="comment">-- cursor
+</span><span class="comment">-- theme.cursor_mouse_resize = nil
+</span><span class="comment">-- theme.cursor_mouse_move = nil
+</span>
+<span class="comment">-- enable
+</span><span class="comment">-- theme.enable_spawn_cursor = nil
+</span>
+<span class="comment">-- flex
+</span><span class="comment">-- theme.flex_height = nil
+</span>
+<span class="comment">-- fullscreen
+</span><span class="comment">-- theme.fullscreen_hide_border = nil
+</span>
+<span class="comment">-- gap
+</span><span class="comment">-- theme.gap_single_client = nil
+</span>
+<span class="comment">-- graph
+</span><span class="comment">-- theme.graph_fg = nil
+</span><span class="comment">-- theme.graph_bg = nil
+</span><span class="comment">-- theme.graph_border_color = nil
+</span>
+<span class="comment">-- hotkeys
+</span><span class="comment">-- theme.hotkeys_bg = nil
+</span><span class="comment">-- theme.hotkeys_fg = nil
+</span><span class="comment">-- theme.hotkeys_border_width = nil
+</span><span class="comment">-- theme.hotkeys_border_color = nil
+</span><span class="comment">-- theme.hotkeys_shape = nil
+</span><span class="comment">-- theme.hotkeys_modifiers_fg = nil
+</span><span class="comment">-- theme.hotkeys_label_bg = nil
+</span><span class="comment">-- theme.hotkeys_label_fg = nil
+</span><span class="comment">-- theme.hotkeys_font = nil
+</span><span class="comment">-- theme.hotkeys_description_font = nil
+</span><span class="comment">-- theme.hotkeys_group_margin = nil
+</span>
+<span class="comment">-- icon
+</span><span class="comment">-- theme.icon_theme = nil
+</span>
+<span class="comment">-- layout
+</span><span class="comment">-- theme.layout_cornernw = nil
+</span><span class="comment">-- theme.layout_cornerne = nil
+</span><span class="comment">-- theme.layout_cornersw = nil
+</span><span class="comment">-- theme.layout_cornerse = nil
+</span><span class="comment">-- theme.layout_fairh = nil
+</span><span class="comment">-- theme.layout_fairv = nil
+</span><span class="comment">-- theme.layout_floating = nil
+</span><span class="comment">-- theme.layout_magnifier = nil
+</span><span class="comment">-- theme.layout_max = nil
+</span><span class="comment">-- theme.layout_fullscreen = nil
+</span><span class="comment">-- theme.layout_spiral = nil
+</span><span class="comment">-- theme.layout_dwindle = nil
+</span><span class="comment">-- theme.layout_tile = nil
+</span><span class="comment">-- theme.layout_tiletop = nil
+</span><span class="comment">-- theme.layout_tilebottom = nil
+</span><span class="comment">-- theme.layout_tileleft = nil
+</span>
+<span class="comment">-- layoutlist
+</span><span class="comment">-- theme.layoutlist_fg_normal = nil
+</span><span class="comment">-- theme.layoutlist_bg_normal = nil
+</span><span class="comment">-- theme.layoutlist_fg_selected = nil
+</span><span class="comment">-- theme.layoutlist_bg_selected = nil
+</span><span class="comment">-- theme.layoutlist_disable_icon = nil
+</span><span class="comment">-- theme.layoutlist_disable_name = nil
+</span><span class="comment">-- theme.layoutlist_font = nil
+</span><span class="comment">-- theme.layoutlist_align = nil
+</span><span class="comment">-- theme.layoutlist_font_selected = nil
+</span><span class="comment">-- theme.layoutlist_spacing = nil
+</span><span class="comment">-- theme.layoutlist_shape = nil
+</span><span class="comment">-- theme.layoutlist_shape_border_width = nil
+</span><span class="comment">-- theme.layoutlist_shape_border_color = nil
+</span><span class="comment">-- theme.layoutlist_shape_selected = nil
+</span><span class="comment">-- theme.layoutlist_shape_border_width_selected = nil
+</span><span class="comment">-- theme.layoutlist_shape_border_color_selected = nil
+</span>
+<span class="comment">-- master
+</span><span class="comment">-- theme.master_width_factor = nil
+</span><span class="comment">-- theme.master_fill_policy = nil
+</span><span class="comment">-- theme.master_count = nil
+</span>
+<span class="comment">-- maximized
+</span><span class="comment">-- theme.maximized_honor_padding = nil
+</span><span class="comment">-- theme.maximized_hide_border = nil
+</span>
+<span class="comment">-- menu
+</span><span class="comment">-- theme.menu_submenu_icon = nil
+</span><span class="comment">-- theme.menu_font = nil
+</span><span class="comment">-- theme.menu_height = nil
+</span><span class="comment">-- theme.menu_width = nil
+</span><span class="comment">-- theme.menu_border_color = nil
+</span><span class="comment">-- theme.menu_border_width = nil
+</span><span class="comment">-- theme.menu_fg_focus = nil
+</span><span class="comment">-- theme.menu_bg_focus = nil
+</span><span class="comment">-- theme.menu_fg_normal = nil
+</span><span class="comment">-- theme.menu_bg_normal = nil
+</span><span class="comment">-- theme.menu_submenu = nil
+</span>
+<span class="comment">-- menubar
+</span><span class="comment">-- theme.menubar_fg_normal = nil
+</span><span class="comment">-- theme.menubar_bg_normal = nil
+</span><span class="comment">-- theme.menubar_border_width = nil
+</span><span class="comment">-- theme.menubar_border_color = nil
+</span><span class="comment">-- theme.menubar_fg_focus = nil
+</span><span class="comment">-- theme.menubar_bg_focus = nil
+</span><span class="comment">-- theme.menubar_font = nil
+</span>
+<span class="comment">-- notification
+</span><span class="comment">-- theme.notification_max_width = nil
+</span><span class="comment">-- theme.notification_position = nil
+</span><span class="comment">-- theme.notification_action_underline_normal = nil
+</span><span class="comment">-- theme.notification_action_underline_selected = nil
+</span><span class="comment">-- theme.notification_action_icon_only = nil
+</span><span class="comment">-- theme.notification_action_label_only = nil
+</span><span class="comment">-- theme.notification_action_shape_normal = nil
+</span><span class="comment">-- theme.notification_action_shape_selected = nil
+</span><span class="comment">-- theme.notification_action_shape_border_color_normal = nil
+</span><span class="comment">-- theme.notification_action_shape_border_color_selected = nil
+</span><span class="comment">-- theme.notification_action_shape_border_width_normal = nil
+</span><span class="comment">-- theme.notification_action_shape_border_width_selected = nil
+</span><span class="comment">-- theme.notification_action_icon_size_normal = nil
+</span><span class="comment">-- theme.notification_action_icon_size_selected = nil
+</span><span class="comment">-- theme.notification_action_bg_normal = nil
+</span><span class="comment">-- theme.notification_action_bg_selected = nil
+</span><span class="comment">-- theme.notification_action_fg_normal = nil
+</span><span class="comment">-- theme.notification_action_fg_selected = nil
+</span><span class="comment">-- theme.notification_action_bgimage_normal = nil
+</span><span class="comment">-- theme.notification_action_bgimage_selected = nil
+</span><span class="comment">-- theme.notification_shape_normal = nil
+</span><span class="comment">-- theme.notification_shape_selected = nil
+</span><span class="comment">-- theme.notification_shape_border_color_normal = nil
+</span><span class="comment">-- theme.notification_shape_border_color_selected = nil
+</span><span class="comment">-- theme.notification_shape_border_width_normal = nil
+</span><span class="comment">-- theme.notification_shape_border_width_selected = nil
+</span><span class="comment">-- theme.notification_icon_size_normal = nil
+</span><span class="comment">-- theme.notification_icon_size_selected = nil
+</span><span class="comment">-- theme.notification_bg_normal = nil
+</span><span class="comment">-- theme.notification_bg_selected = nil
+</span><span class="comment">-- theme.notification_fg_normal = nil
+</span><span class="comment">-- theme.notification_fg_selected = nil
+</span><span class="comment">-- theme.notification_bgimage_normal = nil
+</span><span class="comment">-- theme.notification_bgimage_selected = nil
+</span><span class="comment">-- theme.notification_font = nil
+</span><span class="comment">-- theme.notification_bg = nil
+</span><span class="comment">-- theme.notification_fg = nil
+</span><span class="comment">-- theme.notification_border_width = nil
+</span><span class="comment">-- theme.notification_border_color = nil
+</span><span class="comment">-- theme.notification_shape = nil
+</span><span class="comment">-- theme.notification_opacity = nil
+</span><span class="comment">-- theme.notification_margin = nil
+</span><span class="comment">-- theme.notification_width = nil
+</span><span class="comment">-- theme.notification_height = nil
+</span><span class="comment">-- theme.notification_spacing = nil
+</span><span class="comment">-- theme.notification_icon_resize_strategy = nil
+</span><span class="comment">-- theme.notification_icon_size = nil
+</span>
+<span class="comment">-- opacity
+</span><span class="comment">-- theme.opacity_normal = nil
+</span><span class="comment">-- theme.opacity_active = nil
+</span><span class="comment">-- theme.opacity_urgent = nil
+</span><span class="comment">-- theme.opacity_new = nil
+</span><span class="comment">-- theme.opacity_floating_normal = nil
+</span><span class="comment">-- theme.opacity_floating_active = nil
+</span><span class="comment">-- theme.opacity_floating_urgent = nil
+</span><span class="comment">-- theme.opacity_floating_new = nil
+</span><span class="comment">-- theme.opacity_floating = nil
+</span><span class="comment">-- theme.opacity_maximized_normal = nil
+</span><span class="comment">-- theme.opacity_maximized_active = nil
+</span><span class="comment">-- theme.opacity_maximized_urgent = nil
+</span><span class="comment">-- theme.opacity_maximized_new = nil
+</span><span class="comment">-- theme.opacity_maximized = nil
+</span><span class="comment">-- theme.opacity_fullscreen_normal = nil
+</span><span class="comment">-- theme.opacity_fullscreen_active = nil
+</span><span class="comment">-- theme.opacity_fullscreen_urgent = nil
+</span><span class="comment">-- theme.opacity_fullscreen_new = nil
+</span><span class="comment">-- theme.opacity_fullscreen = nil
+</span>
+<span class="comment">-- piechart
+</span><span class="comment">-- theme.piechart_border_color = nil
+</span><span class="comment">-- theme.piechart_border_width = nil
+</span><span class="comment">-- theme.piechart_colors = nil
+</span>
+<span class="comment">-- progressbar
+</span><span class="comment">-- theme.progressbar_bg = nil
+</span><span class="comment">-- theme.progressbar_fg = nil
+</span><span class="comment">-- theme.progressbar_shape = nil
+</span><span class="comment">-- theme.progressbar_border_color = nil
+</span><span class="comment">-- theme.progressbar_border_width = nil
+</span><span class="comment">-- theme.progressbar_bar_shape = nil
+</span><span class="comment">-- theme.progressbar_bar_border_width = nil
+</span><span class="comment">-- theme.progressbar_bar_border_color = nil
+</span><span class="comment">-- theme.progressbar_margins = nil
+</span><span class="comment">-- theme.progressbar_paddings = nil
+</span>
+<span class="comment">-- prompt
+</span><span class="comment">-- theme.prompt_fg_cursor = nil
+</span><span class="comment">-- theme.prompt_bg_cursor = nil
+</span><span class="comment">-- theme.prompt_font = nil
+</span><span class="comment">-- theme.prompt_fg = nil
+</span><span class="comment">-- theme.prompt_bg = nil
+</span>
+<span class="comment">-- radialprogressbar
+</span><span class="comment">-- theme.radialprogressbar_border_color = nil
+</span><span class="comment">-- theme.radialprogressbar_color = nil
+</span><span class="comment">-- theme.radialprogressbar_border_width = nil
+</span><span class="comment">-- theme.radialprogressbar_paddings = nil
+</span>
+<span class="comment">-- screenshot
+</span><span class="comment">-- theme.screenshot_frame_color = nil
+</span><span class="comment">-- theme.screenshot_frame_shape = nil
+</span>
+<span class="comment">-- separator
+</span><span class="comment">-- theme.separator_thickness = nil
+</span><span class="comment">-- theme.separator_border_color = nil
+</span><span class="comment">-- theme.separator_border_width = nil
+</span><span class="comment">-- theme.separator_span_ratio = nil
+</span><span class="comment">-- theme.separator_color = nil
+</span><span class="comment">-- theme.separator_shape = nil
+</span>
+<span class="comment">-- slider
+</span><span class="comment">-- theme.slider_bar_border_width = nil
+</span><span class="comment">-- theme.slider_bar_border_color = nil
+</span><span class="comment">-- theme.slider_handle_border_color = nil
+</span><span class="comment">-- theme.slider_handle_border_width = nil
+</span><span class="comment">-- theme.slider_handle_width = nil
+</span><span class="comment">-- theme.slider_handle_color = nil
+</span><span class="comment">-- theme.slider_handle_shape = nil
+</span><span class="comment">-- theme.slider_handle_cursor = nil
+</span><span class="comment">-- theme.slider_bar_shape = nil
+</span><span class="comment">-- theme.slider_bar_height = nil
+</span><span class="comment">-- theme.slider_bar_margins = nil
+</span><span class="comment">-- theme.slider_handle_margins = nil
+</span><span class="comment">-- theme.slider_bar_color = nil
+</span><span class="comment">-- theme.slider_bar_active_color = nil
+</span>
+<span class="comment">-- snap
+</span><span class="comment">-- theme.snap_bg = nil
+</span><span class="comment">-- theme.snap_border_width = nil
+</span><span class="comment">-- theme.snap_shape = nil
+</span>
+<span class="comment">-- snapper
+</span><span class="comment">-- theme.snapper_gap = nil
+</span>
+<span class="comment">-- systray
+</span><span class="comment">-- theme.systray_max_rows = nil
+</span><span class="comment">-- theme.systray_icon_spacing = nil
+</span>
+<span class="comment">-- taglist
+</span><span class="comment">-- theme.taglist_fg_focus = nil
+</span><span class="comment">-- theme.taglist_bg_focus = nil
+</span><span class="comment">-- theme.taglist_fg_urgent = nil
+</span><span class="comment">-- theme.taglist_bg_urgent = nil
+</span><span class="comment">-- theme.taglist_bg_occupied = nil
+</span><span class="comment">-- theme.taglist_fg_occupied = nil
+</span><span class="comment">-- theme.taglist_bg_empty = nil
+</span><span class="comment">-- theme.taglist_fg_empty = nil
+</span><span class="comment">-- theme.taglist_bg_volatile = nil
+</span><span class="comment">-- theme.taglist_fg_volatile = nil
+</span><span class="comment">-- theme.taglist_squares_sel = nil
+</span><span class="comment">-- theme.taglist_squares_unsel = nil
+</span><span class="comment">-- theme.taglist_squares_sel_empty = nil
+</span><span class="comment">-- theme.taglist_squares_unsel_empty = nil
+</span><span class="comment">-- theme.taglist_squares_resize = nil
+</span><span class="comment">-- theme.taglist_disable_icon = nil
+</span><span class="comment">-- theme.taglist_font = nil
+</span><span class="comment">-- theme.taglist_spacing = nil
+</span><span class="comment">-- theme.taglist_shape = nil
+</span><span class="comment">-- theme.taglist_shape_border_width = nil
+</span><span class="comment">-- theme.taglist_shape_border_color = nil
+</span><span class="comment">-- theme.taglist_shape_empty = nil
+</span><span class="comment">-- theme.taglist_shape_border_width_empty = nil
+</span><span class="comment">-- theme.taglist_shape_border_color_empty = nil
+</span><span class="comment">-- theme.taglist_shape_focus = nil
+</span><span class="comment">-- theme.taglist_shape_border_width_focus = nil
+</span><span class="comment">-- theme.taglist_shape_border_color_focus = nil
+</span><span class="comment">-- theme.taglist_shape_urgent = nil
+</span><span class="comment">-- theme.taglist_shape_border_width_urgent = nil
+</span><span class="comment">-- theme.taglist_shape_border_color_urgent = nil
+</span><span class="comment">-- theme.taglist_shape_volatile = nil
+</span><span class="comment">-- theme.taglist_shape_border_width_volatile = nil
+</span><span class="comment">-- theme.taglist_shape_border_color_volatile = nil
+</span>
+<span class="comment">-- tasklist
+</span><span class="comment">-- theme.tasklist_fg_normal = nil
+</span><span class="comment">-- theme.tasklist_bg_normal = nil
+</span><span class="comment">-- theme.tasklist_fg_focus = nil
+</span><span class="comment">-- theme.tasklist_bg_focus = nil
+</span><span class="comment">-- theme.tasklist_fg_urgent = nil
+</span><span class="comment">-- theme.tasklist_bg_urgent = nil
+</span><span class="comment">-- theme.tasklist_fg_minimize = nil
+</span><span class="comment">-- theme.tasklist_bg_minimize = nil
+</span><span class="comment">-- theme.tasklist_bg_image_normal = nil
+</span><span class="comment">-- theme.tasklist_bg_image_focus = nil
+</span><span class="comment">-- theme.tasklist_bg_image_urgent = nil
+</span><span class="comment">-- theme.tasklist_bg_image_minimize = nil
+</span><span class="comment">-- theme.tasklist_disable_icon = nil
+</span><span class="comment">-- theme.tasklist_disable_task_name = nil
+</span><span class="comment">-- theme.tasklist_plain_task_name = nil
+</span><span class="comment">-- theme.tasklist_sticky = nil
+</span><span class="comment">-- theme.tasklist_ontop = nil
+</span><span class="comment">-- theme.tasklist_above = nil
+</span><span class="comment">-- theme.tasklist_below = nil
+</span><span class="comment">-- theme.tasklist_floating = nil
+</span><span class="comment">-- theme.tasklist_maximized = nil
+</span><span class="comment">-- theme.tasklist_maximized_horizontal = nil
+</span><span class="comment">-- theme.tasklist_maximized_vertical = nil
+</span><span class="comment">-- theme.tasklist_minimized = nil
+</span><span class="comment">-- theme.tasklist_align = nil
+</span><span class="comment">-- theme.tasklist_font = nil
+</span><span class="comment">-- theme.tasklist_font_focus = nil
+</span><span class="comment">-- theme.tasklist_font_minimized = nil
+</span><span class="comment">-- theme.tasklist_font_urgent = nil
+</span><span class="comment">-- theme.tasklist_spacing = nil
+</span><span class="comment">-- theme.tasklist_shape = nil
+</span><span class="comment">-- theme.tasklist_shape_border_width = nil
+</span><span class="comment">-- theme.tasklist_shape_border_color = nil
+</span><span class="comment">-- theme.tasklist_shape_focus = nil
+</span><span class="comment">-- theme.tasklist_shape_border_width_focus = nil
+</span><span class="comment">-- theme.tasklist_shape_border_color_focus = nil
+</span><span class="comment">-- theme.tasklist_shape_minimized = nil
+</span><span class="comment">-- theme.tasklist_shape_border_width_minimized = nil
+</span><span class="comment">-- theme.tasklist_shape_border_color_minimized = nil
+</span><span class="comment">-- theme.tasklist_shape_urgent = nil
+</span><span class="comment">-- theme.tasklist_shape_border_width_urgent = nil
+</span><span class="comment">-- theme.tasklist_shape_border_color_urgent = nil
+</span><span class="comment">-- theme.tasklist_icon_size = nil
+</span>
+<span class="comment">-- titlebar
+</span><span class="comment">-- theme.titlebar_fg_normal = nil
+</span><span class="comment">-- theme.titlebar_bg_normal = nil
+</span><span class="comment">-- theme.titlebar_bgimage_normal = nil
+</span><span class="comment">-- theme.titlebar_fg = nil
+</span><span class="comment">-- theme.titlebar_bg = nil
+</span><span class="comment">-- theme.titlebar_bgimage = nil
+</span><span class="comment">-- theme.titlebar_fg_focus = nil
+</span><span class="comment">-- theme.titlebar_bg_focus = nil
+</span><span class="comment">-- theme.titlebar_bgimage_focus = nil
+</span><span class="comment">-- theme.titlebar_fg_urgent = nil
+</span><span class="comment">-- theme.titlebar_bg_urgent = nil
+</span><span class="comment">-- theme.titlebar_bgimage_urgent = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal = nil
+</span><span class="comment">-- theme.titlebar_minimize_button_normal = nil
+</span><span class="comment">-- theme.titlebar_minimize_button_normal_hover = nil
+</span><span class="comment">-- theme.titlebar_minimize_button_normal_press = nil
+</span><span class="comment">-- theme.titlebar_close_button_normal = nil
+</span><span class="comment">-- theme.titlebar_close_button_normal_hover = nil
+</span><span class="comment">-- theme.titlebar_close_button_normal_press = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus = nil
+</span><span class="comment">-- theme.titlebar_minimize_button_focus = nil
+</span><span class="comment">-- theme.titlebar_minimize_button_focus_hover = nil
+</span><span class="comment">-- theme.titlebar_minimize_button_focus_press = nil
+</span><span class="comment">-- theme.titlebar_close_button_focus = nil
+</span><span class="comment">-- theme.titlebar_close_button_focus_hover = nil
+</span><span class="comment">-- theme.titlebar_close_button_focus_press = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal_active = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal_active_hover = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal_active_press = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal_active = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal_active_hover = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal_active_press = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal_active = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal_active_hover = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal_active_press = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal_active = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal_active_hover = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal_active_press = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus_active = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus_active_hover = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus_active_press = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus_active = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus_active_hover = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus_active_press = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus_active = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus_active_hover = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus_active_press = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus_active = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus_active_hover = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus_active_press = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal_inactive = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_floating_button_normal_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal_inactive = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_normal_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal_inactive = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_normal_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal_inactive = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_normal_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus_inactive = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_floating_button_focus_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus_inactive = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_maximized_button_focus_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus_inactive = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_ontop_button_focus_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus_inactive = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus_inactive_hover = nil
+</span><span class="comment">-- theme.titlebar_sticky_button_focus_inactive_press = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_close = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_minimize = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_maximized_active = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_maximized_inactive = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_floating_active = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_floating_inactive = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_ontop_active = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_ontop_inactive = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_sticky_active = nil
+</span><span class="comment">-- theme.titlebar_tooltip_messages_sticky_inactive = nil
+</span><span class="comment">-- theme.titlebar_tooltip_delay_show = nil
+</span><span class="comment">-- theme.titlebar_tooltip_margins_leftright = nil
+</span><span class="comment">-- theme.titlebar_tooltip_margins_topbottom = nil
+</span><span class="comment">-- theme.titlebar_tooltip_timeout = nil
+</span><span class="comment">-- theme.titlebar_tooltip_align = nil
+</span>
+<span class="comment">-- tooltip
+</span><span class="comment">-- theme.tooltip_border_color = nil
+</span><span class="comment">-- theme.tooltip_bg = nil
+</span><span class="comment">-- theme.tooltip_fg = nil
+</span><span class="comment">-- theme.tooltip_font = nil
+</span><span class="comment">-- theme.tooltip_border_width = nil
+</span><span class="comment">-- theme.tooltip_opacity = nil
+</span><span class="comment">-- theme.tooltip_gaps = nil
+</span><span class="comment">-- theme.tooltip_shape = nil
+</span><span class="comment">-- theme.tooltip_align = nil
+</span>
+<span class="comment">-- wallpaper
+</span><span class="comment">-- theme.wallpaper_bg = nil
+</span><span class="comment">-- theme.wallpaper_fg = nil
+</span>
+<span class="comment">-- wibar
+</span><span class="comment">-- theme.wibar_stretch = nil
+</span><span class="comment">-- theme.wibar_favor_vertical = nil
+</span><span class="comment">-- theme.wibar_border_width = nil
+</span><span class="comment">-- theme.wibar_border_color = nil
+</span><span class="comment">-- theme.wibar_ontop = nil
+</span><span class="comment">-- theme.wibar_cursor = nil
+</span><span class="comment">-- theme.wibar_opacity = nil
+</span><span class="comment">-- theme.wibar_type = nil
+</span><span class="comment">-- theme.wibar_width = nil
+</span><span class="comment">-- theme.wibar_height = nil
+</span><span class="comment">-- theme.wibar_bg = nil
+</span><span class="comment">-- theme.wibar_bgimage = nil
+</span><span class="comment">-- theme.wibar_fg = nil
+</span><span class="comment">-- theme.wibar_shape = nil
+</span><span class="comment">-- theme.wibar_margins = nil
+</span><span class="comment">-- theme.wibar_align = nil
+</span>
+<span class="keyword">return</span> theme
+
+<span class="comment">-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80</span>
+</pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>
