@@ -80,6 +80,12 @@ awful.keyboard.append_global_keybindings({
 		end,
         { description = "lock screen", group = "awesome" }
 	),
+    awful.key(
+		{ mod }, "space", function() 
+			awesome.emit_signal("widget::control")
+		end,
+        { description = "control center", group = "awesome" }
+	),
 
 	-- Programs
 
@@ -88,18 +94,6 @@ awful.keyboard.append_global_keybindings({
 			awful.spawn.with_shell(user.terminal) 
 		end,
         { description = "open a terminal", group = "programs" }
-	),
-	awful.key(
-		{ mod }, "p", function() 
-			awful.spawn.with_shell("killall picom") 
-		end,
-        { description = "kill picom", group = "programs" }
-	),
-	awful.key(
-		{ mod, "Shift" }, "p", function() 
-			awful.spawn.with_shell("picom & disown") 
-		end,
-        { description = "start picom", group = "programs" }
 	),
 
 	-- Screenshot

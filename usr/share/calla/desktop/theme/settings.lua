@@ -203,11 +203,11 @@ local function doGeneral()
 		{ settingsEntry("Reboot", "reboot", "systemctl reboot"), top_attach = 2, left_attach = 0 },
 		{ settingsEntry("Font", "font", "Roboto Medium 11"), top_attach = 0, left_attach = 1 },
 		{ settingsEntry("Alt Font", "fontalt", "Roboto Bold 11"), top_attach = 1, left_attach = 1 },
-		{ settingsEntry("Icon Font", "fonticon", "Material Icons 13"), top_attach = 2, left_attach = 1 },
 		{ settingsEntry("Fallback Password", "passwd", "awesomewm"), top_attach = 3, left_attach = 0 },
-		{ settingsEntry("Battery", "batt", "BAT0"), top_attach = 3, left_attach = 1 },
-		{ wallpaper(), top_attach = 4, left_attach = 0 },
-		{ screenshot(), top_attach = 4, left_attach = 1 },
+		{ settingsEntry("Battery", "batt", "BAT0"), top_attach = 2, left_attach = 1 },
+		{ wallpaper(), top_attach = 3, left_attach = 1 },
+		{ settingsEntry("temp", "temp", "temp"), top_attach = 4, left_attach = 1 },
+		{ screenshot(), top_attach = 4, left_attach = 0 },
 	})
 
 	return grid
@@ -478,7 +478,6 @@ function app:on_startup()
 		local userrestart = {
 			"font",
 			"fontalt",
-			"fonticon",
 			"batt",
 		}
 

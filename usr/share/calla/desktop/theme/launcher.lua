@@ -9,8 +9,8 @@ local appicons = "/usr/share/icons/" .. beautiful.icons .. "/64x64/apps/"
 -- Widgets
 
 local launcherbox = wibox {
-	width = dpi(265),
-	height = dpi(320),
+	width = dpi(280),
+	height = dpi(340),
 	ontop = true,
 	visible = false
 }
@@ -29,90 +29,27 @@ local entries = wibox.widget {
 	layout = wibox.layout.grid
 }
 
-local settings = button {
-	type = "text",
-	image = "",
-	run = function() 
-		awesome.emit_signal("widget::launcher") 
-		awesome.emit_signal("widget::config") 
-	end
-}
-
-local shutdown = button {
-	type = "text", 
-	image = "", 
-	run = function() 
-		awful.spawn.with_shell(user.shutdown)
-	end
-}
-
-local reboot = button {
-	type = "text", 
-	image = "", 
-	run = function() 
-		awful.spawn.with_shell(user.reboot)
-	end
-}
-
-local exit = button {
-	type = "text", 
-	image = "", 
-	run = function() 
-		awesome.emit_signal("widget::launcher")
-		awesome.quit()
-	end
-}
-
-local lock = button {
-	type = "text", 
-	image = "", 
-	run = function() 
-		awesome.emit_signal("widget::launcher")
-		awesome.emit_signal("widget::lockscreen")
-	end
-}
-
 launcherbox:setup {
 	{
 		{
+			entries,
+			nil,
 			{
-				settings,
-				nil,
 				{
-					shutdown,
-					reboot,
-					exit,
-					lock,
-					spacing = dpi(5),
-					layout = wibox.layout.fixed.vertical
+					prompt,
+					top = dpi(5),
+					bottom = dpi(5),
+					left = dpi(8),
+					right = dpi(8),
+					widget = wibox.container.margin
 				},
-				layout = wibox.layout.align.vertical
+				forced_height = dpi(30),
+				widget = background({ bg = "bgmid" })
 			},
-			{
-				entries,
-				nil,
-				{
-					{
-						prompt,
-						top = dpi(5),
-						bottom = dpi(5),
-						left = dpi(8),
-						right = dpi(8),
-						widget = wibox.container.margin
-					},
-					shape = function(cr, width, height)
-								gears.shape.rounded_rect(cr, width, height, dpi(10))
-							end,
-					forced_height = dpi(30),
-					widget = live(wibox.container.background, { bg = "bgmid" })
-				},
-				forced_width = dpi(300),
-				layout = wibox.layout.align.vertical
-			},
-			spacing = dpi(5),
-			layout = wibox.layout.fixed.horizontal
+			forced_width = dpi(300),
+			layout = wibox.layout.align.vertical
 		},
-		margins = dpi(5),
+		margins = dpi(10),
 		widget = wibox.container.margin
 	},
 	widget = live(wibox.container.background, { bg = "bg" })

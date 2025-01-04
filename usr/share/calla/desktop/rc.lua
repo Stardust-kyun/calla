@@ -1,35 +1,34 @@
 --[[ 
 --	TODO
 --
+--	Why is text content changed when its color is changed? -- markdown? needs to be bg container?
+--
 --	Features:
---	Media widget
---	Notification center
 --	Alt+tab menu
+--	Desktop menu
 --
 --	Settings:
+--	Completely redesign settings app
+--	Add autostart commands to settings
 --	Add modkey/sessionlock to settings
---	Add fingerprint enroll to settings
---	User defined tags
---	User defined rounding (yes/no)
+--	Add profile picture to settings
 --	Create Gtk theme from color json
 --	Import theme (Xresources?)
 --
 --	Design:
---	Redesign preview to look more like macos
---	Redesign launcher to include more
+--	Redesign preview to look more like macos (expose)
 --	Hover cursor on titlebar buttons
 --	Hover background?
---	Completely redesign settings app
 --
---	Refactoring:
---	Port Xresources live reloading to lua
---	Define cropped wallpaper in theme init?
---	Add fallback methods to dock executable
---	Create json functions
+--	Refactor:
+--	Is it finally time to make a helpers file...?
+--	Make battery use upower
+--	Move custom themes to cache
+--	Get rid of color dir
+--	Differentiate custom themes from default
 --
 --	Long Term:
 --	Better multihead support
---	Create deb package (other distros?)
 --]]
 
 --[[
@@ -39,17 +38,12 @@
 --	Location of lockscreen promptbox depends on focused screen at startup,
 --	doesn't appear if laptop screen focused
 --	Systray opens/closes for both screens, one is redundant
---	Awful.wallpaper uses wrong dimensions when new screen is connected
---	(Untested) Lockscreen appears to not add background widgets to
---	new screen when connected
 --
 --	General:
+--	Preview does not entirely reload if visible
 --	Desktop get grid function does not account for spacing
 --	Icon theme is not refreshed with live reload
 --	fprintd-verify does not work after suspend (issue #173)
---	There appears to be some kind of issue with resource allocation,
---	as things become progressively slower over time
---	(likely culprits: launcher, preview, settings?)
 --
 --	Unknown Bugs:
 --	Many
@@ -85,14 +79,13 @@ function writejson(path, table)
 	w:close()
 end
 
-local name = gears.filesystem.get_cache_dir() .. "user.json"
+local config = gears.filesystem.get_cache_dir() .. "user.json"
 
 local defaults = {
 	batt = "BAT0",
 	color = "light",
 	font = "Roboto Medium 11",
 	fontalt = "Roboto Bold 11",
-	fonticon = "Material Icons 13",
 	mod = "Mod4",
 	passwd = "awesomewm",
 	reboot = "systemctl reboot",
@@ -102,11 +95,11 @@ local defaults = {
 	terminal = "st"
 }
 
-if not gears.filesystem.file_readable(name) then
-	writejson(name, defaults)
+if not gears.filesystem.file_readable(config) then
+	writejson(config, defaults)
 end
 
-user = readjson(name)
+user = readjson(config)
 
 -- Config
 
@@ -120,7 +113,6 @@ require("color.desktop")
 
 local autostart = {
 	"picom -b --config '/usr/share/calla/compositor.conf'",
-	--"gebaard -b",
 	"xsettingsd --config '/usr/share/calla/xsettingsd'",
 	"nm-applet",
 	"/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"

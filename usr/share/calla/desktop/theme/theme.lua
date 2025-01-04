@@ -62,7 +62,7 @@ theme.snap_bg     = color.fg
 theme.snap_shape  = function(cr, width, height)
 						gears.shape.rounded_rect(cr, width, height, dpi(15))
 					end
-theme.snapper_gap = dpi(16)
+theme.snapper_gap = dpi(15)
 
 -- Misc
 
@@ -70,7 +70,7 @@ theme.useless_gap           = dpi(5)
 theme.border_width          = dpi(0)
 theme.bg_systray    	    = color.bgmid
 theme.systray_icon_spacing  = dpi(5)
-theme.notification_spacing  = dpi(16)
+theme.notification_spacing  = dpi(20)
 theme.tooltip_opacity       = 0
 theme.prompt_bg_cursor		= color.fg
 
@@ -87,6 +87,14 @@ theme.layout_tile	   = gears.color.recolor_image(iconpath .. "tile.png", color.f
 -- Theme icon
 
 theme.calla = gears.color.recolor_image(iconpath .. "calla.png", color.fg)
+
+-- Profile picture
+
+if gears.filesystem.file_readable(iconpath .. "pfp.png") then
+	theme.pfp = iconpath .. "pfp.png"
+else
+	theme.pfp = theme.calla
+end
 
 -- Icon theme
 

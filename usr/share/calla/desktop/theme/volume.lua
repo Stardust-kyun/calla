@@ -11,7 +11,7 @@ local volumebox = wibox {
 	visible = false
 }
 
-local percent = colortext()
+local percent = wibox.widget.textbox()
 
 local header = wibox.widget {
 	{
@@ -19,7 +19,7 @@ local header = wibox.widget {
 			{
 				{
 					valign = "center",
-					widget = colortext({ text = "Volume" })
+					widget = wibox.widget.textbox("Volume")
 				},
 				nil,
 				percent,
@@ -31,20 +31,13 @@ local header = wibox.widget {
 			right = dpi(10),
 			widget = wibox.container.margin
 		},
-		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid" })
+		widget = background({ bg = "bgmid" })
 	},
 	margins = dpi(5),
 	widget = wibox.container.margin
 }
 
-local icon = wibox.widget {
-	font = user.fonticon,
-	valign = "center",
-	widget = colortext()
-}
+local icon = iconbox({ image = "volumemute" })
 
 local bar = wibox.widget {
 	shape = gears.shape.rounded_rect,
@@ -87,26 +80,26 @@ volumebox:setup {
 		},
 		layout = wibox.layout.align.vertical
 	},
-	widget = live(wibox.container.background, { bg = "bg" })
+	widget = live(wibox.container.background, { bg = "bg", fg = "fg" })
 }
 
 awesome.connect_signal("signal::volume", function(volume, mute)
 	if mute then
-		percent.markup = markup({ text = "Mute" })
-		icon.markup = markup({ text = "" })
+		percent.text = "Muted"
+		icon.image = createicon("volumemute")
 	else
-		percent.markup = markup({ text = tostring(volume) .. "%" })
+		percent.text = tostring(volume) .. "%"
 		bar.value = volume
 		if volume > 100 then
-			icon.markup = markup({ text = "" })
+			icon.image = createicon("volumewarn")
 		elseif volume >= 50 then
-			icon.markup = markup({ text = "" })
+			icon.image = createicon("volume100")
 		elseif volume >= 25 then
-			icon.markup = markup({ text = "" })
+			icon.image = createicon("volume50")
 		elseif volume > 0 then
-			icon.markup = markup({ text = "" })
+			icon.image = createicon("volume25")
 		elseif volume == 0 then
-			icon.markup = markup({ text = "" })
+			icon.image = createicon("volume0")
 		end
 	end
 end)
@@ -121,7 +114,7 @@ awesome.connect_signal("widget::volume", function()
 			volumebox, 
 			{
 				margins = { 
-					bottom = dpi(10), 
+					bottom = dpi(10)
 				}, 
 				parent = awful.screen.focused()
 			}
@@ -131,7 +124,7 @@ awesome.connect_signal("widget::volume", function()
 			volumebox, 
 			{
 				margins = { 
-					bottom = dpi(60), 
+					bottom = dpi(60)
 				}, 
 				parent = awful.screen.focused()
 			}

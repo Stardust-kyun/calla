@@ -15,7 +15,7 @@ ruled.client.connect_signal("request::rules", function()
             focus     = awful.client.focus.filter,
             raise     = true,
             screen    = awful.screen.preferred,
-			placement = awful.placement.no_offscreen--+awful.placement.centered
+			placement = awful.placement.no_offscreen
 		}
     }
 
@@ -26,10 +26,11 @@ ruled.client.connect_signal("request::rules", function()
         rule_any = {
             instance = { "copyq", "pinentry" },
             class    = {
-                "Arandr", "Gcolor3", "Blueberry.py", "SimpleScreenRecorder", "Usbimager", "Yad"
+                "Arandr", "Gcolor3", "Blueberry.py", "SimpleScreenRecorder", "Usbimager", "Yad", "Settings"
             },
             name    = {
                 "Event Tester",  -- xev
+				"ncmpcpp"
             },
         },
         properties = { floating = true }
@@ -41,17 +42,6 @@ ruled.client.connect_signal("request::rules", function()
         id         = "titlebars",
         rule_any   = { type = { "normal", "dialog" } },
         properties = { titlebars_enabled = true }
-    }
-
-	-- Settings App
-
-    ruled.client.append_rule {
-        id         = "settings",
-        rule_any   = { class = { "Settings" } },
-        properties = { 
-			floating = true,
-			placement = awful.placement.no_offscreen+awful.placement.centered
-		}
     }
 
 end)

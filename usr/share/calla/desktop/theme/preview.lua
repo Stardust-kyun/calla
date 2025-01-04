@@ -39,13 +39,9 @@ local function createpreview(t, s, geometry)
                 },
                 forced_height = math.floor(c.height * scale),
                 forced_width = math.floor(c.width * scale),
-                bg = beautiful.bg,
 				border_width = dpi(2),
 				border_color = beautiful.bgmid,
-                shape = function(cr, width, height)
-							gears.shape.rounded_rect(cr, width, height, dpi(5))
-						end,
-                widget = wibox.container.background
+                widget = background({ bg = "bg" })
             })
 
             clientbox.point = {
@@ -61,65 +57,35 @@ local function createpreview(t, s, geometry)
 		return wibox.widget {
 			{
 				{
-					image = gears.surface.crop_surface {
-						surface = gears.surface.load_uncached(beautiful.wallpaper),
-						ratio = s.geometry.width/(s.geometry.height-dpi(40))
-					},
-					widget = wibox.widget.imagebox
-				},
-				{
 					{
 						{
-							{
-								colortext({ text = "Empty" }),
-								top = dpi(5),
-								bottom = dpi(5),
-								left = dpi(8),
-								right = dpi(8),
-								widget = wibox.container.margin
-							},
-							bg = beautiful.bg,
-							shape = function(cr, width, height)
-										gears.shape.rounded_rect(cr, width, height, dpi(10))
-									end,
-							widget = wibox.container.background
+							wibox.widget.textbox("Empty"),
+							top = dpi(5),
+							bottom = dpi(5),
+							left = dpi(8),
+							right = dpi(8),
+							widget = wibox.container.margin
 						},
-						valign = "center",
-						halign = "center",
-						widget = wibox.container.place
+						widget = background({ bg = "bg", fg = "fg" })
 					},
-					bg = beautiful.bg.."96",
-					widget = wibox.container.background
+					valign = "center",
+					halign = "center",
+					widget = wibox.container.place
 				},
-				layout = wibox.layout.stack
+				bg = beautiful.bg.."96",
+				widget = wibox.container.background
 			},
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end,
-			widget = wibox.container.background
+			widget = background({ bg = "bgmid" })
 		}
 	else
 		return wibox.widget {
 			{
-				{
-					image = gears.surface.crop_surface {
-						surface = gears.surface.load_uncached(beautiful.wallpaper),
-						ratio = s.geometry.width/(s.geometry.height-dpi(40))
-					},
-					widget = wibox.widget.imagebox
-				},
-				{
-					clientlayout,
-					forced_height = geometry.height,
-					forced_width = geometry.width,
-					widget = wibox.container.place
-				},
-				layout = wibox.layout.stack
+				clientlayout,
+				forced_height = geometry.height,
+				forced_width = geometry.width,
+				widget = wibox.container.place
 			},
-			shape = function(cr, width, height)
-						gears.shape.rounded_rect(cr, width, height, dpi(10))
-					end,
-			widget = wibox.container.background
+			widget = background({ bg = "bgmid" })
 		}
 	end
 end

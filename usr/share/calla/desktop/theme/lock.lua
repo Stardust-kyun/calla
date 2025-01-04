@@ -28,44 +28,62 @@ local characters = 0
 -- Background
 
 screen.connect_signal("request::desktop_decoration", function(s)
-	local background = wibox {
+	local lockbackground = wibox {
 		screen = s,
 		visible = false,
 		ontop = true,
 		type = "splash",
-		widget = live(wibox.container.background, { bg = "bg" })
+		widget = background({ bg = "bg" })
 	}
 
-	awful.placement.maximize(background)
+	awful.placement.maximize(lockbackground)
 
 	local batterypercent = wibox.widget {
 		text = "N/A",
 		widget = wibox.widget.textbox
 	}
 
+	local batteryicon = iconbox({ image = "batterynone" })
+
 	local battery = wibox.widget {
 		{
-			batterypercent,
-			top = dpi(5),
-			bottom = dpi(5),
+			{
+				batteryicon,
+				batterypercent,
+				spacing = dpi(4),
+				layout = wibox.layout.fixed.horizontal
+			},
 			left = dpi(8),
 			right = dpi(8),
 			widget = wibox.container.margin
 		},
-		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid", fg = "fg" })
+		widget = background({ bg = "bgmid", fg = "fg" })
 	}
 
+	local batterystore
 	if user.batt ~= nil then
 		awful.widget.watch("cat /sys/class/power_supply/" .. user.batt .. "/capacity", 15, function(widget, stdout)
-			batterypercent.text = tonumber(stdout) .. "%"
+			percent = tonumber(stdout)
+			batterypercent.text = percent .. "%"
+			if percent > 80 then
+				batterystore = "battery100"
+			elseif percent > 50 then
+				batterystore = "battery80"
+			elseif percent > 25 then
+				batterystore = "battery50"
+			elseif percent > 10 then
+				batterystore = "battery25"
+			elseif percent > 5 then
+				batterystore = "battery10"
+			else
+				batterystore = "battery0"
+			end
+			batteryicon.image = createicon(batterystore)
 		end)
 	end
 
 	if s == awful.screen.focused() then
-		background:setup {
+		lockbackground:setup {
 			{
 				{
 					{
@@ -79,27 +97,24 @@ screen.connect_signal("request::desktop_decoration", function(s)
 									right = dpi(8),
 									widget = wibox.container.margin
 								},
-								shape = function(cr, width, height)
-											gears.shape.rounded_rect(cr, width, height, dpi(10))
-										end,
-								widget = live(wibox.container.background, { bg = "bgmid", fg = "fg" })
+								widget = background({ bg = "bgmid", fg = "fg" })
 							},
 							nil,
 							{
 								battery,
 								{
 									{
-										wibox.widget.textclock('%I:%M %p'),
-										top = dpi(5),
-										bottom = dpi(5),
+										{
+											iconbox({ image = "clock" }),
+											wibox.widget.textclock('%I:%M %p'),
+											spacing = dpi(4),
+											layout = wibox.layout.fixed.horizontal
+										},
 										left = dpi(8),
 										right = dpi(8),
 										widget = wibox.container.margin
 									},
-									shape = function(cr, width, height)
-												gears.shape.rounded_rect(cr, width, height, dpi(10))
-											end,
-									widget = live(wibox.container.background, { bg = "bgmid", fg = "fg" })
+									widget = background({ bg = "bgmid", fg = "fg" })
 								},
 								spacing = dpi(5),
 								layout = wibox.layout.fixed.horizontal
@@ -109,22 +124,19 @@ screen.connect_signal("request::desktop_decoration", function(s)
 						{
 							{
 								button {
-									type = "text", 
-									image = "", 
+									image = "shutdown", 
 									run = function() 
 										awful.spawn.with_shell(user.shutdown)
 									end
 								},
 								button {
-									type = "text", 
-									image = "", 
+									image = "restart", 
 									run = function() 
 										awful.spawn.with_shell(user.reboot)
 									end
 								},
 								button {
-									type = "text", 
-									image = "", 
+									image = "exit", 
 									run = function() 
 										awesome.quit()
 									end
@@ -145,7 +157,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 				content_fill_horizontal = true,
 				widget = wibox.container.place
 			},
-			widget = live(wibox.container.background , { bg = "bg" })
+			widget = background({ bg = "bg" })
 		}
 	end
 
@@ -155,7 +167,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		height = s.geometry.height-dpi(60),
 		ontop = true,
 		visible = false,
-		type = "normal",
+		type = "desktop",
 		widget = wibox.widget {
 			image = gears.surface.crop_surface {
 				surface = gears.surface.load_uncached(beautiful.wallpaper),
@@ -175,6 +187,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 	)
 
 	awesome.connect_signal("live::reload", function()
+		if batterystore then batteryicon.image = createicon(batterystore) end
 		wallpaper.widget = wibox.widget {
 			image = gears.surface.crop_surface {
 				surface = gears.surface.load_uncached(beautiful.wallpaper),
@@ -185,7 +198,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 	end)
 
 	awesome.connect_signal("lockscreen::visible", function(v)
-		background.visible = v
+		lockbackground.visible = v
 		wallpaper.visible = v
 	end)
 end)
@@ -217,10 +230,7 @@ awful.spawn.easy_async_with_shell("getent passwd $(whoami) | cut -d ':' -f 5", f
 							margins = dpi(5),
 							widget = wibox.container.margin
 						},
-						shape = function(cr, width, height)
-									gears.shape.rounded_rect(cr, width, height)
-								end,
-						widget = live(wibox.container.background, { bg = "bgmid" })
+						widget = background({ bg = "bgmid" })
 					},
 					{
 						font = user.font:gsub("%d+", "24"),
@@ -243,10 +253,7 @@ awful.spawn.easy_async_with_shell("getent passwd $(whoami) | cut -d ':' -f 5", f
 						forced_width = dpi(300),
 						widget = wibox.container.margin
 					},
-					shape = function(cr, width, height)
-								gears.shape.rounded_rect(cr, width, height, dpi(10))
-							end,
-					widget = live(wibox.container.background, { bg = "bgmid" })
+					widget = background({ bg = "bgmid" })
 				},
 				spacing = dpi(10),
 				layout = wibox.layout.fixed.vertical
@@ -255,7 +262,7 @@ awful.spawn.easy_async_with_shell("getent passwd $(whoami) | cut -d ':' -f 5", f
 			halign = "center",
 			layout = wibox.container.place
 		},
-		widget = live(wibox.container.background, { bg = "bg" })
+		widget = background({ bg = "bg" })
 	}
 end)
 

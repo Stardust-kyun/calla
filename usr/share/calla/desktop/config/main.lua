@@ -13,6 +13,10 @@ client.connect_signal('manage', function(c)
 		awful.placement.no_offscreen(c)
 	end
 
+	if c.x == 0 and c.y == 0 then
+		awful.placement.centered(c)
+	end
+
 	-- Default icon
 
 	local cairo = require("lgi").cairo

@@ -27,10 +27,7 @@ client.connect_signal("request::titlebars", function(c)
 			margins = dpi(5),
 			widget = wibox.container.margin
 		},
-		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid" })
+		widget = background({ bg = "bgmid" })
 	}
 
 	local title = wibox.widget {
@@ -44,10 +41,7 @@ client.connect_signal("request::titlebars", function(c)
 			widget = wibox.container.margin
 		},
 		bg = beautiful.bgmid,
-		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid" })
+		widget = background({ bg = "bgmid" })
 	}
 
 	local function titlebutton(action, run)
@@ -92,10 +86,7 @@ client.connect_signal("request::titlebars", function(c)
 			margins = dpi(10),
 			widget = wibox.container.margin
 		},
-		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid" })
+		widget = background({ bg = "bgmid" })
 	}
 
 	-- Titlebar

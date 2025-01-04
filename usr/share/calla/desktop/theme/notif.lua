@@ -17,25 +17,7 @@ naughty.config.defaults.title = "Notification"
 -- Rules
 
 ruled.notification.connect_signal('request::rules', function()
-	-- Critical
-	ruled.notification.append_rule {
-		rule       = { urgency = 'critical' },
-		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_urgent, timeout = 0 }
-	}
-
-	-- Normal
-	ruled.notification.append_rule {
-		rule       = { urgency = 'normal' },
-		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
-	}
-
-	-- Low
-	ruled.notification.append_rule {
-		rule       = { urgency = 'low' },
-		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
-	}
-
-	awesome.connect_signal("live::reload", function()
+	local function setrules()
 		-- Critical
 		ruled.notification.append_rule {
 			rule       = { urgency = 'critical' },
@@ -53,6 +35,12 @@ ruled.notification.connect_signal('request::rules', function()
 			rule       = { urgency = 'low' },
 			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
 		}
+	end
+
+	setrules()
+
+	awesome.connect_signal("live::reload", function()
+		setrules()
 	end)
 end)
 
@@ -74,10 +62,7 @@ naughty.connect_signal("request::display", function(n)
 										naughty.widget.title,
 										layout = wibox.layout.align.horizontal
 									},
-									top = dpi(5),
-									bottom = dpi(5),
-									left = dpi(10),
-									right = dpi(10),
+									margins = dpi(10),
 									widget = wibox.container.margin
 								},
 								shape = function(cr, width, height)
@@ -85,35 +70,24 @@ naughty.connect_signal("request::display", function(n)
 										end,
 								widget = live(wibox.container.background, { bg = "bgmid" })
 							},
-							margins = dpi(5),
-							widget = wibox.container.margin
+							strategy = "min",
+							width = dpi(250),
+							widget = wibox.container.constraint
 						},
-						strategy = "min",
-						width = dpi(300),
-						widget = wibox.container.constraint
-					},
-					strategy = "max",
-					width = dpi(400),
-					widget = wibox.container.constraint
-				},
-				{
-					{
 						{
-							naughty.widget.message,
-							bottom = dpi(10),
-							left = dpi(15),
-							right = dpi(15),
-							widget = wibox.container.margin
+								naughty.widget.message,
+								margins = dpi(5),
+								widget = wibox.container.margin
 						},
-						strategy = "min",
-						height = dpi(60),
-						widget = wibox.container.constraint
+						spacing = dpi(5),
+						layout = wibox.layout.fixed.vertical
 					},
 					strategy = "max",
 					width = dpi(400),
 					widget = wibox.container.constraint
 				},
-				layout = wibox.layout.align.vertical
+				margins = dpi(10),
+				widget = wibox.container.margin
 			},	
 			id = "background_role",
 			widget = naughty.container.background

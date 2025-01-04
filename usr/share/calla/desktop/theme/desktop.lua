@@ -77,7 +77,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		screen = s,
 		ontop = false,
 		visible = true,
-		type = "splash",
+		type = "splash"
 	}
 
 	s.desktop = wibox {
@@ -86,7 +86,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		height = s.geometry.height-dpi(60),
 		ontop = false,
 		visible = true,
-		type = "normal"
+		type = "desktop"
 	}
 
 	awful.placement.maximize(s.base)
@@ -109,7 +109,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 			content_fill_horizontal = true,
 			widget = wibox.container.place
 		},
-		widget = live(wibox.container.background, { bg = "bg" })
+		widget = live(wibox.widget.background, { bg = "bg" })
 	}
 
 	s.desktop:setup {
@@ -211,7 +211,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		if f~=nil then io.close(f) return true else return false end
 	end
 
-	local function createicon(label, exec, icon)
+	local function createdesktopicon(label, exec, icon)
 		local image
 		if exists(icons .. "places/" .. icon .. ".svg") then
 			image = icons .. "places/" .. icon .. ".svg"
@@ -219,6 +219,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
 			image = icons .. "mimetypes/" .. icon .. ".svg"
 		elseif exists(icons .. "apps/" .. icon .. ".svg") then
 			image = icons .. "apps/" .. icon .. ".svg"
+		elseif exists(icon) then
+			image = icon
 		else
 			image = icons .. "mimetypes/application-x-generic.svg"
 		end
@@ -247,10 +249,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 							margins = dpi(5),
 							widget = wibox.container.margin
 						},
-						shape = function(cr, width, height)
-									gears.shape.rounded_rect(cr, width, height, dpi(10))
-								end,
-						widget = live(wibox.container.background, { bg = "bgmid" })
+						widget = background({ bg = "bgmid" })
 					},
 					strategy = "max",
 					width = dpi(100),
@@ -299,10 +298,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 									margins = dpi(5),
 									widget = wibox.container.margin
 								},
-								shape = function(cr, width, height)
-											gears.shape.rounded_rect(cr, width, height, dpi(10))
-										end,
-								widget = live(wibox.container.background, { bg = "bgmid" })
+								widget = background({ bg = "bgmid" })
 							},
 							strategy = "max",
 							width = dpi(100),
@@ -376,7 +372,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		if not gears.filesystem.file_readable(desktopjson) then
 			local entries = generate()
 			for _, entry in ipairs(entries) do
-				s.grid:add(createicon(entry.label, entry.exec, entry.icon))
+				s.grid:add(createdesktopicon(entry.label, entry.exec, entry.icon))
 			end
 			save()
 			return
@@ -385,7 +381,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 		local layout = readjson(desktopjson)
 
 		for _, entry in ipairs(layout) do
-			s.grid:add_widget_at(createicon(entry.widget.label, entry.widget.exec, entry.widget.icon), entry.row, entry.col)
+			s.grid:add_widget_at(createdesktopicon(entry.widget.label, entry.widget.exec, entry.widget.icon), entry.row, entry.col)
 		end
 	end
 
@@ -404,7 +400,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 					end
 				end
 				if check == false then
-					s.grid:add(createicon(entry.label, entry.exec, entry.icon))
+					s.grid:add(createdesktopicon(entry.label, entry.exec, entry.icon))
 				end
 				check = false
 			end

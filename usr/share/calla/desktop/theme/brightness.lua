@@ -11,7 +11,7 @@ local brightnessbox = wibox {
 	visible = false
 }
 
-local percent = colortext()
+local percent = wibox.widget.textbox()
 
 local header = wibox.widget {
 	{
@@ -19,7 +19,7 @@ local header = wibox.widget {
 			{
 				{
 					valign = "center",
-					widget = colortext({ text = "Brightness" })
+					widget = wibox.widget.textbox("Brightness")
 				},
 				nil,
 				percent,
@@ -31,20 +31,13 @@ local header = wibox.widget {
 			right = dpi(10),
 			widget = wibox.container.margin
 		},
-		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid" })
+		widget = background({ bg = "bgmid" })
 	},
 	margins = dpi(5),
 	widget = wibox.container.margin
 }
 
-local icon = wibox.widget {
-	font = user.fonticon,
-	valign = "center",
-	widget = colortext()
-}
+local icon = iconbox({ image = "brightness0" })
 
 local bar = wibox.widget {
 	shape = gears.shape.rounded_rect,
@@ -87,22 +80,22 @@ brightnessbox:setup {
 		},
 		layout = wibox.layout.align.vertical
 	},
-	widget = live(wibox.container.background, { bg = "bg" })
+	widget = live(wibox.container.background, { bg = "bg", fg = "fg" })
 }
 
 awesome.connect_signal("signal::brightness", function(brightness)
-	percent.markup = markup({ text = tostring(brightness) .. "%" })
+	percent.text = tostring(brightness) .. "%"
 	bar.value = brightness
 	if brightness >= 75 then
-		icon.markup = markup({ text = "" })
+		icon.image = createicon("brightness100")
 	elseif brightness >= 50 then
-		icon.markup = markup({ text = "" })
+		icon.image = createicon("brightness75")
 	elseif brightness >= 25 then
-		icon.markup = markup({ text = "" })
+		icon.image = createicon("brightness50")
 	elseif brightness > 0 then
-		icon.markup = markup({ text = "" })
+		icon.image = createicon("brightness25")
 	elseif brightness == 0 then
-		icon.markup = markup({ text = "" })
+		icon.image = createicon("brightness0")
 	end
 end)
 
@@ -116,8 +109,7 @@ awesome.connect_signal("widget::brightness", function()
 			brightnessbox, 
 			{
 				margins = { 
-					bottom = dpi(10), 
-					right = dpi(10)
+					bottom = dpi(10)
 				}, 
 				parent = awful.screen.focused()
 			}
@@ -127,8 +119,7 @@ awesome.connect_signal("widget::brightness", function()
 			brightnessbox, 
 			{
 				margins = { 
-					bottom = dpi(60), 
-					right = dpi(10)
+					bottom = dpi(60)
 				}, 
 				parent = awful.screen.focused()
 			}

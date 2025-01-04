@@ -1,0 +1,13 @@
+Package: calla
+Version: 0.3.0-1
+Maintainer: Stella <stardust-kyun@proton.me>
+Depends: xorg, pipewire, pipewire-pulse, pulseaudio-utils, wireplumber, brightnessctl, inotify-tools, picom, maim, papirus-icon-theme, xsettingsd, network-manager-gnome, policykit-1-gnome, playerctl,
+         asciidoctor, cmake, debhelper-compat (= 13), imagemagick, libcairo2-dev, libdbus-1-dev, libgdk-pixbuf-2.0-dev, libglib2.0-dev, liblua5.3-dev, 
+         libpango1.0-dev, libstartup-notification0-dev, libx11-xcb-dev, libxcb-cursor-dev, libxcb-icccm4-dev, libxcb-keysyms1-dev, libxcb-randr0-dev, 
+         libxcb-shape0-dev, libxcb-util-dev, libxcb-xinerama0-dev, libxcb-xkb-dev, libxcb-xrm-dev, libxcb-xtest0-dev, libxcb-xfixes0-dev, libxdg-basedir-dev, 
+         libxkbcommon-dev, libxkbcommon-x11-dev, lua-busted, lua-discount, lua-ldoc, lua-lgi (>= 0.9.2), lua5.3, x11proto-core-dev, xmlto, default-dbus-session-bus | dbus-session-bus, 
+         gir1.2-freedesktop, gir1.2-gdkpixbuf-2.0, gir1.2-glib-2.0, gir1.2-gtk-3.0, gir1.2-pango-1.0, gir1.2-upowerglib-1.0, libcairo-gobject2, menu
+Provides: awesome
+Architecture: amd64
+Homepage: https://github.com/stardust-kyun/calla
+Description: Calla Desktop Environment
