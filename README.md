@@ -126,4 +126,4 @@ You can find my contact information on my [website](https://star.is-a.dev/). I a
 
 ## Stars
 
-![Star History Chart](https://api.star-history.com/svg?repos=Stardust-kyun/calla&type=Date)](https://star-history.com/#Stardust-kyun/calla&Date)
+![Star History Chart](https://api.star-history.com/svg?repos=Stardust-kyun/calla&type=Date)
