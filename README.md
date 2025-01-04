@@ -23,50 +23,14 @@ In my previous work, I have provided scripts to make it much easier for the aver
 
 ---
 
-### Minimal Installation Packages
+# Under Construction
 
-These packages use their names from the Debian repos. If you can't find them for your distribution, try using the source url from Debian repos.
+Installation instructions are currently being revised as Calla is packaged for major distros. As of version 0.3.0-1, only Debian is supported. If you are attempting to install Calla on Debian, find the newest release in the releases tab. If you are attempting to install on other distros, make sure you have the following installed:
 
-- xorg - display server
-    + xclip - clipboard
-    + xsettingsd - reload gtk/icons
-- pipewire - audio
-    + pipewire-pulse - volume signal
-    * pulseaudio-utils - volume signal
-- brightnessctl - brightness
-    + inotify-tools - brightness and desktop signal
-- [awesome-git](https://github.com/awesomeWM/awesome) - window manager (built on commit ad0290b)
-- picom - compositor
-- maim - screenshot
-- fonts-roboto - default font
-    + In my experience the Debian package has not worked, so you may need to install it manually
-    + You will need the monospace version for the default terminal
-- fonts-noto - general font support
-- fonts-noto-cjk - cjk font support
-- fonts-noto-color-emoji - emoji font support
-- fonts-noto-extra - extra font support
-- papirus-icon-theme - icon theme
+- AwesomeWM git
+- Your distribution's package equivalents for line 4 of `DEBIAN/control` (the line that starts with `Depends:`)
 
-### Recommended Packages
-
-- [st](https://github.com/siduck/st) - terminal (supports live reloading, more support WIP)
-- vim-gtk3 - vim with clipboard
-- firefox-esr - browser (extended support release)
-- nemo - file manager
-- network-manager-gnome - network applet
-- polkit-gnome - polkit
-- cbatticon - battery applet
-- blueman - bluetooth applet
-- xdg-user-dirs - generate home directories
-
-### Setup
-
-- copy contents of `home` to `~/`
-- enable NetworkManager service (if network-manager-applet installed)
-- update font cache `fc-cache -fv`
-- update xrdb `xrdb ~/.Xresources`
-- generate home dirs `xdg-user-dirs-update`
-- make screenshots dir in `~/Pictures/Screenshots`
+Calla currently comes pre-packaged with a version of AwesomeWM git for Debian. To avoid issues, remove the `usr/local` directory of this repo as well as the `calla-awesome` and `calla-awesome-client` files in `usr/bin`. You will need to edit `usr/bin/calla` to run `awesome` instead of `calla-awesome`. Once this is complete, all you should need to do is copy the `usr` directory to your root directory, merging it with your current `usr` directory.
 
 ---
 
@@ -79,7 +43,7 @@ These packages use their names from the Debian repos. If you can't find them for
 
 ---
 
-Calla contains a settings app to configure itself without editing any files. It can be opened through the Calla icon in the launcher, or by pressing `Mod+Shift+C`.
+Calla contains a settings app to configure itself without editing any files. It can be opened through the settings icon in the control center, or by pressing `Mod+Shift+C`.
 
 ### General
 
