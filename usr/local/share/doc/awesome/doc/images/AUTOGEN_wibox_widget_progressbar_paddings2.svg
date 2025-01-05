@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="../ldoc.css" type="text/css"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85pt" height="40pt" viewBox="0 0 85 40" version="1.1">
-<g id="surface2">
-<path style="fill-rule:nonzero;fill:rgb(38.039216%,50.588235%,100%);fill-opacity:0.490196;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,100%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 83 0 L 83 28 L 0 28 Z M 0 0 " transform="matrix(1,0,0,1,1,1)"/>
-<path style="fill-rule:nonzero;fill:rgb(66.666667%,0%,100%);fill-opacity:0.490196;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,100%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 0 L 66 0 L 66 18 L 0 18 Z M 0 0 " transform="matrix(1,0,0,1,8,7)"/>
-</g>
-</svg>

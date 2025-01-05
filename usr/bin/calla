@@ -1,3 +1,3 @@
 #!/bin/sh
 xrdb /usr/share/calla/Xresources
-calla-awesome --config /usr/share/calla/desktop/rc.lua
+awesome --config /usr/share/calla/desktop/rc.lua
