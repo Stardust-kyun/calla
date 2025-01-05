@@ -1,7 +1,7 @@
 Package: calla
 Version: 0.3.0-1
 Maintainer: Stella <stardust-kyun@proton.me>
-Depends: awesome-git, xorg, pipewire, pipewire-pulse, pulseaudio-utils, wireplumber, brightnessctl, inotify-tools, picom, maim, papirus-icon-theme, xsettingsd, network-manager-gnome, policykit-1-gnome, playerctl
+Depends: awesome-git, xorg, pipewire, pipewire-pulse, pulseaudio-utils, wireplumber, brightnessctl, inotify-tools, picom, maim, papirus-icon-theme, xsettingsd, network-manager-gnome, policykit-1-gnome, playerctl, liblua-pam
 Architecture: amd64
 Homepage: https://github.com/stardust-kyun/calla
 Description: Calla Desktop Environment

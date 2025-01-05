@@ -3,23 +3,20 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
-local pampath = require("gears").filesystem.get_configuration_dir() .. "liblua_pam.so"
 
 -- Authentication
 
 local authenticate
-awful.spawn.easy_async_with_shell("stat "..pampath.." >/dev/null 2>&1", function (_, _, _, exitcode)
-	if exitcode == 0 then
-		local pam = require("liblua_pam")
-		authenticate = function(password)
-			return pam.auth_current_user(password)
-		end
-	else
-		authenticate = function(password)
-			return password == user.passwd
-		end
+local pamexists,pam = pcall(require,"liblua_pam")
+if pamexists then
+	authenticate = function(password)
+		return pam.auth_current_user(password)
 	end
-end)
+else
+	authenticate = function(password)
+		return password == user.passwd
+	end
+end
 
 -- Variables
 
