@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 url=`cat ./.git/config | grep "url = " | sed "s/^[^=]*= //"`
-if [[ $url == "https://github.com/LeVraiArdox/calla.git" ]]; then
+if [[ $url == "https://github.com/Stardust-kyun/calla" ]]; then
 	read -p "
 Which distro would you like to build for?
 
