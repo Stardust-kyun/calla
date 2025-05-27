@@ -1,0 +1,20 @@
+{
+	"bg": "#000f14",
+	"bgalt": "#0a191e",
+	"bgmid": "#0a191e",
+	"black": "#0a191e",
+	"blue": "#326482",
+	"compoffset": "-25",
+	"compopacity": ".5",
+	"compradius": "25",
+	"cyan": "#327d7d",
+	"fg": "#a0a0b4",
+	"green": "#468264",
+	"gtk": "sakura",
+	"icons": "sakura",
+	"magenta": "#645078",
+	"red": "#824655",
+	"wall": "color/sakura/sakura.png",
+	"white": "#a0a0b4",
+	"yellow": "#827d50"
+}

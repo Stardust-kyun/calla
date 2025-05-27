@@ -1,0 +1,20 @@
+{
+	"bg": "#151515",
+	"bgalt": "#2B2B2B",
+	"bgmid": "#202020",
+	"black": "#505050",
+	"blue": "#6a9fb5",
+	"compoffset": "-25",
+	"compopacity": ".5",
+	"compradius": "25",
+	"cyan": "#75b5aa",
+	"fg": "#f5f5f5",
+	"green": "#90a959",
+	"gtk": "dark",
+	"icons": "Papirus-Dark",
+	"magenta": "#aa759f",
+	"red": "#ac4142",
+	"wall": "color/dark/dark.png",
+	"white": "#d0d0d0",
+	"yellow": "#f4bf75"
+}

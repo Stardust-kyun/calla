@@ -19,7 +19,7 @@ Which distro would you like to build for?
 			rm -rf package
 			;;
 		"2")
-			makepkg -f --noconfirm --clean
+			makepkg -f --noconfirm
 			;;
 		*)
 			echo "Something went wrong. Did you choose an option correctly?"

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=dark
+Comment=base16-defaultdark
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=dark
+IconTheme=Papirus
+CursorTheme=Breeze
+ButtonLayout=menu

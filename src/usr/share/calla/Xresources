@@ -1,0 +1,50 @@
+#define BG #f5f5f5
+#define FG #303030
+#define BL #505050
+#define WH #d0d0d0
+#define R #ac4142
+#define G #90a959
+#define Y #f4bf75
+#define B #6a9fb5
+#define M #aa759f
+#define C #75b5aa
+
+st.font: RobotoMono:size=11
+st.borderpx: 25
+
+! special
+*.foreground:   FG
+*.background:   BG
+*.cursorColor:  FG
+
+! black
+*.color0:       BL
+*.color8:       BL
+
+! red
+*.color1:       R
+*.color9:       R
+
+! green
+*.color2:       G
+*.color10:      G
+
+! yellow
+*.color3:       Y
+*.color11:      Y
+
+! blue
+*.color4:       B
+*.color12:      B
+
+! magenta
+*.color5:       M
+*.color13:      M
+
+! cyan
+*.color6:       C
+*.color14:      C
+
+! white
+*.color7:       WH
+*.color15:      WH

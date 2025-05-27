@@ -1,0 +1,20 @@
+{
+	"bg": "#002B36",
+	"bgalt": "#063C4A",
+	"bgmid": "#043643",
+	"black": "#657B83",
+	"blue": "#268BD2",
+	"compoffset": "-30",
+	"compopacity": ".25",
+	"compradius": "30",
+	"cyan": "#2AA198",
+	"fg": "#93A1A1",
+	"green": "#859900",
+	"gtk": "solarized",
+	"icons": "Papirus-Dark",
+	"magenta": "#6C71C4",
+	"red": "#DC322F",
+	"wall": "color/solarized/solarized.png",
+	"white": "#FDF6E3",
+	"yellow": "#B58900"
+}

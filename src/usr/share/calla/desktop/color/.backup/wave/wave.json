@@ -1,0 +1,20 @@
+{
+	"bg": "#f0fafa",
+	"bgalt": "#dce6e6",
+	"bgmid": "#dce6e6",
+	"black": "#404040",
+	"blue": "#83b4e6",
+	"compoffset": "-25",
+	"compopacity": ".1",
+	"compradius": "25",
+	"cyan": "#8cd7d2",
+	"fg": "#262626",
+	"green": "#a0e6af",
+	"gtk": "wave",
+	"icons": "wave",
+	"magenta": "#e1aae1",
+	"red": "#e68383",
+	"wall": "color/wave/wave.png",
+	"white": "#dce6e6",
+	"yellow": "#ffcd96"
+}
