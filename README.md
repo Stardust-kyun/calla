@@ -74,19 +74,19 @@ Calla contains a settings app to configure itself without editing any files. It 
 ---
 
 ### Apps
-![apps](src/apps.png)
+![apps](.github/apps.png)
 
 ### Launcher
-![launcher](src/launcher.png)
+![launcher](.github/launcher.png)
 
 ### Tag Preview
-![preview](src/preview.png)
+![preview](.github/preview.png)
 
 ### Volume/Brightness Popup
-![volume](src/volume.png)
+![volume](.github/volume.png)
 
 ### Lock Screen
-![lockscreen](src/lockscreen.png)
+![lockscreen](.github/lockscreen.png)
 
 ---
 
@@ -105,7 +105,7 @@ Calla contains a settings app to configure itself without editing any files. It 
 
 - [AloneERO](https://gitlab.com/AloneER0) for help adding support for Void, Fedora, OpenSUSE, and Alpine!
 - [Frankfut](https://github.com/frankfutlg) for help adding support for Void and lots of help with debugging.
-- [Qwickdom](https://github.com/Qwickdom) for help adding support for Arch.
+- [Qwickdom](https://github.com/Qwickdom) and [Ardox](https://github.com/LeVraiArdox) for help adding support for Arch.
 - [Reverse](https://github.com/Reversedc) for help adding support for Debian.
 - [Alyssa](https://github.com/alyssa-sudo) for help adding support for Gentoo.
 
