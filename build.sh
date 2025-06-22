@@ -10,7 +10,7 @@ Which distro would you like to build for?
 (?) Select option: " dist
 	case $dist in
 		"1")
-			mkdir -p package # doesn't work
+			mkdir -p package
 			read -p "Version (0.1.0-1): " ver
 			cp -r src/usr package/
 			cp -r DEBIAN package/
