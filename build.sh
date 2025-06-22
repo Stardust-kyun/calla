@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 url=`cat ./.git/config | grep "url = " | sed "s/^[^=]*= //"`
-if [[ $url == "https://github.com/Stardust-kyun/calla" ]]; then
+if [[ $url == "https://github.com/stardust-kyun/calla" ]]; then # make this case insensitive
 	read -p "
 Which distro would you like to build for?
 
@@ -10,7 +10,7 @@ Which distro would you like to build for?
 (?) Select option: " dist
 	case $dist in
 		"1")
-			mkdir -p package
+			mkdir -p package # doesn't work
 			read -p "Version (0.1.0-1): " ver
 			cp -r src/usr package/
 			cp -r DEBIAN package/
