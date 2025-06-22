@@ -6,7 +6,7 @@
 
 ---
 
-![latest](src/latest.png)
+![latest](.github/latest.png)
 
 <!-- [showcase](https://github.com/Stardust-kyun/dotfiles/assets/56178655/d52b1338-b3f6-444e-b97c-59bdc2544414) -->
 
@@ -30,7 +30,7 @@ Installation instructions are currently being revised as Calla is packaged for m
 - AwesomeWM git
 - Your distribution's package equivalents for line 4 of `DEBIAN/control` (the line that starts with `Depends:`)
 
-Calla currently comes pre-packaged with a version of AwesomeWM git for Debian. To avoid issues, remove the `usr/local` directory of this repo as well as the `calla-awesome` and `calla-awesome-client` files in `usr/bin`. You will need to edit `usr/bin/calla` to run `awesome` instead of `calla-awesome`. Once this is complete, all you should need to do is copy the `usr` directory to your root directory, merging it with your current `usr` directory.
+Calla currently comes pre-packaged with a version of AwesomeWM git for Debian. To avoid issues, remove the `src/usr/local` directory of this repo as well as the `calla-awesome` and `calla-awesome-client` files in `src/usr/bin`. You will need to edit `src/usr/bin/calla` to run `awesome` instead of `calla-awesome`. Once this is complete, all you should need to do is copy the `src/usr` directory to your root directory, merging it with your current `usr` directory.
 
 ---
 
@@ -74,19 +74,19 @@ Calla contains a settings app to configure itself without editing any files. It 
 ---
 
 ### Apps
-![apps](src/apps.png)
+![apps](.github/apps.png)
 
 ### Launcher
-![launcher](src/launcher.png)
+![launcher](.github/launcher.png)
 
 ### Tag Preview
-![preview](src/preview.png)
+![preview](.github/preview.png)
 
 ### Volume/Brightness Popup
-![volume](src/volume.png)
+![volume](.github/volume.png)
 
 ### Lock Screen
-![lockscreen](src/lockscreen.png)
+![lockscreen](.github/lockscreen.png)
 
 ---
 
@@ -105,7 +105,7 @@ Calla contains a settings app to configure itself without editing any files. It 
 
 - [AloneERO](https://gitlab.com/AloneER0) for help adding support for Void, Fedora, OpenSUSE, and Alpine!
 - [Frankfut](https://github.com/frankfutlg) for help adding support for Void and lots of help with debugging.
-- [Qwickdom](https://github.com/Qwickdom) for help adding support for Arch.
+- [Qwickdom](https://github.com/Qwickdom) and [Ardox](https://github.com/LeVraiArdox) for help adding support for Arch.
 - [Reverse](https://github.com/Reversedc) for help adding support for Debian.
 - [Alyssa](https://github.com/alyssa-sudo) for help adding support for Gentoo.
 
